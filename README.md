@@ -1,6 +1,6 @@
 # Sint - HTML5 Game Framework
 
-[![npm version](https://badge.fury.io/js/alfrid.svg)](https://badge.fury.io/js/alfrid)
+
 ======
 
 
@@ -26,7 +26,6 @@ npm run build;
 ``
 
 
-
 ### Create Your First Sint Example
 
 ```javascript
@@ -35,15 +34,37 @@ const config = {
     canvas: document.querySelector('#webglStage'), // 容器画布
     showFPS: true, // 显示帧频
     dpi: 1.5, // 分辨率
-    autoStart: false, // 自动开始渲染
-    backgroundColor: 0x2a3145 // 画布背景色
+    backgroundColor: 0x2a3145,// 画布背景色
+    
+    assets: {
+        bg: './assets/bg.jpg',
+        spineboy: './assets/spineboy.json',
+    }
 };
 
-const game = new Sint.Game(config);
+const game = new SINT.Game(config,create);
+
+function create() {
+    console.log(SINT.ASSETS);
+
+    //bg image
+    var bg = new SINT.Sprite(SINT.ASSETS['bg'].texture);
+    game.add(bg);
+
+    //spine
+    var spineBoy = new SINT.SpineClip(game.initWidth/2 , game.initHeight , 'spineboy');
+    game.add(spineBoy);
+    spineBoy.play('walk');
+    spineBoy.interactive = true;
+    spineBoy.on('pointerdown', function() {
+        spineBoy.play('jump', false);
+        // spineBoy.state.addAnimation(0, 'walk', true);
+    });
+}
+
 
 // 开始渲染
 game.start();
-
 // 暂停
 game.pause();
 // 继续
