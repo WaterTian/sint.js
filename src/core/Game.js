@@ -23,8 +23,8 @@ export default class Game extends PIXI.Application {
 
 		config = Object.assign({
 			canvas: null,
-			initWidth: 200,
-			initHeight: 200,
+			initWidth: 750,
+			initHeight: 1334,
 			showFPS: true, // 显示帧频
 			backgroundColor: 0x000000, // 画布背景色
 			dpi: 1, // 分辨率
@@ -33,26 +33,30 @@ export default class Game extends PIXI.Application {
 
 
 		const canvas = config.canvas;
-		const initWidth = canvas.offsetWidth;
-		const initHeight = canvas.offsetHeight;
-
+		// const initWidth = canvas.offsetWidth;
+		// const initHeight = canvas.offsetHeight;
 
 		super({
 			view: canvas,
-			width: initWidth,
-			height: initHeight,
+			width: config.initWidth,
+			height: config.initHeight,
 			backgroundColor: config.backgroundColor,
 		});
 
 
-		PIXI.settings.PRECISION_FRAGMENT = 'highp';
+        let _c =  document.querySelector('#webglContainer').offsetWidth / config.initWidth;
+        console.log(_c);
+        canvas.style.transform = "matrix(" + _c + ", 0, 0, " + _c + ", 0, 0)";
+        canvas.style.transformOrigin = "0% 0%";
+
+		// PIXI.settings.PRECISION_FRAGMENT = 'highp';
 
 
 
 		this.config = config;
 		this.canvas = canvas;
-		this.initWidth = initWidth;
-		this.initHeight = initHeight;
+		this.initWidth = config.initWidth;
+		this.initHeight = config.initHeight;
 
 		this.create = create;
 
@@ -75,8 +79,7 @@ export default class Game extends PIXI.Application {
 		let _this = this;
 		PIXI.loader.load((loader, resources) => {
 			console.log("loadComplete");
-			SINT.ASSETS = resources;
-
+			SINT.ASSETS = resources; //隐患
 			_this.create();
 		});
 

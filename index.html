@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>TY</title>
+    <title>SINT</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -20,12 +20,11 @@
     <script>
         var config = {
             canvas: document.querySelector('#webglStage'), // 容器画布
-            showFPS: true, // 显示帧频
-            dpi: 1.5, // 分辨率
-            backgroundColor: 0x2a3145,// 画布背景色
-            
+            showFPS: true, 
+            backgroundColor: 0x2a3145,
             assets: {
-                bg: './assets/bg.jpg',
+                bg: './assets/bg.png',
+                pic1: './assets/pic1.png',
                 spineboy: './assets/spineboy.json',
             }
         };
@@ -34,11 +33,14 @@
         var game = new SINT.Game(config,create);
 
         function create() {
-            console.log(SINT.ASSETS);
 
             //bg image
-            var bg = new SINT.Sprite(SINT.ASSETS['bg'].texture);
+            var bg = new SINT.SpriteClip(0,0,'bg');
             game.add(bg);
+
+            var btn1 = new SINT.SpriteClip(292,295,'pic1');
+            btn1.anchor.set(0.5);
+            game.add(btn1);
 
             //spine
             var spineBoy = new SINT.SpineClip(game.initWidth/2 , game.initHeight , 'spineboy');
@@ -47,7 +49,7 @@
             spineBoy.interactive = true;
             spineBoy.on('pointerdown', function() {
                 spineBoy.play('jump', false);
-                // spineBoy.state.addAnimation(0, 'walk', true);
+                spineBoy.state.addAnimation(0, 'walk', true);
             });
         }
 
