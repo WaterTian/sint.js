@@ -15,9 +15,9 @@ export default class SpineClip extends PIXI.spine.Spine {
 	 */
 	constructor(_x = 0, _y = 0, name) {
 		console.log(name);
-		console.log(SINT.ASSETS[name]);
+		// console.log(PIXI.loader.resources[name]);
 
-		super(SINT.ASSETS[name].spineData);
+		super(PIXI.loader.resources[name].spineData);
 
 		this.x = _x;
 		this.y = _y;

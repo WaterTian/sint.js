@@ -11,24 +11,28 @@
 </head>
 
 <body>
-    <div id="webglContainer">
-        <canvas id="webglStage"></canvas>
-    </div>
+    <div id="webglContainer"> </div>
 
     <script src="dist/sint.js?v=0.0.1"></script>
 
     <script>
         var config = {
-            canvas: document.querySelector('#webglStage'), // 容器画布
+            domElement: document.querySelector('#webglContainer'), // 画布容器
+            initWidth: 750,
+            initHeight: 1334,
             showFPS: true, 
             backgroundColor: 0x2a3145,
             assets: {
                 bg: './assets/bg.png',
                 pic1: './assets/pic1.png',
+                fighter: './assets/fighter.json',
                 spineboy: './assets/spineboy.json',
+                fish1: './assets/displacement_fish1.png',
+                fish2: './assets/displacement_fish2.png',
+                fish3: './assets/displacement_fish3.png',
+                fish4: './assets/displacement_fish4.png',
             }
         };
-
 
         var game = new SINT.Game(config,create);
 
@@ -38,9 +42,63 @@
             var bg = new SINT.SpriteClip(0,0,'bg');
             game.add(bg);
 
+
+            //particles
+            var fishsContainer = new SINT.particles.ParticleContainer(10000, {
+                scale: true,
+                position: true,
+                rotation: true,
+                uvs: true,
+                alpha: true
+            });
+            game.add(fishsContainer);
+            var fishs = [];
+            for (var i = 0; i < 1000; i++) {
+                var id = (i % 4) + 1;
+                var fish = SINT.Sprite.fromFrame('fish'+id);
+                // fish.tint = Math.random() * 0xE8D4CD;
+                fish.anchor.set(0.5);
+                fish.scale.set(0.1 + Math.random() * 0.2);
+                // scatter them all
+                fish.x = Math.random() * game.initWidth;
+                fish.y = Math.random() * game.initHeight;
+
+                fish.direction = Math.random() * Math.PI * 2;
+                fish.turningSpeed = Math.random() - 0.8;
+                fish.speed = (2 + Math.random() * 2) * 2;
+                fish.offset = Math.random() * 100;
+                fishs.push(fish);
+                fishsContainer.addChild(fish);
+            }
+
+
+
+            //btn
             var btn1 = new SINT.SpriteClip(292,295,'pic1');
-            btn1.anchor.set(0.5);
             game.add(btn1);
+            btn1.anchor.set(0.5);
+            btn1.interactive = true;
+            btn1.on('pointerdown', function(){
+                SINT.TweenMax.to(btn1.scale, .6, {
+                    x: 1.2,
+                    y: 1.2,
+                    ease: Elastic.easeOut,
+                    onComplete:function(){
+                        SINT.TweenMax.to(btn1.scale, .4, {
+                            x: 1,
+                            y: 1,
+                        });
+                    }
+                });
+            })
+
+            //Animated
+            var ac1 = new SINT.AnimatedClip(400,500,'fighter');
+            game.add(ac1);
+            ac1.anchor.set(0.5);
+            ac1.animationSpeed = 40/60;;
+            ac1.play();
+
 
             //spine
             var spineBoy = new SINT.SpineClip(game.initWidth/2 , game.initHeight , 'spineboy');
@@ -50,6 +108,34 @@
             spineBoy.on('pointerdown', function() {
                 spineBoy.play('jump', false);
                 spineBoy.state.addAnimation(0, 'walk', true);
+            });
+
+
+            var fishBounds = new PIXI.Rectangle(-100, -100,
+                game.initWidth + 100 * 2,game.initHeight + 100 * 2);
+
+            //update
+            game.ticker.add(function(){
+
+                for (var i = 0; i < fishs.length; i++) {
+                    var fish = fishs[i];
+                    fish.direction += fish.turningSpeed * 0.01;
+                    fish.x += Math.sin(fish.direction) * (fish.speed * fish.scale.y);
+                    fish.y += Math.cos(fish.direction) * (fish.speed * fish.scale.y);
+                    fish.rotation = -fish.direction + Math.PI / 2;
+
+                    // wrap the maggots
+                    if (fish.x < fishBounds.x) {
+                        fish.x += fishBounds.width;
+                    } else if (fish.x > fishBounds.x + fishBounds.width) {
+                        fish.x -= fishBounds.width;
+                    }
+                    if (fish.y < fishBounds.y) {
+                        fish.y += fishBounds.height;
+                    } else if (fish.y > fishBounds.y + fishBounds.height) {
+                        fish.y -= fishBounds.height;
+                    }
+                }
             });
         }
 

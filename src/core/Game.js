@@ -8,7 +8,7 @@ PIXI.utils.skipHello();
  * @extends PIXI.Application
  * 
  * @param {object} config The Game options
- * @param {domElement} [config.canvas] 
+ * @param {domElement} [config.domElement] 
  * @param {string} [config.initWidth] The Game width
  * @param {string} [config.initHeight] The Game height
  * @param {boolean} [config.showFPS]
@@ -22,48 +22,35 @@ export default class Game extends PIXI.Application {
 		};
 
 		config = Object.assign({
-			canvas: null,
+			domElement: null,
 			initWidth: 750,
 			initHeight: 1334,
 			showFPS: true, // 显示帧频
 			backgroundColor: 0x000000, // 画布背景色
-			dpi: 1, // 分辨率
-			assets: [],
+			assets: {},
 		}, config);
 
 
-		const canvas = config.canvas;
-		// const initWidth = canvas.offsetWidth;
-		// const initHeight = canvas.offsetHeight;
-
 		super({
-			view: canvas,
 			width: config.initWidth,
 			height: config.initHeight,
 			backgroundColor: config.backgroundColor,
 		});
 
-
-        let _c =  document.querySelector('#webglContainer').offsetWidth / config.initWidth;
-        console.log(_c);
-        canvas.style.transform = "matrix(" + _c + ", 0, 0, " + _c + ", 0, 0)";
-        canvas.style.transformOrigin = "0% 0%";
-
 		// PIXI.settings.PRECISION_FRAGMENT = 'highp';
 
 
-
-		this.config = config;
-		this.canvas = canvas;
+		this.domElement = config.domElement;
 		this.initWidth = config.initWidth;
 		this.initHeight = config.initHeight;
-
 		this.create = create;
+
+		this.domElement.appendChild(this.view);
 
 
 		if (config.showFPS) {
 			this.stats = new Stats();
-			document.body.appendChild(this.stats.dom);
+			this.domElement.appendChild(this.stats.dom);
 		}
 
 
@@ -79,7 +66,6 @@ export default class Game extends PIXI.Application {
 		let _this = this;
 		PIXI.loader.load((loader, resources) => {
 			console.log("loadComplete");
-			SINT.ASSETS = resources; //隐患
 			_this.create();
 		});
 
@@ -95,7 +81,6 @@ export default class Game extends PIXI.Application {
 			initHeight
 		} = this;
 
-
 		// Handle window resize event
 		window.addEventListener('resize', this.resize.bind(this));
 		this.resize();
@@ -106,12 +91,14 @@ export default class Game extends PIXI.Application {
 
 	resize() {
 
-		const width = this.canvas.offsetWidth;
-		const height = this.canvas.offsetHeight;
+        let _c =  this.domElement.offsetWidth / this.initWidth;
+        console.log("resize "+_c);
 
-		this.renderer.resize(width, height);
+        this.view.style.transform = "matrix(" + _c + ", 0, 0, " + _c + ", 0, 0)";
+        this.view.style.transformOrigin = "0% 0%";
+
+		this.renderer.resize(this.initWidth, this.initHeight);
 		this.render();
-
 	}
 
 	/**
