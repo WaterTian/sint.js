@@ -43,20 +43,15 @@
             game.add(bg);
 
 
-            //particles
-            var fishsContainer = new SINT.particles.ParticleContainer(10000, {
-                scale: true,
-                position: true,
-                rotation: true,
-                uvs: true,
-                alpha: true
-            });
+            //Container
+            var fishsContainer = new SINT.Container();
             game.add(fishsContainer);
             var fishs = [];
-            for (var i = 0; i < 1000; i++) {
-                var id = (i % 4) + 1;
-                var fish = SINT.Sprite.fromFrame('fish'+id);
-                // fish.tint = Math.random() * 0xE8D4CD;
+            for (var i = 0; i < 3000; i++) {
+                var id = 'fish'+ ((i % 4) + 1);
+                var fish = SINT.Sprite.fromFrame(id);
+                fish.tint = Math.random() * 0xff3300;
+                fish.alpha = 0.3 + Math.random() * 0.8;
                 fish.anchor.set(0.5);
                 fish.scale.set(0.1 + Math.random() * 0.2);
                 // scatter them all
@@ -70,7 +65,6 @@
                 fishs.push(fish);
                 fishsContainer.addChild(fish);
             }
-
 
 
             //btn
@@ -93,12 +87,29 @@
             })
 
             //Animated
-            var ac1 = new SINT.AnimatedClip(400,500,'fighter');
+            var ac1 = new SINT.AnimatedClip(400,600,'fighter');
             game.add(ac1);
             ac1.anchor.set(0.5);
             ac1.animationSpeed = 40/60;;
-            ac1.play();
-
+            ac1.interactive = true;
+            ac1.on('pointerdown', function(){
+                ac1.play();
+                SINT.TweenMax.to(ac1, 1, {
+                    y: -150,
+                    ease: Strong.easeOut,
+                    onComplete:function(){
+                        ac1.y = game.initHeight;
+                    }
+                });
+                SINT.TweenMax.to(ac1, 2, {
+                    y: 600,
+                    delay:1,
+                    ease: Strong.easeInOut,
+                    onComplete:function(){
+                        ac1.stop();
+                    }
+                });
+            })
 
             //spine
             var spineBoy = new SINT.SpineClip(game.initWidth/2 , game.initHeight , 'spineboy');
@@ -117,12 +128,14 @@
             //update
             game.ticker.add(function(){
 
+
+                //fish
                 for (var i = 0; i < fishs.length; i++) {
                     var fish = fishs[i];
                     fish.direction += fish.turningSpeed * 0.01;
                     fish.x += Math.sin(fish.direction) * (fish.speed * fish.scale.y);
                     fish.y += Math.cos(fish.direction) * (fish.speed * fish.scale.y);
-                    fish.rotation = -fish.direction + Math.PI / 2;
+                    fish.rotation = -fish.direction - Math.PI / 2;
 
                     // wrap the maggots
                     if (fish.x < fishBounds.x) {
