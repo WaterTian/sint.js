@@ -31,12 +31,18 @@
                 fish2: './assets/displacement_fish2.png',
                 fish3: './assets/displacement_fish3.png',
                 fish4: './assets/displacement_fish4.png',
+                sound0: './assets/sound/bg.mp3',
+                sound1: './assets/sound/s1.mp3',
+                sound2: './assets/sound/s2.mp3',
             }
         };
 
         var game = new SINT.Game(config,create);
 
         function create() {
+
+            //bg sound
+            // game.playSound('sound0',true);
 
             //bg image
             var bg = new SINT.SpriteClip(0,0,'bg');
@@ -84,6 +90,8 @@
                         });
                     }
                 });
+
+                SINT.sound.stopAll();
             })
 
             //Animated
@@ -109,6 +117,8 @@
                         ac1.stop();
                     }
                 });
+
+                game.playSound('sound1');
             })
 
             //spine
@@ -119,6 +129,8 @@
             spineBoy.on('pointerdown', function() {
                 spineBoy.play('jump', false);
                 spineBoy.state.addAnimation(0, 'walk', true);
+
+                game.playSound('sound2');
             });
 
 

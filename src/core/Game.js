@@ -1,6 +1,8 @@
 import * as PIXI from 'pixi.js';
 import Stats from 'stats.js';
 
+import 'pixi-sound';
+
 PIXI.utils.skipHello();
 
 /**
@@ -56,7 +58,7 @@ export default class Game extends PIXI.Application {
 
 		/// assets load
 		/// 
-		for (var key in config.assets) {
+		for (let key in config.assets) {
 			PIXI.loader.add(key, config.assets[key]);
 		}
 		PIXI.loader.onProgress.add((_e) => {
@@ -91,11 +93,11 @@ export default class Game extends PIXI.Application {
 
 	resize() {
 
-        let _c =  this.domElement.offsetWidth / this.initWidth;
-        console.log("resize "+_c);
+		let _c = this.domElement.offsetWidth / this.initWidth;
+		console.log("resize " + _c);
 
-        this.view.style.transform = "matrix(" + _c + ", 0, 0, " + _c + ", 0, 0)";
-        this.view.style.transformOrigin = "0% 0%";
+		this.view.style.transform = "matrix(" + _c + ", 0, 0, " + _c + ", 0, 0)";
+		this.view.style.transformOrigin = "0% 0%";
 
 		this.renderer.resize(this.initWidth, this.initHeight);
 		this.render();
@@ -115,7 +117,7 @@ export default class Game extends PIXI.Application {
 
 
 	/**
-	 * Animate the fish, overlay and filters (if applicable)
+	 * Animate
 	 * @param {number} delta - % difference in time from last frame render
 	 */
 	animate(delta) {
@@ -128,7 +130,32 @@ export default class Game extends PIXI.Application {
 		// if (!this.animating) {
 		//     return;
 		// }
-
 	}
+
+	/**
+	 * must be loaded
+	 * @param {String} name - sound name
+	 *
+	 * PIXI.sound.pause(name);
+	 * PIXI.sound.pauseAll();
+	 * 
+	 * PIXI.sound.remove(name);
+	 * PIXI.sound.removeAll();
+	 * 
+	 * PIXI.sound.stop(name);
+	 * PIXI.sound.stopAll();
+	 * 
+	 * PIXI.sound.volume(name, volume);
+	 */
+	playSound(name, loop = false) {
+		const _sound = PIXI.loader.resources[name].sound;
+		_sound.loop = loop;
+		_sound.play();
+	}
+
+
+
+
+
 
 }
