@@ -3,6 +3,7 @@ import CONST from './const';
 import SpineClip from './core/SpineClip';
 import SpriteClip from './core/SpriteClip';
 import AnimatedClip from './core/AnimatedClip';
+import TextClip from './core/TextClip';
 
 //	TOOLS
 import tool from './core/Unit';
@@ -15,6 +16,7 @@ export {
     SpineClip,
     SpriteClip,
     AnimatedClip,
+    TextClip,
 };
 
 global.SINT = Object.assign(global.PIXI, exports);

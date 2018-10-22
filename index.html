@@ -25,6 +25,7 @@
             assets: {
                 bg: './assets/bg.png',
                 pic1: './assets/pic1.png',
+                pic2: './assets/pic2.png',
                 fighter: './assets/fighter.json',
                 spineboy: './assets/spineboy.json',
                 fish1: './assets/displacement_fish1.png',
@@ -37,10 +38,13 @@
             }
         };
 
-        var game = new SINT.Game(config,create);
+        var game = new SINT.Game(config,loading,create);
+
+        function loading(_pr){
+            console.log('loading '+_pr);
+        }
 
         function create() {
-
             //bg sound
             // game.playSound('sound0',true);
 
@@ -74,7 +78,7 @@
 
 
             //btn
-            var btn1 = new SINT.SpriteClip(292,295,'pic1');
+            var btn1 = new SINT.SpriteClip(288,292,'pic1');
             game.add(btn1);
             btn1.anchor.set(0.5);
             btn1.interactive = true;
@@ -93,6 +97,37 @@
 
                 SINT.sound.stopAll();
             })
+            //btn
+            var btn2 = new SINT.SpriteClip(28,900,'pic2');
+            btn2.addChild(new SINT.TextClip(180,56,'卸载'));
+            game.add(btn2);
+            btn2.interactive = true;
+            btn2.on('pointerdown', function(){
+                game.removeThis();
+            })
+
+
+
+
+            //Text
+            var t1 = new SINT.TextClip(30,600,'Game1 * -> 课前游戏 -> 单词文本',{
+                fontFamily: 'Arial',
+                fontSize: 50,
+                fontStyle: 'italic',
+                fontWeight: 'bold',
+                fill: ['#ffffff', '#00ff99'], // gradient
+                stroke: '#4a1850',
+                strokeThickness: 5,
+                dropShadow: true,
+                dropShadowColor: '#000000',
+                dropShadowBlur: 4,
+                dropShadowAngle: Math.PI / 6,
+                dropShadowDistance: 6,
+                wordWrap: true,
+                wordWrapWidth: 400
+            });
+            game.add(t1);
+
 
             //Animated
             var ac1 = new SINT.AnimatedClip(400,600,'fighter');
@@ -129,7 +164,7 @@
             spineBoy.on('pointerdown', function() {
                 spineBoy.play('jump', false);
                 spineBoy.state.addAnimation(0, 'walk', true);
-
+                //
                 game.playSound('sound2');
             });
 
@@ -139,7 +174,6 @@
 
             //update
             game.ticker.add(function(){
-
 
                 //fish
                 for (var i = 0; i < fishs.length; i++) {

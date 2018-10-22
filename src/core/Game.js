@@ -1,7 +1,10 @@
 import * as PIXI from 'pixi.js';
-import Stats from 'stats.js';
 
 import 'pixi-sound';
+
+import Stats from 'stats.js';
+import VConsole from 'vconsole';
+
 
 PIXI.utils.skipHello();
 
@@ -18,7 +21,7 @@ PIXI.utils.skipHello();
 
 export default class Game extends PIXI.Application {
 
-	constructor(config, create) {
+	constructor(config, loading, create) {
 		if (config === undefined) {
 			config = {}
 		};
@@ -45,7 +48,6 @@ export default class Game extends PIXI.Application {
 		this.domElement = config.domElement;
 		this.initWidth = config.initWidth;
 		this.initHeight = config.initHeight;
-		this.create = create;
 
 		this.domElement.appendChild(this.view);
 
@@ -53,6 +55,8 @@ export default class Game extends PIXI.Application {
 		if (config.showFPS) {
 			this.stats = new Stats();
 			this.domElement.appendChild(this.stats.dom);
+
+			this.vconsole = new VConsole();
 		}
 
 
@@ -62,13 +66,14 @@ export default class Game extends PIXI.Application {
 			PIXI.loader.add(key, config.assets[key]);
 		}
 		PIXI.loader.onProgress.add((_e) => {
-			console.log("onProgress " + _e.progress)
+			// console.log("onProgress " + _e.progress);
+			if (loading) loading(_e.progress);
 		});
 
 		let _this = this;
 		PIXI.loader.load((loader, resources) => {
 			console.log("loadComplete");
-			_this.create();
+			if (create) create();
 		});
 
 
@@ -123,6 +128,7 @@ export default class Game extends PIXI.Application {
 	animate(delta) {
 
 		if (this.stats) this.stats.update();
+		
 
 		// this.animateTimer += delta;
 		// const { animateTimer} = this;
@@ -154,7 +160,16 @@ export default class Game extends PIXI.Application {
 	}
 
 
-
+    /**
+     * Destroy and don't use after this.
+     */
+	removeThis(){
+		if(this.stats){
+			this.domElement.removeChild(this.stats.dom);
+		}
+			
+		this.destroy(true);
+	}
 
 
 

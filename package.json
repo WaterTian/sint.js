@@ -18,7 +18,8 @@
     "pixi-sound": "^2.0.3",
     "pixi-spine": "^1.5.18",
     "pixi.js": "^4.8.2",
-    "stats.js": "^0.17.0"
+    "stats.js": "^0.17.0",
+    "vconsole": "^3.2.0"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.24.1",
