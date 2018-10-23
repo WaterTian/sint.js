@@ -52,7 +52,6 @@ function loading(_pr) {
 }
 
 function create() {
-    console.log(SINT.ASSETS);
 
     // bg image
     let bg = new SINT.SpriteClip(0, 0, 'bg');
