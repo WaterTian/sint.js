@@ -56,6 +56,14 @@ function create() {
     // bg image
     let bg = new SINT.SpriteClip(0, 0, 'bg');
     game.add(bg);
+    
+    // events
+    bg
+        .on('pointerdown', onDragStart)
+        .on('pointerup', onDragEnd)
+        .on('pointerupoutside', onDragEnd)
+        .on('pointermove', onDragMove);
+
 
     // spine
     let spineBoy = new SINT.SpineClip(game.initWidth/2 , game.initHeight , 'spineboy');
