@@ -55,7 +55,6 @@ export default class Game extends PIXI.Application {
 		if (config.showFPS) {
 			this.stats = new Stats();
 			this.domElement.appendChild(this.stats.dom);
-
 			// this.vconsole = new VConsole();
 		}
 
@@ -118,6 +117,14 @@ export default class Game extends PIXI.Application {
 		return child;
 	}
 
+	/**
+	 * Remove child from stage.
+	 *
+	 * @param {...PIXI.DisplayObject} child - The DisplayObject(s) to add to the container
+	 */
+	remove(child) {
+		this.stage.removeChild(child);
+	}
 
 
 	/**
