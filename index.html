@@ -13,7 +13,7 @@
 <body>
     <div id="webglContainer"> </div>
 
-    <script src="dist/sint.js?v=0.0.1"></script>
+    <script src="dist/sint.min.js"></script>
 
     <script>
         var config = {
@@ -38,7 +38,30 @@
             }
         };
 
-        var game = new SINT.Game(config,loading,create);
+        var game;
+        var _num=0;
+        // add();
+
+        game = new SINT.Game(config,loading,create);
+
+
+        // function add(){
+        //     _num++;
+        //     console.log('init g1');
+        //     game = new SINT.Game(config,loading,create);
+
+        //     setTimeout(function(){
+        //         console.log('remove g1');
+        //         if(_num>6) return;
+
+        //         game.removeThis();
+        //         game=null;
+        //         setTimeout(function(){
+        //             // game = new SINT.Game(config,loading,create);
+        //             add();
+        //         },2000);
+        //     },2000+Math.random()*2000);
+        // }
 
         function loading(_pr){
             console.log('loading '+_pr);

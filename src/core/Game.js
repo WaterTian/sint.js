@@ -3,7 +3,7 @@ import * as PIXI from 'pixi.js';
 import 'pixi-sound';
 
 import Stats from 'stats.js';
-import VConsole from 'vconsole';
+// import VConsole from 'vconsole';
 
 
 PIXI.utils.skipHello();
@@ -56,29 +56,28 @@ export default class Game extends PIXI.Application {
 			this.stats = new Stats();
 			this.domElement.appendChild(this.stats.dom);
 
-			this.vconsole = new VConsole();
+			// this.vconsole = new VConsole();
 		}
 
 
 		/// assets load
-		/// 
+		SINT.TyLoader = new PIXI.loaders.Loader();
 		for (let key in config.assets) {
-			PIXI.loader.add(key, config.assets[key]);
+			SINT.TyLoader.add(key, config.assets[key]);
 		}
-		PIXI.loader.onProgress.add((_e) => {
+		SINT.TyLoader.onProgress.add((_e) => {
 			// console.log("onProgress " + _e.progress);
 			if (loading) loading(_e.progress);
 		});
 
 		let _this = this;
-		PIXI.loader.load((loader, resources) => {
+		SINT.TyLoader.load((loader, resources) => {
 			console.log("loadComplete");
 			if (create) create();
 		});
 
 
 		this.init();
-
 	}
 
 
@@ -128,7 +127,7 @@ export default class Game extends PIXI.Application {
 	animate(delta) {
 
 		if (this.stats) this.stats.update();
-		
+
 
 		// this.animateTimer += delta;
 		// const { animateTimer} = this;
@@ -154,21 +153,60 @@ export default class Game extends PIXI.Application {
 	 * PIXI.sound.volume(name, volume);
 	 */
 	playSound(name, loop = false) {
-		const _sound = PIXI.loader.resources[name].sound;
+		const _sound = SINT.TyLoader.resources[name].sound;
 		_sound.loop = loop;
 		_sound.play();
 	}
 
 
-    /**
-     * Destroy and don't use after this.
-     */
-	removeThis(){
-		if(this.stats){
+	/**
+	 * Destroy and don't use after this.
+	 */
+	removeThis() {
+		if (this.stats) {
 			this.domElement.removeChild(this.stats.dom);
 		}
-			
+
+		console.log('removeThis');
+
+
+		////Hook 
+		let domBtns = document.getElementsByTagName("button");
+		for (let i = 0; i < domBtns.length; i++) {
+			let domBtn = domBtns[i];
+			// console.log(domBtn);
+			if(domBtn.title='HOOK DIV'){
+				document.body.removeChild(domBtn);
+			}
+		}
+
+
+
 		this.destroy(true);
+
+
+
+		PIXI.sound.removeAll();
+
+		// console.log(SINT.TyLoader.resources);
+
+		for (let key in SINT.TyLoader.resources) {
+			let resource = SINT.TyLoader.resources[key];
+			// console.log(resource);
+			let tex = resource.texture;
+			if (tex) tex.destroy(true);
+			let texs = resource.textures;
+			if (texs) {
+				for (let key in texs) {
+					texs[key].destroy(true);
+				}
+			}
+		}
+
+		SINT.TyLoader.destroy();
+		// SINT.TyLoader.removeAllListeners();
+		// SINT.TyLoader.reset();
+		// console.log(SINT.TyLoader.resources);
 	}
 
 

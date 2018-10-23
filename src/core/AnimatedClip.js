@@ -14,7 +14,7 @@ export default class AnimatedClip extends PIXI.extras.AnimatedSprite {
 	 */
 	constructor(_x = 0, _y = 0, name) {
 
-		let sheet = PIXI.loader.resources[name].textures;
+		let sheet = SINT.TyLoader.resources[name].textures;
 		// console.log(sheet);
 
 		let textures = [];

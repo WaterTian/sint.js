@@ -32,17 +32,23 @@ npm run build;
 
 const config = {
     canvas: document.querySelector('#webglStage'), // 容器画布
-    showFPS: true, // 显示帧频
-    dpi: 1.5, // 分辨率
+    initWidth: 750,
+    initHeight: 1334,
+    showFPS: true,
     backgroundColor: 0x2a3145,// 画布背景色
     
     assets: {
         bg: './assets/bg.jpg',
         spineboy: './assets/spineboy.json',
+        sound1: './assets/sound/s1.mp3',
     }
 };
 
-const game = new SINT.Game(config,create);
+const game = new SINT.Game(config,loading,create);
+
+function loading(_pr) {
+    console.log('loading ' + _pr);
+}
 
 function create() {
     console.log(SINT.ASSETS);
@@ -60,7 +66,19 @@ function create() {
         spineBoy.play('jump', false);
         // spineBoy.state.addAnimation(0, 'walk', true);
     });
+
+
+    // 播放音乐
+    game.playSound('sound1');
+    
+    // 暂停
+    SINT.sound.pause('sound1');
+    // 停止所有音乐
+    SINT.sound.stopAll();
 }
+
+
+
 
 
 // 开始渲染
@@ -71,10 +89,9 @@ game.pause();
 game.resume();
 
 
-// 销毁但不清除 view（即：<canvas>）
-game.destroy();
+
 // 销毁并清除 view
-game.destroy(true);
+game.removeThis();
 
 ```
 
