@@ -40,6 +40,7 @@ const config = {
     assets: {
         bg: './assets/bg.jpg',
         spineboy: './assets/spineboy.json',
+        fighter: './assets/fighter.json',
         sound1: './assets/sound/s1.mp3',
     }
 };
@@ -53,12 +54,12 @@ function loading(_pr) {
 function create() {
     console.log(SINT.ASSETS);
 
-    //bg image
-    var bg = new SINT.Sprite(SINT.ASSETS['bg'].texture);
+    // bg image
+    let bg = new SINT.SpriteClip(0, 0, 'bg');
     game.add(bg);
 
-    //spine
-    var spineBoy = new SINT.SpineClip(game.initWidth/2 , game.initHeight , 'spineboy');
+    // spine
+    let spineBoy = new SINT.SpineClip(game.initWidth/2 , game.initHeight , 'spineboy');
     game.add(spineBoy);
     spineBoy.play('walk');
     spineBoy.interactive = true;
@@ -66,6 +67,12 @@ function create() {
         spineBoy.play('jump', false);
         // spineBoy.state.addAnimation(0, 'walk', true);
     });
+
+    // Animated
+    let ac1 = new SINT.AnimatedClip(400, 600, 'fighter');
+    game.add(ac1);
+    ac1.anchor.set(0.5);
+    ac1.play();
 
 
     // 播放音乐
