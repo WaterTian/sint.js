@@ -23,7 +23,7 @@ npm run dev;
 ### Build 
 ```
 npm run build;
-``
+```
 
 
 ### Create Your First Sint Example
