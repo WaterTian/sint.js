@@ -49,11 +49,9 @@
         //     _num++;
         //     console.log('init g1');
         //     game = new SINT.Game(config,loading,create);
-
         //     setTimeout(function(){
         //         console.log('remove g1');
         //         if(_num>6) return;
-
         //         game.removeThis();
         //         game=null;
         //         setTimeout(function(){
@@ -79,6 +77,7 @@
             //Container
             var fishsContainer = new SINT.Container();
             game.add(fishsContainer);
+            fishsContainer.filters = [new game.filters.BulgePinchFilter([0.5,0.5],300,1.2)];
             var fishs = [];
             for (var i = 0; i < 3000; i++) {
                 var id = 'fish'+ ((i % 4) + 1);

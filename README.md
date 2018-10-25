@@ -109,3 +109,5 @@ game.removeThis();
 
 ```
 
+
+缺map

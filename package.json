@@ -15,6 +15,7 @@
   "author": "WaterTian <changewater@qq.com>",
   "dependencies": {
     "gsap": "^1.20.2",
+    "pixi-filters": "^2.6.1",
     "pixi-sound": "^2.0.3",
     "pixi-spine": "^1.5.18",
     "pixi.js": "^4.8.2",

@@ -5,6 +5,8 @@ import 'pixi-sound';
 import Stats from 'stats.js';
 // import VConsole from 'vconsole';
 
+import * as filters from 'pixi-filters';
+
 
 PIXI.utils.skipHello();
 
@@ -42,7 +44,11 @@ export default class Game extends PIXI.Application {
 			backgroundColor: config.backgroundColor,
 		});
 
-		// PIXI.settings.PRECISION_FRAGMENT = 'highp';
+		PIXI.settings.PRECISION_FRAGMENT = 'highp';
+		this.filters = filters;
+		// this.stage.filterArea = new PIXI.Rectangle(0, 0, initWidth, initHeight);
+		// this.stage.filters = [new PIXI.filters.BlurFilter()];
+		// this.stage.filters = [new filters.DotFilter()];
 
 
 		this.domElement = config.domElement;
@@ -182,7 +188,7 @@ export default class Game extends PIXI.Application {
 		for (let i = 0; i < domBtns.length; i++) {
 			let domBtn = domBtns[i];
 			// console.log(domBtn);
-			if(domBtn.title='HOOK DIV'){
+			if (domBtn.title = 'HOOK DIV') {
 				document.body.removeChild(domBtn);
 			}
 		}

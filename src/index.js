@@ -6,7 +6,7 @@ import AnimatedClip from './core/AnimatedClip';
 import TextClip from './core/TextClip';
 
 //	TOOLS
-import tool from './core/Unit';
+import unit from './core/Unit';
 import TweenMax from "gsap";
 
 export {
