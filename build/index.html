@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SINT</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <style>
+        body {
+            font-family: "Inconsolata", monospace;
+            background-color: #dedede;
+            margin: 0px;
+            overflow: hidden;
+        }
+        #webglContainer {
+            position: absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="webglContainer"> </div>
+    <script src="./sint.js"></script>
+
+    <script>
+        var config = {
+            domElement: document.querySelector('#webglContainer'), // 画布容器
+            initWidth: 750,
+            initHeight: 1334,
+            showFPS: true, 
+            backgroundColor: 0x2a3145,
+            assets: {
+                bg: './assets/bg.png',
+                pic1: './assets/pic1.png',
+                pic2: './assets/pic2.png',
+                fighter: './assets/fighter.json',
+                spineboy: './assets/spineboy.json',
+                fish1: './assets/displacement_fish1.png',
+                fish2: './assets/displacement_fish2.png',
+                fish3: './assets/displacement_fish3.png',
+                fish4: './assets/displacement_fish4.png',
+                sound0: './assets/sound/bg.mp3',
+                sound1: './assets/sound/s1.mp3',
+                sound2: './assets/sound/s2.mp3',
+                
+            }
+        };
+
+        var game;
+        var _num=0;
+        // add();
+
+        game = new SINT.Game(config,loading,create);
+
+
+        // function add(){
+        //     _num++;
+        //     console.log('init g1');
+        //     game = new SINT.Game(config,loading,create);
+        //     setTimeout(function(){
+        //         console.log('remove g1');
+        //         if(_num>6) return;
+        //         game.removeThis();
+        //         game=null;
+        //         setTimeout(function(){
+        //             // game = new SINT.Game(config,loading,create);
+        //             add();
+        //         },2000);
+        //     },2000+Math.random()*2000);
+        // }
+
+        function loading(_pr){
+            console.log('loading '+_pr);
+        }
+
+        function create() {
+            //bg sound
+            // game.playSound('sound0',true);
+
+            //bg image
+            var bg = new SINT.SpriteClip(0,0,'bg');
+            game.add(bg);
+
+
+            //Container
+            var fishsContainer = new SINT.Container();
+            game.add(fishsContainer);
+            fishsContainer.filters = [new game.filters.BulgePinchFilter([0.5,0.5],300,1.2)];
+            var fishs = [];
+            for (var i = 0; i < 3000; i++) {
+                var id = 'fish'+ ((i % 4) + 1);
+                var fish = SINT.Sprite.fromFrame(id);
+                fish.tint = Math.random() * 0xff3300;
+                fish.alpha = 0.3 + Math.random() * 0.8;
+                fish.anchor.set(0.5);
+                fish.scale.set(0.1 + Math.random() * 0.2);
+                // scatter them all
+                fish.x = Math.random() * game.initWidth;
+                fish.y = Math.random() * game.initHeight;
+
+                fish.direction = Math.random() * Math.PI * 2;
+                fish.turningSpeed = Math.random() - 0.8;
+                fish.speed = (2 + Math.random() * 2) * 2;
+                fish.offset = Math.random() * 100;
+                fishs.push(fish);
+                fishsContainer.addChild(fish);
+            }
+
+
+            //btn
+            var btn1 = new SINT.SpriteClip(288,292,'pic1');
+            game.add(btn1);
+            btn1.anchor.set(0.5);
+            btn1.interactive = true;
+            btn1.on('pointerdown', function(){
+                SINT.TweenMax.to(btn1.scale, .6, {
+                    x: 1.2,
+                    y: 1.2,
+                    ease: Elastic.easeOut,
+                    onComplete:function(){
+                        SINT.TweenMax.to(btn1.scale, .4, {
+                            x: 1,
+                            y: 1,
+                        });
+                    }
+                });
+
+                SINT.sound.stopAll();
+            })
+            //btn
+            var btn2 = new SINT.SpriteClip(28,900,'pic2');
+            btn2.addChild(new SINT.TextClip(180,56,'卸载'));
+            game.add(btn2);
+            btn2.interactive = true;
+            btn2.on('pointerdown', function(){
+                game.removeThis();
+            })
+
+
+
+
+            //Text
+            var t1 = new SINT.TextClip(30,600,'Game1 * -> 课前游戏 -> 单词文本',{
+                fontFamily: 'Arial',
+                fontSize: 50,
+                fontStyle: 'italic',
+                fontWeight: 'bold',
+                fill: ['#ffffff', '#00ff99'], // gradient
+                stroke: '#4a1850',
+                strokeThickness: 5,
+                dropShadow: true,
+                dropShadowColor: '#000000',
+                dropShadowBlur: 4,
+                dropShadowAngle: Math.PI / 6,
+                dropShadowDistance: 6,
+                wordWrap: true,
+                wordWrapWidth: 400
+            });
+            game.add(t1);
+
+
+            //Animated
+            var ac1 = new SINT.AnimatedClip(400,600,'fighter');
+            game.add(ac1);
+            ac1.anchor.set(0.5);
+            ac1.animationSpeed = 40/60;;
+            ac1.interactive = true;
+            ac1.on('pointerdown', function(){
+                ac1.play();
+                SINT.TweenMax.to(ac1, 1, {
+                    y: -150,
+                    ease: Strong.easeOut,
+                    onComplete:function(){
+                        ac1.y = game.initHeight;
+                    }
+                });
+                SINT.TweenMax.to(ac1, 2, {
+                    y: 600,
+                    delay:1,
+                    ease: Strong.easeInOut,
+                    onComplete:function(){
+                        ac1.stop();
+                    }
+                });
+
+                game.playSound('sound1');
+            })
+
+            //spine
+            var spineBoy = new SINT.SpineClip(game.initWidth/2 , game.initHeight , 'spineboy');
+            game.add(spineBoy);
+            spineBoy.play('walk');
+            spineBoy.interactive = true;
+            spineBoy.on('pointerdown', function() {
+                spineBoy.play('jump', false);
+                spineBoy.state.addAnimation(0, 'walk', true);
+                //
+                game.playSound('sound2');
+            });
+
+
+            var fishBounds = new PIXI.Rectangle(-100, -100,
+                game.initWidth + 100 * 2,game.initHeight + 100 * 2);
+
+            //update
+            game.ticker.add(function(){
+
+                //fish
+                for (var i = 0; i < fishs.length; i++) {
+                    var fish = fishs[i];
+                    fish.direction += fish.turningSpeed * 0.01;
+                    fish.x += Math.sin(fish.direction) * (fish.speed * fish.scale.y);
+                    fish.y += Math.cos(fish.direction) * (fish.speed * fish.scale.y);
+                    fish.rotation = -fish.direction - Math.PI / 2;
+
+                    // wrap the maggots
+                    if (fish.x < fishBounds.x) {
+                        fish.x += fishBounds.width;
+                    } else if (fish.x > fishBounds.x + fishBounds.width) {
+                        fish.x -= fishBounds.width;
+                    }
+                    if (fish.y < fishBounds.y) {
+                        fish.y += fishBounds.height;
+                    } else if (fish.y > fishBounds.y + fishBounds.height) {
+                        fish.y -= fishBounds.height;
+                    }
+                }
+            });
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

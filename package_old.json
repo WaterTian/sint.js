@@ -1,0 +1,45 @@
+{
+	"name": "sint",
+	"version": "0.0.1",
+	"description": "2D WebGL game framework.",
+	"author": "WaterTian <changewater@qq.com>",
+	"license": "ISC",
+	"main": "webpack.config.js",
+	"scripts": {
+		"dev": "webpack-dev-server --mode development",
+		"build": "webpack --devtool source-map --mode production"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://code.vipkid.com.cn/edu/SINT.git"
+	},
+	"homepage": "https://code.vipkid.com.cn/edu/SINT#readme",
+	"devDependencies": {
+		"babel-core": "^6.26.3",
+		"babel-eslint": "^8.2.6",
+		"babel-loader": "^7.1.5",
+		"babel-preset-env": "^1.6.1",
+		"eslint": "^5.2.0",
+		"eslint-config-airbnb": "^17.0.0",
+		"eslint-config-standard": "^11.0.0",
+		"eslint-loader": "^2.1.0",
+		"webpack": "^4.16.2",
+		"webpack-cli": "^3.1.0",
+		"webpack-dev-server": "^3.1.5",
+		"clean-webpack-plugin": "^0.1.19"
+	},
+	"dependencies": {
+		"gsap": "^1.20.2",
+		"pixi-filters": "^2.6.1",
+		"pixi-sound": "^2.0.3",
+		"pixi-spine": "^1.5.18",
+		"pixi.js": "^4.8.2",
+		"stats.js": "^0.17.0",
+		"vconsole": "^3.2.0"
+	},
+	"babel": {
+		"presets": [
+			"env"
+		]
+	}
+}
