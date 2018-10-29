@@ -110,5 +110,4 @@ game.removeThis();
 ```
 
 
-缺map
 ios8 渲染尺寸适配

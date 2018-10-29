@@ -3,13 +3,18 @@ const path = require('path');
 const libraryName = 'sint';
 
 
+// 接收运行参数
+const argv = require('yargs')
+    .describe('debug', 'debug 环境') // use 'webpack --debug'
+    .argv;
+
 
 module.exports = {
 	// devtool: 'source-map',
 	entry: './src/index.js',
 	output: {
 		path: __dirname + "/build",
-		filename: libraryName + '.js',
+		filename: libraryName + '.min.js',
 		library: libraryName,
 	},
 
