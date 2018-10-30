@@ -103,6 +103,9 @@ export default class Game extends PIXI.Application {
 		let _c = this.domElement.offsetWidth / this.initWidth;
 		console.log("resize " + _c);
 
+		// for bottom render bug
+		this.initHeight = this.domElement.offsetHeight / _c;
+
 		this.view.style.transform = "matrix(" + _c + ", 0, 0, " + _c + ", 0, 0)";
 		this.view.style.transformOrigin = "0% 0%";
 
