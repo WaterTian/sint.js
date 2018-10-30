@@ -7,12 +7,17 @@ const libraryName = 'sint';
 
 
 module.exports = {
-	mode: 'development',
+	mode: 'production',
+	devtool: 'source-map',
 	entry: './src/index.js',
 	output: {
 		path: __dirname + "/build",
 		filename: libraryName + '.min.js',
 		library: libraryName,
+	},
+
+	optimization: {
+		minimize: true
 	},
 
 	plugins: [
@@ -22,8 +27,8 @@ module.exports = {
 	module: {
 		rules: [{
 			test: /\.js$/,
-	        loader: 'babel-loader',
-	        include: [path.resolve(__dirname, 'src')],
+			loader: 'babel-loader',
+			include: [path.resolve(__dirname, 'src')],
 			exclude: /node_modules/
 		}, ]
 	},
@@ -32,7 +37,7 @@ module.exports = {
 		contentBase: path.resolve(__dirname, 'build'),
 		host: ip,
 		port: "8088",
-		open: false, // 自动开启浏览器
+		open: true, // 自动开启浏览器
 	}
 
 
