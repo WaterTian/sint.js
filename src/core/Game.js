@@ -2,7 +2,7 @@ import * as PIXI from 'pixi.js';
 import 'pixi-sound';
 import Stats from 'stats.js';
 import VConsole from 'vconsole';
-import * as filters from 'pixi-filters';
+
 
 
 
@@ -43,10 +43,6 @@ export default class Game extends PIXI.Application {
 		});
 
 		PIXI.settings.PRECISION_FRAGMENT = 'highp';
-		this.filters = filters;
-		// this.stage.filterArea = new PIXI.Rectangle(0, 0, initWidth, initHeight);
-		// this.stage.filters = [new PIXI.filters.BlurFilter()];
-		// this.stage.filters = [new filters.DotFilter()];
 
 
 		this.domElement = config.domElement;

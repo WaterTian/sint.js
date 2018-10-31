@@ -90,7 +90,10 @@
             //Container
             var fishsContainer = new SINT.Container();
             game.add(fishsContainer);
-            fishsContainer.filters = [new game.filters.BulgePinchFilter([0.5,0.5],300,1.2)];
+            // fishsContainer.filters = [new game.filters.BulgePinchFilter([0.5,0.5],300,1.2)];
+            
+            SINT.Magic.doTwistFilter(fishsContainer,[500,500],400,2);
+
             var fishs = [];
             for (var i = 0; i < 3000; i++) {
                 var id = 'fish'+ ((i % 4) + 1);

@@ -1,6 +1,7 @@
 import Game from './core/Game';
 import CONST from './const';
 import * as Unit from './Unit';
+import * as Magic from './Magic';
 import SpineClip from './core/SpineClip';
 import SpriteClip from './core/SpriteClip';
 import AnimatedClip from './core/AnimatedClip';
@@ -13,6 +14,7 @@ export {
 	Game,
 	CONST,
 	Unit,
+	Magic,
 	TweenMax,
 	SpineClip,
 	SpriteClip,
