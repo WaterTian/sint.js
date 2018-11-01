@@ -29,7 +29,9 @@
 		"webpack-dev-server": "^3.1.10"
 	},
 	"dependencies": {
+		"fs": "0.0.1-security",
 		"gsap": "^1.20.2",
+		"path": "^0.12.7",
 		"pixi-filters": "^2.6.1",
 		"pixi-sound": "^2.0.3",
 		"pixi-spine": "^1.5.18",

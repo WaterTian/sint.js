@@ -114,7 +114,6 @@
                 fishsContainer.addChild(fish);
             }
 
-
             //btn
             var btn1 = new SINT.SpriteClip(288,292,'pic1');
             game.add(btn1);
@@ -130,8 +129,12 @@
                             x: 1,
                             y: 1,
                         });
+
+                        SINT.Magic.doRadialBlurFilter(game.stage,[400,800],800,3);
                     }
                 });
+
+
 
                 SINT.sound.stopAll();
             })

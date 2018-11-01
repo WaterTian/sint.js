@@ -1,7 +1,7 @@
 import Game from './core/Game';
 import CONST from './const';
 import * as Unit from './Unit';
-import * as Magic from './Magic';
+import * as Magic from './magic';
 import SpineClip from './core/SpineClip';
 import SpriteClip from './core/SpriteClip';
 import AnimatedClip from './core/AnimatedClip';
