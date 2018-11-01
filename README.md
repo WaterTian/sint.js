@@ -20,9 +20,9 @@ npm install;
 npm run dev;
 ```
 
-### Build 
+### Dist 
 ```
-npm run build;
+npm run dist;
 ```
 
 
