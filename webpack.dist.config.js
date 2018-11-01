@@ -1,32 +1,23 @@
 const webpack = require('webpack');
 const path = require('path');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 
 
 module.exports = {
 	mode: 'production',
 	devtool: 'source-map',
-	context: __dirname + '/src/',
-	entry: {
-		sint: './sint.js',
-		'sint.min': './sint.js'
-	},
-
+	entry: './src/sint.js',
 	output: {
-		path: __dirname + '/dist',
-		filename: '[name].js',
-		library: 'Sint',
-		libraryTarget: 'umd',
-		umdNamedDefine: true
+		path: __dirname + "/dist",
+		filename: 'sint.min.js',
+		// library: 'sint',
 	},
-
-	performance: {
-		hints: false
-	},
-
+	plugins: [
+		new webpack.HotModuleReplacementPlugin()
+	],
 	optimization: {
+		minimize:true,
 		minimizer: [
 			new UglifyJSPlugin({
 				include: /\.min\.js$/,
@@ -46,9 +37,14 @@ module.exports = {
 		]
 	},
 
-	plugins: [
-		new webpack.HotModuleReplacementPlugin(),
-		new CleanWebpackPlugin(['dist'])
-	]
+	module: {
+		rules: [{
+			test: /\.js$/,
+			loader: 'babel-loader',
+			include: [path.resolve(__dirname, 'src')],
+			exclude: /node_modules/
+		}, ]
+	}
+
 
 };

@@ -7,7 +7,8 @@
 	"main": "webpack.config.js",
 	"scripts": {
 		"dev": "webpack-dev-server --config webpack.config.js",
-		"dist": "webpack --config webpack.dist.config.js"
+		"dist": "webpack --config webpack.dist.config.js",
+		"build": "webpack --config webpack.build.config.js"
 	},
 	"repository": {
 		"type": "git",
