@@ -9,7 +9,7 @@ module.exports = {
 	output: {
 		path: __dirname + "/build",
 		filename: 'sint.js',
-		// library: 'sint',
+		library: 'Sint',
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin()

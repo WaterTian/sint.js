@@ -25,7 +25,7 @@
 
 <body>
     <div id="webglContainer"> </div>
-    <script src="./sint.min.js"></script>
+    <script src="./sint.js"></script>
 
     <script>
         var config = {
@@ -92,7 +92,7 @@
             game.add(fishsContainer);
             // fishsContainer.filters = [new game.filters.BulgePinchFilter([0.5,0.5],300,1.2)];
             
-            SINT.Magic.doTwistFilter(fishsContainer,[500,500],400,2);
+            SINT.Magic.doTwistFilter(fishsContainer,[500,500],400,2,false);
 
             var fishs = [];
             for (var i = 0; i < 3000; i++) {
@@ -131,6 +131,7 @@
                         });
 
                         SINT.Magic.doRadialBlurFilter(game.stage,[400,800],800,3);
+                        // SINT.Magic.doDye(game.stage,[400,800],800,3);
                     }
                 });
 

@@ -11,7 +11,9 @@ module.exports = {
 	output: {
 		path: __dirname + "/dist",
 		filename: 'sint.min.js',
-		// library: 'sint',
+		library: 'Sint',
+		libraryTarget: "umd",
+		umdNamedDefine: true,
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin()

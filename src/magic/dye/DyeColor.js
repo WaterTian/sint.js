@@ -1,7 +1,9 @@
 import * as PIXI from 'pixi.js';
 
-import { readFileSync } from 'fs';
-import { join } from 'path';
+
+import vs from '../fragments/default.vert';
+import fs from './dye.frag';
+
 
 /**
  * @param {PIXI.Container} container
@@ -16,14 +18,26 @@ export default class DyeColor extends PIXI.Filter {
 	 */
     constructor(alpha = 1.0)
     {
-        super(
-            // // vertex shader
-            // readFileSync(join(__dirname, './fragments/default.vert'), 'utf8'),
-            // // fragment shader
-            // readFileSync(join(__dirname, './alpha.frag'), 'utf8')
-        );
+        super(vs,fs);
 
         this.alpha = alpha;
         this.glShaderKey = 'alpha';
     }
+
+    /**
+     * Coefficient for alpha multiplication
+     *
+     * @member {number}
+     * @default 1
+     */
+    get alpha()
+    {
+        return this.uniforms.uAlpha;
+    }
+
+    set alpha(value) // eslint-disable-line require-jsdoc
+    {
+        this.uniforms.uAlpha = value;
+    }
+    
 }
