@@ -24,7 +24,7 @@ module.exports = {
 			new UglifyJSPlugin({
 				include: /\.min\.js$/,
 				parallel: true,
-				sourceMap: false,
+				sourceMap: true,
 				uglifyOptions: {
 					compress: true,
 					ie8: false,
@@ -44,6 +44,14 @@ module.exports = {
 			test: /\.js$/,
 			loader: 'babel-loader',
 			include: [path.resolve(__dirname, 'src')],
+			exclude: /node_modules/
+		}, {
+			test: /\.(glsl|frag|vert)$/,
+			loader: 'raw-loader',
+			exclude: /node_modules/
+		}, {
+			test: /\.(glsl|frag|vert)$/,
+			loader: 'glslify-loader',
 			exclude: /node_modules/
 		}, ]
 	}

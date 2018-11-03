@@ -1,14 +1,15 @@
 {
-	"name": "sint",
+	"name": "sint.js",
 	"version": "0.0.1",
 	"description": "2D WebGL game framework.",
-	"author": "WaterTian <changewater@qq.com>",
+	"author": "tianyuan5",
 	"license": "ISC",
 	"main": "webpack.config.js",
 	"scripts": {
 		"dev": "webpack-dev-server --config webpack.config.js",
 		"dist": "webpack --config webpack.dist.config.js",
-		"build": "webpack --config webpack.build.config.js"
+		"build": "webpack --config webpack.build.config.js",
+		"lib": "babel src --out-dir lib"
 	},
 	"repository": {
 		"type": "git",

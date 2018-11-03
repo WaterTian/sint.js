@@ -130,7 +130,7 @@
                             y: 1,
                         });
 
-                        SINT.Magic.doRadialBlurFilter(game.stage,[400,800],800,3);
+                        SINT.Magic.doRadialBlurFilter(game.stage,[400,800],800,3,true);
                         // SINT.Magic.doDye(game.stage,[400,800],800,3);
                     }
                 });
@@ -194,9 +194,16 @@
                         ac1.stop();
                     }
                 });
+                
+
+                let colorMatrix = new SINT.filters.ColorMatrixFilter()
+                colorMatrix.desaturate()
+                ac1.filters = [colorMatrix];
 
                 game.playSound('sound1');
             })
+
+
 
             //spine
             var spineBoy = new SINT.SpineClip(game.initWidth/2 , game.initHeight , 'spineboy');
