@@ -1,20 +1,26 @@
 {
-	"name": "sint.js",
+	"name": "sint",
 	"version": "0.0.1",
 	"description": "2D WebGL game framework.",
-	"author": "tianyuan5",
-	"license": "ISC",
-	"main": "webpack.config.js",
+	"author": "tianyuan",
+	"license": "MIT",
 	"scripts": {
 		"dev": "webpack-dev-server --config webpack.config.js",
 		"dist": "webpack --config webpack.dist.config.js",
 		"build": "webpack --config webpack.build.config.js",
-		"lib": "babel src --out-dir lib"
+		"lib": "babel src --out-dir lib -s"
 	},
+	"files": [
+		"dist/",
+		"lib/",
+		"package.json",
+		"README.md"
+	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://code.vipkid.com.cn/edu/SINT.git"
 	},
+	"main": "./lib/sint.js",
 	"homepage": "https://code.vipkid.com.cn/edu/SINT#readme",
 	"devDependencies": {
 		"babel-cli": "^6.26.0",
