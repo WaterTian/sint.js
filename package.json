@@ -17,10 +17,10 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "git+https://code.vipkid.com.cn/edu/SINT.git"
+		"url": "git+https://code.vipkid.com.cn/edu/sint.git"
 	},
 	"main": "./lib/sint.js",
-	"homepage": "https://code.vipkid.com.cn/edu/SINT#readme",
+	"homepage": "https://code.vipkid.com.cn/edu/sint#readme",
 	"devDependencies": {
 		"babel-cli": "^6.26.0",
 		"babel-core": "^6.26.3",
