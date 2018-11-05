@@ -1,5 +1,5 @@
 {
-	"name": "sint.js",
+	"name": "sint",
 	"version": "0.0.1",
 	"description": "2D WebGL game framework.",
 	"author": "WaterTian",
@@ -11,16 +11,15 @@
 	},
 	"files": [
 		"dist/",
-		"lib/",
 		"package.json",
 		"README.md"
 	],
+	"main": "./dist/sint.min.js",
+	"homepage": "https://code.vipkid.com.cn/edu/sint#readme",
 	"repository": {
 		"type": "git",
 		"url": "git+https://code.vipkid.com.cn/edu/sint.git"
 	},
-	"main": "./lib/sint.js",
-	"homepage": "https://code.vipkid.com.cn/edu/sint#readme",
 	"devDependencies": {
 		"babel-cli": "^6.26.0",
 		"babel-core": "^6.26.3",

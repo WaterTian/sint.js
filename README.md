@@ -12,18 +12,14 @@ You can use JavaScript for development.
 
 ### Installation 
 ```
-npm install;
+npm install sint.js;
 ```
 
-### Development 
+#### import 
 ```
-npm run dev;
+import * as SINT from 'sint.js'
 ```
 
-### Dist 
-```
-npm run dist;
-```
 
 
 ### Create Your First Sint Example
