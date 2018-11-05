@@ -2,7 +2,7 @@
 	"name": "sint",
 	"version": "0.0.1",
 	"description": "2D WebGL game framework.",
-	"author": "tianyuan",
+	"author": "WaterTian",
 	"license": "MIT",
 	"scripts": {
 		"dev": "webpack-dev-server --config webpack.config.js",

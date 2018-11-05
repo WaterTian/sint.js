@@ -93,17 +93,6 @@ function create() {
 
 
 
-
-
-// 开始渲染
-game.start();
-// 暂停
-game.pause();
-// 继续
-game.resume();
-
-
-
 // 销毁并清除 view
 game.removeThis();
 
