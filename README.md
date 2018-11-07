@@ -1,4 +1,4 @@
-# Sint - HTML5 Game Framework
+# sint.js - HTML5 Game Framework
 
 
 ======
@@ -12,7 +12,8 @@ You can use JavaScript for development.
 
 ### Installation 
 ```
-npm install sint.js;
+npm install sint.js
+npm install sint.js --registry http://npm.vipkid.com.cn
 ```
 
 #### import 
