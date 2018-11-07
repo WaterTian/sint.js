@@ -5,7 +5,6 @@ import VConsole from 'vconsole';
 
 
 
-
 PIXI.utils.skipHello();
 
 /**
@@ -167,6 +166,13 @@ export default class Game extends PIXI.Application {
 		_sound.loop = loop;
 		_sound.play();
 	}
+	pauseSound(name) {
+		PIXI.sound.pause(name);
+	}
+	stopAllSound() {
+		PIXI.sound.stopAll();
+	}
+
 
 
 	/**

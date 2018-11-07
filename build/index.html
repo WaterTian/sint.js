@@ -58,6 +58,8 @@
 
     game = new SINT.Game(config, loading, create);
 
+    console.log(SINT);
+
 
     // function add(){
     //     _num++;
@@ -81,7 +83,7 @@
 
     function create() {
         //bg sound
-        // game.playSound('sound0',true);
+        game.playSound('sound0',true);
 
         //bg image
         var bg = new SINT.SpriteClip(0, 0, 'bg');
@@ -91,7 +93,6 @@
         //Container
         var fishsContainer = new SINT.Container();
         game.add(fishsContainer);
-        // fishsContainer.filters = [new game.filters.BulgePinchFilter([0.5,0.5],300,1.2)];
 
         SINT.Magic.doTwistFilter(fishsContainer, [500, 500], 400, 2, false);
 
@@ -138,7 +139,7 @@
 
 
 
-            SINT.sound.stopAll();
+            game.stopAllSound();
         })
         //btn
         var btn2 = new SINT.SpriteClip(28, 900, 'pic2');
@@ -202,11 +203,12 @@
             ac1.filters = [colorMatrix];
 
             game.playSound('sound1');
+            game.pauseSound('sound0');
         })
 
 
 
-        //spine
+/*        //spine
         var spineBoy = new SINT.SpineClip(game.initWidth / 2, game.initHeight, 'spineboy');
         game.add(spineBoy);
         spineBoy.play('walk');
@@ -216,7 +218,7 @@
             spineBoy.state.addAnimation(0, 'walk', true);
             //
             game.playSound('sound2');
-        });
+        });*/
 
 
         var fishBounds = new PIXI.Rectangle(-100, -100,

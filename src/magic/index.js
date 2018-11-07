@@ -1,4 +1,4 @@
-import * as filters from 'pixi-filters';
+import {TwistFilter,RadialBlurFilter} from 'pixi-filters';
 import TweenMax from "gsap";
 import DyeColor from './dye/DyeColor';
 
@@ -32,7 +32,7 @@ export function doDye(container, offset, radius, time, clear = true) {
  * @param {boolean} clear 
  */
 export function doTwistFilter(container, offset, radius, time, clear = false) {
-	let filter = new filters.TwistFilter(radius, 0);
+	let filter = new TwistFilter(radius, 0);
 	filter.offset.set(offset);
 	let filter2 = new PIXI.filters.AlphaFilter();
 	container.filters = [filter, filter2];
@@ -65,7 +65,7 @@ export function doTwistFilter(container, offset, radius, time, clear = false) {
  * @param {boolean} clear 
  */
 export function doRadialBlurFilter(container, offset, radius, time, clear = false) {
-	let filter = new filters.RadialBlurFilter(0, offset, 9, radius);
+	let filter = new RadialBlurFilter(0, offset, 9, radius);
 	let filter2 = new PIXI.filters.AlphaFilter();
 	container.filters = [filter, filter2];
 	TweenMax.to(filter, time, {
