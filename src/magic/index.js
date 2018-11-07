@@ -3,7 +3,7 @@ import TweenMax from "gsap";
 import DyeColor from './dye/DyeColor';
 
 
-// export { default as DyeColor } from './dey/DyeColor';
+// export { DyeColor } from './dey/DyeColor';
 
 
 /**
@@ -13,14 +13,12 @@ import DyeColor from './dye/DyeColor';
  * @param {number} time
  * @param {boolean} clear 
  */
-export function doDye(container, offset, radius, time, clear = true) {
-	let filter = new DyeColor(1);
-	container.filters = [filter];
-	TweenMax.to(filter, time, {
-		alpha: 0,
-		ease: Strong.easeInOut,
-	})
+export function doDye(container, color) {
+	let filter = new DyeColor(color);
 
+    let colorMatrix = new SINT.filters.ColorMatrixFilter()
+    colorMatrix.blackAndWhite()
+	container.filters = [colorMatrix,filter];
 }
 
 

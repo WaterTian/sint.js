@@ -37,6 +37,7 @@
         backgroundColor: 0x2a3145,
         assets: {
             bg: './assets/bg.png',
+            icon1: './assets/icon1.png',
             pic1: './assets/pic1.png',
             pic2: './assets/pic2.png',
             fighter: './assets/fighter.json',
@@ -96,6 +97,7 @@
 
         SINT.Magic.doTwistFilter(fishsContainer, [500, 500], 400, 2, false);
 
+
         var fishs = [];
         for (var i = 0; i < 3000; i++) {
             var id = 'fish' + ((i % 4) + 1);
@@ -133,7 +135,6 @@
                     });
 
                     SINT.Magic.doRadialBlurFilter(game.stage, [400, 800], 800, 3, true);
-                    // SINT.Magic.doDye(game.stage,[400,800],800,3);
                 }
             });
 
@@ -149,6 +150,13 @@
         btn2.on('pointerdown', function() {
             game.removeThis();
         })
+
+        //icon1
+        var icon1 = new SINT.SpriteClip(28, 1100, 'icon1');
+        game.add(icon1);
+        var icon2 = new SINT.SpriteClip(228, 1100, 'icon1');
+        game.add(icon2);
+        SINT.Magic.doDye(icon2,0x7067c5);
 
 
 
