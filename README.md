@@ -61,6 +61,12 @@ function create() {
         .on('pointermove', onDragMove);
 
 
+    // Animated
+    let ac1 = new SINT.AnimatedClip(400, 600, 'fighter');
+    game.add(ac1);
+    ac1.anchor.set(0.5);
+    ac1.play();
+
     // spine
     let spineBoy = new SINT.SpineClip(game.initWidth/2 , game.initHeight , 'spineboy');
     game.add(spineBoy);
@@ -71,20 +77,14 @@ function create() {
         // spineBoy.state.addAnimation(0, 'walk', true);
     });
 
-    // Animated
-    let ac1 = new SINT.AnimatedClip(400, 600, 'fighter');
-    game.add(ac1);
-    ac1.anchor.set(0.5);
-    ac1.play();
-
 
     // 播放音乐
     game.playSound('sound1');
     
     // 暂停
-    SINT.sound.pause('sound1');
+    game.pauseSound('sound1');
     // 停止所有音乐
-    SINT.sound.stopAll();
+    game.stopAllSound();
 }
 
 
