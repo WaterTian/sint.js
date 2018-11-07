@@ -1,7 +1,6 @@
 import * as PIXI from 'pixi.js';
 import 'pixi-sound';
 import Stats from 'stats.js';
-import VConsole from 'vconsole';
 
 
 
@@ -54,7 +53,6 @@ export default class Game extends PIXI.Application {
 		if (config.showFPS) {
 			this.stats = new Stats();
 			this.domElement.appendChild(this.stats.dom);
-			this.vconsole = new VConsole();
 		}
 
 
@@ -180,7 +178,6 @@ export default class Game extends PIXI.Application {
 	 */
 	removeThis() {
 		if (this.stats) this.domElement.removeChild(this.stats.dom);
-		if (this.vconsole) this.vconsole.destroy();
 
 		console.log('removeThis');
 
