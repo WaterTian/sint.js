@@ -1,31 +1,29 @@
-# sint.js - HTML5 Game Framework
+sint.js - HTML5 Game Framework
+=============
 
 
-======
-
-
-Sint is a fast, free, and fun open source HTML5 game framework that offers WebGL and Canvas rendering across desktop and mobile web browsers. Games can be compiled to iOS, Android and native apps by using 3rd party tools. 
+Sint based on [PixiJs](http://www.pixijs.com), is a fast, free, and fun open source HTML5 game framework that offers WebGL and Canvas rendering across desktop and mobile web browsers. Games can be compiled to iOS, Android and native apps by using 3rd party tools. 
 You can use JavaScript for development.
 
 
+### Setup ###
 
+#### NPM Install
 
-### Installation 
-```
+```sh
 npm install sint.js
 npm install sint.js --registry http://npm.vipkid.com.cn
 ```
 
-#### import 
-```
+```js
 import * as SINT from 'sint.js'
 ```
 
 
 
-### Create Your First Sint Example
+### Create Your First Sint Example ###
 
-```javascript
+```js
 
 const config = {
     canvas: document.querySelector('#webglStage'), // 容器画布
@@ -96,4 +94,16 @@ game.removeThis();
 ```
 
 
-ios8 渲染尺寸适配
+### How to build ###
+
+```sh
+npm install
+```
+
+```sh
+npm run dev
+```
+
+```sh
+npm run dist
+```

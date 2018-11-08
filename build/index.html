@@ -27,8 +27,12 @@
 
 <body>
     <div id="webglContainer"> </div>
+    <script src="./vconsole.min.js"></script>
     <script src="./sint.js"></script>
     <script>
+    var vConsole = new VConsole();
+
+
     var config = {
         domElement: document.querySelector('#webglContainer'), // 画布容器
         initWidth: 750,
@@ -59,7 +63,7 @@
 
     game = new SINT.Game(config, loading, create);
 
-    console.log(SINT);
+    // console.log(SINT);
 
 
     // function add(){
@@ -77,14 +81,35 @@
     //         },2000);
     //     },2000+Math.random()*2000);
     // }
+    // 
+    var loadingTxt = new SINT.TextClip(game.initWidth / 2, 600, '0%', {
+        fontFamily: 'Arial',
+        fontSize: 42,
+        fontWeight: 'bold',
+        fill: ['#d2497d', '#5a7cd3']
+    })
+    loadingTxt.anchor.set(0.5)
+    game.add(loadingTxt)
 
     function loading(_pr) {
-        console.log('loading ' + _pr);
+        loadingTxt.text = _pr + '%'
+    }
+    function removeLoading() {
+        SINT.TweenMax.to(loadingTxt, 0.6, {
+            alpha: 0,
+            onComplete: () => {
+                game.remove(loadingTxt)
+            }
+        })
     }
 
+
     function create() {
+        removeLoading();
+
+
         //bg sound
-        game.playSound('sound0',true);
+        game.playSound('sound0', true);
 
         //bg image
         var bg = new SINT.SpriteClip(0, 0, 'bg');
@@ -99,13 +124,13 @@
 
 
         var fishs = [];
-        for (var i = 0; i < 3000; i++) {
+        for (var i = 0; i < 1000; i++) {
             var id = 'fish' + ((i % 4) + 1);
             var fish = new SINT.SpriteClip(0, 0, id);
             fish.tint = Math.random() * 0xff3300;
             fish.alpha = 0.3 + Math.random() * 0.8;
             fish.anchor.set(0.5);
-            fish.scale.set(0.1 + Math.random() * 0.2);
+            fish.scale.set(0.2 + Math.random() * 0.2);
             // scatter them all
             fish.x = Math.random() * game.initWidth;
             fish.y = Math.random() * game.initHeight;
@@ -134,7 +159,8 @@
                         y: 1,
                     });
 
-                    SINT.Magic.doRadialBlurFilter(game.stage, [400, 800], 800, 3, true);
+                    SINT.Magic.doTwistFilter(game.stage, [400, 800], 600, 2, true);
+                    // SINT.Magic.doRadialBlurFilter(game.stage, [400, 800], 800, 3, true);
                 }
             });
 
@@ -156,7 +182,7 @@
         game.add(icon1);
         var icon2 = new SINT.SpriteClip(228, 1100, 'icon1');
         game.add(icon2);
-        SINT.Magic.doDye(icon2,0x7067c5);
+        SINT.Magic.doDye(icon2, 0x7067c5);
 
 
 
@@ -188,6 +214,7 @@
         ac1.animationSpeed = 40 / 60;;
         ac1.interactive = true;
         ac1.on('pointerdown', function() {
+            console.log("fly")
             ac1.play();
             SINT.TweenMax.to(ac1, 1, {
                 y: -150,
@@ -215,8 +242,38 @@
         })
 
 
+        game.stage.interactive = true
+        game.stage
+            .on('pointerdown', onDragStart)
+            .on('pointerup', onDragEnd)
+            .on('pointerupoutside', onDragEnd)
+            .on('pointermove', onDragMove)
 
-/*        //spine
+        var mouseFilter = new SINT.Magic.BulgePinchFilter([0.5, 0.5], 300, 1.2);
+
+        function onDragStart(event) {
+            this.dragging = true
+            game.stage.filters = [mouseFilter];
+            mouseFilter.center = [event.data.global.x / 750, event.data.global.y / 1334];
+        }
+
+        function onDragEnd(event) {
+            this.dragging = false
+            SINT.TweenMax.to(mouseFilter, .3, {
+                radius: 0,
+            });
+        }
+
+        function onDragMove(event) {
+            if (this.dragging) {
+                mouseFilter.center = [event.data.global.x / 750, event.data.global.y / 1334];
+                mouseFilter.radius += (300 - mouseFilter.radius) * 0.8;
+            }
+        }
+
+        
+
+        //spine
         var spineBoy = new SINT.SpineClip(game.initWidth / 2, game.initHeight, 'spineboy');
         game.add(spineBoy);
         spineBoy.play('walk');
@@ -225,8 +282,8 @@
             spineBoy.play('jump', false);
             spineBoy.state.addAnimation(0, 'walk', true);
             //
-            game.playSound('sound2');
-        });*/
+            // game.playSound('sound2');
+        });
 
 
         var fishBounds = new PIXI.Rectangle(-100, -100,

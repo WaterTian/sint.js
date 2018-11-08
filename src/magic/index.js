@@ -5,6 +5,7 @@ import DyeColor from './dye/DyeColor';
 
 // export { DyeColor } from './dey/DyeColor';
 
+export { BulgePinchFilter } from 'pixi-filters';
 
 /**
  * @param {PIXI.Container} container

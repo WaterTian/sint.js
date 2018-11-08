@@ -1,7 +1,14 @@
 .DS_Store
 node_modules
 npm-debug.log*
-.idea
-.vscode
 dist/
 lib/
+docs/
+
+
+# sublime text files
+*.sublime*
+*.*~*.TMP
+
+# jetBrains IDE ignores
+.idea
