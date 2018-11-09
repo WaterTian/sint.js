@@ -1,9 +1,11 @@
 .DS_Store
 node_modules
 npm-debug.log*
-dist/
+package.json
+package-lock.json
+src/
 lib/
-docs/
+build/
 
 
 # sublime text files
