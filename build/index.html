@@ -273,17 +273,17 @@
 
         
 
-        //spine
-        var spineBoy = new SINT.SpineClip(game.initWidth / 2, game.initHeight, 'spineboy');
-        game.add(spineBoy);
-        spineBoy.play('walk');
-        spineBoy.interactive = true;
-        spineBoy.on('pointerdown', function() {
-            spineBoy.play('jump', false);
-            spineBoy.state.addAnimation(0, 'walk', true);
-            //
-            // game.playSound('sound2');
-        });
+        // //spine
+        // var spineBoy = new SINT.SpineClip(game.initWidth / 2, game.initHeight, 'spineboy');
+        // game.add(spineBoy);
+        // spineBoy.play('walk');
+        // spineBoy.interactive = true;
+        // spineBoy.on('pointerdown', function() {
+        //     spineBoy.play('jump', false);
+        //     spineBoy.state.addAnimation(0, 'walk', true);
+        //     //
+        //     // game.playSound('sound2');
+        // });
 
 
         var fishBounds = new PIXI.Rectangle(-100, -100,
