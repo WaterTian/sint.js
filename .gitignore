@@ -6,6 +6,7 @@ package-lock.json
 src/
 lib/
 build/
+scripts/
 
 
 # sublime text files
