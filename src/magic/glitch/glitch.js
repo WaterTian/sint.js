@@ -13,17 +13,17 @@ import fs from './glitch.frag';
  */
 
 export default class glitch extends PIXI.Filter {
-    /**
-     * @param {Float32Array} [color=0xffffff]
-     */
+    
     constructor() {
         super(vs, fs);
 
         this.uniforms.time = 0;
-        this.uniforms.resolution = new PIXI.Point(500, 500);
+        this.uniforms.resolution = new Float32Array(2);
+        this.uniforms.resolution[0] = 100;
+        this.uniforms.resolution[1] = 100;
     }
 
     render(time) {
-        this.uniforms.time.value += time;
+        this.uniforms.time += time;
     }
 }
