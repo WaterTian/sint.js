@@ -6,7 +6,7 @@ Sint based on [PixiJs](http://www.pixijs.com), is a fast, free, and fun open sou
 You can use JavaScript for development.
 
 ### Learn ###
-- Docs: SintJS API [docs](https://watertian.github.io/SINT/docs/).
+- Docs: SintJS API [docs](https://watertian.github.io/sint.js/docs/).
 
 ### Setup ###
 
