@@ -5,17 +5,9 @@ import vs from '../fragments/default.vert';
 import fs from './dye.frag';
 
 
-/**
- * @param {PIXI.Container} container
- * @param {PIXI.Point | Array.<number>} offset
- * @param {number} radius
- * @param {number} time
- */
 
 export default class dye extends PIXI.Filter {
-	/**
-	 * @param {number} [color=0xffffff]
-	 */
+
     constructor(color = 0xffffff)
     {
         super(vs,fs);
@@ -25,12 +17,6 @@ export default class dye extends PIXI.Filter {
         this.glShaderKey = 'dyeColor';
     }
 
-    /**
-     * Coefficient for dyeColor multiplication
-     *
-     * @member {number}
-     * @default 1
-     */
     get color()
     {
         return this._uColor;

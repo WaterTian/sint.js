@@ -5,12 +5,6 @@ import vs from '../fragments/default.vert';
 import fs from './glitch.frag';
 
 
-/**
- * @param {PIXI.Container} container
- * @param {PIXI.Point | Array.<number>} offset
- * @param {number} radius
- * @param {number} time
- */
 
 export default class glitch extends PIXI.Filter {
     
