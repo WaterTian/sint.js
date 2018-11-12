@@ -4,13 +4,15 @@ import * as PIXI from 'pixi.js';
  * @class
  * @extends PIXI.extras.AnimatedSprite
  *
- * 
+ * @param {number} [_x=0]
+ * @param {number} [_y=0]
+ * @param {string} name - The frame Id of the texture in the cache
+ * @param {int} startNum - The start frame Id
  */
 
+
 export default class AnimatedClip extends PIXI.extras.AnimatedSprite {
-	/**
-	 * @param {string} name 
-	 */
+	
 	constructor(_x = 0, _y = 0, name, startNum = 0) {
 
 		let sheet = SINT.TyLoader.resources[name].textures;

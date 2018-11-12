@@ -12,10 +12,15 @@ PIXI.utils.skipHello();
  * 
  * @param {object} config The Game options
  * @param {domElement} [config.domElement] 
- * @param {string} [config.initWidth] The Game width
- * @param {string} [config.initHeight] The Game height
- * @param {boolean} [config.showFPS]
+ * @param {number} [config.initWidth=750] The Game width
+ * @param {number} [config.initHeight=1334] The Game height
+ * @param {boolean} [config.showFPS=true]
+ * @param {number} [config.backgroundColor=0x000000]
+ *
+ * @param {function} loading
+ * @param {function} create
  */
+
 
 export default class Game extends PIXI.Application {
 

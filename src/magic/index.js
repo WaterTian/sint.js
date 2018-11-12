@@ -4,15 +4,31 @@ import Dye from './dye/dye';
 import Glitch from './glitch/glitch';
 
 
+/**
+ * @example
+ * 
+ * SINT.Magic.doTwistFilter(Container, [500, 500], 400, 2, false);
+ *
+ * SINT.Magic.doTwistFilter(game.stage, [400, 800], 600, 2, true);
+ * 
+ * SINT.Magic.doGlitch(game.stage);
+ *
+ * 
+ * @namespace SINT.Magic
+ */
+
+
 
 export { BulgePinchFilter } from 'pixi-filters';
 
 
 
-
 /**
+ * @memberof SINT.Magic
+ * @function doGlitch
  * @param {PIXI.Container} container
  */
+
 export function doGlitch(container) {
     let filter = new Glitch();
     container.filters = [filter];
@@ -26,8 +42,9 @@ export function doGlitch(container) {
 
 
 /**
+ * @memberof SINT.Magic
+ * @function doDye
  * @param {PIXI.Container} container
- * @param {number} color
  */
 export function doDye(container, color) {
     let filter = new Dye(color);
@@ -39,6 +56,8 @@ export function doDye(container, color) {
 
 
 /**
+ * @memberof SINT.Magic
+ * @function doTwistFilter
  * @param {PIXI.Container} container
  * @param {PIXI.Point | Array.<number>} offset
  * @param {number} radius
@@ -72,6 +91,8 @@ export function doTwistFilter(container, offset, radius, time, clear = false) {
 }
 
 /**
+ * @memberof SINT.Magic
+ * @function doRadialBlurFilter
  * @param {PIXI.Container} container
  * @param {PIXI.Point | Array.<number>} offset
  * @param {number} radius
