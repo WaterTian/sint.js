@@ -1,21 +1,31 @@
 import {TwistFilter,RadialBlurFilter} from 'pixi-filters';
 import TweenMax from "gsap";
-import DyeColor from './dye/DyeColor';
+import Dye from './dye/dye';
+import Glitch from './glitch/glitch';
 
 
-// export { DyeColor } from './dey/DyeColor';
 
 export { BulgePinchFilter } from 'pixi-filters';
 
+
+
+
 /**
  * @param {PIXI.Container} container
- * @param {PIXI.Point | Array.<number>} offset
- * @param {number} radius
- * @param {number} time
- * @param {boolean} clear 
+ */
+export function doGlitch(container) {
+	let filter = new Glitch();
+	container.filters = [filter];
+}
+
+
+
+/**
+ * @param {PIXI.Container} container
+ * @param {number} color
  */
 export function doDye(container, color) {
-	let filter = new DyeColor(color);
+	let filter = new Dye(color);
 
     let colorMatrix = new SINT.filters.ColorMatrixFilter()
     colorMatrix.blackAndWhite()

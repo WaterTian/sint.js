@@ -109,7 +109,10 @@
 
 
         //bg sound
-        game.playSound('sound0', true);
+        // game.playSound('sound0', true);
+        
+        SINT.Magic.doGlitch(game.stage);
+
 
         //bg image
         var bg = new SINT.SpriteClip(0, 0, 'bg');
@@ -233,9 +236,7 @@
             });
 
 
-            let colorMatrix = new SINT.filters.ColorMatrixFilter()
-            colorMatrix.desaturate()
-            ac1.filters = [colorMatrix];
+            SINT.Magic.doDye(ac1, 0x00ff00);
 
             game.playSound('sound1');
             game.pauseSound('sound0');

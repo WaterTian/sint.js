@@ -12,7 +12,7 @@ import fs from './dye.frag';
  * @param {number} time
  */
 
-export default class DyeColor extends PIXI.Filter {
+export default class dye extends PIXI.Filter {
 	/**
 	 * @param {number} [color=0xffffff]
 	 */
