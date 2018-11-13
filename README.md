@@ -28,11 +28,11 @@ import * as SINT from 'sint.js'
 ```js
 
 const config = {
-    canvas: document.querySelector('#webglStage'), // 容器画布
+    canvas: document.querySelector('#webglStage'), 
     initWidth: 750,
     initHeight: 1334,
     showFPS: true,
-    backgroundColor: 0x2a3145,// 画布背景色
+    backgroundColor: 0x2a3145,
     
     assets: {
         bg: './assets/bg.jpg',
