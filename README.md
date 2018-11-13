@@ -79,12 +79,8 @@ function create() {
     });
 
 
-    // 播放音乐
     game.playSound('sound1');
-    
-    // 暂停
     game.pauseSound('sound1');
-    // 停止所有音乐
     game.stopAllSound();
 }
 
