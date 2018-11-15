@@ -1,5 +1,5 @@
 import { TwistFilter, RadialBlurFilter } from 'pixi-filters';
-import TweenMax from "gsap";
+import {TweenMax} from "gsap/TweenMax";
 import Dye from './dye/dye';
 import Glitch from './glitch/glitch';
 
@@ -122,7 +122,5 @@ export function doRadialBlurFilter(container, offset, radius, time, clear = fals
             })
         }
     })
-
-
 
 }
