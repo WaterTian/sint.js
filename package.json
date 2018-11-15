@@ -1,6 +1,6 @@
 {
 	"name": "sint.js",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"description": "2D WebGL game framework.",
 	"author": "WaterTian",
 	"license": "MIT",
