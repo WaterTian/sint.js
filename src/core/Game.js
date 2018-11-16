@@ -12,13 +12,13 @@ PIXI.utils.skipHello();
  * 
  * @param {object} config The Game options
  * @param {domElement} [config.domElement] 
- * @param {number} [config.initWidth=750] The Game width
- * @param {number} [config.initHeight=1334] The Game height
+ * @param {number} [config.initWidth=750] - The Game width
+ * @param {number} [config.initHeight=1334] - The Game height
  * @param {boolean} [config.showFPS=true]
- * @param {number} [config.backgroundColor=0x000000]
+ * @param {number} [config.backgroundColor=0x000000] - The backgroundColor
  *
- * @param {function} loading
- * @param {function} create
+ * @param {function} [loading]
+ * @param {function} [create]
  */
 
 
@@ -150,9 +150,8 @@ export default class Game extends PIXI.Application {
 	}
 
 	/**
-	 * must be loaded
-	 * @param {String} name - sound name
-	 *
+	 * Must be loaded
+	 * 
 	 * PIXI.sound.pause(name);
 	 * PIXI.sound.pauseAll();
 	 * 
@@ -161,8 +160,12 @@ export default class Game extends PIXI.Application {
 	 * 
 	 * PIXI.sound.stop(name);
 	 * PIXI.sound.stopAll();
-	 * 
+	 *
 	 * PIXI.sound.volume(name, volume);
+	 * 
+	 * @param {string} [name] - The sound name
+	 * @param {boolean} [loop] - loop?
+	 * 
 	 */
 	playSound(name, loop = false) {
 		const _sound = SINT.TyLoader.resources[name].sound;
