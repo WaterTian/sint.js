@@ -5,6 +5,7 @@ import Stats from 'stats.js';
 
 
 PIXI.utils.skipHello();
+PIXI.settings.PRECISION_FRAGMENT = 'highp';
 
 /**
  * @class
@@ -44,8 +45,6 @@ export default class Game extends PIXI.Application {
 			height: config.initHeight,
 			backgroundColor: config.backgroundColor,
 		});
-
-		PIXI.settings.PRECISION_FRAGMENT = 'highp';
 
 
 		this.domElement = config.domElement;
