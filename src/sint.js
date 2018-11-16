@@ -8,8 +8,7 @@ import SpriteClip from './core/SpriteClip';
 import AnimatedClip from './core/AnimatedClip';
 import TextClip from './core/TextClip';
 
-// //	TOOLS
-// export * from "gsap/TweenMax";
+//	TOOLS
 export {TweenMax} from "gsap/TweenMax";
 
 
