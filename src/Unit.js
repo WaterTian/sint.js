@@ -1,3 +1,36 @@
+/**
+ * @example
+ * // Get url parameter
+ * console.log(SINT.Unit.getUrlStr('id'));
+ *
+ * // Convert deg to Rad
+ * console.log(SINT.Unit.degToRad(30));
+ *
+ * // Load json
+ * SINT.Unit.loadJson('*.json').then(function(json) {
+ *     console.log(json);
+ * }, function(error) {
+ *     console.error('loadJson Erro', error);
+ * }
+ *
+ * // Post json
+ * let sendData = {'idStr': '***'};
+ * SINT.Unit.postJson('..*.php', sendData).then(function(data) {
+ *     console.log(JSON.parse(data.jsonStr));
+ * }, function(error) {
+ *     console.error('postJson Erro', error);
+ * }
+ * 
+ * @namespace SINT.Unit
+ */
+
+
+/**
+ * @memberof SINT.Unit
+ * @function getUrlStr
+ * @param {string} [name]
+ * @return {string} The string url parameter
+ */
 export function getUrlStr(name) {
 	let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
 	let r = window.location.search.substr(1).match(reg);
@@ -5,11 +38,24 @@ export function getUrlStr(name) {
 	return null;
 }
 
+/**
+ * @memberof SINT.Unit
+ * @function degToRad
+ * @param {number} [degrees]
+ * @return {number} The number of Rad
+ */
 export function degToRad(degrees) {
 	return degrees * Math.PI / 180;
 }
 
-
+/**
+ * @memberof SINT.Unit
+ * @function getImageXYData
+ * @param {HTMLImageElement} [img] - the source object of the texture.
+ * @param {number} [w] - width
+ * @param {number} [h] - height
+ * @return {number[]} - An array representing the [R, G, B] of the color.
+ */
 export function getImageXYData(img, w, h) {
 
 	let templateCanvas = document.createElement('canvas');
@@ -37,6 +83,14 @@ export function getImageXYData(img, w, h) {
 	return xyrgbData;
 }
 
+/**
+ * @memberof SINT.Unit
+ * @function getImageRGBAData
+ * @param {HTMLImageElement} [img] - the source object of the texture.
+ * @param {number} [w] - width
+ * @param {number} [h] - height
+ * @return {number[]} - An array representing the [R, G, B ,A] of the color.
+ */
 export function getImageRGBAData(img, w, h) {
 
 	let templateCanvas = document.createElement('canvas');
@@ -53,6 +107,13 @@ export function getImageRGBAData(img, w, h) {
 	return imgData;
 }
 
+/**
+ * @memberof SINT.Unit
+ * @function getTxtImage
+ * @param {string} [txt] - the string of text.
+ * @param {number} [size] - the font size of text.
+ * @return {HTMLImageElement} - img Element.
+ */
 export function getTxtImage(txt, size = 50) {
 	let c = document.createElement('canvas');
 	document.body.appendChild(c);
@@ -74,7 +135,12 @@ export function getTxtImage(txt, size = 50) {
 	return img;
 }
 
-
+/**
+ * @memberof SINT.Unit
+ * @function canvasToImage
+ * @param {HTMLCanvasElement} [canvas] - the source object of the texture.
+ * @return {HTMLImageElement} - img Element.
+ */
 export function canvasToImage(canvas) {
 	let gl = canvas.getContext("experimental-webgl", {
 		preserveDrawingBuffer: true
@@ -106,6 +172,8 @@ export function readFile(file) {
 	});
 }
 
+
+
 export function readJson(file) {
 	console.log(file.type);
 
@@ -123,7 +191,12 @@ export function readJson(file) {
 	});
 }
 
-
+/**
+ * @memberof SINT.Unit
+ * @function loadJson
+ * @param {string} [url] - the json url.
+ * @return {Promise} - Promise
+ */
 export function loadJson(url) {
 	return new Promise(function(resolve, reject) {
 		const request = new XMLHttpRequest();
@@ -138,6 +211,14 @@ export function loadJson(url) {
 		}
 	});
 }
+
+/**
+ * @memberof SINT.Unit
+ * @function postJson
+ * @param {string} [url] - the json url.
+ * @param {object} [sendData] - the object of data.
+ * @return {Promise} - Promise
+ */
 
 export function postJson(url, sendData) {
 	return new Promise(function(resolve, reject) {
