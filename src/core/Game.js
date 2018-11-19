@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js';
-import 'pixi-sound';
+import {Sound} from 'pixi-sound';
 import Stats from 'stats.js';
 
 

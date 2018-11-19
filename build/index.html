@@ -62,6 +62,33 @@
     {
         console.log(SINT);
 
+        SINT.loader.add('s1', './assets/sound/s1.mp3');
+        SINT.loader.load(function(loader, resources) {
+            let sound1 = loader.resources['s1'].sound;
+            sound1.loop = true;
+            sound1.play();
+
+            // setTimeout(function(){
+            //     PIXI.sound.stopAll();
+            // },5000)
+        });
+
+        
+        SINT.Sound.from({
+            url: 'assets/sound/s2.mp3',
+            autoPlay: true,
+            // loop:true,
+            loaded : function() {
+                console.log('Sound loaded');
+            },
+            complete: function() {
+                console.log('Sound finished');
+            }
+        });
+
+
+
+
         var game = new SINT.Game(config, loading, create);
         console.log(SINT);
         var loadingTxt = new SINT.TextClip(game.initWidth / 2, 600, '0%', {
