@@ -102,7 +102,7 @@ export default class Game extends PIXI.Application {
 
 		// for bottom render bug
 		this.initHeight = this.domElement.offsetHeight / _c;
-
+		// this.view.style.width = '100%';
 		this.view.style.transform = "matrix(" + _c + ", 0, 0, " + _c + ", 0, 0)";
 		this.view.style.transformOrigin = "0% 0%";
 
