@@ -1,5 +1,5 @@
 import { TwistFilter, RadialBlurFilter } from 'pixi-filters';
-import {TweenMax} from "gsap/TweenMax";
+import { TweenMax } from "gsap/TweenMax";
 import Dye from './dye/dye';
 import Glitch from './glitch/glitch';
 

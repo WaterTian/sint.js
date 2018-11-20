@@ -37,7 +37,7 @@
         domElement: document.querySelector('#webglContainer'), // 画布容器
         initWidth: 750,
         initHeight: 1334,
-        showFPS: true,
+        showFPS: false,
         backgroundColor: 0x2a3145,
         assets: {
             bg: './assets/bg.png',
@@ -62,29 +62,29 @@
     {
         console.log(SINT);
 
-        SINT.loader.add('s1', './assets/sound/s1.mp3');
-        SINT.loader.load(function(loader, resources) {
-            let sound1 = loader.resources['s1'].sound;
-            sound1.loop = true;
-            sound1.play();
+        // SINT.loader.add('s1', './assets/sound/s1.mp3');
+        // SINT.loader.load(function(loader, resources) {
+        //     let sound1 = loader.resources['s1'].sound;
+        //     sound1.loop = true;
+        //     sound1.play();
 
-            // setTimeout(function(){
-            //     PIXI.sound.stopAll();
-            // },5000)
-        });
+        //     // setTimeout(function(){
+        //     //     PIXI.sound.stopAll();
+        //     // },5000)
+        // });
 
         
-        SINT.Sound.from({
-            url: 'assets/sound/s2.mp3',
-            autoPlay: true,
-            // loop:true,
-            loaded : function() {
-                console.log('Sound loaded');
-            },
-            complete: function() {
-                console.log('Sound finished');
-            }
-        });
+        // SINT.Sound.from({
+        //     url: 'assets/sound/s2.mp3',
+        //     autoPlay: true,
+        //     // loop:true,
+        //     loaded : function() {
+        //         console.log('Sound loaded');
+        //     },
+        //     complete: function() {
+        //         console.log('Sound finished');
+        //     }
+        // });
 
 
 
@@ -125,12 +125,19 @@
             game.add(bg);
 
 
-          //Container
+            // //video
+            // var videoBaseTexture = SINT.VideoBaseTexture.fromUrl('./assets/video/v1.mp4');
+            // videoBaseTexture.autoPlay=false;
+            // var videoTexture = SINT.Texture.from(videoBaseTexture);
+            // // var videoTexture = SINT.Texture.fromVideo('./assets/video/v1.mp4');
+            // var videoSprite =  new SINT.Sprite(videoTexture);
+            // game.add(videoSprite);
+
+
+            //Container
             var fishsContainer = new SINT.Container();
             game.add(fishsContainer);
-
             SINT.Magic.doTwistFilter(fishsContainer, [500, 500], 400, 2, false);
-
 
             var fishs = [];
             for (var i = 0; i < 1000; i++) {
@@ -172,9 +179,6 @@
                         // SINT.Magic.doRadialBlurFilter(game.stage, [400, 800], 800, 3, true);
                     }
                 });
-
-
-
                 game.stopAllSound();
             })
             //btn
@@ -193,9 +197,6 @@
             game.add(icon2);
 
             SINT.Magic.doDye(icon2, 0x7067c5);
-
-
-
 
             //Text
             var t1 = new SINT.TextClip(30, 600, 'Game1 * -> 课前游戏 -> 单词文本', {
