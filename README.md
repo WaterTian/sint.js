@@ -26,7 +26,6 @@ import * as SINT from 'sint.js'
 ### Create Your First Sint Example ###
 
 ```js
-
 const config = {
     canvas: document.querySelector('#webglStage'), // 容器画布
     initWidth: 750,
@@ -49,7 +48,6 @@ function loading(_pr) {
 }
 
 function create() {
-
     // bg image
     let bg = new SINT.SpriteClip(0, 0, 'bg');
     game.add(bg);
@@ -60,7 +58,6 @@ function create() {
         .on('pointerup', onDragEnd)
         .on('pointerupoutside', onDragEnd)
         .on('pointermove', onDragMove);
-
 
     // Animated
     let ac1 = new SINT.AnimatedClip(400, 600, 'fighter');
@@ -78,17 +75,13 @@ function create() {
         // spineBoy.state.addAnimation(0, 'walk', true);
     });
 
-
     // 播放音乐
     game.playSound('sound1');
-    
     // 暂停
     game.pauseSound('sound1');
     // 停止所有音乐
     game.stopAllSound();
 }
-
-
 
 // 销毁并清除 view
 game.removeThis();
@@ -96,6 +89,31 @@ game.removeThis();
 ```
 
 
+### Public Sound Example ###
+
+```js
+// Use PIXI.loader system
+SINT.loader.add('s1', './assets/sound/s1.mp3');
+SINT.loader.load(function(loader, resources) {
+    let sound1 = loader.resources['s1'].sound;
+    sound1.loop = true;
+    sound1.play();
+});
+
+// Instance from source
+SINT.Sound.from({
+    url: 'assets/sound/s2.mp3',
+    autoPlay: true,
+    // loop:true,
+    loaded : function() {
+        console.log('Sound loaded');
+    },
+    complete: function() {
+        console.log('Sound finished');
+    }
+});
+
+```
 ### How to build ###
 
 ```sh
