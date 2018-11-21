@@ -16,7 +16,7 @@ export { TweenMax } from "gsap/TweenMax";
 export * from "pixi.js";
 // export {Container,Sprite,Texture,filters} from "pixi.js";
 
-// export {Sound} from "pixi-sound";
+export { Sound } from "pixi-sound";
 
 
 export {

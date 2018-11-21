@@ -33,7 +33,7 @@
     var vConsole = new VConsole();
 
 
-    var config = {
+    const config = {
         domElement: document.querySelector('#webglContainer'), // 画布容器
         initWidth: 750,
         initHeight: 1334,
@@ -62,29 +62,24 @@
     {
         console.log(SINT);
 
-        // SINT.loader.add('s1', './assets/sound/s1.mp3');
-        // SINT.loader.load(function(loader, resources) {
-        //     let sound1 = loader.resources['s1'].sound;
-        //     sound1.loop = true;
-        //     sound1.play();
-
-        //     // setTimeout(function(){
-        //     //     PIXI.sound.stopAll();
-        //     // },5000)
-        // });
-
+        SINT.loader.add('s1', './assets/sound/s1.mp3');
+        SINT.loader.load(function(loader, resources) {
+            var sound1 = resources['s1'].sound;
+            sound1.loop = true;
+            sound1.play();
+        });
         
-        // SINT.Sound.from({
-        //     url: 'assets/sound/s2.mp3',
-        //     autoPlay: true,
-        //     // loop:true,
-        //     loaded : function() {
-        //         console.log('Sound loaded');
-        //     },
-        //     complete: function() {
-        //         console.log('Sound finished');
-        //     }
-        // });
+        SINT.Sound.from({
+            url: 'assets/sound/s2.mp3',
+            autoPlay: true,
+            // loop:true,
+            loaded : function() {
+                console.log('Sound loaded');
+            },
+            complete: function() {
+                console.log('Sound finished');
+            }
+        });
 
 
 

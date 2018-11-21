@@ -66,13 +66,13 @@ export default class Game extends PIXI.Application {
 			SINT.TyLoader.add(key, config.assets[key]);
 		}
 		SINT.TyLoader.onProgress.add((_e) => {
-			// console.log("onProgress " + _e.progress);
+			// console.warn("onProgress " + _e.progress);
 			if (loading) loading(_e.progress);
 		});
 
 		let _this = this;
 		SINT.TyLoader.load((loader, resources) => {
-			console.log("loadComplete");
+			console.warn("loadComplete");
 			if (create) create();
 		});
 
@@ -98,7 +98,7 @@ export default class Game extends PIXI.Application {
 	resize() {
 
 		let _c = this.domElement.offsetWidth / this.initWidth;
-		console.log("resize " + _c);
+		console.warn("resize " + _c);
 
 		// for bottom render bug
 		this.initHeight = this.domElement.offsetHeight / _c;

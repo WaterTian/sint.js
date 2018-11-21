@@ -49,7 +49,7 @@ function loading(_pr) {
 
 function create() {
     // bg image
-    let bg = new SINT.SpriteClip(0, 0, 'bg');
+    var bg = new SINT.SpriteClip(0, 0, 'bg');
     game.add(bg);
     
     // events
@@ -60,13 +60,13 @@ function create() {
         .on('pointermove', onDragMove);
 
     // Animated
-    let ac1 = new SINT.AnimatedClip(400, 600, 'fighter');
+    var ac1 = new SINT.AnimatedClip(400, 600, 'fighter');
     game.add(ac1);
     ac1.anchor.set(0.5);
     ac1.play();
 
     // spine
-    let spineBoy = new SINT.SpineClip(game.initWidth/2 , game.initHeight , 'spineboy');
+    var spineBoy = new SINT.SpineClip(game.initWidth/2 , game.initHeight , 'spineboy');
     game.add(spineBoy);
     spineBoy.play('walk');
     spineBoy.interactive = true;
@@ -95,7 +95,7 @@ game.removeThis();
 // Use PIXI.loader system
 SINT.loader.add('s1', './assets/sound/s1.mp3');
 SINT.loader.load(function(loader, resources) {
-    let sound1 = loader.resources['s1'].sound;
+    var sound1 = loader.resources['s1'].sound;
     sound1.loop = true;
     sound1.play();
 });
