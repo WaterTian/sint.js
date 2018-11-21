@@ -21,12 +21,23 @@
         left: 0;
         width: 100vw;
         height: 100vh;
+        z-index: 1;
+    }
+
+    #videoContainer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        /*height: 50vh;*/
+        z-index: 100;
     }
     </style>
 </head>
 
 <body>
     <div id="webglContainer"> </div>
+    <div id="videoContainer"> </div>
     <script src="./vconsole.min.js"></script>
     <script src="./sint.js"></script>
     <script>
@@ -81,12 +92,16 @@
     //     }
     // });
 
+    var video1 = new SINT.VideoDom({parentElement:document.querySelector('#videoContainer'),});
+    document.querySelector('#videoContainer').addEventListener('click',function(){
+        // video1.destroy();
+        video1.toPlay();
+    });
 
     try {
         console.log(SINT);
 
         var game = new SINT.Game(config);
-
 
         var loadingTxt = new SINT.TextClip(game.initWidth / 2, 600, '0%', {
             fontFamily: 'Arial',
@@ -176,6 +191,8 @@
                     }
                 });
                 game.stopAllSound();
+
+                
             })
 
 
@@ -290,6 +307,7 @@
 
                 game.playSound('sound1');
                 game.pauseSound('sound0');
+
             })
 
 
@@ -306,6 +324,7 @@
             //     // game.playSound('sound2');
             // });
         }
+
 
         game.stage.interactive = true
         game.stage
@@ -336,10 +355,11 @@
             }
         }
 
-
     } catch (e) {
         alert(e.message)
     }
+
+
     </script>
 </body>
 

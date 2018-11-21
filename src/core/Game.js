@@ -1,7 +1,5 @@
 import * as PIXI from 'pixi.js';
-import {
-	Sound
-} from 'pixi-sound';
+import {Sound} from 'pixi-sound';
 import Stats from 'stats.js';
 
 
@@ -13,7 +11,7 @@ PIXI.settings.PRECISION_FRAGMENT = 'highp';
  * @class
  * @extends PIXI.Application
  * 
- * @param {object} config The Game options
+ * @param {object} [config] The Game options
  * @param {HTMLElement} [config.domElement] - HTML Element
  * @param {number} [config.initWidth=750] - The Game width
  * @param {number} [config.initHeight=1334] - The Game height
@@ -77,7 +75,7 @@ export default class Game extends PIXI.Application {
 	_resize() {
 
 		let _c = this.domElement.offsetWidth / this.initWidth;
-		console.warn("resize " + _c);
+		console.log("resize " + _c);
 
 		// for bottom render bug
 		this.initHeight = this.domElement.offsetHeight / _c;
@@ -125,7 +123,7 @@ export default class Game extends PIXI.Application {
 		});
 
 		SINT.TyLoader.load((loader, resources) => {
-			console.warn("loadComplete");
+			// console.log("loadComplete");
 			if (config.loaded) config.loaded();
 		});
 	}

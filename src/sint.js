@@ -8,10 +8,10 @@ import SpriteClip from './core/SpriteClip';
 import AnimatedClip from './core/AnimatedClip';
 import TextClip from './core/TextClip';
 
-//	TOOLS
+import VideoDom from './VideoDom';
+
+
 export { TweenMax } from "gsap/TweenMax";
-
-
 
 export * from "pixi.js";
 // export {Container,Sprite,Texture,filters} from "pixi.js";
@@ -28,6 +28,7 @@ export {
 	SpriteClip,
 	AnimatedClip,
 	TextClip,
+	VideoDom,
 };
 
 
