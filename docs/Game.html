@@ -172,9 +172,9 @@
             
                 <li class="parent  " data-name="Game#add"><a href="Game.html#add">add</a></li>
             
-                <li class="parent  " data-name="Game#animate"><a href="Game.html#animate">animate</a></li>
-            
                 <li class="parent  " data-name="Game#playSound"><a href="Game.html#playSound">playSound</a></li>
+            
+                <li class="parent  " data-name="Game#preload"><a href="Game.html#preload">preload</a></li>
             
                 <li class="parent  " data-name="Game#remove"><a href="Game.html#remove">remove</a></li>
             
@@ -283,7 +283,7 @@
             <span class="">
                 new Game
             </span>
-            <span class="signature">(config, <span class="optional">loading</span>, <span class="optional">create</span>)</span>
+            <span class="signature">(config)</span>
             
             
             
@@ -342,11 +342,6 @@
             
             <td class="description last">
                 
-                    
-                    
-                        
-                    
-                
                 <p>The Game options</p>
                 
 
@@ -378,7 +373,7 @@
             <td class="type">
             
                 
-<span class="param-type">domElement</span>
+<span class="param-type">HTMLElement</span>
 
 
             
@@ -399,7 +394,7 @@
                         
                     
                 
-                </td>
+                <p>HTML Element</p></td>
         </tr>
 	
 	
@@ -550,66 +545,6 @@
 	</tbody>
 </table>
             </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>loading</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>create</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
-                </td>
         </tr>
 	
 	
@@ -835,123 +770,6 @@
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="animate">
-            <a class="share-icon" href="#animate"><span class="glyphicon glyphicon-link"></span></a>
-            <span class="">
-                animate
-            </span>
-            <span class="signature">(delta)</span>
-            
-            
-            
-            
-        </h4>
-    
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Animate</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>delta</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                <p>% difference in time from last frame render</p></td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
         <h4 class="name" id="playSound">
             <a class="share-icon" href="#playSound"><span class="glyphicon glyphicon-link"></span></a>
             <span class="">
@@ -1077,6 +895,255 @@ PIXI.sound.stopAll();</p>
                     
                 
                 <p>loop?</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="preload">
+            <a class="share-icon" href="#preload"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                preload
+            </span>
+            <span class="signature">(config)</span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Init assets loader</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The assets loader options</p>
+                
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>assets</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    {}
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The assets</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>loading</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>loading function</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>loaded</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>loaded callback function</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
         </tr>
 	
 	
@@ -1337,7 +1404,7 @@ PIXI.sound.stopAll();</p>
 
         <footer class="content-size">
             <div class="footer">
-                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Nov 21 2018 12:01:28 GMT+0800 (CST)
+                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Nov 21 2018 15:50:29 GMT+0800 (CST)
             </div>
         </footer>
     </div>
