@@ -26,32 +26,33 @@ import * as SINT from 'sint.js'
 ### Create Your First Sint Example ###
 
 ```js
-
 const config = {
-    canvas: document.querySelector('#webglStage'), 
+    canvas: document.querySelector('#webglStage'), // HTMLElement
     initWidth: 750,
     initHeight: 1334,
     showFPS: true,
     backgroundColor: 0x2a3145,
-    
-    assets: {
-        bg: './assets/bg.jpg',
-        spineboy: './assets/spineboy.json',
-        fighter: './assets/fighter.json',
-        sound1: './assets/sound/s1.mp3',
-    }
 };
+const assets = {
+    bg: './assets/bg.jpg',
+    fighter: './assets/fighter.json',
+    sound1: './assets/sound/s1.mp3',
+}
+const game = new SINT.Game(config);
 
-const game = new SINT.Game(config,loading,create);
+game.preload({
+    assets: assets,
+    loading: loading,
+    loaded: create,
+})
 
 function loading(_pr) {
     console.log('loading ' + _pr);
 }
 
 function create() {
-
     // bg image
-    let bg = new SINT.SpriteClip(0, 0, 'bg');
+    var bg = new SINT.SpriteClip(0, 0, 'bg');
     game.add(bg);
     
     // events
@@ -61,30 +62,18 @@ function create() {
         .on('pointerupoutside', onDragEnd)
         .on('pointermove', onDragMove);
 
-
     // Animated
-    let ac1 = new SINT.AnimatedClip(400, 600, 'fighter');
+    var ac1 = new SINT.AnimatedClip(400, 600, 'fighter');
     game.add(ac1);
     ac1.anchor.set(0.5);
     ac1.play();
 
-    // spine
-    let spineBoy = new SINT.SpineClip(game.initWidth/2 , game.initHeight , 'spineboy');
-    game.add(spineBoy);
-    spineBoy.play('walk');
-    spineBoy.interactive = true;
-    spineBoy.on('pointerdown', function() {
-        spineBoy.play('jump', false);
-        // spineBoy.state.addAnimation(0, 'walk', true);
-    });
 
-
+    // sound
     game.playSound('sound1');
     game.pauseSound('sound1');
     game.stopAllSound();
 }
-
-
 
 // 销毁并清除 view
 game.removeThis();
@@ -92,6 +81,31 @@ game.removeThis();
 ```
 
 
+### Public Sound Example ###
+
+```js
+// Use PIXI.loader system
+SINT.loader.add('s1', './assets/sound/s1.mp3');
+SINT.loader.load(function(loader, resources) {
+    var sound1 = loader.resources['s1'].sound;
+    sound1.loop = true;
+    sound1.play();
+});
+
+// Instance from source
+SINT.Sound.from({
+    url: 'assets/sound/s2.mp3',
+    autoPlay: true,
+    // loop:true,
+    loaded : function() {
+        console.log('Sound loaded');
+    },
+    complete: function() {
+        console.log('Sound finished');
+    }
+});
+
+```
 ### How to build ###
 
 ```sh
