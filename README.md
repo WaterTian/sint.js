@@ -27,21 +27,24 @@ import * as SINT from 'sint.js'
 
 ```js
 const config = {
-    canvas: document.querySelector('#webglStage'), // 容器画布
+    canvas: document.querySelector('#webglStage'), // HTMLElement
     initWidth: 750,
     initHeight: 1334,
     showFPS: true,
-    backgroundColor: 0x2a3145,// 画布背景色
-    
-    assets: {
-        bg: './assets/bg.jpg',
-        spineboy: './assets/spineboy.json',
-        fighter: './assets/fighter.json',
-        sound1: './assets/sound/s1.mp3',
-    }
+    backgroundColor: 0x2a3145,
 };
+const assets = {
+    bg: './assets/bg.jpg',
+    fighter: './assets/fighter.json',
+    sound1: './assets/sound/s1.mp3',
+}
+const game = new SINT.Game(config);
 
-const game = new SINT.Game(config,loading,create);
+game.preload({
+    assets: assets,
+    loading: loading,
+    loaded: create,
+})
 
 function loading(_pr) {
     console.log('loading ' + _pr);
@@ -65,21 +68,10 @@ function create() {
     ac1.anchor.set(0.5);
     ac1.play();
 
-    // spine
-    var spineBoy = new SINT.SpineClip(game.initWidth/2 , game.initHeight , 'spineboy');
-    game.add(spineBoy);
-    spineBoy.play('walk');
-    spineBoy.interactive = true;
-    spineBoy.on('pointerdown', function() {
-        spineBoy.play('jump', false);
-        // spineBoy.state.addAnimation(0, 'walk', true);
-    });
 
-    // 播放音乐
+    // sound
     game.playSound('sound1');
-    // 暂停
     game.pauseSound('sound1');
-    // 停止所有音乐
     game.stopAllSound();
 }
 

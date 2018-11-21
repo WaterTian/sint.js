@@ -39,53 +39,55 @@
         initHeight: 1334,
         showFPS: false,
         backgroundColor: 0x2a3145,
-        assets: {
-            bg: './assets/bg.png',
-            icon1: './assets/icon1.png',
-            pic1: './assets/pic1.png',
-            pic2: './assets/pic2.png',
-            fighter: './assets/fighter.json',
-            spineboy: './assets/spineboy.json',
-            fish1: './assets/displacement_fish1.png',
-            fish2: './assets/displacement_fish2.png',
-            fish3: './assets/displacement_fish3.png',
-            fish4: './assets/displacement_fish4.png',
-            sound0: './assets/sound/bg.mp3',
-            sound1: './assets/sound/s1.mp3',
-            sound2: './assets/sound/s2.mp3',
-
-        }
     };
 
+    const assets1 = {
+        bg: './assets/bg.png',
+        pic1: './assets/pic1.png',
+        fish1: './assets/displacement_fish1.png',
+        fish2: './assets/displacement_fish2.png',
+        fish3: './assets/displacement_fish3.png',
+        fish4: './assets/displacement_fish4.png',
+        sound0: './assets/sound/bg.mp3',
+        sound1: './assets/sound/s1.mp3',
+        sound2: './assets/sound/s2.mp3',
+    }
+    const assets2 = {
+        icon1: './assets/icon1.png',
+        pic2: './assets/pic2.png',
+        fighter: './assets/fighter.json',
+        spineboy: './assets/spineboy.json',
+    }
 
-    try
-    {
+
+
+    // SINT.loader.add('s1', './assets/sound/s1.mp3');
+    // SINT.loader.load(function(loader, resources) {
+    //     // var s1 = SINT.loader.resources['s1'].sound;
+    //     var s1 = resources['s1'].sound;
+    //     s1.loop = true;
+    //     s1.play();
+    // });
+
+    // SINT.Sound.from({
+    //     url: 'assets/sound/s2.mp3',
+    //     autoPlay: true,
+    //     // loop:true,
+    //     loaded: function() {
+    //         console.log('Sound loaded');
+    //     },
+    //     complete: function() {
+    //         console.log('Sound finished');
+    //     }
+    // });
+
+
+    try {
         console.log(SINT);
 
-        SINT.loader.add('s1', './assets/sound/s1.mp3');
-        SINT.loader.load(function(loader, resources) {
-            var sound1 = resources['s1'].sound;
-            sound1.loop = true;
-            sound1.play();
-        });
-        
-        SINT.Sound.from({
-            url: 'assets/sound/s2.mp3',
-            autoPlay: true,
-            // loop:true,
-            loaded : function() {
-                console.log('Sound loaded');
-            },
-            complete: function() {
-                console.log('Sound finished');
-            }
-        });
+        var game = new SINT.Game(config);
 
 
-
-
-        var game = new SINT.Game(config, loading, create);
-        console.log(SINT);
         var loadingTxt = new SINT.TextClip(game.initWidth / 2, 600, '0%', {
             fontFamily: 'Arial',
             fontSize: 42,
@@ -95,39 +97,36 @@
         loadingTxt.anchor.set(0.5)
         game.add(loadingTxt)
 
+        game.preload({
+            assets: assets1,
+            loading: loading,
+            loaded: create,
+        })
+
         function loading(_pr) {
+            console.log("loading1_" + _pr)
             loadingTxt.text = _pr + '%'
         }
+
         function removeLoading() {
             SINT.TweenMax.to(loadingTxt, 0.6, {
                 alpha: 0,
-                ease:Strong.easeOut,
+                ease: Strong.easeOut,
                 onComplete: function() {
                     game.remove(loadingTxt)
                 }
             })
         }
+
         function create() {
             removeLoading();
 
             //bg sound
             game.playSound('sound0', true);
 
-
-
             //bg image
             var bg = new SINT.SpriteClip(0, 0, 'bg');
             game.add(bg);
-
-
-            // //video
-            // var videoBaseTexture = SINT.VideoBaseTexture.fromUrl('./assets/video/v1.mp4');
-            // videoBaseTexture.autoPlay=false;
-            // var videoTexture = SINT.Texture.from(videoBaseTexture);
-            // // var videoTexture = SINT.Texture.fromVideo('./assets/video/v1.mp4');
-            // var videoSprite =  new SINT.Sprite(videoTexture);
-            // game.add(videoSprite);
-
 
             //Container
             var fishsContainer = new SINT.Container();
@@ -169,6 +168,8 @@
                             x: 1,
                             y: 1,
                         });
+                        ///////////////////
+                        initPart2();
 
                         SINT.Magic.doTwistFilter(game.stage, [400, 800], 600, 2, true);
                         // SINT.Magic.doRadialBlurFilter(game.stage, [400, 800], 800, 3, true);
@@ -176,6 +177,50 @@
                 });
                 game.stopAllSound();
             })
+
+
+
+            var fishBounds = new PIXI.Rectangle(-100, -100,
+                game.initWidth + 100 * 2, game.initHeight + 100 * 2);
+
+            //update
+            game.ticker.add(function() {
+                //fish
+                for (var i = 0; i < fishs.length; i++) {
+                    var fish = fishs[i];
+                    fish.direction += fish.turningSpeed * 0.01;
+                    fish.x += Math.sin(fish.direction) * (fish.speed * fish.scale.y);
+                    fish.y += Math.cos(fish.direction) * (fish.speed * fish.scale.y);
+                    fish.rotation = -fish.direction - Math.PI / 2;
+
+                    // wrap the maggots
+                    if (fish.x < fishBounds.x) {
+                        fish.x += fishBounds.width;
+                    } else if (fish.x > fishBounds.x + fishBounds.width) {
+                        fish.x -= fishBounds.width;
+                    }
+                    if (fish.y < fishBounds.y) {
+                        fish.y += fishBounds.height;
+                    } else if (fish.y > fishBounds.y + fishBounds.height) {
+                        fish.y -= fishBounds.height;
+                    }
+                }
+            });
+        }
+        var part2 = false;
+        function initPart2() {
+            if (part2) return;
+            part2 = true;
+            game.preload({
+                assets: assets2,
+                loading: function(_pr) {
+                    console.log("loading2_" + _pr)
+                },
+                loaded: createPart2,
+            })
+        }
+
+        function createPart2() {
             //btn
             var btn2 = new SINT.SpriteClip(28, 900, 'pic2');
             btn2.addChild(new SINT.TextClip(180, 56, '卸载'));
@@ -248,36 +293,6 @@
             })
 
 
-            game.stage.interactive = true
-            game.stage
-                .on('pointerdown', onDragStart)
-                .on('pointerup', onDragEnd)
-                .on('pointerupoutside', onDragEnd)
-                .on('pointermove', onDragMove)
-
-            var mouseFilter = new SINT.Magic.BulgePinchFilter([0.5, 0.5], 300, 1.2);
-
-            function onDragStart(event) {
-                this.dragging = true
-                game.stage.filters = [mouseFilter];
-                mouseFilter.center = [event.data.global.x / 750, event.data.global.y / 1334];
-            }
-
-            function onDragEnd(event) {
-                this.dragging = false
-                SINT.TweenMax.to(mouseFilter, .3, {
-                    radius: 0,
-                });
-            }
-
-            function onDragMove(event) {
-                if (this.dragging) {
-                    mouseFilter.center = [event.data.global.x / 750, event.data.global.y / 1334];
-                    mouseFilter.radius += (300 - mouseFilter.radius) * 0.8;
-                }
-            }
-
-            
 
             // //spine
             // var spineBoy = new SINT.SpineClip(game.initWidth / 2, game.initHeight, 'spineboy');
@@ -290,52 +305,41 @@
             //     //
             //     // game.playSound('sound2');
             // });
-
-
-            var fishBounds = new PIXI.Rectangle(-100, -100,
-                game.initWidth + 100 * 2, game.initHeight + 100 * 2);
-
-            //update
-            game.ticker.add(function() {
-
-                //fish
-                for (var i = 0; i < fishs.length; i++) {
-                    var fish = fishs[i];
-                    fish.direction += fish.turningSpeed * 0.01;
-                    fish.x += Math.sin(fish.direction) * (fish.speed * fish.scale.y);
-                    fish.y += Math.cos(fish.direction) * (fish.speed * fish.scale.y);
-                    fish.rotation = -fish.direction - Math.PI / 2;
-
-                    // wrap the maggots
-                    if (fish.x < fishBounds.x) {
-                        fish.x += fishBounds.width;
-                    } else if (fish.x > fishBounds.x + fishBounds.width) {
-                        fish.x -= fishBounds.width;
-                    }
-                    if (fish.y < fishBounds.y) {
-                        fish.y += fishBounds.height;
-                    } else if (fish.y > fishBounds.y + fishBounds.height) {
-                        fish.y -= fishBounds.height;
-                    }
-                }
-            });
-
-            /*  */
         }
 
+        game.stage.interactive = true
+        game.stage
+            .on('pointerdown', onDragStart)
+            .on('pointerup', onDragEnd)
+            .on('pointerupoutside', onDragEnd)
+            .on('pointermove', onDragMove)
+
+        var mouseFilter = new SINT.Magic.BulgePinchFilter([0.5, 0.5], 300, 1.2);
+
+        function onDragStart(event) {
+            this.dragging = true
+            game.stage.filters = [mouseFilter];
+            mouseFilter.center = [event.data.global.x / 750, event.data.global.y / 1334];
+        }
+
+        function onDragEnd(event) {
+            this.dragging = false
+            SINT.TweenMax.to(mouseFilter, .3, {
+                radius: 0,
+            });
+        }
+
+        function onDragMove(event) {
+            if (this.dragging) {
+                mouseFilter.center = [event.data.global.x / 750, event.data.global.y / 1334];
+                mouseFilter.radius += (300 - mouseFilter.radius) * 0.8;
+            }
+        }
+
+
+    } catch (e) {
+        alert(e.message)
     }
-    catch(e)
-    {
-       alert(e.message)
-    }
-
-
-
-
-
-
-
-
     </script>
 </body>
 

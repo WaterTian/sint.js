@@ -1,5 +1,7 @@
 import * as PIXI from 'pixi.js';
-import {Sound} from 'pixi-sound';
+import {
+	Sound
+} from 'pixi-sound';
 import Stats from 'stats.js';
 
 
@@ -12,31 +14,24 @@ PIXI.settings.PRECISION_FRAGMENT = 'highp';
  * @extends PIXI.Application
  * 
  * @param {object} config The Game options
- * @param {domElement} [config.domElement] 
+ * @param {HTMLElement} [config.domElement] - HTML Element
  * @param {number} [config.initWidth=750] - The Game width
  * @param {number} [config.initHeight=1334] - The Game height
  * @param {boolean} [config.showFPS=true]
  * @param {number} [config.backgroundColor=0x000000] - The backgroundColor
- *
- * @param {function} [loading]
- * @param {function} [create]
  */
 
 
 export default class Game extends PIXI.Application {
 
-	constructor(config, loading, create) {
-		if (config === undefined) {
-			config = {}
-		};
-
+	constructor(config) {
+		if (config === undefined) config = {}
 		config = Object.assign({
 			domElement: null,
 			initWidth: 750,
 			initHeight: 1334,
 			showFPS: true, // 显示帧频
 			backgroundColor: 0x000000, // 画布背景色
-			assets: {},
 		}, config);
 
 
@@ -59,43 +54,27 @@ export default class Game extends PIXI.Application {
 			this.domElement.appendChild(this.stats.dom);
 		}
 
-
-		/// assets load
+		/// one game one loader
 		SINT.TyLoader = new PIXI.loaders.Loader();
-		for (let key in config.assets) {
-			SINT.TyLoader.add(key, config.assets[key]);
-		}
-		SINT.TyLoader.onProgress.add((_e) => {
-			// console.warn("onProgress " + _e.progress);
-			if (loading) loading(_e.progress);
-		});
+		this.Loader = SINT.TyLoader;
 
-		let _this = this;
-		SINT.TyLoader.load((loader, resources) => {
-			console.warn("loadComplete");
-			if (create) create();
-		});
-
-
-		this.init();
+		this._init();
 	}
 
-
-	init() {
+	_init() {
 		const {
 			initWidth,
 			initHeight
 		} = this;
 
 		// Handle window resize event
-		window.addEventListener('resize', this.resize.bind(this));
-		this.resize();
+		window.addEventListener('resize', this._resize.bind(this));
+		this._resize();
 
 		// Handle fish animation
-		this.ticker.add(this.animate, this);
+		this.ticker.add(this._animate, this);
 	}
-
-	resize() {
+	_resize() {
 
 		let _c = this.domElement.offsetWidth / this.initWidth;
 		console.warn("resize " + _c);
@@ -109,6 +88,49 @@ export default class Game extends PIXI.Application {
 		this.renderer.resize(this.initWidth, this.initHeight);
 		this.render();
 	}
+	_animate(delta) {
+		if (this.stats) this.stats.update();
+		// this.animateTimer += delta;
+		// const { animateTimer} = this;
+		// this.events.emit('animate', delta, animateTimer);
+		// if (!this.animating) {
+		//     return;
+		// }
+	}
+
+
+	/**
+	 * Init assets loader
+	 * 
+	 * @param {object} config - The assets loader options
+	 * @param {object} [config.assets={}] - The assets
+	 * @param {function} [config.loading=null] - loading function
+	 * @param {function} [config.loaded=null] - loaded callback function
+	 */
+	preload(config) {
+		if (config === undefined) config = {}
+		config = Object.assign({
+			assets: {},
+			loading: null,
+			loaded: null,
+		}, config);
+
+
+		for (let key in config.assets) {
+			SINT.TyLoader.add(key, config.assets[key]);
+		}
+		SINT.TyLoader.onProgress.add((_e) => {
+			// console.warn("onProgress " + _e.progress);
+			if (config.loading) config.loading(_e.progress);
+		});
+
+		SINT.TyLoader.load((loader, resources) => {
+			console.warn("loadComplete");
+			if (config.loaded) config.loaded();
+		});
+	}
+
+
 
 	/**
 	 * Adds one or more children to the stage.
@@ -130,23 +152,6 @@ export default class Game extends PIXI.Application {
 		this.stage.removeChild(child);
 	}
 
-
-	/**
-	 * Animate
-	 * @param {number} delta - % difference in time from last frame render
-	 */
-	animate(delta) {
-
-		if (this.stats) this.stats.update();
-
-
-		// this.animateTimer += delta;
-		// const { animateTimer} = this;
-		// this.events.emit('animate', delta, animateTimer);
-		// if (!this.animating) {
-		//     return;
-		// }
-	}
 
 	/**
 	 * Must be loaded
