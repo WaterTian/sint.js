@@ -20,7 +20,7 @@
         "cleverLinks"   : false,
         "monospaceLinks": false,
         "default"       : {
-            "outputSourceFiles" : true
+            "outputSourceFiles" : false
         },
         "applicationName": "Sint.JS",
         "footer"        : "Made with ♥ by SintLab (sintlab.com)",
