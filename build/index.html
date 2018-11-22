@@ -111,6 +111,7 @@
         video1.toPlay();
     });
     document.querySelector('#videoInput').addEventListener('click', function() {
+        if(!video1)return;
         video1.destroy();
         video1 = null;
     });
