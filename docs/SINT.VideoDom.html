@@ -311,7 +311,7 @@
     </ul>
 </div>
     <div class="main">
-        <h1 class="page-title" data-filename="SINT.Magic.html">Namespace: Magic</h1>
+        <h1 class="page-title" data-filename="SINT.VideoDom.html">Class: VideoDom</h1>
         
 
 
@@ -320,7 +320,7 @@
     
 <header>
     <div class="header content-size">
-        <h2>Magic
+        <h2>VideoDom
         </h2>
         
     </div>
@@ -332,8 +332,216 @@
     
     
         
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="VideoDom">
+            <a class="share-icon" href="#VideoDom"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                new SINT.VideoDom
+            </span>
+            <span class="signature">(<span class="optional">config</span>)</span>
+            
+            
+            
+            
+        </h4>
+    
         
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+
+    
+    
+    
+    
+    
         
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The video options</p>
+                
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>parentElement</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">HTMLElement</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    document.body
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>HTML Element</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>videoUrl</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The videoUrl</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>posterImg</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The posterImg</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
 <dl class="details">
     
         
@@ -356,24 +564,37 @@
     
 </dl>
 
-        
-        
-            <h3>Example</h3>
-            
-
     
-    <pre class="prettyprint"><code>SINT.Magic.doTwistFilter(Container, [500, 500], 400, 2, false);
-
-SINT.Magic.doTwistFilter(game.stage, [400, 800], 600, 2, true);
-
-SINT.Magic.doGlitch(game.stage);</code></pre>
     
 
+    
+
+    
+    
+    
+    
+    
+    
+    
+        <h5>Example</h5>
         
+
+    
+    <pre class="prettyprint"><code>// <div id="videoContainer" style="position: absolute;top: 0;left: 0;width: 100vw;height: 100vh;z-index: 100;"></div>var videoContainer = document.querySelector('#videoContainer');var video1 = new SINT.VideoDom({ parentElement: videoContainer,videoUrl: './assets/video/dino.mp4', posterImg: './assets/video/dino.jpg'});video1.videoElement.addEventListener('click', function() {    video1.toPlay();});               				 video1.on('ended',function(e){    video1.destroy();})</code></pre>
+    
+
+    
+</dd>
+
     
     </div>
     
     
+        <h3 class="subsection-title">Extends</h3>
+        
+        <ul>
+            <li>EventEmitter</li>
+        </ul>
     
     
     
@@ -383,6 +604,164 @@ SINT.Magic.doGlitch(game.stage);</code></pre>
     
     
     
+    
+    
+        <h3 class="subsection-title">Members</h3>
+        
+        <dl class="list-members">
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="_video">
+            <a class="share-icon" href="#_video"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">_video</span>
+            <span class="type-signature type">HTMLVideoElement</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The video</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="parentElement">
+            <a class="share-icon" href="#parentElement"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">parentElement</span>
+            <span class="type-signature type">HTMLElement</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The parentElement.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="videoElement">
+            <a class="share-icon" href="#videoElement"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">videoElement</span>
+            <span class="type-signature type">HTMLElement</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The videoElement.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        </dl>
     
     
     
@@ -392,14 +771,14 @@ SINT.Magic.doGlitch(game.stage);</code></pre>
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id=".doDye">
-            <a class="share-icon" href="#.doDye"><span class="glyphicon glyphicon-link"></span></a>
+        <h4 class="name" id="destroy">
+            <a class="share-icon" href="#destroy"><span class="glyphicon glyphicon-link"></span></a>
             <span class="">
-                SINT.Magic.doDye
+                destroy
             </span>
-            <span class="signature">(container)</span>
+            <span class="signature">()</span>
             
-            <span class="access-signature">static</span>
+            
             
             
         </h4>
@@ -411,6 +790,82 @@ SINT.Magic.doGlitch(game.stage);</code></pre>
 </dt>
 <dd>
     
+    
+    <div class="description">
+        <p>destroy</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="seek">
+            <a class="share-icon" href="#seek"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                seek
+            </span>
+            <span class="signature">(<span class="optional">n</span>)</span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Seek video</p>
+    </div>
     
 
     
@@ -440,13 +895,13 @@ SINT.Magic.doGlitch(game.stage);</code></pre>
 	
         <tr>
             
-                <td class="name"><code>container</code></td>
+                <td class="name"><code>n</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">PIXI.Container</span>
+<span class="param-type">number</span>
 
 
             
@@ -456,7 +911,14 @@ SINT.Magic.doGlitch(game.stage);</code></pre>
             
             <td class="description last">
                 
-                </td>
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The video time</p></td>
         </tr>
 	
 	
@@ -505,14 +967,14 @@ SINT.Magic.doGlitch(game.stage);</code></pre>
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id=".doGlitch">
-            <a class="share-icon" href="#.doGlitch"><span class="glyphicon glyphicon-link"></span></a>
+        <h4 class="name" id="toPause">
+            <a class="share-icon" href="#toPause"><span class="glyphicon glyphicon-link"></span></a>
             <span class="">
-                SINT.Magic.doGlitch
+                toPause
             </span>
-            <span class="signature">(container)</span>
+            <span class="signature">()</span>
             
-            <span class="access-signature">static</span>
+            
             
             
         </h4>
@@ -525,56 +987,15 @@ SINT.Magic.doGlitch(game.stage);</code></pre>
 <dd>
     
     
+    <div class="description">
+        <p>Pause video</p>
+    </div>
+    
 
     
     
     
     
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>container</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">PIXI.Container</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
     
     
     
@@ -618,14 +1039,14 @@ SINT.Magic.doGlitch(game.stage);</code></pre>
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id=".doRadialBlurFilter">
-            <a class="share-icon" href="#.doRadialBlurFilter"><span class="glyphicon glyphicon-link"></span></a>
+        <h4 class="name" id="toPlay">
+            <a class="share-icon" href="#toPlay"><span class="glyphicon glyphicon-link"></span></a>
             <span class="">
-                SINT.Magic.doRadialBlurFilter
+                toPlay
             </span>
-            <span class="signature">(container, offset, radius, time, clear)</span>
+            <span class="signature">()</span>
             
-            <span class="access-signature">static</span>
+            
             
             
         </h4>
@@ -638,359 +1059,15 @@ SINT.Magic.doGlitch(game.stage);</code></pre>
 <dd>
     
     
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>container</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">PIXI.Container</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>offset</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">PIXI.Point</span>
-|
-
-<span class="param-type">Array.&lt;number></span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>radius</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>time</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>clear</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id=".doTwistFilter">
-            <a class="share-icon" href="#.doTwistFilter"><span class="glyphicon glyphicon-link"></span></a>
-            <span class="">
-                SINT.Magic.doTwistFilter
-            </span>
-            <span class="signature">(container, offset, radius, time, clear)</span>
-            
-            <span class="access-signature">static</span>
-            
-            
-        </h4>
-    
-        
+    <div class="description">
+        <p>Play video</p>
     </div>
-
-    
-</dt>
-<dd>
-    
     
 
     
     
     
     
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>container</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">PIXI.Container</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>offset</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">PIXI.Point</span>
-|
-
-<span class="param-type">Array.&lt;number></span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>radius</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>time</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>clear</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
     
     
     
@@ -1037,6 +1114,478 @@ SINT.Magic.doGlitch(game.stage);</code></pre>
     
     
 
+    
+        <h3 class="subsection-title">Events</h3>
+        
+        <dl class="list-events">
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="event:canplay">
+            <a class="share-icon" href="#event:canplay"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                canplay
+            </span>
+            
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Fired when this video canplay.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>video</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">HTMLVideoElement</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The video</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="event:ended">
+            <a class="share-icon" href="#event:ended"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                ended
+            </span>
+            
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Fired when this video ended.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>video</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">HTMLVideoElement</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The video</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="event:playing">
+            <a class="share-icon" href="#event:playing"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                playing
+            </span>
+            
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Fired when this video playing.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>video</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">HTMLVideoElement</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The video</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="event:waiting">
+            <a class="share-icon" href="#event:waiting"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                waiting
+            </span>
+            
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Fired when this video waiting.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>video</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">HTMLVideoElement</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The video</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        </dl>
     
 </article>
 
