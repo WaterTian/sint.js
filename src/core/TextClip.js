@@ -4,6 +4,7 @@ import * as PIXI from 'pixi.js';
 /**
  * @class
  * @extends PIXI.Text
+ * @memberof SINT
  *
  * @param {number} [_x=0]
  * @param {number} [_y=0]

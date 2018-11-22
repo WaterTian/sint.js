@@ -3,7 +3,8 @@ import * as PIXI from 'pixi.js';
 /**
  * @class
  * @extends PIXI.extras.AnimatedSprite
- *
+ * @memberof SINT
+ * 
  * @param {number} [_x=0]
  * @param {number} [_y=0]
  * @param {string} name - The frame Id of the texture in the cache

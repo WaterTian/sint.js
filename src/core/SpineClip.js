@@ -4,6 +4,7 @@ import 'pixi-spine';
 /**
  * @class
  * @extends PIXI.spine.Spine
+ * @memberof SINT
  *
  * @param {number} [_x=0]
  * @param {number} [_y=0]

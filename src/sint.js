@@ -7,7 +7,6 @@ import * as Magic from './magic/';
 import SpriteClip from './core/SpriteClip';
 import AnimatedClip from './core/AnimatedClip';
 import TextClip from './core/TextClip';
-
 import VideoDom from './VideoDom';
 
 

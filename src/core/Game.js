@@ -1,5 +1,7 @@
 import * as PIXI from 'pixi.js';
-import {Sound} from 'pixi-sound';
+import {
+	Sound
+} from 'pixi-sound';
 import Stats from 'stats.js';
 
 
@@ -10,6 +12,7 @@ PIXI.settings.PRECISION_FRAGMENT = 'highp';
 /**
  * @class
  * @extends PIXI.Application
+ * @memberof SINT
  * 
  * @param {object} [config] The Game options
  * @param {HTMLElement} [config.domElement] - HTML Element
@@ -41,7 +44,18 @@ export default class Game extends PIXI.Application {
 
 
 		this.domElement = config.domElement;
+
+		/**
+		 * The initWidth.
+		 *
+		 * @member {number}
+		 */
 		this.initWidth = config.initWidth;
+		/**
+		 * The initHeight.
+		 *
+		 * @member {number}
+		 */
 		this.initHeight = config.initHeight;
 
 		this.domElement.appendChild(this.view);
@@ -79,9 +93,9 @@ export default class Game extends PIXI.Application {
 
 		// for bottom render bug
 		this.initHeight = this.domElement.offsetHeight / _c;
-		// this.view.style.width = '100%';
-		this.view.style.transform = "matrix(" + _c + ", 0, 0, " + _c + ", 0, 0)";
-		this.view.style.transformOrigin = "0% 0%";
+		this.view.style.width = '100%';
+		// this.view.style.transform = "matrix(" + _c + ", 0, 0, " + _c + ", 0, 0)";
+		// this.view.style.transformOrigin = "0% 0%";
 
 		this.renderer.resize(this.initWidth, this.initHeight);
 		this.render();

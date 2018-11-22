@@ -8,7 +8,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <style>
-    body {
+        body {
         font-family: "Inconsolata", monospace;
         background-color: #dedede;
         margin: 0px;
@@ -29,8 +29,19 @@
         top: 0;
         left: 0;
         width: 100vw;
-        /*height: 50vh;*/
+        height: 100vh;
         z-index: 100;
+    }
+    #videoInput {
+        border:none;
+        outline:medium;
+        background:none;
+        text-align:center;
+        position: absolute;
+        top: 2vw;
+        left: 40vw;
+        width: 20vw;
+        z-index: 110;
     }
     </style>
 </head>
@@ -38,6 +49,7 @@
 <body>
     <div id="webglContainer"> </div>
     <div id="videoContainer"> </div>
+    <input id="videoInput" type="text" name="videoTxt" value="sint.js">
     <script src="./vconsole.min.js"></script>
     <script src="./sint.js"></script>
     <script>
@@ -92,11 +104,21 @@
     //     }
     // });
 
-    var video1 = new SINT.VideoDom({parentElement:document.querySelector('#videoContainer'),});
-    document.querySelector('#videoContainer').addEventListener('click',function(){
+    var videoContainer = document.querySelector('#videoContainer');
+    var video1 = new SINT.VideoDom({ parentElement: videoContainer, videoUrl: './assets/video/dino.mp4', posterImg: './assets/video/dino.jpg' });
+    video1.videoElement.addEventListener('click', function() {
         // video1.destroy();
         video1.toPlay();
     });
+    document.querySelector('#videoInput').addEventListener('click', function() {
+        video1.destroy();
+        video1 = null;
+    });
+    video1.on('ended',function(e){
+        video1.destroy();
+        video1 = null;
+    })
+
 
     try {
         console.log(SINT);
@@ -135,6 +157,7 @@
 
         function create() {
             removeLoading();
+
 
             //bg sound
             game.playSound('sound0', true);
@@ -191,8 +214,6 @@
                     }
                 });
                 game.stopAllSound();
-
-                video1.destroy();
             })
 
 
@@ -225,6 +246,7 @@
             });
         }
         var part2 = false;
+
         function initPart2() {
             if (part2) return;
             part2 = true;
@@ -307,7 +329,6 @@
 
                 game.playSound('sound1');
                 game.pauseSound('sound0');
-
             })
 
 
@@ -358,8 +379,6 @@
     } catch (e) {
         alert(e.message)
     }
-
-
     </script>
 </body>
 
