@@ -31,6 +31,7 @@
         width: 100vw;
         height: 100vh;
         z-index: 100;
+        display: none;
     }
     #videoInput {
         border:none;
@@ -104,21 +105,22 @@
     //     }
     // });
 
-    var videoContainer = document.querySelector('#videoContainer');
-    var video1 = new SINT.VideoDom({ parentElement: videoContainer, videoUrl: './assets/video/dino.mp4', posterImg: './assets/video/dino.jpg' });
-    video1.videoElement.addEventListener('click', function() {
-        // video1.destroy();
-        video1.toPlay();
-    });
-    document.querySelector('#videoInput').addEventListener('click', function() {
-        if(!video1)return;
-        video1.destroy();
-        video1 = null;
-    });
-    video1.on('ended',function(e){
-        video1.destroy();
-        video1 = null;
-    })
+
+    // var videoContainer = document.querySelector('#videoContainer');
+    // var video1 = new SINT.VideoDom({ parentElement: videoContainer, videoUrl: './assets/video/dino.mp4', posterImg: './assets/video/dino.jpg' });
+    // video1.videoElement.addEventListener('click', function() {
+    //     // video1.destroy();
+    //     video1.toPlay();
+    // });
+    // document.querySelector('#videoInput').addEventListener('click', function() {
+    //     if(!video1)return;
+    //     video1.destroy();
+    //     video1 = null;
+    // });
+    // video1.on('ended',function(e){
+    //     video1.destroy();
+    //     video1 = null;
+    // })
 
 
     try {
@@ -147,7 +149,7 @@
         }
 
         function removeLoading() {
-            SINT.TweenMax.to(loadingTxt, 0.6, {
+            SINT.Tween.to(loadingTxt, 0.6, {
                 alpha: 0,
                 ease: Strong.easeOut,
                 onComplete: function() {
@@ -198,12 +200,12 @@
             btn1.anchor.set(0.5);
             btn1.interactive = true;
             btn1.on('pointerdown', function() {
-                SINT.TweenMax.to(btn1.scale, .6, {
+                SINT.Tween.to(btn1.scale, .6, {
                     x: 1.2,
                     y: 1.2,
                     ease: Elastic.easeOut,
                     onComplete: function() {
-                        SINT.TweenMax.to(btn1.scale, .4, {
+                        SINT.Tween.to(btn1.scale, .4, {
                             x: 1,
                             y: 1,
                         });
@@ -309,14 +311,14 @@
             ac1.on('pointerdown', function() {
                 console.log("fly")
                 ac1.play();
-                SINT.TweenMax.to(ac1, 1, {
+                SINT.Tween.to(ac1, 1, {
                     y: -150,
                     ease: Strong.easeOut,
                     onComplete: function() {
                         ac1.y = game.initHeight;
                     }
                 });
-                SINT.TweenMax.to(ac1, 2, {
+                SINT.Tween.to(ac1, 2, {
                     y: 600,
                     delay: 1,
                     ease: Strong.easeInOut,
@@ -365,7 +367,7 @@
 
         function onDragEnd(event) {
             this.dragging = false
-            SINT.TweenMax.to(mouseFilter, .3, {
+            SINT.Tween.to(mouseFilter, .3, {
                 radius: 0,
             });
         }

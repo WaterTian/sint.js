@@ -9,8 +9,9 @@ import AnimatedClip from './core/AnimatedClip';
 import TextClip from './core/TextClip';
 import VideoDom from './VideoDom';
 
-
-export { TweenMax } from "gsap/TweenMax";
+import { TweenMax } from "gsap/TweenMax";
+const Tween = TweenMax;
+// export { TweenMax } from "gsap/TweenMax";
 
 export * from "pixi.js";
 // export {Container,Sprite,Texture,filters} from "pixi.js";
@@ -28,6 +29,9 @@ export {
 	AnimatedClip,
 	TextClip,
 	VideoDom,
+	
+	TweenMax,
+	Tween,
 };
 
 
