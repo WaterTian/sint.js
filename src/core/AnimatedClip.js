@@ -7,24 +7,22 @@ import * as PIXI from 'pixi.js';
  * 
  * @param {number} [_x=0]
  * @param {number} [_y=0]
- * @param {string} name - The frame Id of the texture in the cache
- * @param {int} startNum - The start frame Id
+ * @param {string} name - The frame name of the texture in the cache
  */
 
 
 export default class AnimatedClip extends PIXI.extras.AnimatedSprite {
 	
-	constructor(_x = 0, _y = 0, name, startNum = 0) {
+	constructor(_x = 0, _y = 0, name) {
 
 		let sheet = SINT.TyLoader.resources[name].textures;
 		// console.log(sheet);
 
 		let textures = [];
-		let num = startNum;
 		for (let key in sheet) {
-			let texture = PIXI.Texture.fromFrame(name + num + '.png');
+			// console.log(key);
+			let texture = PIXI.Texture.fromFrame(key);
 			textures.push(texture);
-			num++;
 		}
 
 		super(textures);
