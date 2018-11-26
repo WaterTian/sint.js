@@ -1,6 +1,3 @@
-/**
- * @author       WaterTain <changewater@qq.com>
- */
 
 /**
  * Global consts.
@@ -11,15 +8,16 @@
 var CONST = {
 
     /**
-     * Sint Release Version
+     * Sint.js Release Version
      * 
      * @name Sint.VERSION
      * @readOnly
      * @type {string}
-     * @since 0.0.1
+     * @since 0.0.6
      */
     VERSION: '0.0.8',
 
 };
 
 module.exports = CONST;
+
