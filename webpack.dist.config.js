@@ -1,7 +1,7 @@
+const pkg = require('./package.json');
 const webpack = require('webpack');
 const path = require('path');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const package = require('./package.json');
 
 
 module.exports = {
@@ -17,7 +17,7 @@ module.exports = {
     },
     plugins: [
         new webpack.BannerPlugin({
-            banner: '@sint.js'+' \n'+'version:' +package.version+ ' \n'+'author:' +package.author,
+            banner: '@sint.js v'+pkg.version + ' (' + pkg.homepage + ')'+' \n'+'author:'+pkg.author,
             entryOnly: true
         })
     ],
