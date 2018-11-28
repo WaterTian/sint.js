@@ -16,7 +16,6 @@ module.exports = {
         umdNamedDefine: true,
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         new webpack.BannerPlugin({
             banner: '@sint.js'+' \n'+'version:' +package.version+ ' \n'+'author:' +package.author,
             entryOnly: true

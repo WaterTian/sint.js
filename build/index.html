@@ -48,9 +48,10 @@
 </head>
 
 <body>
+
     <div id="webglContainer"> </div>
     <div id="videoContainer"> </div>
-    <input id="videoInput" type="text" name="videoTxt" value="sint.js">
+    <input id="videoInput" type="text" name="videoTxt" value="sint.js" readonly="readonly">
     <script src="./vconsole.min.js"></script>
     <script src="./sint.js"></script>
     <script>
@@ -121,6 +122,31 @@
     //     video1.destroy();
     //     video1 = null;
     // })
+
+
+    document.querySelector('#videoInput').addEventListener('click', function() {
+        var contentDom = document.createElement('div');
+        contentDom.innerHTML = 'changewater3';
+        document.body.appendChild(contentDom);
+        selectText(contentDom)
+        document.execCommand("copy");
+        console.log('复制成功');
+        document.body.removeChild(contentDom);
+    });
+    function selectText(x) {
+        if (document.selection) {
+            var range = document.body.createTextRange();
+            range.moveToElementText(x);
+            range.select();
+        } else if (window.getSelection) {
+            var selection = window.getSelection();
+            var range = document.createRange();
+            selection.removeAllRanges();
+            range.selectNodeContents(x);
+            selection.addRange(range);
+        }
+    }
+
 
 
     try {
@@ -218,6 +244,7 @@
                 });
                 game.stopAllSound();
             })
+
 
 
 
