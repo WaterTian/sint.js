@@ -7,8 +7,6 @@
 	"scripts": {
 		"dev": "webpack-dev-server --config webpack.config.js",
 		"dist": "webpack --config webpack.dist.config.js",
-		"prelib": "rimraf lib/**",
-		"lib": "babel src --out-dir lib -s",
 		"predocs": "rimraf docs/**",
 		"docs": "jsdoc -c scripts/jsdoc.conf.json -R README.md"
 	},
@@ -18,10 +16,10 @@
 		"README.md"
 	],
 	"main": "./dist/sint.min.js",
-	"homepage": "https://code.vipkid.com.cn/edu/sint#readme",
+	"homepage": "https://watertian.github.io/sint.js/",
 	"repository": {
 		"type": "git",
-		"url": "git+https://code.vipkid.com.cn/edu/sint.git"
+		"url": "git+https://github.com/WaterTian/sint.js.git"
 	},
 	"devDependencies": {
 		"@pixi/jsdoc-template": "^2.4.2",
@@ -44,14 +42,13 @@
 		"webpack-glsl-loader": "^1.0.1"
 	},
 	"dependencies": {
+		"bit-twiddle": "^1.0.2",
+		"earcut": "^2.1.3",
 		"eventemitter3": "^3.1.0",
 		"gsap": "^1.20.2",
-		"pixi-filters": "^2.6.1",
-		"pixi-sound": "^2.0.3",
-		"pixi-spine": "^1.5.18",
-		"pixi.js": "^4.8.2",
-		"stats.js": "^0.17.0",
-		"vconsole": "^3.2.0"
+		"pixi-gl-core": "^1.1.4",
+		"remove-array-items": "^1.1.0",
+		"resource-loader": "^2.1.1"
 	},
 	"babel": {
 		"presets": [
