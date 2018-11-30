@@ -1,9 +1,10 @@
-import * as PIXI from 'pixi.js';
+import * as core from '../core';
+
 
 
 /**
  * @class
- * @extends PIXI.Sprite
+ * @extends core.Sprite
  * @memberof SINT
  *
  * @param {number} [_x=0]
@@ -12,10 +13,10 @@ import * as PIXI from 'pixi.js';
  */
 
 
-export default class SpriteClip extends PIXI.Sprite {
+export default class SpriteClip extends core.Sprite {
 
 	constructor(_x = 0, _y = 0, name) {
-		const texture = PIXI.Texture.fromFrame(name);
+		const texture = core.Texture.fromFrame(name);
 
 		super(texture);
 

@@ -1,9 +1,9 @@
-import * as PIXI from 'pixi.js';
+import * as core from '../core';
 
 
 /**
  * @class
- * @extends PIXI.Text
+ * @extends core.Text
  * @memberof SINT
  *
  * @param {number} [_x=0]
@@ -14,7 +14,7 @@ import * as PIXI from 'pixi.js';
  * 
  */
 
-export default class TextClip extends PIXI.Text {
+export default class TextClip extends core.Text {
 	constructor(_x = 0, _y = 0, txt = '', style) {
 
 		super(txt, style);

@@ -1,17 +1,20 @@
-import * as PIXI from 'pixi.js';
-import {
-    Sound
-} from 'pixi-sound';
-import Stats from 'stats.js';
+import * as core from '../core';
+// import {
+//     Sound
+// } from 'pixi-sound';
+
+// import Stats from 'stats.js';
 
 
+import * as loaders from '../loaders';
 
-PIXI.utils.skipHello();
-PIXI.settings.PRECISION_FRAGMENT = 'highp';
+
+core.utils.skipHello();
+core.settings.PRECISION_FRAGMENT = 'highp';
 
 /**
  * @class
- * @extends PIXI.Application
+ * @extends core.Application
  * @memberof SINT
  * 
  * @param {object} [config] The Game options
@@ -23,7 +26,7 @@ PIXI.settings.PRECISION_FRAGMENT = 'highp';
  */
 
 
-export default class Game extends PIXI.Application {
+export default class Game extends core.Application {
 
     constructor(config) {
         if (config === undefined) config = {}
@@ -61,13 +64,13 @@ export default class Game extends PIXI.Application {
         this.domElement.appendChild(this.view);
 
 
-        if (config.showFPS) {
-            this.stats = new Stats();
-            this.domElement.appendChild(this.stats.dom);
-        }
+        // if (config.showFPS) {
+        //     this.stats = new Stats();
+        //     this.domElement.appendChild(this.stats.dom);
+        // }
 
         /// one game one loader
-        SINT.TyLoader = new PIXI.loaders.Loader();
+        SINT.TyLoader = new loaders.Loader();
         this.Loader = SINT.TyLoader;
 
         this._init();
@@ -183,17 +186,17 @@ export default class Game extends PIXI.Application {
      * @param {boolean} [loop] - loop?
      * 
      */
-    playSound(name, loop = false) {
-        const _sound = SINT.TyLoader.resources[name].sound;
-        _sound.loop = loop;
-        _sound.play();
-    }
-    pauseSound(name) {
-        PIXI.sound.pause(name);
-    }
-    stopAllSound() {
-        PIXI.sound.stopAll();
-    }
+    // playSound(name, loop = false) {
+    //     const _sound = SINT.TyLoader.resources[name].sound;
+    //     _sound.loop = loop;
+    //     _sound.play();
+    // }
+    // pauseSound(name) {
+    //     PIXI.sound.pause(name);
+    // }
+    // stopAllSound() {
+    //     PIXI.sound.stopAll();
+    // }
 
 
 
@@ -221,7 +224,7 @@ export default class Game extends PIXI.Application {
 
 
 
-        PIXI.sound.removeAll();
+        // PIXI.sound.removeAll();
 
         // console.log(SINT.TyLoader.resources);
 

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SINT</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <style>
+        body {
+        font-family: "Inconsolata", monospace;
+        background-color: #dedede;
+        margin: 0px;
+        overflow: hidden;
+    }
+
+    #webglContainer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+    }
+
+    #videoContainer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 100;
+        display: none;
+    }
+    #videoInput {
+        border:none;
+        outline:medium;
+        background:none;
+        text-align:center;
+        position: absolute;
+        top: 2vw;
+        left: 40vw;
+        width: 20vw;
+        z-index: 110;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div id="webglContainer"> </div>
+    <div id="videoContainer"> </div>
+    <input id="videoInput" type="text" name="videoTxt" value="sint.js" readonly="readonly">
+    <script src="./sint.js"></script>
+    <script src="./main.js"></script>
+
+</body>
+
+</html>
