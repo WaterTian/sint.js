@@ -1409,9 +1409,23 @@
             
             <span class="subtitle">Members</span>
             
+                <li class=" " data-name="SINT.Game#_options"><a href="SINT.Game.html#_options">_options</a></li>
+            
                 <li class="parent " data-name="SINT.Game#initHeight"><a href="SINT.Game.html#initHeight">initHeight</a></li>
             
                 <li class="parent " data-name="SINT.Game#initWidth"><a href="SINT.Game.html#initWidth">initWidth</a></li>
+            
+                <li class=" " data-name="SINT.Game#loader"><a href="SINT.Game.html#loader">loader</a></li>
+            
+                <li class=" " data-name="SINT.Game#renderer"><a href="SINT.Game.html#renderer">renderer</a></li>
+            
+                <li class=" " data-name="SINT.Game#screen"><a href="SINT.Game.html#screen">screen</a></li>
+            
+                <li class=" " data-name="SINT.Game#stage"><a href="SINT.Game.html#stage">stage</a></li>
+            
+                <li class=" " data-name="SINT.Game#ticker"><a href="SINT.Game.html#ticker">ticker</a></li>
+            
+                <li class=" " data-name="SINT.Game#view"><a href="SINT.Game.html#view">view</a></li>
             
             </ul>
             <ul class="typedefs itemMembers">
@@ -1426,11 +1440,19 @@
             
                 <li class="parent  " data-name="SINT.Game#add"><a href="SINT.Game.html#add">add</a></li>
             
+                <li class="  " data-name="SINT.Game#destroy"><a href="SINT.Game.html#destroy">destroy</a></li>
+            
                 <li class="parent  " data-name="SINT.Game#preload"><a href="SINT.Game.html#preload">preload</a></li>
             
                 <li class="parent  " data-name="SINT.Game#remove"><a href="SINT.Game.html#remove">remove</a></li>
             
                 <li class="parent  " data-name="SINT.Game#removeThis"><a href="SINT.Game.html#removeThis">removeThis</a></li>
+            
+                <li class="  " data-name="SINT.Game#render"><a href="SINT.Game.html#render">render</a></li>
+            
+                <li class="  " data-name="SINT.Game#start"><a href="SINT.Game.html#start">start</a></li>
+            
+                <li class="  " data-name="SINT.Game#stop"><a href="SINT.Game.html#stop">stop</a></li>
             
             </ul>
             <ul class="events itemMembers">
@@ -3604,6 +3626,28 @@
             </ul>
         </li>
     
+        <li class="item" data-name="SINT.Tween">
+            <span class="title  ">
+                
+                <a href="SINT.Tween.html">SINT.Tween</a>
+            </span>
+            <ul class="members itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
         <li class="item" data-name="SINT.utils.EventEmitter">
             <span class="title  ">
                 
@@ -4315,7 +4359,7 @@
         <h3 class="subsection-title">Extends</h3>
         
         <ul>
-            <li>core.Application</li>
+            <li><a href="SINT.Application.html">SINT.Application</a></li>
         </ul>
     
     
@@ -4331,6 +4375,59 @@
         <h3 class="subsection-title">Members</h3>
         
         <dl class="list-members">
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="_options">
+            <a class="share-icon" href="#_options"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">_options</span>
+            <span class="type-signature type">object</span>
+            
+            <span class="access-signature">protected</span>
+            
+                <span class="access-signature inherited"><a href="SINT.Application.html#_options">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The default options, so we mixin functionality later.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
             
 <dt>
     <div class="nameContainer">
@@ -4402,6 +4499,327 @@
     
     <div class="description">
         <p>The initWidth.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="loader">
+            <a class="share-icon" href="#loader"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">loader</span>
+            <span class="type-signature type"><a href="SINT.loaders.Loader.html">SINT.loaders.Loader</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Application.html#loader">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Loader instance to help with asset loading.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="renderer">
+            <a class="share-icon" href="#renderer"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">renderer</span>
+            <span class="type-signature type"><a href="SINT.WebGLRenderer.html">SINT.WebGLRenderer</a> | <a href="SINT.CanvasRenderer.html">SINT.CanvasRenderer</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Application.html#renderer">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>WebGL renderer if available, otherwise CanvasRenderer</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="screen">
+            <a class="share-icon" href="#screen"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">screen</span>
+            <span class="type-signature type"><a href="SINT.Rectangle.html">SINT.Rectangle</a></span>
+            
+            <span class="access-signature">readonly</span>
+            
+                <span class="access-signature inherited"><a href="SINT.Application.html#screen">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Reference to the renderer's screen rectangle. Its safe to use as filterArea or hitArea for whole screen</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="stage">
+            <a class="share-icon" href="#stage"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">stage</span>
+            <span class="type-signature type"><a href="SINT.Container.html">SINT.Container</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Application.html#stage">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The root display container that's rendered.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="ticker">
+            <a class="share-icon" href="#ticker"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">ticker</span>
+            <span class="type-signature type"><a href="SINT.ticker.Ticker.html">SINT.ticker.Ticker</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Application.html#ticker">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Ticker for doing render updates.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>SINT.ticker.shared</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="view">
+            <a class="share-icon" href="#view"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">view</span>
+            <span class="type-signature type">HTMLCanvasElement</span>
+            
+            <span class="access-signature">readonly</span>
+            
+                <span class="access-signature inherited"><a href="SINT.Application.html#view">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Reference to the renderer's canvas element.</p>
     </div>
     
     
@@ -4586,6 +5004,313 @@
     </tbody>
 </table>
 
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="destroy">
+            <a class="share-icon" href="#destroy"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                destroy
+            </span>
+            <span class="signature">(<span class="optional">removeView</span>, <span class="optional">stageOptions</span>)</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Application.html#destroy">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Destroy and don't use after this.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>removeView</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Automatically remove canvas from DOM.</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>stageOptions</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+|
+
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Options parameter. A boolean will act as if all options
+ have been set to that value</p>
+                
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>children</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>if set to true, all the children will have their destroy
+ method called as well. 'stageOptions' will be passed on to those calls.</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>texture</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Only used for child Sprites if stageOptions.children is set
+ to true. Should it destroy the texture of the child sprite</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>baseTexture</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Only used for child Sprites if stageOptions.children is set
+ to true. Should it destroy the base texture of the child sprite</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
     
     
     
@@ -5036,6 +5761,228 @@
     
 </dd>
 
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="render">
+            <a class="share-icon" href="#render"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                render
+            </span>
+            <span class="signature">()</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Application.html#render">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Render the current stage.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="start">
+            <a class="share-icon" href="#start"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                start
+            </span>
+            <span class="signature">()</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Application.html#start">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Convenience method for starting the render.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="stop">
+            <a class="share-icon" href="#stop"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                stop
+            </span>
+            <span class="signature">()</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Application.html#stop">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Convenience method for stopping the render.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
         </dl>
     
     
@@ -5056,7 +6003,7 @@
 
         <footer class="content-size">
             <div class="footer">
-                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 03 2018 13:00:44 GMT+0800 (CST)
+                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 03 2018 19:14:22 GMT+0800 (CST)
             </div>
         </footer>
     </div>

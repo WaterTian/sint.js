@@ -1409,9 +1409,23 @@
             
             <span class="subtitle">Members</span>
             
+                <li class=" " data-name="SINT.Game#_options"><a href="SINT.Game.html#_options">_options</a></li>
+            
                 <li class="parent " data-name="SINT.Game#initHeight"><a href="SINT.Game.html#initHeight">initHeight</a></li>
             
                 <li class="parent " data-name="SINT.Game#initWidth"><a href="SINT.Game.html#initWidth">initWidth</a></li>
+            
+                <li class=" " data-name="SINT.Game#loader"><a href="SINT.Game.html#loader">loader</a></li>
+            
+                <li class=" " data-name="SINT.Game#renderer"><a href="SINT.Game.html#renderer">renderer</a></li>
+            
+                <li class=" " data-name="SINT.Game#screen"><a href="SINT.Game.html#screen">screen</a></li>
+            
+                <li class=" " data-name="SINT.Game#stage"><a href="SINT.Game.html#stage">stage</a></li>
+            
+                <li class=" " data-name="SINT.Game#ticker"><a href="SINT.Game.html#ticker">ticker</a></li>
+            
+                <li class=" " data-name="SINT.Game#view"><a href="SINT.Game.html#view">view</a></li>
             
             </ul>
             <ul class="typedefs itemMembers">
@@ -1426,11 +1440,19 @@
             
                 <li class="parent  " data-name="SINT.Game#add"><a href="SINT.Game.html#add">add</a></li>
             
+                <li class="  " data-name="SINT.Game#destroy"><a href="SINT.Game.html#destroy">destroy</a></li>
+            
                 <li class="parent  " data-name="SINT.Game#preload"><a href="SINT.Game.html#preload">preload</a></li>
             
                 <li class="parent  " data-name="SINT.Game#remove"><a href="SINT.Game.html#remove">remove</a></li>
             
                 <li class="parent  " data-name="SINT.Game#removeThis"><a href="SINT.Game.html#removeThis">removeThis</a></li>
+            
+                <li class="  " data-name="SINT.Game#render"><a href="SINT.Game.html#render">render</a></li>
+            
+                <li class="  " data-name="SINT.Game#start"><a href="SINT.Game.html#start">start</a></li>
+            
+                <li class="  " data-name="SINT.Game#stop"><a href="SINT.Game.html#stop">stop</a></li>
             
             </ul>
             <ul class="events itemMembers">
@@ -3604,6 +3626,28 @@
             </ul>
         </li>
     
+        <li class="item" data-name="SINT.Tween">
+            <span class="title  ">
+                
+                <a href="SINT.Tween.html">SINT.Tween</a>
+            </span>
+            <ul class="members itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
         <li class="item" data-name="SINT.utils.EventEmitter">
             <span class="title  ">
                 
@@ -3990,12 +4034,12 @@
 
     <section>
         <article class="readme content-size"><h1>sint.js - HTML5 Game Framework</h1><p><a target="_blank" href="https://badge.fury.io/js/sint.js"><img src="https://badge.fury.io/js/sint.js.svg" alt="npm version"></a></p>
-<p>Sint based on <a target="_blank" href="http://www.pixijs.com">PixiJs</a>, is a fast, free, and fun open source HTML5 game framework that offers WebGL and Canvas rendering across desktop and mobile web browsers. Games can be compiled to iOS, Android and native apps by using 3rd party tools. 
-You can use JavaScript for development.</p>
-<h3>Learn</h3><ul>
+<p>Sint based on <a target="_blank" href="http://www.pixijs.com">PixiJs</a>, is a fast, free, and fun open source HTML5 game framework that offers WebGL and Canvas rendering across desktop and mobile web browsers. Games can be compiled to iOS, Android and native apps by using 3rd party tools. </p>
+<h2>Learn</h2><ul>
 <li>Docs: SintJS API <a target="_blank" href="https://watertian.github.io/sint.js/docs/">docs</a>.</li>
 </ul>
-<h3>Setup</h3><h4>NPM Install</h4><pre class="prettyprint source lang-sh"><code>npm install sint.js
+<h2>Usage</h2><h4>Include</h4><pre class="prettyprint source lang-html"><code>&lt;script src=&quot;dist/sint.min.js&quot;>&lt;/script></code></pre><h5>Or</h5><p><a target="_blank" href="https://npmjs.org/package/sint.js"><img src="https://nodei.co/npm/sint.js.png" alt="anix"></a></p>
+<pre class="prettyprint source lang-sh"><code>npm install sint.js
 npm install sint.js --registry http://npm.vipkid.com.cn</code></pre><pre class="prettyprint source lang-js"><code>import * as SINT from 'sint.js'</code></pre><h3>Create Your First Sint Example</h3><pre class="prettyprint source lang-js"><code>const config = {
     canvas: document.querySelector('#webglStage'), // HTMLElement
     initWidth: 750,
@@ -4005,8 +4049,7 @@ npm install sint.js --registry http://npm.vipkid.com.cn</code></pre><pre class="
 };
 const assets = {
     bg: './assets/bg.jpg',
-    fighter: './assets/fighter.json',
-    sound1: './assets/sound/s1.mp3',
+    pic1: './assets/pic1.png',
 }
 const game = new SINT.Game(config);
 
@@ -4025,29 +4068,25 @@ function create() {
     var bg = new SINT.SpriteClip(0, 0, 'bg');
     game.add(bg);
 
+    // btn
+    var btn = new SINT.SpriteClip(288, 292, 'pic1');
+    btn.anchor.set(0.5);
+    game.add(btn);
+
     // events
-    bg
+    btn.interactive = true;
+    btn
         .on('pointerdown', onDragStart)
         .on('pointerup', onDragEnd)
         .on('pointerupoutside', onDragEnd)
         .on('pointermove', onDragMove);
-
-    // Animated
-    var ac1 = new SINT.AnimatedClip(400, 600, 'fighter');
-    game.add(ac1);
-    ac1.anchor.set(0.5);
-    ac1.play();
-
-
-    // sound
-    game.playSound('sound1');
-    game.pauseSound('sound1');
-    game.stopAllSound();
 }
 
-// 销毁并清除 view
+// destroy and remove view
 game.removeThis();
-</code></pre><h3>Public Sound Example</h3><pre class="prettyprint source lang-js"><code>// Use PIXI.loader system
+</code></pre><h3>sound Example</h3><pre class="prettyprint source lang-sh"><code>npm install pixi-sound
+...
+import {Sound} from 'pixi-sound'</code></pre><pre class="prettyprint source lang-js"><code>// Use resource-loader system
 SINT.loader.add('s1', './assets/sound/s1.mp3');
 SINT.loader.load(function(loader, resources) {
     var sound1 = loader.resources['s1'].sound;
@@ -4067,7 +4106,7 @@ SINT.Sound.from({
         console.log('Sound finished');
     }
 });
-</code></pre><h3>How to build</h3><pre class="prettyprint source lang-sh"><code>npm install</code></pre><pre class="prettyprint source lang-sh"><code>npm run dev</code></pre><pre class="prettyprint source lang-sh"><code>npm run dist</code></pre></article>
+</code></pre><h2>License</h2><p><a target="_blank" href="https://opensource.org/licenses/mit-license">MIT</a></p></article>
     </section>
 
 
@@ -4079,7 +4118,7 @@ SINT.Sound.from({
 
         <footer class="content-size">
             <div class="footer">
-                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 03 2018 13:00:43 GMT+0800 (CST)
+                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 03 2018 19:14:22 GMT+0800 (CST)
             </div>
         </footer>
     </div>
