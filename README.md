@@ -3,29 +3,34 @@ sint.js - HTML5 Game Framework
 
 [![npm version](https://badge.fury.io/js/sint.js.svg)](https://badge.fury.io/js/sint.js)
 
-
 Sint based on [PixiJs](http://www.pixijs.com), is a fast, free, and fun open source HTML5 game framework that offers WebGL and Canvas rendering across desktop and mobile web browsers. Games can be compiled to iOS, Android and native apps by using 3rd party tools. 
 You can use JavaScript for development.
 
-### Learn ###
+## Learn
+
 - Docs: SintJS API [docs](https://watertian.github.io/sint.js/docs/).
 
-### Setup ###
+## Usage
 
-#### NPM Install
+#### Install
+
+```html
+<script src="dist/sint.min.js"></script>
+```
+##### Or use npm
+[![anix](https://nodei.co/npm/sint.js.png)](https://npmjs.org/package/sint.js)
 
 ```sh
 npm install sint.js
 npm install sint.js --registry http://npm.vipkid.com.cn
 ```
-
 ```js
 import * as SINT from 'sint.js'
 ```
 
 
+### Create Your First Sint Example
 
-### Create Your First Sint Example ###
 
 ```js
 const config = {
@@ -83,7 +88,7 @@ game.removeThis();
 ```
 
 
-### Public Sound Example ###
+### Public Sound Example
 
 ```js
 // Use PIXI.loader system
@@ -108,16 +113,11 @@ SINT.Sound.from({
 });
 
 ```
-### How to build ###
 
-```sh
-npm install
-```
 
-```sh
-npm run dev
-```
+## License
 
-```sh
-npm run dist
-```
+[MIT](https://opensource.org/licenses/mit-license)
+
+
+
