@@ -3967,7 +3967,7 @@
     </ul>
 </div>
     <div class="main">
-        <h1 class="page-title" data-filename="SINT.AnimatedClip.html">Class: AnimatedClip</h1>
+        <h1 class="page-title" data-filename="SINT.Text.html">Class: Text</h1>
         
 
 
@@ -3976,8 +3976,14 @@
     
 <header>
     <div class="header content-size">
-        <h2><span class="ancestors"><a href="SINT.html">SINT</a>.</span>AnimatedClip
+        <h2><span class="ancestors"><a href="SINT.html">SINT</a>.</span>Text
         </h2>
+        
+            <div class="class-description"><p>A Text Object will create a line or multiple lines of text. To split a line you can use '\n' in your text string,
+or add a wordWrap property set to true and and wordWrapWidth property with a value in the style object.</p>
+<p>A Text can be created directly from a string and a style object,
+which can be generated <a target="_blank" href="https://pixijs.io/pixi-text-style">here</a>.</p>
+<pre class="prettyprint source lang-js"><code>let text = new SINT.Text('This is a SINTJS text',{fontFamily : 'Arial', fontSize: 24, fill : 0xff1010, align : 'center'});</code></pre></div>
         
     </div>
 </header>  
@@ -3990,12 +3996,12 @@
         
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="AnimatedClip">
-            <a class="share-icon" href="#AnimatedClip"><span class="glyphicon glyphicon-link"></span></a>
+        <h4 class="name" id="Text">
+            <a class="share-icon" href="#Text"><span class="glyphicon glyphicon-link"></span></a>
             <span class="">
-                new SINT.AnimatedClip
+                new SINT.Text
             </span>
-            <span class="signature">(<span class="optional">_x</span>, <span class="optional">_y</span>, name)</span>
+            <span class="signature">(text, <span class="optional">style</span>, <span class="optional">canvas</span>)</span>
             
             
             
@@ -4028,8 +4034,6 @@
 		<th>Type</th>
 		
 		
-		<th>Default</th>
-		
 		
 		<th class="last">Description</th>
 	</tr>
@@ -4040,79 +4044,7 @@
 	
         <tr>
             
-                <td class="name"><code>_x</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="default">
-                
-                    0
-                
-                </td>
-            
-            
-            <td class="description last">
-                
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>_y</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="default">
-                
-                    0
-                
-                </td>
-            
-            
-            <td class="description last">
-                
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>name</code></td>
+                <td class="name"><code>text</code></td>
             
             
             <td class="type">
@@ -4125,10 +4057,6 @@
             </td>
             
             
-                <td class="default">
-                
-                </td>
-            
             
             <td class="description last">
                 
@@ -4137,7 +4065,70 @@
                         
                     
                 
-                <p>The frame name of the texture in the cache</p></td>
+                <p>The string that you would like the text to display</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>style</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+|
+
+<span class="param-type"><a href="SINT.TextStyle.html">SINT.TextStyle</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The style parameters</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">HTMLCanvasElement</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The canvas element for drawing text</p></td>
         </tr>
 	
 	
@@ -4189,7 +4180,7 @@
         <h3 class="subsection-title">Extends</h3>
         
         <ul>
-            <li>PIXI.extras.AnimatedSprite</li>
+            <li><a href="SINT.Sprite.html">SINT.Sprite</a></li>
         </ul>
     
     
@@ -4202,7 +4193,6045 @@
     
     
     
+        <h3 class="subsection-title">Members</h3>
+        
+        <dl class="list-members">
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="alpha">
+            <a class="share-icon" href="#alpha"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">alpha</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#alpha">inherited</a></span>
+            
+            
+        </h4>
+    </div>
     
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The opacity of the object.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="anchor">
+            <a class="share-icon" href="#anchor"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">anchor</span>
+            <span class="type-signature type"><a href="SINT.ObservablePoint.html">SINT.ObservablePoint</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Sprite.html#anchor">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The anchor sets the origin point of the texture.
+The default is 0,0 or taken from the <a href="SINT.Texture.html">Texture</a> passed to the constructor.
+Setting the texture at a later point of time does not change the anchor.</p>
+<p>0,0 means the texture's origin is the top left, 0.5,0.5 is the center, 1,1 the bottom right corner.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="blendMode">
+            <a class="share-icon" href="#blendMode"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">blendMode</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Sprite.html#blendMode">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The blend mode to be applied to the sprite. Apply a value of <code>SINT.BLEND_MODES.NORMAL</code> to reset the blend mode.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>SINT.BLEND_MODES.NORMAL</li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="SINT.html#.BLEND_MODES">SINT.BLEND_MODES</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="buttonMode">
+            <a class="share-icon" href="#buttonMode"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">buttonMode</span>
+            <span class="type-signature type">boolean</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#buttonMode">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>If enabled, the mouse cursor use the pointer behavior when hovered over the displayObject if it is interactive
+Setting this changes the 'cursor' property to <code>'pointer'</code>.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+        <h5>Example</h5>
+        
+
+    
+    <pre class="prettyprint"><code>const sprite = new SINT.Sprite(texture);
+sprite.interactive = true;
+sprite.buttonMode = true;</code></pre>
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="canvas">
+            <a class="share-icon" href="#canvas"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">canvas</span>
+            <span class="type-signature type">HTMLCanvasElement</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The canvas element that everything is drawn to</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="children">
+            <a class="share-icon" href="#children"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">children</span>
+            <span class="type-signature type">Array.&lt;<a href="SINT.DisplayObject.html">SINT.DisplayObject</a>></span>
+            
+            <span class="access-signature">readonly</span>
+            
+                <span class="access-signature inherited"><a href="SINT.Container.html#children">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The array of children of this container.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="context">
+            <a class="share-icon" href="#context"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">context</span>
+            <span class="type-signature type">CanvasRenderingContext2D</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The canvas 2d context that everything is drawn with</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="cursor">
+            <a class="share-icon" href="#cursor"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">cursor</span>
+            <span class="type-signature type">string</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#cursor">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>This defines what cursor mode is used when the mouse cursor
+is hovered over the displayObject.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a target="_blank" href="https://developer.mozilla.org/en/docs/Web/CSS/cursor">https://developer.mozilla.org/en/docs/Web/CSS/cursor</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+        <h5>Example</h5>
+        
+
+    
+    <pre class="prettyprint"><code>const sprite = new SINT.Sprite(texture);
+sprite.interactive = true;
+sprite.cursor = 'wait';</code></pre>
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="filterArea">
+            <a class="share-icon" href="#filterArea"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">filterArea</span>
+            <span class="type-signature type"><a href="SINT.Rectangle.html">SINT.Rectangle</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#filterArea">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The area the filter is applied to. This is used as more of an optimisation
+rather than figuring out the dimensions of the displayObject each frame you can set this rectangle</p>
+<p>Also works as an interaction mask</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="filters">
+            <a class="share-icon" href="#filters"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">filters</span>
+            <span class="type-signature type">Array.&lt;<a href="SINT.Filter.html">SINT.Filter</a>></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#filters">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Sets the filters for the displayObject.</p>
+<ul>
+<li>IMPORTANT: This is a webGL only feature and will be ignored by the canvas renderer.
+To remove filters simply set this property to 'null'</li>
+</ul>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="height">
+            <a class="share-icon" href="#height"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">height</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+            
+                <span class="access-signature overrides"><a href="SINT.Sprite.html#height">overrides</a></span>
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The height of the Text, setting this will actually modify the scale to achieve the value set</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="hitArea">
+            <a class="share-icon" href="#hitArea"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">hitArea</span>
+            <span class="type-signature type"><a href="SINT.Rectangle.html">SINT.Rectangle</a> | <a href="SINT.Circle.html">SINT.Circle</a> | <a href="SINT.Ellipse.html">SINT.Ellipse</a> | <a href="SINT.Polygon.html">SINT.Polygon</a> | <a href="SINT.RoundedRectangle.html">SINT.RoundedRectangle</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#hitArea">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Interaction shape. Children will be hit first, then this shape will be checked.
+Setting this will cause this shape to be checked in hit tests rather than the displayObject's bounds.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+        <h5>Example</h5>
+        
+
+    
+    <pre class="prettyprint"><code>const sprite = new SINT.Sprite(texture);
+sprite.interactive = true;
+sprite.hitArea = new SINT.Rectangle(0, 0, 100, 100);</code></pre>
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="interactive">
+            <a class="share-icon" href="#interactive"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">interactive</span>
+            <span class="type-signature type">boolean</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#interactive">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Enable interaction events for the DisplayObject. Touch, pointer and mouse
+events will not be emitted unless <code>interactive</code> is set to <code>true</code>.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+        <h5>Example</h5>
+        
+
+    
+    <pre class="prettyprint"><code>const sprite = new SINT.Sprite(texture);
+sprite.interactive = true;
+sprite.on('tap', (event) => {
+   //handle event
+});</code></pre>
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="interactiveChildren">
+            <a class="share-icon" href="#interactiveChildren"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">interactiveChildren</span>
+            <span class="type-signature type">boolean</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Container.html#interactiveChildren">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Determines if the children to the displayObject can be clicked/touched
+Setting this to false allows SINTJS to bypass a recursive <code>hitTest</code> function</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="localTransform">
+            <a class="share-icon" href="#localTransform"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">localTransform</span>
+            <span class="type-signature type"><a href="SINT.Matrix.html">SINT.Matrix</a></span>
+            
+            <span class="access-signature">readonly</span>
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#localTransform">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Current transform of the object based on local factors: position, scale, other stuff</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="mask">
+            <a class="share-icon" href="#mask"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">mask</span>
+            <span class="type-signature type">SINT.Graphics | <a href="SINT.Sprite.html">SINT.Sprite</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#mask">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Sets a mask for the displayObject. A mask is an object that limits the visibility of an
+object to the shape of the mask applied to it. In SINT a regular mask must be a
+SINT.Graphics or a SINT.Sprite object. This allows for much faster masking in canvas as it
+utilises shape clipping. To remove a mask, set this property to null.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-todo">TODO</dt>
+    <dd class="tag-todo">
+        <ul>
+            <li>For the moment, SINT.CanvasRenderer doesn't support SINT.Sprite as mask.</li>
+        </ul>
+    </dd>
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="parent">
+            <a class="share-icon" href="#parent"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">parent</span>
+            <span class="type-signature type"><a href="SINT.Container.html">SINT.Container</a></span>
+            
+            <span class="access-signature">readonly</span>
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#parent">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The display object container that contains this display object.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="pivot">
+            <a class="share-icon" href="#pivot"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">pivot</span>
+            <span class="type-signature type"><a href="SINT.Point.html">SINT.Point</a> | <a href="SINT.ObservablePoint.html">SINT.ObservablePoint</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#pivot">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The pivot point of the displayObject that it rotates around.
+Assignment by value since SINT-v4.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="pluginName">
+            <a class="share-icon" href="#pluginName"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">pluginName</span>
+            <span class="type-signature type">string</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Sprite.html#pluginName">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Plugin that is responsible for rendering this element.
+Allows to customize the rendering process without overriding '_renderWebGL' &amp; '_renderCanvas' methods.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>'sprite'</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="position">
+            <a class="share-icon" href="#position"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">position</span>
+            <span class="type-signature type"><a href="SINT.Point.html">SINT.Point</a> | <a href="SINT.ObservablePoint.html">SINT.ObservablePoint</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#position">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The coordinate of the object relative to the local coordinates of the parent.
+Assignment by value since SINT-v4.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="renderable">
+            <a class="share-icon" href="#renderable"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">renderable</span>
+            <span class="type-signature type">boolean</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#renderable">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Can this object be rendered, if false the object will not be drawn but the updateTransform
+methods will still be called.</p>
+<p>Only affects recursive calls from parent. You can ask for bounds manually</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="resolution">
+            <a class="share-icon" href="#resolution"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">resolution</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The resolution / device pixel ratio of the canvas. This is set automatically by the renderer.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>1</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="rotation">
+            <a class="share-icon" href="#rotation"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">rotation</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#rotation">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The rotation of the object in radians.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="scale">
+            <a class="share-icon" href="#scale"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">scale</span>
+            <span class="type-signature type"><a href="SINT.Point.html">SINT.Point</a> | <a href="SINT.ObservablePoint.html">SINT.ObservablePoint</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#scale">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The scale factor of the object.
+Assignment by value since SINT-v4.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="shader">
+            <a class="share-icon" href="#shader"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">shader</span>
+            <span class="type-signature type"><a href="SINT.Filter.html">SINT.Filter</a> | <a href="SINT.Shader.html">SINT.Shader</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Sprite.html#shader">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The shader that will be used to render the sprite. Set to null to remove a current shader.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="skew">
+            <a class="share-icon" href="#skew"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">skew</span>
+            <span class="type-signature type"><a href="SINT.ObservablePoint.html">SINT.ObservablePoint</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#skew">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The skew factor for the object in radians.
+Assignment by value since SINT-v4.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="style">
+            <a class="share-icon" href="#style"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">style</span>
+            <span class="type-signature type">object | <a href="SINT.TextStyle.html">SINT.TextStyle</a></span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Set the style of the text. Set up an event listener to listen for changes on the style
+object and mark the text as dirty.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="text">
+            <a class="share-icon" href="#text"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">text</span>
+            <span class="type-signature type">string</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Set the copy for the text object. To split a line you can use '\n'.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="texture">
+            <a class="share-icon" href="#texture"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">texture</span>
+            <span class="type-signature type"><a href="SINT.Texture.html">SINT.Texture</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Sprite.html#texture">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The texture that the sprite is using</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="tint">
+            <a class="share-icon" href="#tint"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">tint</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Sprite.html#tint">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The tint applied to the sprite. This is a hex value.
+A value of 0xFFFFFF will remove any tint effect.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>0xFFFFFF</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="transform">
+            <a class="share-icon" href="#transform"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">transform</span>
+            <span class="type-signature type"><a href="SINT.TransformBase.html">SINT.TransformBase</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#transform">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>World transform and local transform of this object.
+This will become read-only later, please do not assign anything there unless you know what are you doing</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="visible">
+            <a class="share-icon" href="#visible"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">visible</span>
+            <span class="type-signature type">boolean</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#visible">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The visibility of the object. If false the object will not be drawn, and
+the updateTransform function will not be called.</p>
+<p>Only affects recursive calls from parent. You can ask for bounds or call updateTransform manually</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="width">
+            <a class="share-icon" href="#width"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">width</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+            
+                <span class="access-signature overrides"><a href="SINT.Sprite.html#width">overrides</a></span>
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The width of the Text, setting this will actually modify the scale to achieve the value set</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="worldAlpha">
+            <a class="share-icon" href="#worldAlpha"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">worldAlpha</span>
+            <span class="type-signature type">number</span>
+            
+            <span class="access-signature">readonly</span>
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#worldAlpha">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The multiplied alpha of the displayObject</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="worldTransform">
+            <a class="share-icon" href="#worldTransform"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">worldTransform</span>
+            <span class="type-signature type"><a href="SINT.Matrix.html">SINT.Matrix</a></span>
+            
+            <span class="access-signature">readonly</span>
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#worldTransform">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Current transform of the object based on world (parent) factors</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="worldVisible">
+            <a class="share-icon" href="#worldVisible"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">worldVisible</span>
+            <span class="type-signature type">boolean</span>
+            
+            <span class="access-signature">readonly</span>
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#worldVisible">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Indicates if the object is globally visible.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="x">
+            <a class="share-icon" href="#x"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">x</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#x">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The position of the displayObject on the x axis relative to the local coordinates of the parent.
+An alias to position.x</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="y">
+            <a class="share-icon" href="#y"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">y</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#y">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The position of the displayObject on the y axis relative to the local coordinates of the parent.
+An alias to position.y</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl class="list-methods">
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="_calculateBounds">
+            <a class="share-icon" href="#_calculateBounds"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                _calculateBounds
+            </span>
+            <span class="signature">()</span>
+            
+            
+            
+            
+                <span class="access-signature overrides">overrides</span>
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>calculates the bounds of the Text as a rectangle. The bounds calculation takes the worldTransform into account.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="_recursivePostUpdateTransform">
+            <a class="share-icon" href="#_recursivePostUpdateTransform"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                _recursivePostUpdateTransform
+            </span>
+            <span class="signature">()</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#_recursivePostUpdateTransform">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>recursively updates transform of all objects from the root to this one
+internal function for toLocal()</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="addChild">
+            <a class="share-icon" href="#addChild"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                addChild
+            </span>
+            <span class="signature">(child)</span><span class="type-signature"><a href="SINT.DisplayObject.html">SINT.DisplayObject</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Container.html#addChild">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Adds one or more children to the container.</p>
+<p>Multiple items can be added like so: <code>myContainer.addChild(thingOne, thingTwo, thingThree)</code></p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>child</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.DisplayObject.html">SINT.DisplayObject</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                    
+                        
+                    
+                        <span class="repeatable">repeatable</span>
+                    
+                
+                <p>The DisplayObject(s) to add to the container</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="SINT.DisplayObject.html">SINT.DisplayObject</a>
+                        
+                    
+            </td>
+            <td class="description last">The first child that was added.</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="addChildAt">
+            <a class="share-icon" href="#addChildAt"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                addChildAt
+            </span>
+            <span class="signature">(child, index)</span><span class="type-signature"><a href="SINT.DisplayObject.html">SINT.DisplayObject</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Container.html#addChildAt">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Adds a child to the container at a specified index. If the index is out of bounds an error will be thrown</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>child</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.DisplayObject.html">SINT.DisplayObject</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The child to add</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The index to place the child in</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="SINT.DisplayObject.html">SINT.DisplayObject</a>
+                        
+                    
+            </td>
+            <td class="description last">The child that was added.</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="calculateBounds">
+            <a class="share-icon" href="#calculateBounds"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                calculateBounds
+            </span>
+            <span class="signature">()</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Container.html#calculateBounds">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Recalculates the bounds of the container.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="calculateTrimmedVertices">
+            <a class="share-icon" href="#calculateTrimmedVertices"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                calculateTrimmedVertices
+            </span>
+            <span class="signature">()</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Sprite.html#calculateTrimmedVertices">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>calculates worldTransform * vertices for a non texture with a trim. store it in vertexTrimmedData
+This is used to ensure that the true width and height of a trimmed texture is respected</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="calculateVertices">
+            <a class="share-icon" href="#calculateVertices"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                calculateVertices
+            </span>
+            <span class="signature">()</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Sprite.html#calculateVertices">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>calculates worldTransform * vertices, store it in vertexData</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="containsPoint">
+            <a class="share-icon" href="#containsPoint"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                containsPoint
+            </span>
+            <span class="signature">(point)</span><span class="type-signature">boolean</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Sprite.html#containsPoint">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Tests if a point is inside this sprite</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>point</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.Point.html">SINT.Point</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>the point to test</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        boolean
+                        
+                    
+            </td>
+            <td class="description last">the result of the test</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="destroy">
+            <a class="share-icon" href="#destroy"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                destroy
+            </span>
+            <span class="signature">(<span class="optional">options</span>)</span>
+            
+            
+            
+            
+                <span class="access-signature overrides"><a href="SINT.Sprite.html#destroy">overrides</a></span>
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Destroys this text object.
+Note* Unlike a Sprite, a Text object will automatically destroy its baseTexture and texture as
+the majority of the time the texture will not be shared with any other Sprites.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+|
+
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Options parameter. A boolean will act as if all options
+ have been set to that value</p>
+                
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>children</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>if set to true, all the children will have their
+ destroy method called as well. 'options' will be passed on to those calls.</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>texture</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Should it destroy the current texture of the sprite as well</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>baseTexture</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Should it destroy the base texture of the sprite as well</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="getBounds">
+            <a class="share-icon" href="#getBounds"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                getBounds
+            </span>
+            <span class="signature">(skipUpdate, rect)</span><span class="type-signature"><a href="SINT.Rectangle.html">SINT.Rectangle</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#getBounds">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Retrieves the bounds of the displayObject as a rectangle object.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>skipUpdate</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>setting to true will stop the transforms of the scene graph from
+ being updated. This means the calculation returned MAY be out of date BUT will give you a
+ nice performance boost</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>rect</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.Rectangle.html">SINT.Rectangle</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>Optional rectangle to store the result of the bounds calculation</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="SINT.Rectangle.html">SINT.Rectangle</a>
+                        
+                    
+            </td>
+            <td class="description last">the rectangular bounding area</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="getChildAt">
+            <a class="share-icon" href="#getChildAt"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                getChildAt
+            </span>
+            <span class="signature">(index)</span><span class="type-signature"><a href="SINT.DisplayObject.html">SINT.DisplayObject</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Container.html#getChildAt">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Returns the child at the specified index</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The index to get the child at</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="SINT.DisplayObject.html">SINT.DisplayObject</a>
+                        
+                    
+            </td>
+            <td class="description last">The child at the given index, if any.</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="getChildIndex">
+            <a class="share-icon" href="#getChildIndex"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                getChildIndex
+            </span>
+            <span class="signature">(child)</span><span class="type-signature">number</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Container.html#getChildIndex">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Returns the index position of a child DisplayObject instance</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>child</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.DisplayObject.html">SINT.DisplayObject</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The DisplayObject instance to identify</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        number
+                        
+                    
+            </td>
+            <td class="description last">The index position of the child display object to identify</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="getLocalBounds">
+            <a class="share-icon" href="#getLocalBounds"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                getLocalBounds
+            </span>
+            <span class="signature">(rect)</span><span class="type-signature">Rectangle</span>
+            
+            
+            
+            
+                <span class="access-signature overrides"><a href="SINT.Sprite.html#getLocalBounds">overrides</a></span>
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Gets the local bounds of the text object.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>rect</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Rectangle</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The output rectangle.</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        Rectangle
+                        
+                    
+            </td>
+            <td class="description last">The bounds.</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="removeChild">
+            <a class="share-icon" href="#removeChild"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                removeChild
+            </span>
+            <span class="signature">(child)</span><span class="type-signature"><a href="SINT.DisplayObject.html">SINT.DisplayObject</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Container.html#removeChild">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Removes one or more children from the container.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>child</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.DisplayObject.html">SINT.DisplayObject</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                    
+                        
+                    
+                        <span class="repeatable">repeatable</span>
+                    
+                
+                <p>The DisplayObject(s) to remove</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="SINT.DisplayObject.html">SINT.DisplayObject</a>
+                        
+                    
+            </td>
+            <td class="description last">The first child that was removed.</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="removeChildAt">
+            <a class="share-icon" href="#removeChildAt"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                removeChildAt
+            </span>
+            <span class="signature">(index)</span><span class="type-signature"><a href="SINT.DisplayObject.html">SINT.DisplayObject</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Container.html#removeChildAt">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Removes a child from the specified index position.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The index to get the child from</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="SINT.DisplayObject.html">SINT.DisplayObject</a>
+                        
+                    
+            </td>
+            <td class="description last">The child that was removed.</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="removeChildren">
+            <a class="share-icon" href="#removeChildren"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                removeChildren
+            </span>
+            <span class="signature">(<span class="optional">beginIndex</span>, <span class="optional">endIndex</span>)</span><span class="type-signature">Array.&lt;DisplayObject></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Container.html#removeChildren">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Removes all children from this container that are within the begin and end indexes.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>beginIndex</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The beginning position.</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>endIndex</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    this.children.length
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The ending position. Default value is size of the container.</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        Array.&lt;DisplayObject>
+                        
+                    
+            </td>
+            <td class="description last">List of removed children</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="renderCanvas">
+            <a class="share-icon" href="#renderCanvas"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                renderCanvas
+            </span>
+            <span class="signature">(renderer)</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Container.html#renderCanvas">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Renders the object using the Canvas renderer</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>renderer</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.CanvasRenderer.html">SINT.CanvasRenderer</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The renderer</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="renderWebGL">
+            <a class="share-icon" href="#renderWebGL"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                renderWebGL
+            </span>
+            <span class="signature">(renderer)</span>
+            
+            
+            
+            
+                <span class="access-signature overrides"><a href="SINT.Sprite.html#renderWebGL">overrides</a></span>
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Renders the object using the WebGL renderer</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>renderer</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.WebGLRenderer.html">SINT.WebGLRenderer</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The renderer</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="setChildIndex">
+            <a class="share-icon" href="#setChildIndex"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                setChildIndex
+            </span>
+            <span class="signature">(child, index)</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Container.html#setChildIndex">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Changes the position of an existing child in the display object container</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>child</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.DisplayObject.html">SINT.DisplayObject</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The child DisplayObject instance for which you want to change the index number</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The resulting index number for the child display object</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="setParent">
+            <a class="share-icon" href="#setParent"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                setParent
+            </span>
+            <span class="signature">(container)</span><span class="type-signature"><a href="SINT.Container.html">SINT.Container</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#setParent">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Set the parent Container of this DisplayObject</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>container</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.Container.html">SINT.Container</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The Container to add this DisplayObject to</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="SINT.Container.html">SINT.Container</a>
+                        
+                    
+            </td>
+            <td class="description last">The Container that this DisplayObject was added to</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="setTransform">
+            <a class="share-icon" href="#setTransform"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                setTransform
+            </span>
+            <span class="signature">(<span class="optional">x</span>, <span class="optional">y</span>, <span class="optional">scaleX</span>, <span class="optional">scaleY</span>, <span class="optional">rotation</span>, <span class="optional">skewX</span>, <span class="optional">skewY</span>, <span class="optional">pivotX</span>, <span class="optional">pivotY</span>)</span><span class="type-signature"><a href="SINT.DisplayObject.html">SINT.DisplayObject</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#setTransform">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Convenience function to set the position, scale, skew and pivot at once.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The X position</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The Y position</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>scaleX</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The X scale value</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>scaleY</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The Y scale value</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>rotation</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The rotation</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>skewX</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The X skew value</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>skewY</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The Y skew value</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>pivotX</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The X pivot value</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>pivotY</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The Y pivot value</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="SINT.DisplayObject.html">SINT.DisplayObject</a>
+                        
+                    
+            </td>
+            <td class="description last">The DisplayObject instance</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="swapChildren">
+            <a class="share-icon" href="#swapChildren"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                swapChildren
+            </span>
+            <span class="signature">(child, child2)</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Container.html#swapChildren">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Swaps the position of 2 Display Objects within this container.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>child</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.DisplayObject.html">SINT.DisplayObject</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>First display object to swap</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>child2</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.DisplayObject.html">SINT.DisplayObject</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>Second display object to swap</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="toGlobal">
+            <a class="share-icon" href="#toGlobal"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                toGlobal
+            </span>
+            <span class="signature">(position, <span class="optional">point</span>, <span class="optional">skipUpdate</span>)</span><span class="type-signature"><a href="SINT.Point.html">SINT.Point</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#toGlobal">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Calculates the global position of the display object</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>position</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.Point.html">SINT.Point</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                    
+                        
+                    
+                
+                <p>The world origin to calculate from</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>point</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.Point.html">SINT.Point</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>A Point object in which to store the value, optional
+ (otherwise will create a new Point)</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>skipUpdate</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Should we skip the update transform.</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="SINT.Point.html">SINT.Point</a>
+                        
+                    
+            </td>
+            <td class="description last">A point object representing the position of this object</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="toLocal">
+            <a class="share-icon" href="#toLocal"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                toLocal
+            </span>
+            <span class="signature">(position, <span class="optional">from</span>, <span class="optional">point</span>, <span class="optional">skipUpdate</span>)</span><span class="type-signature"><a href="SINT.Point.html">SINT.Point</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.DisplayObject.html#toLocal">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Calculates the local position of the display object relative to another point</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>position</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.Point.html">SINT.Point</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                    
+                        
+                    
+                
+                <p>The world origin to calculate from</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>from</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.DisplayObject.html">SINT.DisplayObject</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The DisplayObject to calculate the global position from</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>point</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.Point.html">SINT.Point</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>A Point object in which to store the value, optional
+ (otherwise will create a new Point)</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>skipUpdate</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Should we skip the update transform</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="SINT.Point.html">SINT.Point</a>
+                        
+                    
+            </td>
+            <td class="description last">A point object representing the position of this object</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="updateTransform">
+            <a class="share-icon" href="#updateTransform"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                updateTransform
+            </span>
+            <span class="signature">()</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Container.html#updateTransform">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Updates the transform on all children of this container for rendering</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        </dl>
     
     
     
@@ -4222,7 +10251,7 @@
 
         <footer class="content-size">
             <div class="footer">
-                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 03 2018 13:00:43 GMT+0800 (CST)
+                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 03 2018 13:00:44 GMT+0800 (CST)
             </div>
         </footer>
     </div>

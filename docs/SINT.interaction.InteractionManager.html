@@ -3967,7 +3967,7 @@
     </ul>
 </div>
     <div class="main">
-        <h1 class="page-title" data-filename="SINT.AnimatedClip.html">Class: AnimatedClip</h1>
+        <h1 class="page-title" data-filename="SINT.interaction.InteractionManager.html">Class: InteractionManager</h1>
         
 
 
@@ -3976,8 +3976,13 @@
     
 <header>
     <div class="header content-size">
-        <h2><span class="ancestors"><a href="SINT.html">SINT</a>.</span>AnimatedClip
+        <h2><span class="ancestors"><a href="SINT.html">SINT</a><a href="SINT.interaction.html">.interaction</a>.</span>InteractionManager
         </h2>
+        
+            <div class="class-description"><p>The interaction manager deals with mouse, touch and pointer events. Any DisplayObject can be interactive
+if its interactive parameter is set to true
+This manager also supports multitouch.</p>
+<p>An instance of this class is automatically created by default, and can be found at renderer.plugins.interaction</p></div>
         
     </div>
 </header>  
@@ -3990,12 +3995,12 @@
         
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="AnimatedClip">
-            <a class="share-icon" href="#AnimatedClip"><span class="glyphicon glyphicon-link"></span></a>
+        <h4 class="name" id="InteractionManager">
+            <a class="share-icon" href="#InteractionManager"><span class="glyphicon glyphicon-link"></span></a>
             <span class="">
-                new SINT.AnimatedClip
+                new SINT.interaction.InteractionManager
             </span>
-            <span class="signature">(<span class="optional">_x</span>, <span class="optional">_y</span>, name)</span>
+            <span class="signature">(renderer, <span class="optional">options</span>)</span>
             
             
             
@@ -4028,6 +4033,83 @@
 		<th>Type</th>
 		
 		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>renderer</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.CanvasRenderer.html">SINT.CanvasRenderer</a></span>
+|
+
+<span class="param-type"><a href="SINT.WebGLRenderer.html">SINT.WebGLRenderer</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                    
+                        
+                    
+                
+                <p>A reference to the current renderer</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The options for the manager.</p>
+                
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
 		<th>Default</th>
 		
 		
@@ -4040,7 +4122,43 @@
 	
         <tr>
             
-                <td class="name"><code>_x</code></td>
+                <td class="name"><code>autoPreventDefault</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Should the manager automatically prevent default browser actions.</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>interactionFrequency</code></td>
             
             
             <td class="type">
@@ -4055,7 +4173,7 @@
             
                 <td class="default">
                 
-                    0
+                    10
                 
                 </td>
             
@@ -4069,75 +4187,13 @@
                         
                     
                 
-                </td>
+                <p>Frequency increases the interaction events will be checked.</p></td>
         </tr>
 	
 	
-	
-        <tr>
-            
-                <td class="name"><code>_y</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
+	</tbody>
+</table>
             </td>
-            
-            
-                <td class="default">
-                
-                    0
-                
-                </td>
-            
-            
-            <td class="description last">
-                
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="default">
-                
-                </td>
-            
-            
-            <td class="description last">
-                
-                    
-                    
-                        
-                    
-                
-                <p>The frame name of the texture in the cache</p></td>
         </tr>
 	
 	
@@ -4189,7 +4245,7 @@
         <h3 class="subsection-title">Extends</h3>
         
         <ul>
-            <li>PIXI.extras.AnimatedSprite</li>
+            <li>EventEmitter</li>
         </ul>
     
     
@@ -4202,7 +4258,1422 @@
     
     
     
+        <h3 class="subsection-title">Members</h3>
+        
+        <dl class="list-members">
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="autoPreventDefault">
+            <a class="share-icon" href="#autoPreventDefault"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">autoPreventDefault</span>
+            <span class="type-signature type">boolean</span>
+            
+            
+            
+            
+        </h4>
+    </div>
     
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Should default browser actions automatically be prevented.
+Does not apply to pointer events for backwards compatibility
+preventDefault on pointer events stops mouse events from firing
+Thus, for every pointer event, there will always be either a mouse of touch event alongside it.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>true</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="currentCursorMode">
+            <a class="share-icon" href="#currentCursorMode"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">currentCursorMode</span>
+            <span class="type-signature type">string</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The mode of the cursor that is being used.
+The value of this is a key from the cursorStyles dictionary.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="cursorStyles">
+            <a class="share-icon" href="#cursorStyles"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">cursorStyles</span>
+            <span class="type-signature type">Object.&lt;string, (string|function()|Object.&lt;string, string>)></span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Dictionary of how different cursor modes are handled. Strings are handled as CSS cursor
+values, objects are handled as dictionaries of CSS values for interactionDOMElement,
+and functions are called instead of changing the CSS.
+Default CSS cursor values are provided for 'default' and 'pointer' modes.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="eventData">
+            <a class="share-icon" href="#eventData"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">eventData</span>
+            <span class="type-signature type">object</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>An event data object to handle all the event tracking/dispatching</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="interactionFrequency">
+            <a class="share-icon" href="#interactionFrequency"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">interactionFrequency</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Frequency in milliseconds that the mousemove, moveover &amp; mouseout interaction events will be checked.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>10</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="mouse">
+            <a class="share-icon" href="#mouse"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">mouse</span>
+            <span class="type-signature type"><a href="SINT.interaction.InteractionData.html">SINT.interaction.InteractionData</a></span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The mouse data</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="moveWhenInside">
+            <a class="share-icon" href="#moveWhenInside"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">moveWhenInside</span>
+            <span class="type-signature type">boolean</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>This property determines if mousemove and touchmove events are fired only when the cursor
+is over the object.
+Setting to true will make things work more in line with how the DOM verison works.
+Setting to false can make things easier for things like dragging
+It is currently set to false as this is how SINTJS used to work. This will be set to true in
+future versions of SINT.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>false</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="renderer">
+            <a class="share-icon" href="#renderer"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">renderer</span>
+            <span class="type-signature type"><a href="SINT.SystemRenderer.html">SINT.SystemRenderer</a></span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The renderer this interaction manager works for.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="resolution">
+            <a class="share-icon" href="#resolution"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">resolution</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The current resolution / device pixel ratio.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>1</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="supportsPointerEvents">
+            <a class="share-icon" href="#supportsPointerEvents"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">supportsPointerEvents</span>
+            <span class="type-signature type">boolean</span>
+            
+            <span class="access-signature">readonly</span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Does the device support pointer events
+https://<a target="_blank" href="http://www.w3.org/Submission/pointer-events/">www.w3.org/Submission/pointer-events/</a></p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="supportsTouchEvents">
+            <a class="share-icon" href="#supportsTouchEvents"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">supportsTouchEvents</span>
+            <span class="type-signature type">boolean</span>
+            
+            <span class="access-signature">readonly</span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Does the device support touch events
+https://<a target="_blank" href="http://www.w3.org/TR/touch-events/">www.w3.org/TR/touch-events/</a></p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl class="list-methods">
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="destroy">
+            <a class="share-icon" href="#destroy"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                destroy
+            </span>
+            <span class="signature">()</span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Destroys the interaction manager</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="hitTest">
+            <a class="share-icon" href="#hitTest"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                hitTest
+            </span>
+            <span class="signature">(globalPoint, <span class="optional">root</span>)</span><span class="type-signature"><a href="SINT.DisplayObject.html">SINT.DisplayObject</a></span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Hit tests a point against the display tree, returning the first interactive object that is hit.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>globalPoint</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.Point.html">SINT.Point</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                    
+                        
+                    
+                
+                <p>A point to hit test with, in global space.</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>root</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.Container.html">SINT.Container</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The root display object to start from. If omitted, defaults
+to the last rendered root of the associated renderer.</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="SINT.DisplayObject.html">SINT.DisplayObject</a>
+                        
+                    
+            </td>
+            <td class="description last">The hit display object, if any.</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="mapPositionToPoint">
+            <a class="share-icon" href="#mapPositionToPoint"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                mapPositionToPoint
+            </span>
+            <span class="signature">(point, x, y)</span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Maps x and y coords from a DOM object and maps them correctly to the SINTJS view. The
+resulting value is stored in the point. This takes into account the fact that the DOM
+element could be scaled and positioned anywhere on the screen.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>point</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.Point.html">SINT.Point</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>the point that the result will be stored in</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>the x coord of the position to map</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>the y coord of the position to map</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="setCursorMode">
+            <a class="share-icon" href="#setCursorMode"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                setCursorMode
+            </span>
+            <span class="signature">(mode)</span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Sets the current cursor mode, handling any callbacks or CSS style changes.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>mode</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>cursor mode, a key from the cursorStyles dictionary</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="setTargetElement">
+            <a class="share-icon" href="#setTargetElement"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                setTargetElement
+            </span>
+            <span class="signature">(element, <span class="optional">resolution</span>)</span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Sets the DOM element which will receive mouse/touch events. This is useful for when you have
+other DOM elements on top of the renderers Canvas element. With this you'll be bale to deletegate
+another DOM element to receive those events.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">HTMLCanvasElement</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                    
+                        
+                    
+                
+                <p>the DOM element which will receive mouse and touch events.</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>resolution</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The resolution / device pixel ratio of the new element (relative to the canvas).</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="update">
+            <a class="share-icon" href="#update"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                update
+            </span>
+            <span class="signature">(deltaTime)</span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Updates the state of interactive objects.
+Invoked by a throttled ticker update from <a href="SINT.ticker.html#.shared">SINT.ticker.shared</a>.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>deltaTime</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>time delta since last tick</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        </dl>
     
     
     
@@ -4222,7 +5693,7 @@
 
         <footer class="content-size">
             <div class="footer">
-                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 03 2018 13:00:43 GMT+0800 (CST)
+                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 03 2018 13:00:44 GMT+0800 (CST)
             </div>
         </footer>
     </div>

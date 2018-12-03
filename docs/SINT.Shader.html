@@ -3967,7 +3967,7 @@
     </ul>
 </div>
     <div class="main">
-        <h1 class="page-title" data-filename="SINT.AnimatedClip.html">Class: AnimatedClip</h1>
+        <h1 class="page-title" data-filename="SINT.Shader.html">Class: Shader</h1>
         
 
 
@@ -3976,8 +3976,11 @@
     
 <header>
     <div class="header content-size">
-        <h2><span class="ancestors"><a href="SINT.html">SINT</a>.</span>AnimatedClip
+        <h2><span class="ancestors"><a href="SINT.html">SINT</a>.</span>Shader
         </h2>
+        
+            <div class="class-description"><p>Wrapper class, webGL Shader for SINT.
+Adds precision string if vertexSrc or fragmentSrc have no mention of it.</p></div>
         
     </div>
 </header>  
@@ -3990,12 +3993,12 @@
         
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="AnimatedClip">
-            <a class="share-icon" href="#AnimatedClip"><span class="glyphicon glyphicon-link"></span></a>
+        <h4 class="name" id="Shader">
+            <a class="share-icon" href="#Shader"><span class="glyphicon glyphicon-link"></span></a>
             <span class="">
-                new SINT.AnimatedClip
+                new SINT.Shader
             </span>
-            <span class="signature">(<span class="optional">_x</span>, <span class="optional">_y</span>, name)</span>
+            <span class="signature">(gl, vertexSrc, fragmentSrc, <span class="optional">attributeLocations</span>, <span class="optional">precision</span>)</span>
             
             
             
@@ -4028,8 +4031,6 @@
 		<th>Type</th>
 		
 		
-		<th>Default</th>
-		
 		
 		<th class="last">Description</th>
 	</tr>
@@ -4040,24 +4041,108 @@
 	
         <tr>
             
-                <td class="name"><code>_x</code></td>
+                <td class="name"><code>gl</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">WebGLRenderingContext</span>
 
 
             
             </td>
             
             
-                <td class="default">
+            
+            <td class="description last">
                 
-                    0
+                    
+                    
+                        
+                    
                 
-                </td>
+                <p>The current WebGL rendering context</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>vertexSrc</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">Array.&lt;string></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                    
+                        
+                    
+                
+                <p>The vertex shader source as an array of strings.</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>fragmentSrc</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">Array.&lt;string></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                    
+                        
+                    
+                
+                <p>The fragment shader source as an array of strings.</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>attributeLocations</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
             
             
             <td class="description last">
@@ -4069,50 +4154,15 @@
                         
                     
                 
-                </td>
+                <p>A key value pair showing which location eact attribute should sit.
+                       e.g. {position:0, uvs:1}.</p></td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>_y</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="default">
-                
-                    0
-                
-                </td>
-            
-            
-            <td class="description last">
-                
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>name</code></td>
+                <td class="name"><code>precision</code></td>
             
             
             <td class="type">
@@ -4125,19 +4175,17 @@
             </td>
             
             
-                <td class="default">
-                
-                </td>
-            
             
             <td class="description last">
                 
+                    
+                        <span class="optional">optional</span>
                     
                     
                         
                     
                 
-                <p>The frame name of the texture in the cache</p></td>
+                <p>The float precision of the shader. Options are 'lowp', 'mediump' or 'highp'.</p></td>
         </tr>
 	
 	
@@ -4189,7 +4237,7 @@
         <h3 class="subsection-title">Extends</h3>
         
         <ul>
-            <li>PIXI.extras.AnimatedSprite</li>
+            <li>GLShader</li>
         </ul>
     
     
@@ -4222,7 +4270,7 @@
 
         <footer class="content-size">
             <div class="footer">
-                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 03 2018 13:00:43 GMT+0800 (CST)
+                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 03 2018 13:00:44 GMT+0800 (CST)
             </div>
         </footer>
     </div>

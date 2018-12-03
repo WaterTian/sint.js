@@ -3967,7 +3967,7 @@
     </ul>
 </div>
     <div class="main">
-        <h1 class="page-title" data-filename="SINT.AnimatedClip.html">Class: AnimatedClip</h1>
+        <h1 class="page-title" data-filename="SINT.ObservablePoint.html">Class: ObservablePoint</h1>
         
 
 
@@ -3976,8 +3976,12 @@
     
 <header>
     <div class="header content-size">
-        <h2><span class="ancestors"><a href="SINT.html">SINT</a>.</span>AnimatedClip
+        <h2><span class="ancestors"><a href="SINT.html">SINT</a>.</span>ObservablePoint
         </h2>
+        
+            <div class="class-description"><p>The Point object represents a location in a two-dimensional coordinate system, where x represents
+the horizontal axis and y represents the vertical axis.
+An observable point is a point that triggers a callback when the point's position is changed.</p></div>
         
     </div>
 </header>  
@@ -3990,12 +3994,12 @@
         
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="AnimatedClip">
-            <a class="share-icon" href="#AnimatedClip"><span class="glyphicon glyphicon-link"></span></a>
+        <h4 class="name" id="ObservablePoint">
+            <a class="share-icon" href="#ObservablePoint"><span class="glyphicon glyphicon-link"></span></a>
             <span class="">
-                new SINT.AnimatedClip
+                new SINT.ObservablePoint
             </span>
-            <span class="signature">(<span class="optional">_x</span>, <span class="optional">_y</span>, name)</span>
+            <span class="signature">(cb, scope, <span class="optional">x</span>, <span class="optional">y</span>)</span>
             
             
             
@@ -4040,7 +4044,71 @@
 	
         <tr>
             
-                <td class="name"><code>_x</code></td>
+                <td class="name"><code>cb</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                    
+                        
+                    
+                
+                <p>callback when changed</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>scope</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                    
+                        
+                    
+                
+                <p>owner of callback</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>x</code></td>
             
             
             <td class="type">
@@ -4069,14 +4137,14 @@
                         
                     
                 
-                </td>
+                <p>position of the point on the x axis</p></td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>_y</code></td>
+                <td class="name"><code>y</code></td>
             
             
             <td class="type">
@@ -4105,39 +4173,7 @@
                         
                     
                 
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="default">
-                
-                </td>
-            
-            
-            <td class="description last">
-                
-                    
-                    
-                        
-                    
-                
-                <p>The frame name of the texture in the cache</p></td>
+                <p>position of the point on the y axis</p></td>
         </tr>
 	
 	
@@ -4186,11 +4222,46 @@
     </div>
     
     
-        <h3 class="subsection-title">Extends</h3>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Members</h3>
         
-        <ul>
-            <li>PIXI.extras.AnimatedSprite</li>
-        </ul>
+        <dl class="list-members">
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="x">
+            <a class="share-icon" href="#x"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">x</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The position of the displayObject on the x axis relative to the local coordinates of the parent.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
     
     
     
@@ -4203,6 +4274,712 @@
     
     
     
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="y">
+            <a class="share-icon" href="#y"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">y</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The position of the displayObject on the x axis relative to the local coordinates of the parent.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl class="list-methods">
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="clone">
+            <a class="share-icon" href="#clone"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                clone
+            </span>
+            <span class="signature">(<span class="optional">cb</span>, <span class="optional">scope</span>)</span><span class="type-signature"><a href="SINT.ObservablePoint.html">SINT.ObservablePoint</a></span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Creates a clone of this point.
+The callback and scope params can be overidden otherwise they will default
+to the clone object's values.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>cb</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>callback when changed</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>scope</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>owner of callback</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="SINT.ObservablePoint.html">SINT.ObservablePoint</a>
+                        
+                    
+            </td>
+            <td class="description last">a copy of the point</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="copy">
+            <a class="share-icon" href="#copy"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                copy
+            </span>
+            <span class="signature">(point)</span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Copies the data from another point</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>point</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.Point.html">SINT.Point</a></span>
+|
+
+<span class="param-type"><a href="SINT.ObservablePoint.html">SINT.ObservablePoint</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>point to copy from</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="equals">
+            <a class="share-icon" href="#equals"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                equals
+            </span>
+            <span class="signature">(p)</span><span class="type-signature">boolean</span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Returns true if the given point is equal to this point</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>p</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.Point.html">SINT.Point</a></span>
+|
+
+<span class="param-type"><a href="SINT.ObservablePoint.html">SINT.ObservablePoint</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The point to check</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        boolean
+                        
+                    
+            </td>
+            <td class="description last">Whether the given point equal to this point</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="set">
+            <a class="share-icon" href="#set"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                set
+            </span>
+            <span class="signature">(<span class="optional">x</span>, <span class="optional">y</span>)</span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Sets the point to a new x and y position.
+If y is omitted, both x and y will be set to x.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>position of the point on the x axis</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>position of the point on the y axis</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        </dl>
     
     
     
@@ -4222,7 +4999,7 @@
 
         <footer class="content-size">
             <div class="footer">
-                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 03 2018 13:00:43 GMT+0800 (CST)
+                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 03 2018 13:00:44 GMT+0800 (CST)
             </div>
         </footer>
     </div>

@@ -3967,7 +3967,7 @@
     </ul>
 </div>
     <div class="main">
-        <h1 class="page-title" data-filename="SINT.AnimatedClip.html">Class: AnimatedClip</h1>
+        <h1 class="page-title" data-filename="SINT.Spritesheet.html">Class: Spritesheet</h1>
         
 
 
@@ -3976,8 +3976,22 @@
     
 <header>
     <div class="header content-size">
-        <h2><span class="ancestors"><a href="SINT.html">SINT</a>.</span>AnimatedClip
+        <h2><span class="ancestors"><a href="SINT.html">SINT</a>.</span>Spritesheet
         </h2>
+        
+            <div class="class-description"><p>Utility class for maintaining reference to a collection
+of Textures on a single Spritesheet.</p>
+<p>To access a sprite sheet from your code pass its JSON data file to SINT's loader:</p>
+<pre class="prettyprint source lang-js"><code>SINT.loader.add(&quot;images/spritesheet.json&quot;).load(setup);
+
+function setup() {
+  let sheet = SINT.loader.resources[&quot;images/spritesheet.json&quot;].spritesheet;
+  ...
+}</code></pre><p>With the <code>sheet.textures</code> you can create Sprite objects,<code>sheet.animations</code> can be used to create an AnimatedSprite.</p>
+<p>Sprite sheets can be packed using tools like <a target="_blank" href="https://codeandweb.com/texturepacker">TexturePacker</a>,
+<a target="_blank" href="https://renderhjs.net/shoebox/">Shoebox</a> or <a target="_blank" href="https://github.com/krzysztof-o/spritesheet.js">Spritesheet.js</a>.
+Default anchor points (see <a href="SINT.Texture.html#defaultAnchor">SINT.Texture#defaultAnchor</a>) and grouping of animation sprites are currently only
+supported by TexturePacker.</p></div>
         
     </div>
 </header>  
@@ -3990,12 +4004,12 @@
         
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="AnimatedClip">
-            <a class="share-icon" href="#AnimatedClip"><span class="glyphicon glyphicon-link"></span></a>
+        <h4 class="name" id="Spritesheet">
+            <a class="share-icon" href="#Spritesheet"><span class="glyphicon glyphicon-link"></span></a>
             <span class="">
-                new SINT.AnimatedClip
+                new SINT.Spritesheet
             </span>
-            <span class="signature">(<span class="optional">_x</span>, <span class="optional">_y</span>, name)</span>
+            <span class="signature">(baseTexture, data, <span class="optional">resolutionFilename</span>)</span>
             
             
             
@@ -4040,13 +4054,13 @@
 	
         <tr>
             
-                <td class="name"><code>_x</code></td>
+                <td class="name"><code>baseTexture</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type"><a href="SINT.BaseTexture.html">SINT.BaseTexture</a></span>
 
 
             
@@ -4055,34 +4069,30 @@
             
                 <td class="default">
                 
-                    0
-                
                 </td>
             
             
             <td class="description last">
                 
                     
-                        <span class="optional">optional</span>
-                    
                     
                         
                     
                 
-                </td>
+                <p>Reference to the source BaseTexture object.</p></td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>_y</code></td>
+                <td class="name"><code>data</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">Object</span>
 
 
             
@@ -4091,28 +4101,24 @@
             
                 <td class="default">
                 
-                    0
-                
                 </td>
             
             
             <td class="description last">
                 
                     
-                        <span class="optional">optional</span>
-                    
                     
                         
                     
                 
-                </td>
+                <p>Spritesheet image data.</p></td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>name</code></td>
+                <td class="name"><code>resolutionFilename</code></td>
             
             
             <td class="type">
@@ -4127,17 +4133,23 @@
             
                 <td class="default">
                 
+                    null
+                
                 </td>
             
             
             <td class="description last">
                 
                     
+                        <span class="optional">optional</span>
+                    
                     
                         
                     
                 
-                <p>The frame name of the texture in the cache</p></td>
+                <p>The filename to consider when determining
+       the resolution of the spritesheet. If not provided, the imageUrl will
+       be used on the BaseTexture.</p></td>
         </tr>
 	
 	
@@ -4186,11 +4198,102 @@
     </div>
     
     
-        <h3 class="subsection-title">Extends</h3>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Members</h3>
         
-        <ul>
-            <li>PIXI.extras.AnimatedSprite</li>
-        </ul>
+        <dl class="list-members">
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".BATCH_SIZE">
+            <a class="share-icon" href="#.BATCH_SIZE"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">SINT.Spritesheet.BATCH_SIZE</span>
+            <span class="type-signature type">number</span>
+            
+            <span class="access-signature">static</span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The maximum number of Textures to build per process.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>1000</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="animations">
+            <a class="share-icon" href="#animations"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">animations</span>
+            <span class="type-signature type">Object</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>A map containing the textures for each animation.
+Can be used to create an AnimatedSprite:</p>
+<pre class="prettyprint source lang-js"><code>new SINT.extras.AnimatedSprite(sheet.animations[&quot;anim_name&quot;])</code></pre>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
     
     
     
@@ -4203,6 +4306,481 @@
     
     
     
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="baseTexture">
+            <a class="share-icon" href="#baseTexture"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">baseTexture</span>
+            <span class="type-signature type"><a href="SINT.BaseTexture.html">SINT.BaseTexture</a></span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Reference to ths source texture</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="data">
+            <a class="share-icon" href="#data"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">data</span>
+            <span class="type-signature type">Object</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Reference to the original JSON data.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="resolution">
+            <a class="share-icon" href="#resolution"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">resolution</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The resolution of the spritesheet.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="textures">
+            <a class="share-icon" href="#textures"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">textures</span>
+            <span class="type-signature type">Object</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>A map containing all textures of the sprite sheet.
+Can be used to create a <a href="SINT.Sprite.html">Sprite</a>:</p>
+<pre class="prettyprint source lang-js"><code>new SINT.Sprite(sheet.textures[&quot;image.png&quot;]);</code></pre>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl class="list-methods">
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="destroy">
+            <a class="share-icon" href="#destroy"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                destroy
+            </span>
+            <span class="signature">(<span class="optional">destroyBase</span>)</span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Destroy Spritesheet and don't use after this.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>destroyBase</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Whether to destroy the base texture as well</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="parse">
+            <a class="share-icon" href="#parse"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                parse
+            </span>
+            <span class="signature">(callback)</span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Parser spritesheet from loaded data. This is done asynchronously
+to prevent creating too many Texture within a single process.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>Callback when complete returns
+       a map of the Textures for this spritesheet.</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        </dl>
     
     
     
@@ -4222,7 +4800,7 @@
 
         <footer class="content-size">
             <div class="footer">
-                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 03 2018 13:00:43 GMT+0800 (CST)
+                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 03 2018 13:00:44 GMT+0800 (CST)
             </div>
         </footer>
     </div>

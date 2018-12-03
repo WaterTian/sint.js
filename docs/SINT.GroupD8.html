@@ -3967,7 +3967,7 @@
     </ul>
 </div>
     <div class="main">
-        <h1 class="page-title" data-filename="SINT.AnimatedClip.html">Class: AnimatedClip</h1>
+        <h1 class="page-title" data-filename="SINT.GroupD8.html">Class: GroupD8</h1>
         
 
 
@@ -3976,7 +3976,7 @@
     
 <header>
     <div class="header content-size">
-        <h2><span class="ancestors"><a href="SINT.html">SINT</a>.</span>AnimatedClip
+        <h2><span class="ancestors"><a href="SINT.html">SINT</a>.</span>GroupD8
         </h2>
         
     </div>
@@ -3990,14 +3990,117 @@
         
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="AnimatedClip">
-            <a class="share-icon" href="#AnimatedClip"><span class="glyphicon glyphicon-link"></span></a>
+        <h4 class="name" id="GroupD8">
+            <a class="share-icon" href="#GroupD8"><span class="glyphicon glyphicon-link"></span></a>
             <span class="">
-                new SINT.AnimatedClip
+                new SINT.GroupD8
             </span>
-            <span class="signature">(<span class="optional">_x</span>, <span class="optional">_y</span>, name)</span>
+            <span class="signature">()</span>
             
             
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Implements Dihedral Group D_8, see <a target="_blank" href="http://mathworld.wolfram.com/DihedralGroupD4.html">group D4</a>,
+D8 is the same but with diagonals. Used for texture rotations.</p>
+<p>Vector xX(i), xY(i) is U-axis of sprite with rotation i
+Vector yY(i), yY(i) is V-axis of sprite with rotation i
+Rotations: 0 grad (0), 90 grad (2), 180 grad (4), 270 grad (6)
+Mirrors: vertical (8), main diagonal (10), horizontal (12), reverse diagonal (14)
+This is the small part of gameofbombs.com portal system. It works.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Ivan @ivanpopelyshev</li>
+        </ul>
+    </dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl class="list-methods">
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".byDirection">
+            <a class="share-icon" href="#.byDirection"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                SINT.GroupD8.byDirection
+            </span>
+            <span class="signature">(dx, dy)</span><span class="type-signature">number</span>
+            
+            <span class="access-signature">static</span>
             
             
         </h4>
@@ -4028,7 +4131,175 @@
 		<th>Type</th>
 		
 		
-		<th>Default</th>
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>dx</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>TODO</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>dy</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>TODO</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        number
+                        
+                    
+            </td>
+            <td class="description last">TODO</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".isVertical">
+            <a class="share-icon" href="#.isVertical"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                SINT.GroupD8.isVertical
+            </span>
+            <span class="signature">(rotation)</span><span class="type-signature">boolean</span>
+            
+            <span class="access-signature">static</span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Direction of main vector can be horizontal, vertical or diagonal.
+Some objects work with vertical directions different.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
 		
 		
 		<th class="last">Description</th>
@@ -4040,7 +4311,7 @@
 	
         <tr>
             
-                <td class="name"><code>_x</code></td>
+                <td class="name"><code>rotation</code></td>
             
             
             <td class="type">
@@ -4053,30 +4324,163 @@
             </td>
             
             
-                <td class="default">
+            
+            <td class="description last">
                 
-                    0
+                <p>The number to check.</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        boolean
+                        
+                    
+            </td>
+            <td class="description last">Whether or not the direction is vertical</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".matrixAppendRotationInv">
+            <a class="share-icon" href="#.matrixAppendRotationInv"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                SINT.GroupD8.matrixAppendRotationInv
+            </span>
+            <span class="signature">(matrix, rotation, tx, ty)</span>
+            
+            <span class="access-signature">static</span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Helps sprite to compensate texture packer rotation.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>matrix</code></td>
+            
+            
+            <td class="type">
+            
                 
-                </td>
+<span class="param-type"><a href="SINT.Matrix.html">SINT.Matrix</a></span>
+
+
+            
+            </td>
+            
             
             
             <td class="description last">
                 
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
-                </td>
+                <p>sprite world matrix</p></td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>_y</code></td>
+                <td class="name"><code>rotation</code></td>
             
             
             <td class="type">
@@ -4089,55 +4493,56 @@
             </td>
             
             
-                <td class="default">
-                
-                    0
-                
-                </td>
-            
             
             <td class="description last">
                 
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
-                </td>
+                <p>The rotation factor to use.</p></td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>name</code></td>
+                <td class="name"><code>tx</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">number</span>
 
 
             
             </td>
             
             
-                <td class="default">
+            
+            <td class="description last">
                 
-                </td>
+                <p>sprite anchoring</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>ty</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
             
             
             <td class="description last">
                 
-                    
-                    
-                        
-                    
-                
-                <p>The frame name of the texture in the cache</p></td>
+                <p>sprite anchoring</p></td>
         </tr>
 	
 	
@@ -4182,15 +4587,90 @@
     
 </dd>
 
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".rotate180">
+            <a class="share-icon" href="#.rotate180"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                SINT.GroupD8.rotate180
+            </span>
+            <span class="signature">(rotation)</span><span class="type-signature">number</span>
+            
+            <span class="access-signature">static</span>
+            
+            
+        </h4>
     
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Adds 180 degrees to rotation. Commutative operation.</p>
     </div>
     
+
     
-        <h3 class="subsection-title">Extends</h3>
+    
+    
+    
+    
         
-        <ul>
-            <li>PIXI.extras.AnimatedSprite</li>
-        </ul>
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>rotation</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The number to rotate.</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
     
     
     
@@ -4203,6 +4683,57 @@
     
     
     
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        number
+                        
+                    
+            </td>
+            <td class="description last">rotated number</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        </dl>
     
     
     
@@ -4222,7 +4753,7 @@
 
         <footer class="content-size">
             <div class="footer">
-                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 03 2018 13:00:43 GMT+0800 (CST)
+                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 03 2018 13:00:44 GMT+0800 (CST)
             </div>
         </footer>
     </div>

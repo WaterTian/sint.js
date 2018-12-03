@@ -3967,7 +3967,7 @@
     </ul>
 </div>
     <div class="main">
-        <h1 class="page-title" data-filename="SINT.AnimatedClip.html">Class: AnimatedClip</h1>
+        <h1 class="page-title" data-filename="SINT.settings.html">Namespace: settings</h1>
         
 
 
@@ -3976,7 +3976,7 @@
     
 <header>
     <div class="header content-size">
-        <h2><span class="ancestors"><a href="SINT.html">SINT</a>.</span>AnimatedClip
+        <h2><span class="ancestors"><a href="SINT.html">SINT</a>.</span>settings
         </h2>
         
     </div>
@@ -3988,161 +3988,86 @@
     
     
         
+            <div class="description"><p>User's customizable globals for overriding the default SINT settings, such
+as a renderer's default resolution, framerate, float percision, etc.</p></div>
+        
+        
+        
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+        
+        
+            <h3>Example</h3>
+            
+
+    
+    <pre class="prettyprint"><code>// Use the native window resolution as the default resolution
+// will support high-density displays when rendering
+SINT.settings.RESOLUTION = window.devicePixelRatio.
+
+// Disable interpolation when scaling, will make texture be pixelated
+SINT.settings.SCALE_MODE = SINT.SCALE_MODES.NEAREST;</code></pre>
+    
+
+        
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Members</h3>
+        
+        <dl class="list-members">
+            
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="AnimatedClip">
-            <a class="share-icon" href="#AnimatedClip"><span class="glyphicon glyphicon-link"></span></a>
-            <span class="">
-                new SINT.AnimatedClip
-            </span>
-            <span class="signature">(<span class="optional">_x</span>, <span class="optional">_y</span>, name)</span>
+        <h4 class="name" id=".CAN_UPLOAD_SAME_BUFFER">
+            <a class="share-icon" href="#.CAN_UPLOAD_SAME_BUFFER"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">SINT.settings.CAN_UPLOAD_SAME_BUFFER</span>
+            <span class="type-signature type">boolean</span>
             
-            
+            <span class="access-signature">static</span><span class="access-signature">constant</span>
             
             
         </h4>
-    
-        
     </div>
-
+    
     
 </dt>
 <dd>
     
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Default</th>
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>_x</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="default">
-                
-                    0
-                
-                </td>
-            
-            
-            <td class="description last">
-                
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>_y</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="default">
-                
-                    0
-                
-                </td>
-            
-            
-            <td class="description last">
-                
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="default">
-                
-                </td>
-            
-            
-            <td class="description last">
-                
-                    
-                    
-                        
-                    
-                
-                <p>The frame name of the texture in the cache</p></td>
-        </tr>
-	
-	
-	</tbody>
-</table>
+    <div class="description">
+        <p>Can we upload the same buffer in a single frame?</p>
+    </div>
     
     
     
@@ -4170,27 +4095,311 @@
 
     
     
+</dd>
 
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".FILTER_RESOLUTION">
+            <a class="share-icon" href="#.FILTER_RESOLUTION"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">SINT.settings.FILTER_RESOLUTION</span>
+            <span class="type-signature type">number</span>
+            
+            <span class="access-signature">static</span>
+            
+            
+        </h4>
+    </div>
     
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Default filter resolution.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>1</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
 
-    
-    
-    
-    
-    
     
     
 </dd>
 
-    
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".GC_MAX_CHECK_COUNT">
+            <a class="share-icon" href="#.GC_MAX_CHECK_COUNT"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">SINT.settings.GC_MAX_CHECK_COUNT</span>
+            <span class="type-signature type">number</span>
+            
+            <span class="access-signature">static</span>
+            
+            
+        </h4>
     </div>
     
     
-        <h3 class="subsection-title">Extends</h3>
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Default Garbage Collection maximum check count.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
         
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>600</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".GC_MAX_IDLE">
+            <a class="share-icon" href="#.GC_MAX_IDLE"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">SINT.settings.GC_MAX_IDLE</span>
+            <span class="type-signature type">number</span>
+            
+            <span class="access-signature">static</span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Default Garbage Collection max idle.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>3600</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".GC_MODE">
+            <a class="share-icon" href="#.GC_MODE"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">SINT.settings.GC_MODE</span>
+            <span class="type-signature type"><a href="SINT.html#.GC_MODES">SINT.GC_MODES</a></span>
+            
+            <span class="access-signature">static</span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Default Garbage Collection mode.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>SINT.GC_MODES.AUTO</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".MESH_CANVAS_PADDING">
+            <a class="share-icon" href="#.MESH_CANVAS_PADDING"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">SINT.settings.MESH_CANVAS_PADDING</span>
+            <span class="type-signature type">number</span>
+            
+            <span class="access-signature">static</span><span class="access-signature">constant</span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Default Mesh <code>canvasPadding</code>.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
         <ul>
-            <li>PIXI.extras.AnimatedSprite</li>
+            <li>SINT.mesh.Mesh#canvasPadding</li>
         </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".MIPMAP_TEXTURES">
+            <a class="share-icon" href="#.MIPMAP_TEXTURES"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">SINT.settings.MIPMAP_TEXTURES</span>
+            <span class="type-signature type">boolean</span>
+            
+            <span class="access-signature">static</span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>If set to true WebGL will attempt make textures mimpaped by default.
+Mipmapping will only succeed if the base texture uploaded has power of two dimensions.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
     
     
     
@@ -4201,6 +4410,1031 @@
     
     
     
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>true</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".PRECISION_FRAGMENT">
+            <a class="share-icon" href="#.PRECISION_FRAGMENT"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">SINT.settings.PRECISION_FRAGMENT</span>
+            <span class="type-signature type"><a href="SINT.html#.PRECISION">SINT.PRECISION</a></span>
+            
+            <span class="access-signature">static</span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Default specify float precision in fragment shader.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>SINT.PRECISION.MEDIUM</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".PRECISION_VERTEX">
+            <a class="share-icon" href="#.PRECISION_VERTEX"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">SINT.settings.PRECISION_VERTEX</span>
+            <span class="type-signature type"><a href="SINT.html#.PRECISION">SINT.PRECISION</a></span>
+            
+            <span class="access-signature">static</span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Default specify float precision in vertex shader.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>SINT.PRECISION.HIGH</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".RENDER_OPTIONS">
+            <a class="share-icon" href="#.RENDER_OPTIONS"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">SINT.settings.RENDER_OPTIONS</span>
+            <span class="type-signature type">object</span>
+            
+            <span class="access-signature">static</span><span class="access-signature">constant</span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The default render options if none are supplied to <a href="SINT.WebGLRenderer.html">SINT.WebGLRenderer</a>
+or <a href="SINT.CanvasRenderer.html">SINT.CanvasRenderer</a>.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+        <h5 class="subsection-title">Properties:</h5>
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>view</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">HTMLCanvasElement</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>resolution</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>antialias</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>forceFXAA</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>autoResize</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>transparent</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>backgroundColor</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+                <td class="default">
+                
+                    0x000000
+                
+                </td>
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>clearBeforeRender</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>preserveDrawingBuffer</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>roundPixels</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>width</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+                <td class="default">
+                
+                    800
+                
+                </td>
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>height</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+                <td class="default">
+                
+                    600
+                
+                </td>
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>legacy</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".RESOLUTION">
+            <a class="share-icon" href="#.RESOLUTION"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">SINT.settings.RESOLUTION</span>
+            <span class="type-signature type">number</span>
+            
+            <span class="access-signature">static</span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Default resolution / device pixel ratio of the renderer.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>1</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".RETINA_PREFIX">
+            <a class="share-icon" href="#.RETINA_PREFIX"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">SINT.settings.RETINA_PREFIX</span>
+            <span class="type-signature type">RegExp</span>
+            
+            <span class="access-signature">static</span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The prefix that denotes a URL is for a retina asset.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>/@([0-9\.]+)x/</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+        <h5>Example</h5>
+        
+
+    
+    <pre class="prettyprint"><code>`@2x`</code></pre>
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".SCALE_MODE">
+            <a class="share-icon" href="#.SCALE_MODE"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">SINT.settings.SCALE_MODE</span>
+            <span class="type-signature type"><a href="SINT.html#.SCALE_MODES">SINT.SCALE_MODES</a></span>
+            
+            <span class="access-signature">static</span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The scale modes that are supported by SINT.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>SINT.SCALE_MODES.LINEAR</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".SPRITE_BATCH_SIZE">
+            <a class="share-icon" href="#.SPRITE_BATCH_SIZE"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">SINT.settings.SPRITE_BATCH_SIZE</span>
+            <span class="type-signature type">number</span>
+            
+            <span class="access-signature">static</span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The default sprite batch size.</p>
+<p>The default aims to balance desktop and mobile devices.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>4096</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".SPRITE_MAX_TEXTURES">
+            <a class="share-icon" href="#.SPRITE_MAX_TEXTURES"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">SINT.settings.SPRITE_MAX_TEXTURES</span>
+            <span class="type-signature type">number</span>
+            
+            <span class="access-signature">static</span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The maximum textures that this device supports.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>32</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".TARGET_FPMS">
+            <a class="share-icon" href="#.TARGET_FPMS"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">SINT.settings.TARGET_FPMS</span>
+            <span class="type-signature type">number</span>
+            
+            <span class="access-signature">static</span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Target frames per millisecond.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>0.06</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".TRANSFORM_MODE">
+            <a class="share-icon" href="#.TRANSFORM_MODE"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">SINT.settings.TRANSFORM_MODE</span>
+            <span class="type-signature type"><a href="SINT.html#.TRANSFORM_MODE">SINT.TRANSFORM_MODE</a></span>
+            
+            <span class="access-signature">static</span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Default transform type.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>SINT.TRANSFORM_MODE.STATIC</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".WRAP_MODE">
+            <a class="share-icon" href="#.WRAP_MODE"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">SINT.settings.WRAP_MODE</span>
+            <span class="type-signature type"><a href="SINT.html#.WRAP_MODES">SINT.WRAP_MODES</a></span>
+            
+            <span class="access-signature">static</span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Default wrap modes that are supported by SINT.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>SINT.WRAP_MODES.CLAMP</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        </dl>
     
     
     
@@ -4222,7 +5456,7 @@
 
         <footer class="content-size">
             <div class="footer">
-                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 03 2018 13:00:43 GMT+0800 (CST)
+                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 03 2018 13:00:44 GMT+0800 (CST)
             </div>
         </footer>
     </div>

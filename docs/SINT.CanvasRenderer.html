@@ -3967,7 +3967,7 @@
     </ul>
 </div>
     <div class="main">
-        <h1 class="page-title" data-filename="SINT.AnimatedClip.html">Class: AnimatedClip</h1>
+        <h1 class="page-title" data-filename="SINT.CanvasRenderer.html">Class: CanvasRenderer</h1>
         
 
 
@@ -3976,8 +3976,12 @@
     
 <header>
     <div class="header content-size">
-        <h2><span class="ancestors"><a href="SINT.html">SINT</a>.</span>AnimatedClip
+        <h2><span class="ancestors"><a href="SINT.html">SINT</a>.</span>CanvasRenderer
         </h2>
+        
+            <div class="class-description"><p>The CanvasRenderer draws the scene and all its content onto a 2d canvas. This renderer should
+be used for browsers that do not support WebGL. Don't forget to add the CanvasRenderer.view to
+your DOM or you will not see anything :)</p></div>
         
     </div>
 </header>  
@@ -3990,12 +3994,12 @@
         
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="AnimatedClip">
-            <a class="share-icon" href="#AnimatedClip"><span class="glyphicon glyphicon-link"></span></a>
+        <h4 class="name" id="CanvasRenderer">
+            <a class="share-icon" href="#CanvasRenderer"><span class="glyphicon glyphicon-link"></span></a>
             <span class="">
-                new SINT.AnimatedClip
+                new SINT.CanvasRenderer
             </span>
-            <span class="signature">(<span class="optional">_x</span>, <span class="optional">_y</span>, name)</span>
+            <span class="signature">(<span class="optional">options</span>)</span>
             
             
             
@@ -4028,6 +4032,52 @@
 		<th>Type</th>
 		
 		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The optional renderer parameters</p>
+                
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
 		<th>Default</th>
 		
 		
@@ -4040,7 +4090,7 @@
 	
         <tr>
             
-                <td class="name"><code>_x</code></td>
+                <td class="name"><code>width</code></td>
             
             
             <td class="type">
@@ -4055,7 +4105,7 @@
             
                 <td class="default">
                 
-                    0
+                    800
                 
                 </td>
             
@@ -4069,14 +4119,14 @@
                         
                     
                 
-                </td>
+                <p>the width of the screen</p></td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>_y</code></td>
+                <td class="name"><code>height</code></td>
             
             
             <td class="type">
@@ -4091,7 +4141,7 @@
             
                 <td class="default">
                 
-                    0
+                    600
                 
                 </td>
             
@@ -4105,20 +4155,20 @@
                         
                     
                 
-                </td>
+                <p>the height of the screen</p></td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>name</code></td>
+                <td class="name"><code>view</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">HTMLCanvasElement</span>
 
 
             
@@ -4133,11 +4183,312 @@
             <td class="description last">
                 
                     
+                        <span class="optional">optional</span>
+                    
                     
                         
                     
                 
-                <p>The frame name of the texture in the cache</p></td>
+                <p>the canvas to use as a view, optional</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>transparent</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>If the render view is transparent, default false</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>autoResize</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>If the render view is automatically resized, default false</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>antialias</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>sets antialias (only applicable in chrome at the moment)</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>resolution</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The resolution / device pixel ratio of the renderer. The
+ resolution of the renderer retina would be 2.</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>preserveDrawingBuffer</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>enables drawing buffer preservation,
+ enable this if you need to call toDataUrl on the webgl context.</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>clearBeforeRender</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>This sets if the renderer will clear the canvas or
+     not before the new render pass.</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>backgroundColor</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    0x000000
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The background color of the rendered area
+ (shown if not transparent).</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>roundPixels</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>If true SINTJS will Math.floor() x/y values when rendering,
+ stopping pixel interpolation.</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
         </tr>
 	
 	
@@ -4189,7 +4540,7 @@
         <h3 class="subsection-title">Extends</h3>
         
         <ul>
-            <li>PIXI.extras.AnimatedSprite</li>
+            <li><a href="SINT.SystemRenderer.html">SINT.SystemRenderer</a></li>
         </ul>
     
     
@@ -4202,7 +4553,2456 @@
     
     
     
+        <h3 class="subsection-title">Members</h3>
+        
+        <dl class="list-members">
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="autoResize">
+            <a class="share-icon" href="#autoResize"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">autoResize</span>
+            <span class="type-signature type">boolean</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.SystemRenderer.html#autoResize">inherited</a></span>
+            
+            
+        </h4>
+    </div>
     
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Whether css dimensions of canvas view should be resized to screen dimensions automatically</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="backgroundColor">
+            <a class="share-icon" href="#backgroundColor"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">backgroundColor</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.SystemRenderer.html#backgroundColor">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The background color to fill if not transparent</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="blendModes">
+            <a class="share-icon" href="#blendModes"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">blendModes</span>
+            <span class="type-signature type">object.&lt;string, mixed></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.SystemRenderer.html#blendModes">inherited</a></span>
+            
+            
+                <span class="access-signature overrides"><a href="SINT.SystemRenderer.html#blendModes">overrides</a></span>
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Tracks the blend modes useful for this renderer.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="clearBeforeRender">
+            <a class="share-icon" href="#clearBeforeRender"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">clearBeforeRender</span>
+            <span class="type-signature type">boolean</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.SystemRenderer.html#clearBeforeRender">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>This sets if the CanvasRenderer will clear the canvas or not before the new render pass.
+If the scene is NOT transparent SINTJS will use a canvas sized fillRect operation every
+frame to set the canvas background color. If the scene is transparent SINTJS will use clearRect
+to clear the canvas every frame. Disable this by setting this to false. For example if
+your game has a canvas filling background image you often don't need this set.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="context">
+            <a class="share-icon" href="#context"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">context</span>
+            <span class="type-signature type">CanvasRenderingContext2D</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The currently active canvas 2d context (could change with renderTextures)</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="height">
+            <a class="share-icon" href="#height"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">height</span>
+            <span class="type-signature type">number</span>
+            
+            <span class="access-signature">readonly</span>
+            
+                <span class="access-signature inherited"><a href="SINT.SystemRenderer.html#height">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Same as view.height, actual number of pixels in the canvas by vertical</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>600</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="maskManager">
+            <a class="share-icon" href="#maskManager"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">maskManager</span>
+            <span class="type-signature type"><a href="SINT.CanvasMaskManager.html">SINT.CanvasMaskManager</a></span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Instance of a CanvasMaskManager, handles masking when using the canvas renderer.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="options">
+            <a class="share-icon" href="#options"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">options</span>
+            <span class="type-signature type">Object</span>
+            
+            <span class="access-signature">readonly</span>
+            
+                <span class="access-signature inherited"><a href="SINT.SystemRenderer.html#options">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The supplied constructor options.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="plugins">
+            <a class="share-icon" href="#plugins"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">plugins</span>
+            <span class="type-signature type">object</span>
+            
+            <span class="access-signature">readonly</span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Collection of installed plugins. These are included by default in SINT, but can be excluded
+by creating a custom build. Consult the README for more information about creating custom
+builds and excluding plugins.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+        <h5 class="subsection-title">Properties:</h5>
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>accessibility</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">SINT.accessibility.AccessibilityManager</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"><p>Support tabbing interactive elements.</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>extract</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">SINT.extract.CanvasExtract</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"><p>Extract image data from renderer.</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>interaction</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.interaction.InteractionManager.html">SINT.interaction.InteractionManager</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"><p>Handles mouse, touch and pointer events.</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>prepare</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">SINT.prepare.CanvasPrepare</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"><p>Pre-render display objects.</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="preserveDrawingBuffer">
+            <a class="share-icon" href="#preserveDrawingBuffer"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">preserveDrawingBuffer</span>
+            <span class="type-signature type">boolean</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.SystemRenderer.html#preserveDrawingBuffer">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The value of the preserveDrawingBuffer flag affects whether or not the contents of
+the stencil buffer is retained after rendering.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="refresh">
+            <a class="share-icon" href="#refresh"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">refresh</span>
+            <span class="type-signature type">boolean</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Boolean flag controlling canvas refresh.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="resolution">
+            <a class="share-icon" href="#resolution"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">resolution</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.SystemRenderer.html#resolution">inherited</a></span>
+            
+            
+                <span class="access-signature overrides"><a href="SINT.SystemRenderer.html#resolution">overrides</a></span>
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The resolution / device pixel ratio of the renderer</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>1</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="rootContext">
+            <a class="share-icon" href="#rootContext"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">rootContext</span>
+            <span class="type-signature type">CanvasRenderingContext2D</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The root canvas 2d context that everything is drawn with.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="roundPixels">
+            <a class="share-icon" href="#roundPixels"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">roundPixels</span>
+            <span class="type-signature type">boolean</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.SystemRenderer.html#roundPixels">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>If true SINTJS will Math.floor() x/y values when rendering, stopping pixel interpolation.
+Handy for crisp pixel art and speed on legacy devices.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="screen">
+            <a class="share-icon" href="#screen"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">screen</span>
+            <span class="type-signature type"><a href="SINT.Rectangle.html">SINT.Rectangle</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.SystemRenderer.html#screen">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Measurements of the screen. (0, 0, screenWidth, screenHeight)</p>
+<p>Its safe to use as filterArea or hitArea for whole stage</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="smoothProperty">
+            <a class="share-icon" href="#smoothProperty"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">smoothProperty</span>
+            <span class="type-signature type">string</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The canvas property used to set the canvas smoothing property.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="transparent">
+            <a class="share-icon" href="#transparent"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">transparent</span>
+            <span class="type-signature type">boolean</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.SystemRenderer.html#transparent">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Whether the render view is transparent</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="type">
+            <a class="share-icon" href="#type"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">type</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.SystemRenderer.html#type">inherited</a></span>
+            
+            
+                <span class="access-signature overrides"><a href="SINT.SystemRenderer.html#type">overrides</a></span>
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The type of the renderer.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>SINT.RENDERER_TYPE.UNKNOWN</li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="SINT.html#.RENDERER_TYPE">SINT.RENDERER_TYPE</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="view">
+            <a class="share-icon" href="#view"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">view</span>
+            <span class="type-signature type">HTMLCanvasElement</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.SystemRenderer.html#view">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The canvas element that everything is drawn to</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="width">
+            <a class="share-icon" href="#width"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">width</span>
+            <span class="type-signature type">number</span>
+            
+            <span class="access-signature">readonly</span>
+            
+                <span class="access-signature inherited"><a href="SINT.SystemRenderer.html#width">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Same as view.width, actual number of pixels in the canvas by horizontal</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>800</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl class="list-methods">
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="clear">
+            <a class="share-icon" href="#clear"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                clear
+            </span>
+            <span class="signature">(<span class="optional">clearColor</span>)</span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Clear the canvas of renderer.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>clearColor</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Clear the canvas with this color, except the canvas is transparent.</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="destroy">
+            <a class="share-icon" href="#destroy"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                destroy
+            </span>
+            <span class="signature">(<span class="optional">removeView</span>)</span>
+            
+            
+            
+            
+                <span class="access-signature overrides"><a href="SINT.SystemRenderer.html#destroy">overrides</a></span>
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Removes everything from the renderer and optionally removes the Canvas DOM element.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>removeView</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Removes the Canvas element from the DOM.</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="generateTexture">
+            <a class="share-icon" href="#generateTexture"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                generateTexture
+            </span>
+            <span class="signature">(displayObject, scaleMode, resolution, <span class="optional">region</span>)</span><span class="type-signature"><a href="SINT.Texture.html">SINT.Texture</a></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.SystemRenderer.html#generateTexture">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Useful function that returns a texture of the display object that can then be used to create sprites
+This can be quite useful if your displayObject is complicated and needs to be reused multiple times.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>displayObject</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.DisplayObject.html">SINT.DisplayObject</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                    
+                        
+                    
+                
+                <p>The displayObject the object will be generated from</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>scaleMode</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                    
+                        
+                    
+                
+                <p>Should be one of the scaleMode consts</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>resolution</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                    
+                        
+                    
+                
+                <p>The resolution / device pixel ratio of the texture being generated</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>region</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.Rectangle.html">SINT.Rectangle</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The region of the displayObject, that shall be rendered,
+       if no region is specified, defaults to the local bounds of the displayObject.</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="SINT.Texture.html">SINT.Texture</a>
+                        
+                    
+            </td>
+            <td class="description last">a texture of the graphics object</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="invalidateBlendMode">
+            <a class="share-icon" href="#invalidateBlendMode"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                invalidateBlendMode
+            </span>
+            <span class="signature">()</span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Checks if blend mode has changed.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="registerPlugin">
+            <a class="share-icon" href="#registerPlugin"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                registerPlugin
+            </span>
+            <span class="signature">(pluginName, ctor)</span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Adds a plugin to the renderer.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>pluginName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The name of the plugin.</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>ctor</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The constructor function or class for the plugin.</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="render">
+            <a class="share-icon" href="#render"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                render
+            </span>
+            <span class="signature">(displayObject, <span class="optional">renderTexture</span>, <span class="optional">clear</span>, <span class="optional">transform</span>, <span class="optional">skipUpdateTransform</span>)</span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Renders the object to this canvas view</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>displayObject</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.DisplayObject.html">SINT.DisplayObject</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                    
+                        
+                    
+                
+                <p>The object to be rendered</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>renderTexture</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.RenderTexture.html">SINT.RenderTexture</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>A render texture to be rendered to.
+ If unset, it will render to the root context.</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>clear</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Whether to clear the canvas before drawing</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>transform</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.Matrix.html">SINT.Matrix</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>A transformation to be applied</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>skipUpdateTransform</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Whether to skip the update transform</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="resize">
+            <a class="share-icon" href="#resize"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                resize
+            </span>
+            <span class="signature">(screenWidth, screenHeight)</span>
+            
+            
+            
+            
+                <span class="access-signature overrides"><a href="SINT.SystemRenderer.html#resize">overrides</a></span>
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Resizes the canvas view to the specified width and height.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>screenWidth</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>the new width of the screen</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>screenHeight</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>the new height of the screen</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="setBlendMode">
+            <a class="share-icon" href="#setBlendMode"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                setBlendMode
+            </span>
+            <span class="signature">(blendMode)</span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Sets the blend mode of the renderer.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>blendMode</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>See <a href="SINT.html#.BLEND_MODES">SINT.BLEND_MODES</a> for valid values.</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        </dl>
     
     
     
@@ -4222,7 +7022,7 @@
 
         <footer class="content-size">
             <div class="footer">
-                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 03 2018 13:00:43 GMT+0800 (CST)
+                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 03 2018 13:00:44 GMT+0800 (CST)
             </div>
         </footer>
     </div>

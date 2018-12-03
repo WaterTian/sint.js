@@ -3967,7 +3967,7 @@
     </ul>
 </div>
     <div class="main">
-        <h1 class="page-title" data-filename="SINT.AnimatedClip.html">Class: AnimatedClip</h1>
+        <h1 class="page-title" data-filename="SINT.ticker.html">Namespace: ticker</h1>
         
 
 
@@ -3976,7 +3976,7 @@
     
 <header>
     <div class="header content-size">
-        <h2><span class="ancestors"><a href="SINT.html">SINT</a>.</span>AnimatedClip
+        <h2><span class="ancestors"><a href="SINT.html">SINT</a>.</span>ticker
         </h2>
         
     </div>
@@ -3988,161 +3988,98 @@
     
     
         
+            <div class="description"><p>This namespace contains an API for interacting with SINT's internal global update loop.</p>
+<p>This ticker is used for rendering, AnimatedSprite,
+<a href="SINT.interaction.InteractionManager.html">InteractionManager</a> and many other time-based SINT systems.</p></div>
+        
+        
+        
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+        
+        
+            <h3>Example</h3>
+            
+
+    
+    <pre class="prettyprint"><code>const ticker = new SINT.ticker.Ticker();
+ticker.stop();
+ticker.add((deltaTime) => {
+  // do something every frame
+});
+ticker.start();</code></pre>
+    
+
+        
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Classes</h3>
+        
+        <dl class="clearfix summary-list list-classes">
+            <dt class=""><a href="SINT.ticker.Ticker.html">Ticker</a></dt>
+            
+        </dl>
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Members</h3>
+        
+        <dl class="list-members">
+            
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="AnimatedClip">
-            <a class="share-icon" href="#AnimatedClip"><span class="glyphicon glyphicon-link"></span></a>
-            <span class="">
-                new SINT.AnimatedClip
-            </span>
-            <span class="signature">(<span class="optional">_x</span>, <span class="optional">_y</span>, name)</span>
+        <h4 class="name" id=".shared">
+            <a class="share-icon" href="#.shared"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">SINT.ticker.shared</span>
+            <span class="type-signature type"><a href="SINT.ticker.Ticker.html">SINT.ticker.Ticker</a></span>
             
-            
+            <span class="access-signature">static</span><span class="access-signature">constant</span>
             
             
         </h4>
-    
-        
     </div>
-
+    
     
 </dt>
 <dd>
     
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Default</th>
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>_x</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="default">
-                
-                    0
-                
-                </td>
-            
-            
-            <td class="description last">
-                
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>_y</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="default">
-                
-                    0
-                
-                </td>
-            
-            
-            <td class="description last">
-                
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-                <td class="default">
-                
-                </td>
-            
-            
-            <td class="description last">
-                
-                    
-                    
-                        
-                    
-                
-                <p>The frame name of the texture in the cache</p></td>
-        </tr>
-	
-	
-	</tbody>
-</table>
+    <div class="description">
+        <p>The shared ticker instance used by SINT.extras.AnimatedSprite.
+and by <a href="SINT.interaction.InteractionManager.html">SINT.interaction.InteractionManager</a>.
+The property <a href="SINT.ticker.Ticker.html#autoStart">SINT.ticker.Ticker#autoStart</a> is set to <code>true</code>
+for this instance. Please follow the examples for usage, including
+how to opt-out of auto-starting the shared ticker.</p>
+    </div>
     
     
     
@@ -4170,37 +4107,50 @@
 
     
     
+        <h5>Examples</h5>
+        
 
     
+    <pre class="prettyprint"><code>let ticker = SINT.ticker.shared;
+// Set this to prevent starting this ticker when listeners are added.
+// By default this is true only for the SINT.ticker.shared instance.
+ticker.autoStart = false;
+// FYI, call this to ensure the ticker is stopped. It should be stopped
+// if you have not attempted to render anything yet.
+ticker.stop();
+// Call this when you are ready for a running shared ticker.
+ticker.start();</code></pre>
+    
+
 
     
+    <pre class="prettyprint"><code>// You may use the shared ticker to render...
+let renderer = SINT.autoDetectRenderer(800, 600);
+let stage = new SINT.Container();
+let interactionManager = SINT.interaction.InteractionManager(renderer);
+document.body.appendChild(renderer.view);
+ticker.add(function (time) {
+    renderer.render(stage);
+});</code></pre>
     
+
+
     
+    <pre class="prettyprint"><code>// Or you can just update it manually.
+ticker.autoStart = false;
+ticker.stop();
+function animate(time) {
+    ticker.update(time);
+    renderer.render(stage);
+    requestAnimationFrame(animate);
+}
+animate(performance.now());</code></pre>
     
-    
-    
+
     
 </dd>
 
-    
-    </div>
-    
-    
-        <h3 class="subsection-title">Extends</h3>
-        
-        <ul>
-            <li>PIXI.extras.AnimatedSprite</li>
-        </ul>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        </dl>
     
     
     
@@ -4222,7 +4172,7 @@
 
         <footer class="content-size">
             <div class="footer">
-                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 03 2018 13:00:43 GMT+0800 (CST)
+                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 03 2018 13:00:44 GMT+0800 (CST)
             </div>
         </footer>
     </div>

@@ -3967,7 +3967,7 @@
     </ul>
 </div>
     <div class="main">
-        <h1 class="page-title" data-filename="SINT.AnimatedClip.html">Class: AnimatedClip</h1>
+        <h1 class="page-title" data-filename="SINT.BaseRenderTexture.html">Class: BaseRenderTexture</h1>
         
 
 
@@ -3976,8 +3976,32 @@
     
 <header>
     <div class="header content-size">
-        <h2><span class="ancestors"><a href="SINT.html">SINT</a>.</span>AnimatedClip
+        <h2><span class="ancestors"><a href="SINT.html">SINT</a>.</span>BaseRenderTexture
         </h2>
+        
+            <div class="class-description"><p>A BaseRenderTexture is a special texture that allows any SINTJS display object to be rendered to it.</p>
+<p><strong>Hint</strong>: All DisplayObjects (i.e. Sprites) that render to a BaseRenderTexture should be preloaded
+otherwise black rectangles will be drawn instead.</p>
+<p>A BaseRenderTexture takes a snapshot of any Display Object given to its render method. The position
+and rotation of the given Display Objects is ignored. For example:</p>
+<pre class="prettyprint source lang-js"><code>let renderer = SINT.autoDetectRenderer(1024, 1024, { view: canvas, ratio: 1 });
+let baseRenderTexture = new SINT.BaseRenderTexture(renderer, 800, 600);
+let sprite = SINT.Sprite.fromImage(&quot;spinObj_01.png&quot;);
+
+sprite.position.x = 800/2;
+sprite.position.y = 600/2;
+sprite.anchor.x = 0.5;
+sprite.anchor.y = 0.5;
+
+baseRenderTexture.render(sprite);</code></pre><p>The Sprite in this case will be rendered using its local transform. To render this sprite at 0,0
+you can clear the transform</p>
+<pre class="prettyprint source lang-js"><code>
+sprite.setTransform()
+
+let baseRenderTexture = new SINT.BaseRenderTexture(100, 100);
+let renderTexture = new SINT.RenderTexture(baseRenderTexture);
+
+renderer.render(sprite, renderTexture);  // Renders to center of RenderTexture</code></pre></div>
         
     </div>
 </header>  
@@ -3990,12 +4014,12 @@
         
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="AnimatedClip">
-            <a class="share-icon" href="#AnimatedClip"><span class="glyphicon glyphicon-link"></span></a>
+        <h4 class="name" id="BaseRenderTexture">
+            <a class="share-icon" href="#BaseRenderTexture"><span class="glyphicon glyphicon-link"></span></a>
             <span class="">
-                new SINT.AnimatedClip
+                new SINT.BaseRenderTexture
             </span>
-            <span class="signature">(<span class="optional">_x</span>, <span class="optional">_y</span>, name)</span>
+            <span class="signature">(<span class="optional">width</span>, <span class="optional">height</span>, <span class="optional">scaleMode</span>, <span class="optional">resolution</span>)</span>
             
             
             
@@ -4040,7 +4064,7 @@
 	
         <tr>
             
-                <td class="name"><code>_x</code></td>
+                <td class="name"><code>width</code></td>
             
             
             <td class="type">
@@ -4055,7 +4079,7 @@
             
                 <td class="default">
                 
-                    0
+                    100
                 
                 </td>
             
@@ -4069,14 +4093,14 @@
                         
                     
                 
-                </td>
+                <p>The width of the base render texture</p></td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>_y</code></td>
+                <td class="name"><code>height</code></td>
             
             
             <td class="type">
@@ -4091,7 +4115,7 @@
             
                 <td class="default">
                 
-                    0
+                    100
                 
                 </td>
             
@@ -4105,20 +4129,20 @@
                         
                     
                 
-                </td>
+                <p>The height of the base render texture</p></td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>name</code></td>
+                <td class="name"><code>scaleMode</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">number</span>
 
 
             
@@ -4127,17 +4151,57 @@
             
                 <td class="default">
                 
+                    SINT.settings.SCALE_MODE
+                
                 </td>
             
             
             <td class="description last">
                 
                     
+                        <span class="optional">optional</span>
+                    
                     
                         
                     
                 
-                <p>The frame name of the texture in the cache</p></td>
+                <p>See <a href="SINT.html#.SCALE_MODES">SINT.SCALE_MODES</a> for possible values</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>resolution</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The resolution / device pixel ratio of the texture being generated</p></td>
         </tr>
 	
 	
@@ -4189,7 +4253,7 @@
         <h3 class="subsection-title">Extends</h3>
         
         <ul>
-            <li>PIXI.extras.AnimatedSprite</li>
+            <li><a href="SINT.BaseTexture.html">SINT.BaseTexture</a></li>
         </ul>
     
     
@@ -4202,7 +4266,2193 @@
     
     
     
+        <h3 class="subsection-title">Members</h3>
+        
+        <dl class="list-members">
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="hasLoaded">
+            <a class="share-icon" href="#hasLoaded"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">hasLoaded</span>
+            <span class="type-signature type">boolean</span>
+            
+            <span class="access-signature">readonly</span>
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#hasLoaded">inherited</a></span>
+            
+            
+                <span class="access-signature overrides"><a href="SINT.BaseTexture.html#hasLoaded">overrides</a></span>
+            
+        </h4>
+    </div>
     
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Set to true once the base texture has successfully loaded.</p>
+<p>This is never true if the underlying source fails to load or has no texture data.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="height">
+            <a class="share-icon" href="#height"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">height</span>
+            <span class="type-signature type">number</span>
+            
+            <span class="access-signature">readonly</span>
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#height">inherited</a></span>
+            
+            
+                <span class="access-signature overrides"><a href="SINT.BaseTexture.html#height">overrides</a></span>
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The height of the base texture set when the image has loaded</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="imageType">
+            <a class="share-icon" href="#imageType"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">imageType</span>
+            <span class="type-signature type">string</span>
+            
+            <span class="access-signature">readonly</span>
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#imageType">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Type of image defined in source, eg. <code>png</code> or <code>svg</code></p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="imageUrl">
+            <a class="share-icon" href="#imageUrl"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">imageUrl</span>
+            <span class="type-signature type">string</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#imageUrl">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The image url of the texture</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="isLoading">
+            <a class="share-icon" href="#isLoading"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">isLoading</span>
+            <span class="type-signature type">boolean</span>
+            
+            <span class="access-signature">readonly</span>
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#isLoading">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Set to true if the source is currently loading.</p>
+<p>If an Image source is loading the 'loaded' or 'error' event will be
+dispatched when the operation ends. An underyling source that is
+immediately-available bypasses loading entirely.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="mipmap">
+            <a class="share-icon" href="#mipmap"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">mipmap</span>
+            <span class="type-signature type">boolean</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#mipmap">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Set this to true if a mipmap of this texture needs to be generated. This value needs
+to be set before the texture is used
+Also the texture must be a power of two size to work</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>SINT.MIPMAP_TEXTURES</li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="origSource">
+            <a class="share-icon" href="#origSource"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">origSource</span>
+            <span class="type-signature type">Image</span>
+            
+            <span class="access-signature">readonly</span>
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#origSource">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The image source that is used to create the texture. This is used to
+store the original Svg source when it is replaced with a canvas element.</p>
+<p>TODO: Currently not in use but could be used when re-scaling svg.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="premultipliedAlpha">
+            <a class="share-icon" href="#premultipliedAlpha"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">premultipliedAlpha</span>
+            <span class="type-signature type">boolean</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#premultipliedAlpha">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Controls if RGB channels should be pre-multiplied by Alpha  (WebGL only)
+All blend modes, and shaders written for default value. Change it on your own risk.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>true</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="realHeight">
+            <a class="share-icon" href="#realHeight"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">realHeight</span>
+            <span class="type-signature type">number</span>
+            
+            <span class="access-signature">readonly</span>
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#realHeight">inherited</a></span>
+            
+            
+                <span class="access-signature overrides"><a href="SINT.BaseTexture.html#realHeight">overrides</a></span>
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Used to store the actual height of the source of this texture</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="realWidth">
+            <a class="share-icon" href="#realWidth"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">realWidth</span>
+            <span class="type-signature type">number</span>
+            
+            <span class="access-signature">readonly</span>
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#realWidth">inherited</a></span>
+            
+            
+                <span class="access-signature overrides"><a href="SINT.BaseTexture.html#realWidth">overrides</a></span>
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Used to store the actual width of the source of this texture</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="resolution">
+            <a class="share-icon" href="#resolution"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">resolution</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#resolution">inherited</a></span>
+            
+            
+                <span class="access-signature overrides"><a href="SINT.BaseTexture.html#resolution">overrides</a></span>
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The resolution / device pixel ratio of the texture</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>1</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="scaleMode">
+            <a class="share-icon" href="#scaleMode"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">scaleMode</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#scaleMode">inherited</a></span>
+            
+            
+                <span class="access-signature overrides"><a href="SINT.BaseTexture.html#scaleMode">overrides</a></span>
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The scale mode to apply when scaling this texture</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>SINT.settings.SCALE_MODE</li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="SINT.html#.SCALE_MODES">SINT.SCALE_MODES</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="source">
+            <a class="share-icon" href="#source"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">source</span>
+            <span class="type-signature type">HTMLImageElement | HTMLCanvasElement</span>
+            
+            <span class="access-signature">readonly</span>
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#source">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The image source that is used to create the texture.</p>
+<p>TODO: Make this a setter that calls loadSource();</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="sourceScale">
+            <a class="share-icon" href="#sourceScale"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">sourceScale</span>
+            <span class="type-signature type">number</span>
+            
+            <span class="access-signature">readonly</span>
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#sourceScale">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Scale for source image. Used with Svg images to scale them before rasterization.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="textureCacheIds">
+            <a class="share-icon" href="#textureCacheIds"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">textureCacheIds</span>
+            <span class="type-signature type">Array.&lt;string></span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#textureCacheIds">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The ids under which this BaseTexture has been added to the base texture cache. This is
+automatically set as long as BaseTexture.addToCache is used, but may not be set if a
+BaseTexture is added directly to the BaseTextureCache array.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="valid">
+            <a class="share-icon" href="#valid"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">valid</span>
+            <span class="type-signature type">boolean</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>This will let the renderer know if the texture is valid. If it's not then it cannot be rendered.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="width">
+            <a class="share-icon" href="#width"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">width</span>
+            <span class="type-signature type">number</span>
+            
+            <span class="access-signature">readonly</span>
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#width">inherited</a></span>
+            
+            
+                <span class="access-signature overrides"><a href="SINT.BaseTexture.html#width">overrides</a></span>
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The width of the base texture set when the image has loaded</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="wrapMode">
+            <a class="share-icon" href="#wrapMode"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">wrapMode</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#wrapMode">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>WebGL Texture wrap mode</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="SINT.html#.WRAP_MODES">SINT.WRAP_MODES</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl class="list-methods">
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="_loadSvgSource">
+            <a class="share-icon" href="#_loadSvgSource"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                _loadSvgSource
+            </span>
+            <span class="signature">()</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#_loadSvgSource">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Checks if <code>source</code> is an SVG image and whether it's loaded via a URL or a data URI. Then calls
+<code>_loadSvgSourceUsingDataUri</code> or <code>_loadSvgSourceUsingXhr</code>.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="_loadSvgSourceUsingDataUri">
+            <a class="share-icon" href="#_loadSvgSourceUsingDataUri"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                _loadSvgSourceUsingDataUri
+            </span>
+            <span class="signature">(dataUri)</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#_loadSvgSourceUsingDataUri">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Reads an SVG string from data URI and then calls <code>_loadSvgSourceUsingString</code>.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>dataUri</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The data uri to load from.</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="_loadSvgSourceUsingString">
+            <a class="share-icon" href="#_loadSvgSourceUsingString"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                _loadSvgSourceUsingString
+            </span>
+            <span class="signature">(svgString)</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#_loadSvgSourceUsingString">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Loads texture using an SVG string. The original SVG Image is stored as <code>origSource</code> and the
+created canvas is the new <code>source</code>. The SVG is scaled using <code>sourceScale</code>. Called by
+<code>_loadSvgSourceUsingXhr</code> or <code>_loadSvgSourceUsingDataUri</code>.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>svgString</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>SVG source as string</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    <h5>Fires:</h5>
+    <ul>
+        <li>SINT.BaseTexture#event:loaded</li>
+    </ul>
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="_loadSvgSourceUsingXhr">
+            <a class="share-icon" href="#_loadSvgSourceUsingXhr"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                _loadSvgSourceUsingXhr
+            </span>
+            <span class="signature">()</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#_loadSvgSourceUsingXhr">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Loads an SVG string from <code>imageUrl</code> using XHR and then calls <code>_loadSvgSourceUsingString</code>.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="_updateDimensions">
+            <a class="share-icon" href="#_updateDimensions"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                _updateDimensions
+            </span>
+            <span class="signature">()</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#_updateDimensions">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Update dimensions from real values</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="_updateImageType">
+            <a class="share-icon" href="#_updateImageType"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                _updateImageType
+            </span>
+            <span class="signature">()</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#_updateImageType">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Updates type of the source image.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="destroy">
+            <a class="share-icon" href="#destroy"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                destroy
+            </span>
+            <span class="signature">()</span>
+            
+            
+            
+            
+                <span class="access-signature overrides"><a href="SINT.BaseTexture.html#destroy">overrides</a></span>
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Destroys this texture</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="dispose">
+            <a class="share-icon" href="#dispose"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                dispose
+            </span>
+            <span class="signature">()</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#dispose">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Frees the texture from WebGL memory without destroying this texture object.
+This means you can still use the texture later which will upload it to GPU
+memory again.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    <h5>Fires:</h5>
+    <ul>
+        <li>SINT.BaseTexture#event:dispose</li>
+    </ul>
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="loadSource">
+            <a class="share-icon" href="#loadSource"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                loadSource
+            </span>
+            <span class="signature">(source)</span>
+            
+            <span class="access-signature">protected</span>
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#loadSource">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Load a source.</p>
+<p>If the source is not-immediately-available, such as an image that needs to be
+downloaded, then the 'loaded' or 'error' event will be dispatched in the future
+and <code>hasLoaded</code> will remain false after this call.</p>
+<p>The logic state after calling <code>loadSource</code> directly or indirectly (eg. <code>fromImage</code>, <code>new BaseTexture</code>) is:</p>
+<pre class="prettyprint source"><code>if (texture.hasLoaded) {
+   // texture ready for use
+} else if (texture.isLoading) {
+   // listen to 'loaded' and/or 'error' events on texture
+} else {
+   // not loading, not going to load UNLESS the source is reloaded
+   // (it may still make sense to listen to the events)
+}</code></pre>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>source</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">HTMLImageElement</span>
+|
+
+<span class="param-type">HTMLCanvasElement</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>the source object of the texture.</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="resize">
+            <a class="share-icon" href="#resize"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                resize
+            </span>
+            <span class="signature">(width, height)</span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Resizes the BaseRenderTexture.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>width</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The width to resize to.</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>height</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The height to resize to.</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="update">
+            <a class="share-icon" href="#update"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                update
+            </span>
+            <span class="signature">()</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#update">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Updates the texture on all the webgl renderers, this also assumes the src has changed.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    <h5>Fires:</h5>
+    <ul>
+        <li>SINT.BaseTexture#event:update</li>
+    </ul>
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="updateSourceImage">
+            <a class="share-icon" href="#updateSourceImage"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                updateSourceImage
+            </span>
+            <span class="signature">(newSrc)</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.BaseTexture.html#updateSourceImage">inherited</a></span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Changes the source image of the texture.
+The original source must be an Image element.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>newSrc</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>the path of the image</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        </dl>
     
     
     
@@ -4222,7 +6472,7 @@
 
         <footer class="content-size">
             <div class="footer">
-                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 03 2018 13:00:43 GMT+0800 (CST)
+                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 03 2018 13:00:44 GMT+0800 (CST)
             </div>
         </footer>
     </div>

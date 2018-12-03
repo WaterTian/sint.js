@@ -3967,7 +3967,7 @@
     </ul>
 </div>
     <div class="main">
-        <h1 class="page-title" data-filename="SINT.AnimatedClip.html">Class: AnimatedClip</h1>
+        <h1 class="page-title" data-filename="SINT.ticker.Ticker.html">Class: Ticker</h1>
         
 
 
@@ -3976,8 +3976,14 @@
     
 <header>
     <div class="header content-size">
-        <h2><span class="ancestors"><a href="SINT.html">SINT</a>.</span>AnimatedClip
+        <h2><span class="ancestors"><a href="SINT.html">SINT</a><a href="SINT.ticker.html">.ticker</a>.</span>Ticker
         </h2>
+        
+            <div class="class-description"><p>A Ticker class that runs an update loop that other objects listen to.
+This class is composed around listeners
+meant for execution on the next requested animation frame.
+Animation frames are requested only when necessary,
+e.g. When the ticker is started and the emitter has listeners.</p></div>
         
     </div>
 </header>  
@@ -3990,12 +3996,12 @@
         
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="AnimatedClip">
-            <a class="share-icon" href="#AnimatedClip"><span class="glyphicon glyphicon-link"></span></a>
+        <h4 class="name" id="Ticker">
+            <a class="share-icon" href="#Ticker"><span class="glyphicon glyphicon-link"></span></a>
             <span class="">
-                new SINT.AnimatedClip
+                new SINT.ticker.Ticker
             </span>
-            <span class="signature">(<span class="optional">_x</span>, <span class="optional">_y</span>, name)</span>
+            <span class="signature">()</span>
             
             
             
@@ -4009,6 +4015,568 @@
 </dt>
 <dd>
     
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Members</h3>
+        
+        <dl class="list-members">
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="autoStart">
+            <a class="share-icon" href="#autoStart"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">autoStart</span>
+            <span class="type-signature type">boolean</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Whether or not this ticker should invoke the method
+<a href="SINT.ticker.Ticker.html#start">SINT.ticker.Ticker#start</a> automatically
+when a listener is added.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>false</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="deltaTime">
+            <a class="share-icon" href="#deltaTime"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">deltaTime</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Scalar time value from last frame to this frame.
+This value is capped by setting <a href="SINT.ticker.Ticker.html#minFPS">SINT.ticker.Ticker#minFPS</a>
+and is scaled with <a href="SINT.ticker.Ticker.html#speed">SINT.ticker.Ticker#speed</a>.
+<strong>Note:</strong> The cap may be exceeded by scaling.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>1</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="elapsedMS">
+            <a class="share-icon" href="#elapsedMS"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">elapsedMS</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Time elapsed in milliseconds from last frame to this frame.
+Opposed to what the scalar <a href="SINT.ticker.Ticker.html#deltaTime">SINT.ticker.Ticker#deltaTime</a>
+is based, this value is neither capped nor scaled.
+If the platform supports DOMHighResTimeStamp,
+this value will have a precision of 1 µs.
+Defaults to target frame time</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>16.66</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="FPS">
+            <a class="share-icon" href="#FPS"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">FPS</span>
+            <span class="type-signature type">number</span>
+            
+            <span class="access-signature">readonly</span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The frames per second at which this ticker is running.
+The default is approximately 60 in most modern browsers.
+<strong>Note:</strong> This does not factor in the value of
+<a href="SINT.ticker.Ticker.html#speed">SINT.ticker.Ticker#speed</a>, which is specific
+to scaling <a href="SINT.ticker.Ticker.html#deltaTime">SINT.ticker.Ticker#deltaTime</a>.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="lastTime">
+            <a class="share-icon" href="#lastTime"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">lastTime</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The last time <a href="SINT.ticker.Ticker.html#update">SINT.ticker.Ticker#update</a> was invoked.
+This value is also reset internally outside of invoking
+update, but only when a new animation frame is requested.
+If the platform supports DOMHighResTimeStamp,
+this value will have a precision of 1 µs.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>-1</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="minFPS">
+            <a class="share-icon" href="#minFPS"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">minFPS</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Manages the maximum amount of milliseconds allowed to
+elapse between invoking <a href="SINT.ticker.Ticker.html#update">SINT.ticker.Ticker#update</a>.
+This value is used to cap <a href="SINT.ticker.Ticker.html#deltaTime">SINT.ticker.Ticker#deltaTime</a>,
+but does not effect the measured value of <a href="SINT.ticker.Ticker.html#FPS">SINT.ticker.Ticker#FPS</a>.
+When setting this property it is clamped to a value between
+<code>0</code> and <code>SINT.settings.TARGET_FPMS * 1000</code>.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>10</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="speed">
+            <a class="share-icon" href="#speed"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">speed</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Factor of current <a href="SINT.ticker.Ticker.html#deltaTime">SINT.ticker.Ticker#deltaTime</a>.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>1</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+        <h5>Example</h5>
+        
+
+    
+    <pre class="prettyprint"><code>// Scales ticker.deltaTime to what would be
+// the equivalent of approximately 120 FPS
+ticker.speed = 2;</code></pre>
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="started">
+            <a class="share-icon" href="#started"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">started</span>
+            <span class="type-signature type">boolean</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Whether or not this ticker has been started.
+<code>true</code> if <a href="SINT.ticker.Ticker.html#start">SINT.ticker.Ticker#start</a> has been called.
+<code>false</code> if <a href="SINT.ticker.Ticker.html#stop">SINT.ticker.Ticker#stop</a> has been called.
+While <code>false</code>, this value may change to <code>true</code> in the
+event of <a href="SINT.ticker.Ticker.html#autoStart">SINT.ticker.Ticker#autoStart</a> being <code>true</code>
+and a listener is added.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>false</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl class="list-methods">
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="add">
+            <a class="share-icon" href="#add"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                add
+            </span>
+            <span class="signature">(fn, <span class="optional">context</span>, <span class="optional">priority</span>)</span><span class="type-signature"><a href="SINT.ticker.Ticker.html">SINT.ticker.Ticker</a></span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Register a handler for tick events. Calls continuously unless
+it is removed or the ticker is stopped.</p>
+    </div>
     
 
     
@@ -4040,7 +4608,73 @@
 	
         <tr>
             
-                <td class="name"><code>_x</code></td>
+                <td class="name"><code>fn</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                    
+                        
+                    
+                
+                <p>The listener function to be added for updates</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The listener context</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>priority</code></td>
             
             
             <td class="type">
@@ -4055,7 +4689,7 @@
             
                 <td class="default">
                 
-                    0
+                    SINT.UPDATE_PRIORITY.NORMAL
                 
                 </td>
             
@@ -4069,14 +4703,205 @@
                         
                     
                 
+                <p>The priority for emitting</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="SINT.ticker.Ticker.html">SINT.ticker.Ticker</a>
+                        
+                    
+            </td>
+            <td class="description last">This instance of a ticker</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="addOnce">
+            <a class="share-icon" href="#addOnce"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                addOnce
+            </span>
+            <span class="signature">(fn, <span class="optional">context</span>, <span class="optional">priority</span>)</span><span class="type-signature"><a href="SINT.ticker.Ticker.html">SINT.ticker.Ticker</a></span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Add a handler for the tick event which is only execute once.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>fn</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
                 </td>
+            
+            
+            <td class="description last">
+                
+                    
+                    
+                        
+                    
+                
+                <p>The listener function to be added for one update</p></td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>_y</code></td>
+                <td class="name"><code>context</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The listener context</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>priority</code></td>
             
             
             <td class="type">
@@ -4091,7 +4916,7 @@
             
                 <td class="default">
                 
-                    0
+                    SINT.UPDATE_PRIORITY.NORMAL
                 
                 </td>
             
@@ -4105,29 +4930,222 @@
                         
                     
                 
-                </td>
+                <p>The priority for emitting</p></td>
         </tr>
 	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="SINT.ticker.Ticker.html">SINT.ticker.Ticker</a>
+                        
+                    
+            </td>
+            <td class="description last">This instance of a ticker</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="destroy">
+            <a class="share-icon" href="#destroy"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                destroy
+            </span>
+            <span class="signature">()</span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Destroy the ticker and don't use after this. Calling
+this method removes all references to internal events.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="remove">
+            <a class="share-icon" href="#remove"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                remove
+            </span>
+            <span class="signature">(fn, <span class="optional">context</span>)</span><span class="type-signature"><a href="SINT.ticker.Ticker.html">SINT.ticker.Ticker</a></span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Removes any handlers matching the function and context parameters.
+If no handlers are left after removing, then it cancels the animation frame.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
 	
 	
         <tr>
             
-                <td class="name"><code>name</code></td>
+                <td class="name"><code>fn</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">function</span>
 
 
             
             </td>
             
-            
-                <td class="default">
-                
-                </td>
             
             
             <td class="description last">
@@ -4137,7 +5155,352 @@
                         
                     
                 
-                <p>The frame name of the texture in the cache</p></td>
+                <p>The listener function to be removed</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>The listener context to be removed</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="SINT.ticker.Ticker.html">SINT.ticker.Ticker</a>
+                        
+                    
+            </td>
+            <td class="description last">This instance of a ticker</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="start">
+            <a class="share-icon" href="#start"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                start
+            </span>
+            <span class="signature">()</span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Starts the ticker. If the ticker has listeners
+a new animation frame is requested at this point.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="stop">
+            <a class="share-icon" href="#stop"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                stop
+            </span>
+            <span class="signature">()</span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Stops the ticker. If the ticker has requested
+an animation frame it is canceled at this point.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="update">
+            <a class="share-icon" href="#update"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                update
+            </span>
+            <span class="signature">(<span class="optional">currentTime</span>)</span>
+            
+            
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Triggers an update. An update entails setting the
+current <a href="SINT.ticker.Ticker.html#elapsedMS">SINT.ticker.Ticker#elapsedMS</a>,
+the current <a href="SINT.ticker.Ticker.html#deltaTime">SINT.ticker.Ticker#deltaTime</a>,
+invoking all listeners with current deltaTime,
+and then finally setting <a href="SINT.ticker.Ticker.html#lastTime">SINT.ticker.Ticker#lastTime</a>
+with the value of currentTime that was provided.
+This method will be called automatically by animation
+frame callbacks if the ticker instance has been started
+and listeners are added.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>currentTime</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    performance.now()
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>the current time of execution</p></td>
         </tr>
 	
 	
@@ -4182,27 +5545,7 @@
     
 </dd>
 
-    
-    </div>
-    
-    
-        <h3 class="subsection-title">Extends</h3>
-        
-        <ul>
-            <li>PIXI.extras.AnimatedSprite</li>
-        </ul>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        </dl>
     
     
     
@@ -4222,7 +5565,7 @@
 
         <footer class="content-size">
             <div class="footer">
-                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 03 2018 13:00:43 GMT+0800 (CST)
+                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 03 2018 13:00:44 GMT+0800 (CST)
             </div>
         </footer>
     </div>
