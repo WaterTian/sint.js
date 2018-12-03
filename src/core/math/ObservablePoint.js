@@ -4,7 +4,7 @@
  * An observable point is a point that triggers a callback when the point's position is changed.
  *
  * @class
- * @memberof PIXI
+ * @memberof SINT
  */
 export default class ObservablePoint
 {
@@ -31,7 +31,7 @@ export default class ObservablePoint
      * @override
      * @param {Function} [cb=null] - callback when changed
      * @param {object} [scope=null] - owner of callback
-     * @return {PIXI.ObservablePoint} a copy of the point
+     * @return {SINT.ObservablePoint} a copy of the point
      */
     clone(cb = null, scope = null)
     {
@@ -64,7 +64,7 @@ export default class ObservablePoint
     /**
      * Copies the data from another point
      *
-     * @param {PIXI.Point|PIXI.ObservablePoint} point - point to copy from
+     * @param {SINT.Point|SINT.ObservablePoint} point - point to copy from
      */
     copy(point)
     {
@@ -79,7 +79,7 @@ export default class ObservablePoint
     /**
      * Returns true if the given point is equal to this point
      *
-     * @param {PIXI.Point|PIXI.ObservablePoint} p - The point to check
+     * @param {SINT.Point|SINT.ObservablePoint} p - The point to check
      * @returns {boolean} Whether the given point equal to this point
      */
     equals(p)

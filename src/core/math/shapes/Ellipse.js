@@ -5,7 +5,7 @@ import { SHAPES } from '../../const';
  * The Ellipse object can be used to specify a hit area for displayObjects
  *
  * @class
- * @memberof PIXI
+ * @memberof SINT
  */
 export default class Ellipse
 {
@@ -46,8 +46,8 @@ export default class Ellipse
          *
          * @member {number}
          * @readOnly
-         * @default PIXI.SHAPES.ELIP
-         * @see PIXI.SHAPES
+         * @default SINT.SHAPES.ELIP
+         * @see SINT.SHAPES
          */
         this.type = SHAPES.ELIP;
     }
@@ -55,7 +55,7 @@ export default class Ellipse
     /**
      * Creates a clone of this Ellipse instance
      *
-     * @return {PIXI.Ellipse} a copy of the ellipse
+     * @return {SINT.Ellipse} a copy of the ellipse
      */
     clone()
     {
@@ -89,7 +89,7 @@ export default class Ellipse
     /**
      * Returns the framing rectangle of the ellipse as a Rectangle object
      *
-     * @return {PIXI.Rectangle} the framing rectangle
+     * @return {SINT.Rectangle} the framing rectangle
      */
     getBounds()
     {

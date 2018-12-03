@@ -2,7 +2,7 @@ import BaseTexture from './BaseTexture';
 import settings from '../settings';
 
 /**
- * A BaseRenderTexture is a special texture that allows any PixiJS display object to be rendered to it.
+ * A BaseRenderTexture is a special texture that allows any SINTJS display object to be rendered to it.
  *
  * __Hint__: All DisplayObjects (i.e. Sprites) that render to a BaseRenderTexture should be preloaded
  * otherwise black rectangles will be drawn instead.
@@ -11,9 +11,9 @@ import settings from '../settings';
  * and rotation of the given Display Objects is ignored. For example:
  *
  * ```js
- * let renderer = PIXI.autoDetectRenderer(1024, 1024, { view: canvas, ratio: 1 });
- * let baseRenderTexture = new PIXI.BaseRenderTexture(renderer, 800, 600);
- * let sprite = PIXI.Sprite.fromImage("spinObj_01.png");
+ * let renderer = SINT.autoDetectRenderer(1024, 1024, { view: canvas, ratio: 1 });
+ * let baseRenderTexture = new SINT.BaseRenderTexture(renderer, 800, 600);
+ * let sprite = SINT.Sprite.fromImage("spinObj_01.png");
  *
  * sprite.position.x = 800/2;
  * sprite.position.y = 600/2;
@@ -30,22 +30,22 @@ import settings from '../settings';
  *
  * sprite.setTransform()
  *
- * let baseRenderTexture = new PIXI.BaseRenderTexture(100, 100);
- * let renderTexture = new PIXI.RenderTexture(baseRenderTexture);
+ * let baseRenderTexture = new SINT.BaseRenderTexture(100, 100);
+ * let renderTexture = new SINT.RenderTexture(baseRenderTexture);
  *
  * renderer.render(sprite, renderTexture);  // Renders to center of RenderTexture
  * ```
  *
  * @class
- * @extends PIXI.BaseTexture
- * @memberof PIXI
+ * @extends SINT.BaseTexture
+ * @memberof SINT
  */
 export default class BaseRenderTexture extends BaseTexture
 {
     /**
      * @param {number} [width=100] - The width of the base render texture
      * @param {number} [height=100] - The height of the base render texture
-     * @param {number} [scaleMode=PIXI.settings.SCALE_MODE] - See {@link PIXI.SCALE_MODES} for possible values
+     * @param {number} [scaleMode=SINT.settings.SCALE_MODE] - See {@link SINT.SCALE_MODES} for possible values
      * @param {number} [resolution=1] - The resolution / device pixel ratio of the texture being generated
      */
     constructor(width = 100, height = 100, scaleMode, resolution)

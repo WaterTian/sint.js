@@ -2,13 +2,13 @@ import WebGLManager from './WebGLManager';
 
 /**
  * @class
- * @extends PIXI.WebGLManager
- * @memberof PIXI
+ * @extends SINT.WebGLManager
+ * @memberof SINT
  */
 export default class StencilManager extends WebGLManager
 {
     /**
-     * @param {PIXI.WebGLRenderer} renderer - The renderer this manager works for.
+     * @param {SINT.WebGLRenderer} renderer - The renderer this manager works for.
      */
     constructor(renderer)
     {
@@ -19,7 +19,7 @@ export default class StencilManager extends WebGLManager
     /**
      * Changes the mask stack that is used by this manager.
      *
-     * @param {PIXI.Graphics[]} stencilMaskStack - The mask stack
+     * @param {SINT.Graphics[]} stencilMaskStack - The mask stack
      */
     setMaskStack(stencilMaskStack)
     {
@@ -40,7 +40,7 @@ export default class StencilManager extends WebGLManager
     /**
      * Applies the Mask and adds it to the current stencil stack. @alvin
      *
-     * @param {PIXI.Graphics} graphics - The mask
+     * @param {SINT.Graphics} graphics - The mask
      */
     pushStencil(graphics)
     {

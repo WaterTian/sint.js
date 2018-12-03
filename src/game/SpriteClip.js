@@ -4,7 +4,7 @@ import * as core from '../core';
 
 /**
  * @class
- * @extends core.Sprite
+ * @extends SINT.Sprite
  * @memberof SINT
  *
  * @param {number} [_x=0]

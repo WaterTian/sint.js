@@ -9,13 +9,13 @@ import EventEmitter from 'eventemitter3';
 const tempMatrix = new Matrix();
 
 /**
- * The SystemRenderer is the base for a PixiJS Renderer. It is extended by the {@link PIXI.CanvasRenderer}
- * and {@link PIXI.WebGLRenderer} which can be used for rendering a PixiJS scene.
+ * The SystemRenderer is the base for a SINTJS Renderer. It is extended by the {@link SINT.CanvasRenderer}
+ * and {@link SINT.WebGLRenderer} which can be used for rendering a SINTJS scene.
  *
  * @abstract
  * @class
  * @extends EventEmitter
- * @memberof PIXI
+ * @memberof SINT
  */
 export default class SystemRenderer extends EventEmitter
 {
@@ -37,7 +37,7 @@ export default class SystemRenderer extends EventEmitter
      *      not before the new render pass.
      * @param {number} [options.backgroundColor=0x000000] - The background color of the rendered area
      *  (shown if not transparent).
-     * @param {boolean} [options.roundPixels=false] - If true PixiJS will Math.floor() x/y values when rendering,
+     * @param {boolean} [options.roundPixels=false] - If true SINTJS will Math.floor() x/y values when rendering,
      *  stopping pixel interpolation.
      */
     constructor(system, options, arg2, arg3)
@@ -70,8 +70,8 @@ export default class SystemRenderer extends EventEmitter
          * The type of the renderer.
          *
          * @member {number}
-         * @default PIXI.RENDERER_TYPE.UNKNOWN
-         * @see PIXI.RENDERER_TYPE
+         * @default SINT.RENDERER_TYPE.UNKNOWN
+         * @see SINT.RENDERER_TYPE
          */
         this.type = RENDERER_TYPE.UNKNOWN;
 
@@ -80,7 +80,7 @@ export default class SystemRenderer extends EventEmitter
          *
          * Its safe to use as filterArea or hitArea for whole stage
          *
-         * @member {PIXI.Rectangle}
+         * @member {SINT.Rectangle}
          */
         this.screen = new Rectangle(0, 0, options.width, options.height);
 
@@ -130,8 +130,8 @@ export default class SystemRenderer extends EventEmitter
 
         /**
          * This sets if the CanvasRenderer will clear the canvas or not before the new render pass.
-         * If the scene is NOT transparent PixiJS will use a canvas sized fillRect operation every
-         * frame to set the canvas background color. If the scene is transparent PixiJS will use clearRect
+         * If the scene is NOT transparent SINTJS will use a canvas sized fillRect operation every
+         * frame to set the canvas background color. If the scene is transparent SINTJS will use clearRect
          * to clear the canvas every frame. Disable this by setting this to false. For example if
          * your game has a canvas filling background image you often don't need this set.
          *
@@ -141,7 +141,7 @@ export default class SystemRenderer extends EventEmitter
         this.clearBeforeRender = options.clearBeforeRender;
 
         /**
-         * If true PixiJS will Math.floor() x/y values when rendering, stopping pixel interpolation.
+         * If true SINTJS will Math.floor() x/y values when rendering, stopping pixel interpolation.
          * Handy for crisp pixel art and speed on legacy devices.
          *
          * @member {boolean}
@@ -177,7 +177,7 @@ export default class SystemRenderer extends EventEmitter
         /**
          * This temporary display object used as the parent of the currently being rendered item
          *
-         * @member {PIXI.DisplayObject}
+         * @member {SINT.DisplayObject}
          * @private
          */
         this._tempDisplayObjectParent = new Container();
@@ -185,7 +185,7 @@ export default class SystemRenderer extends EventEmitter
         /**
          * The last root object that the renderer tried to render.
          *
-         * @member {PIXI.DisplayObject}
+         * @member {SINT.DisplayObject}
          * @private
          */
         this._lastObjectRendered = this._tempDisplayObjectParent;
@@ -241,12 +241,12 @@ export default class SystemRenderer extends EventEmitter
      * Useful function that returns a texture of the display object that can then be used to create sprites
      * This can be quite useful if your displayObject is complicated and needs to be reused multiple times.
      *
-     * @param {PIXI.DisplayObject} displayObject - The displayObject the object will be generated from
+     * @param {SINT.DisplayObject} displayObject - The displayObject the object will be generated from
      * @param {number} scaleMode - Should be one of the scaleMode consts
      * @param {number} resolution - The resolution / device pixel ratio of the texture being generated
-     * @param {PIXI.Rectangle} [region] - The region of the displayObject, that shall be rendered,
+     * @param {SINT.Rectangle} [region] - The region of the displayObject, that shall be rendered,
      *        if no region is specified, defaults to the local bounds of the displayObject.
-     * @return {PIXI.Texture} a texture of the graphics object
+     * @return {SINT.Texture} a texture of the graphics object
      */
     generateTexture(displayObject, scaleMode, resolution, region)
     {

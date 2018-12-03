@@ -4,12 +4,12 @@ import { SHAPES } from '../../../const';
  * A set of functions used to handle masking.
  *
  * @class
- * @memberof PIXI
+ * @memberof SINT
  */
 export default class CanvasMaskManager
 {
     /**
-     * @param {PIXI.CanvasRenderer} renderer - The canvas renderer.
+     * @param {SINT.CanvasRenderer} renderer - The canvas renderer.
      */
     constructor(renderer)
     {
@@ -52,9 +52,9 @@ export default class CanvasMaskManager
     }
 
     /**
-     * Renders a PIXI.Graphics shape.
+     * Renders a SINT.Graphics shape.
      *
-     * @param {PIXI.Graphics} graphics - The object to render.
+     * @param {SINT.Graphics} graphics - The object to render.
      */
     renderGraphicsShape(graphics)
     {
@@ -195,7 +195,7 @@ export default class CanvasMaskManager
     /**
      * Restores the current drawing context to the state it was before the mask was applied.
      *
-     * @param {PIXI.CanvasRenderer} renderer - The renderer context to use.
+     * @param {SINT.CanvasRenderer} renderer - The renderer context to use.
      */
     popMask(renderer)
     {

@@ -2,7 +2,7 @@
  * Event class that mimics native DOM events.
  *
  * @class
- * @memberof PIXI.interaction
+ * @memberof SINT.interaction
  */
 export default class InteractionEvent
 {
@@ -20,16 +20,16 @@ export default class InteractionEvent
 
         /**
          * The object which caused this event to be dispatched.
-         * For listener callback see {@link PIXI.interaction.InteractionEvent.currentTarget}.
+         * For listener callback see {@link SINT.interaction.InteractionEvent.currentTarget}.
          *
-         * @member {PIXI.DisplayObject}
+         * @member {SINT.DisplayObject}
          */
         this.target = null;
 
         /**
          * The object whose event listener’s callback is currently being invoked.
          *
-         * @member {PIXI.DisplayObject}
+         * @member {SINT.DisplayObject}
          */
         this.currentTarget = null;
 
@@ -43,7 +43,7 @@ export default class InteractionEvent
         /**
          * InteractionData related to this event
          *
-         * @member {PIXI.interaction.InteractionData}
+         * @member {SINT.interaction.InteractionData}
          */
         this.data = null;
     }

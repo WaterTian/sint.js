@@ -14,33 +14,33 @@ import settings from '../settings';
  * You can directly create a texture from an image and then reuse it multiple times like this :
  *
  * ```js
- * let texture = PIXI.Texture.fromImage('assets/image.png');
- * let sprite1 = new PIXI.Sprite(texture);
- * let sprite2 = new PIXI.Sprite(texture);
+ * let texture = SINT.Texture.fromImage('assets/image.png');
+ * let sprite1 = new SINT.Sprite(texture);
+ * let sprite2 = new SINT.Sprite(texture);
  * ```
  *
  * Textures made from SVGs, loaded or not, cannot be used before the file finishes processing.
  * You can check for this by checking the sprite's _textureID property.
  * ```js
- * var texture = PIXI.Texture.fromImage('assets/image.svg');
- * var sprite1 = new PIXI.Sprite(texture);
+ * var texture = SINT.Texture.fromImage('assets/image.svg');
+ * var sprite1 = new SINT.Sprite(texture);
  * //sprite1._textureID should not be undefined if the texture has finished processing the SVG file
  * ```
  * You can use a ticker or rAF to ensure your sprites load the finished textures after processing. See issue #3068.
  *
  * @class
  * @extends EventEmitter
- * @memberof PIXI
+ * @memberof SINT
  */
 export default class Texture extends EventEmitter
 {
     /**
-     * @param {PIXI.BaseTexture} baseTexture - The base texture source to create the texture from
-     * @param {PIXI.Rectangle} [frame] - The rectangle frame of the texture to show
-     * @param {PIXI.Rectangle} [orig] - The area of original texture
-     * @param {PIXI.Rectangle} [trim] - Trimmed rectangle of original texture
-     * @param {number} [rotate] - indicates how the texture was rotated by texture packer. See {@link PIXI.GroupD8}
-     * @param {PIXI.Point} [anchor] - Default anchor point used for sprite placement / rotation
+     * @param {SINT.BaseTexture} baseTexture - The base texture source to create the texture from
+     * @param {SINT.Rectangle} [frame] - The rectangle frame of the texture to show
+     * @param {SINT.Rectangle} [orig] - The area of original texture
+     * @param {SINT.Rectangle} [trim] - Trimmed rectangle of original texture
+     * @param {number} [rotate] - indicates how the texture was rotated by texture packer. See {@link SINT.GroupD8}
+     * @param {SINT.Point} [anchor] - Default anchor point used for sprite placement / rotation
      */
     constructor(baseTexture, frame, orig, trim, rotate, anchor)
     {
@@ -67,7 +67,7 @@ export default class Texture extends EventEmitter
         /**
          * The base texture that this texture uses.
          *
-         * @member {PIXI.BaseTexture}
+         * @member {SINT.BaseTexture}
          */
         this.baseTexture = baseTexture;
 
@@ -75,7 +75,7 @@ export default class Texture extends EventEmitter
          * This is the area of the BaseTexture image to actually copy to the Canvas / WebGL when rendering,
          * irrespective of the actual frame size or placement (which can be influenced by trimmed texture atlases)
          *
-         * @member {PIXI.Rectangle}
+         * @member {SINT.Rectangle}
          */
         this._frame = frame;
 
@@ -83,7 +83,7 @@ export default class Texture extends EventEmitter
          * This is the trimmed area of original texture, before it was put in atlas
          * Please call `_updateUvs()` after you change coordinates of `trim` manually.
          *
-         * @member {PIXI.Rectangle}
+         * @member {SINT.Rectangle}
          */
         this.trim = trim;
 
@@ -104,7 +104,7 @@ export default class Texture extends EventEmitter
         /**
          * The WebGL UV data cache.
          *
-         * @member {PIXI.TextureUvs}
+         * @member {SINT.TextureUvs}
          * @private
          */
         this._uvs = null;
@@ -112,7 +112,7 @@ export default class Texture extends EventEmitter
         /**
          * This is the area of original texture, before it was put in atlas
          *
-         * @member {PIXI.Rectangle}
+         * @member {SINT.Rectangle}
          */
         this.orig = orig || frame;// new Rectangle(0, 0, 1, 1);
 
@@ -147,7 +147,7 @@ export default class Texture extends EventEmitter
         /**
          * Anchor point that is used as default if sprite is created with this texture.
          * Changing the `defaultAnchor` at a later point of time will not update Sprite's anchor point.
-         * @member {PIXI.Point}
+         * @member {SINT.Point}
          * @default {0,0}
          */
         this.defaultAnchor = anchor ? new Point(anchor.x, anchor.y) : new Point(0, 0);
@@ -155,9 +155,9 @@ export default class Texture extends EventEmitter
         /**
          * Fired when the texture is updated. This happens if the frame or the baseTexture is updated.
          *
-         * @event PIXI.Texture#update
+         * @event SINT.Texture#update
          * @protected
-         * @param {PIXI.Texture} texture - Instance of texture being updated.
+         * @param {SINT.Texture} texture - Instance of texture being updated.
          */
 
         this._updateID = 0;
@@ -165,7 +165,7 @@ export default class Texture extends EventEmitter
         /**
          * Contains data for uvs. May contain clamp settings and some matrices.
          * Its a bit heavy, so by default that object is not created.
-         * @member {PIXI.TextureMatrix}
+         * @member {SINT.TextureMatrix}
          * @default null
          */
         this.transform = null;
@@ -193,7 +193,7 @@ export default class Texture extends EventEmitter
      * Called when the base texture is loaded
      *
      * @private
-     * @param {PIXI.BaseTexture} baseTexture - The base texture.
+     * @param {SINT.BaseTexture} baseTexture - The base texture.
      */
     onBaseTextureLoaded(baseTexture)
     {
@@ -217,7 +217,7 @@ export default class Texture extends EventEmitter
      * Called when the base texture is updated
      *
      * @private
-     * @param {PIXI.BaseTexture} baseTexture - The base texture.
+     * @param {SINT.BaseTexture} baseTexture - The base texture.
      */
     onBaseTextureUpdated(baseTexture)
     {
@@ -270,7 +270,7 @@ export default class Texture extends EventEmitter
     /**
      * Creates a new texture object that acts the same as this one.
      *
-     * @return {PIXI.Texture} The new texture
+     * @return {SINT.Texture} The new texture
      */
     clone()
     {
@@ -299,9 +299,9 @@ export default class Texture extends EventEmitter
      * @static
      * @param {string} imageUrl - The image url of the texture
      * @param {boolean} [crossorigin] - Whether requests should be treated as crossorigin
-     * @param {number} [scaleMode=PIXI.settings.SCALE_MODE] - See {@link PIXI.SCALE_MODES} for possible values
+     * @param {number} [scaleMode=SINT.settings.SCALE_MODE] - See {@link SINT.SCALE_MODES} for possible values
      * @param {number} [sourceScale=(auto)] - Scale for the original image, used with SVG images.
-     * @return {PIXI.Texture} The newly created texture
+     * @return {SINT.Texture} The newly created texture
      */
     static fromImage(imageUrl, crossorigin, scaleMode, sourceScale)
     {
@@ -322,7 +322,7 @@ export default class Texture extends EventEmitter
      *
      * @static
      * @param {string} frameId - The frame Id of the texture in the cache
-     * @return {PIXI.Texture} The newly created texture
+     * @return {SINT.Texture} The newly created texture
      */
     static fromFrame(frameId)
     {
@@ -341,9 +341,9 @@ export default class Texture extends EventEmitter
      *
      * @static
      * @param {HTMLCanvasElement} canvas - The canvas element source of the texture
-     * @param {number} [scaleMode=PIXI.settings.SCALE_MODE] - See {@link PIXI.SCALE_MODES} for possible values
+     * @param {number} [scaleMode=SINT.settings.SCALE_MODE] - See {@link SINT.SCALE_MODES} for possible values
      * @param {string} [origin='canvas'] - A string origin of who created the base texture
-     * @return {PIXI.Texture} The newly created texture
+     * @return {SINT.Texture} The newly created texture
      */
     static fromCanvas(canvas, scaleMode, origin = 'canvas')
     {
@@ -355,10 +355,10 @@ export default class Texture extends EventEmitter
      *
      * @static
      * @param {HTMLVideoElement|string} video - The URL or actual element of the video
-     * @param {number} [scaleMode=PIXI.settings.SCALE_MODE] - See {@link PIXI.SCALE_MODES} for possible values
+     * @param {number} [scaleMode=SINT.settings.SCALE_MODE] - See {@link SINT.SCALE_MODES} for possible values
      * @param {boolean} [crossorigin=(auto)] - Should use anonymous CORS? Defaults to true if the URL is not a data-URI.
      * @param {boolean} [autoPlay=true] - Start playing video as soon as it is loaded
-     * @return {PIXI.Texture} The newly created texture
+     * @return {SINT.Texture} The newly created texture
      */
     static fromVideo(video, scaleMode, crossorigin, autoPlay)
     {
@@ -375,10 +375,10 @@ export default class Texture extends EventEmitter
      *
      * @static
      * @param {string} videoUrl - URL of the video
-     * @param {number} [scaleMode=PIXI.settings.SCALE_MODE] - See {@link PIXI.SCALE_MODES} for possible values
+     * @param {number} [scaleMode=SINT.settings.SCALE_MODE] - See {@link SINT.SCALE_MODES} for possible values
      * @param {boolean} [crossorigin=(auto)] - Should use anonymous CORS? Defaults to true if the URL is not a data-URI.
      * @param {boolean} [autoPlay=true] - Start playing video as soon as it is loaded
-     * @return {PIXI.Texture} The newly created texture
+     * @return {SINT.Texture} The newly created texture
      */
     static fromVideoUrl(videoUrl, scaleMode, crossorigin, autoPlay)
     {
@@ -390,9 +390,9 @@ export default class Texture extends EventEmitter
      * The source can be - frame id, image url, video url, canvas element, video element, base texture
      *
      * @static
-     * @param {number|string|HTMLImageElement|HTMLCanvasElement|HTMLVideoElement|PIXI.BaseTexture}
+     * @param {number|string|HTMLImageElement|HTMLCanvasElement|HTMLVideoElement|SINT.BaseTexture}
      *        source - Source to create texture from
-     * @return {PIXI.Texture} The newly created texture
+     * @return {SINT.Texture} The newly created texture
      */
     static from(source)
     {
@@ -446,7 +446,7 @@ export default class Texture extends EventEmitter
      * @param {String} imageUrl - File name of texture, for cache and resolving resolution.
      * @param {String} [name] - Human readible name for the texture cache. If no name is
      *        specified, only `imageUrl` will be used as the cache ID.
-     * @return {PIXI.Texture} Output texture
+     * @return {SINT.Texture} Output texture
      */
     static fromLoader(source, imageUrl, name)
     {
@@ -461,7 +461,7 @@ export default class Texture extends EventEmitter
             name = imageUrl;
         }
 
-        // lets also add the frame to pixi's global cache for fromFrame and fromImage fucntions
+        // lets also add the frame to SINT's global cache for fromFrame and fromImage fucntions
         BaseTexture.addToCache(texture.baseTexture, name);
         Texture.addToCache(texture, name);
 
@@ -476,10 +476,10 @@ export default class Texture extends EventEmitter
     }
 
     /**
-     * Adds a Texture to the global TextureCache. This cache is shared across the whole PIXI object.
+     * Adds a Texture to the global TextureCache. This cache is shared across the whole SINT object.
      *
      * @static
-     * @param {PIXI.Texture} texture - The Texture to add to the cache.
+     * @param {SINT.Texture} texture - The Texture to add to the cache.
      * @param {string} id - The id that the Texture will be stored against.
      */
     static addToCache(texture, id)
@@ -508,8 +508,8 @@ export default class Texture extends EventEmitter
      * Remove a Texture from the global TextureCache.
      *
      * @static
-     * @param {string|PIXI.Texture} texture - id of a Texture to be removed, or a Texture instance itself
-     * @return {PIXI.Texture|null} The Texture that was removed
+     * @param {string|SINT.Texture} texture - id of a Texture to be removed, or a Texture instance itself
+     * @return {SINT.Texture|null} The Texture that was removed
      */
     static removeFromCache(texture)
     {
@@ -554,7 +554,7 @@ export default class Texture extends EventEmitter
      * The frame specifies the region of the base texture that this texture uses.
      * Please call `_updateUvs()` after you change coordinates of `frame` manually.
      *
-     * @member {PIXI.Rectangle}
+     * @member {SINT.Rectangle}
      */
     get frame()
     {
@@ -600,7 +600,7 @@ export default class Texture extends EventEmitter
      * set to 2 to compensate for texture packer rotation
      * set to 6 to compensate for spine packer rotation
      * can be used to rotate or mirror sprites
-     * See {@link PIXI.GroupD8} for explanation
+     * See {@link SINT.GroupD8} for explanation
      *
      * @member {number}
      */

@@ -1,9 +1,9 @@
 import { BLEND_MODES } from '../const';
 
 /**
- * Corrects PixiJS blend, takes premultiplied alpha into account
+ * Corrects SintJS blend, takes premultiplied alpha into account
  *
- * @memberof PIXI
+ * @memberof SINT
  * @function mapPremultipliedBlendModes
  * @private
  * @param {Array<number[]>} [array] - The array to output into.

@@ -3,13 +3,13 @@ import AlphaMaskFilter from '../filters/spriteMask/SpriteMaskFilter';
 
 /**
  * @class
- * @extends PIXI.WebGLManager
- * @memberof PIXI
+ * @extends SINT.WebGLManager
+ * @memberof SINT
  */
 export default class MaskManager extends WebGLManager
 {
     /**
-     * @param {PIXI.WebGLRenderer} renderer - The renderer this manager works for.
+     * @param {SINT.WebGLRenderer} renderer - The renderer this manager works for.
      */
     constructor(renderer)
     {
@@ -29,14 +29,13 @@ export default class MaskManager extends WebGLManager
     /**
      * Applies the Mask and adds it to the current filter stack.
      *
-     * @param {PIXI.DisplayObject} target - Display Object to push the mask to
-     * @param {PIXI.Sprite|PIXI.Graphics} maskData - The masking data.
+     * @param {SINT.DisplayObject} target - Display Object to push the mask to
+     * @param {SINT.Sprite|SINT.Graphics} maskData - The masking data.
      */
     pushMask(target, maskData)
     {
         // TODO the root check means scissor rect will not
         // be used on render textures more info here:
-        // https://github.com/pixijs/pixi.js/pull/3545
 
         if (maskData.texture)
         {
@@ -73,8 +72,8 @@ export default class MaskManager extends WebGLManager
     /**
      * Removes the last mask from the mask stack and doesn't return it.
      *
-     * @param {PIXI.DisplayObject} target - Display Object to pop the mask from
-     * @param {PIXI.Sprite|PIXI.Graphics} maskData - The masking data.
+     * @param {SINT.DisplayObject} target - Display Object to pop the mask from
+     * @param {SINT.Sprite|SINT.Graphics} maskData - The masking data.
      */
     popMask(target, maskData)
     {
@@ -95,8 +94,8 @@ export default class MaskManager extends WebGLManager
     /**
      * Applies the Mask and adds it to the current filter stack.
      *
-     * @param {PIXI.RenderTarget} target - Display Object to push the sprite mask to
-     * @param {PIXI.Sprite} maskData - Sprite to be used as the mask
+     * @param {SINT.RenderTarget} target - Display Object to push the sprite mask to
+     * @param {SINT.Sprite} maskData - Sprite to be used as the mask
      */
     pushSpriteMask(target, maskData)
     {
@@ -131,7 +130,7 @@ export default class MaskManager extends WebGLManager
     /**
      * Applies the Mask and adds it to the current filter stack.
      *
-     * @param {PIXI.Sprite|PIXI.Graphics} maskData - The masking data.
+     * @param {SINT.Sprite|SINT.Graphics} maskData - The masking data.
      */
     pushStencilMask(maskData)
     {
@@ -151,8 +150,8 @@ export default class MaskManager extends WebGLManager
 
     /**
      *
-     * @param {PIXI.DisplayObject} target - Display Object to push the mask to
-     * @param {PIXI.Graphics} maskData - The masking data.
+     * @param {SINT.DisplayObject} target - Display Object to push the mask to
+     * @param {SINT.Graphics} maskData - The masking data.
      */
     pushScissorMask(target, maskData)
     {

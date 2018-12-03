@@ -3,7 +3,7 @@ import { BLEND_MODES } from '../../../const';
 /**
  * Maps gl blend combinations to WebGL.
  *
- * @memberof PIXI
+ * @memberof SINT
  * @function mapWebGLBlendModesToPixi
  * @private
  * @param {WebGLRenderingContext} gl - The rendering context.

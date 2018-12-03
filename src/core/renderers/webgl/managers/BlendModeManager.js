@@ -2,13 +2,13 @@ import WebGLManager from './WebGLManager';
 
 /**
  * @class
- * @memberof PIXI
- * @extends PIXI.WebGLManager
+ * @memberof SINT
+ * @extends SINT.WebGLManager
  */
 export default class BlendModeManager extends WebGLManager
 {
     /**
-     * @param {PIXI.WebGLRenderer} renderer - The renderer this manager works for.
+     * @param {SINT.WebGLRenderer} renderer - The renderer this manager works for.
      */
     constructor(renderer)
     {
@@ -23,8 +23,8 @@ export default class BlendModeManager extends WebGLManager
     /**
      * Sets-up the given blendMode from WebGL's point of view.
      *
-     * @param {number} blendMode - the blendMode, should be a PixiJS const, such as
-     *  `PIXI.BLEND_MODES.ADD`. See {@link PIXI.BLEND_MODES} for possible values.
+     * @param {number} blendMode - the blendMode, should be a SINTJS const, such as
+     *  `SINT.BLEND_MODES.ADD`. See {@link SINT.BLEND_MODES} for possible values.
      * @return {boolean} Returns if the blend mode was changed.
      */
     setBlendMode(blendMode)

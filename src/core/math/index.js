@@ -1,7 +1,7 @@
 /**
- * Math classes and utilities mixed into PIXI namespace.
+ * Math classes and utilities mixed into SINT namespace.
  *
- * @lends PIXI
+ * @lends SINT
  */
 export { default as Point } from './Point';
 export { default as ObservablePoint } from './ObservablePoint';

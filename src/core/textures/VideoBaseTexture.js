@@ -7,34 +7,34 @@ import determineCrossOrigin from '../utils/determineCrossOrigin';
 /**
  * A texture of a [playing] Video.
  *
- * Video base textures mimic PixiJS BaseTexture.from.... method in their creation process.
+ * Video base textures mimic SINTJS BaseTexture.from.... method in their creation process.
  *
  * This can be used in several ways, such as:
  *
  * ```js
- * let texture = PIXI.VideoBaseTexture.fromUrl('http://mydomain.com/video.mp4');
+ * let texture = SINT.VideoBaseTexture.fromUrl('http://mydomain.com/video.mp4');
  *
- * let texture = PIXI.VideoBaseTexture.fromUrl({ src: 'http://mydomain.com/video.mp4', mime: 'video/mp4' });
+ * let texture = SINT.VideoBaseTexture.fromUrl({ src: 'http://mydomain.com/video.mp4', mime: 'video/mp4' });
  *
- * let texture = PIXI.VideoBaseTexture.fromUrls(['/video.webm', '/video.mp4']);
+ * let texture = SINT.VideoBaseTexture.fromUrls(['/video.webm', '/video.mp4']);
  *
- * let texture = PIXI.VideoBaseTexture.fromUrls([
+ * let texture = SINT.VideoBaseTexture.fromUrls([
  *     { src: '/video.webm', mime: 'video/webm' },
  *     { src: '/video.mp4', mime: 'video/mp4' }
  * ]);
  * ```
  *
- * See the ["deus" demo](http://www.goodboydigital.com/pixijs/examples/deus/).
+ * See the ["deus" demo](http://www.goodboydigital.com/SINTjs/examples/deus/).
  *
  * @class
- * @extends PIXI.BaseTexture
- * @memberof PIXI
+ * @extends SINT.BaseTexture
+ * @memberof SINT
  */
 export default class VideoBaseTexture extends BaseTexture
 {
     /**
      * @param {HTMLVideoElement} source - Video source
-     * @param {number} [scaleMode=PIXI.settings.SCALE_MODE] - See {@link PIXI.SCALE_MODES} for possible values
+     * @param {number} [scaleMode=SINT.settings.SCALE_MODE] - See {@link SINT.SCALE_MODES} for possible values
      * @param {boolean} [autoPlay=true] - Start playing video as soon as it is loaded
      */
     constructor(source, scaleMode, autoPlay = true)
@@ -193,10 +193,10 @@ export default class VideoBaseTexture extends BaseTexture
             shared.remove(this.update, this);
         }
 
-        if (this.source && this.source._pixiId)
+        if (this.source && this.source._SINTId)
         {
-            BaseTexture.removeFromCache(this.source._pixiId);
-            delete this.source._pixiId;
+            BaseTexture.removeFromCache(this.source._SINTId);
+            delete this.source._SINTId;
 
             this.source.pause();
             this.source.src = '';
@@ -207,27 +207,27 @@ export default class VideoBaseTexture extends BaseTexture
     }
 
     /**
-     * Mimic PixiJS BaseTexture.from.... method.
+     * Mimic SINTJS BaseTexture.from.... method.
      *
      * @static
      * @param {HTMLVideoElement} video - Video to create texture from
-     * @param {number} [scaleMode=PIXI.settings.SCALE_MODE] - See {@link PIXI.SCALE_MODES} for possible values
+     * @param {number} [scaleMode=SINT.settings.SCALE_MODE] - See {@link SINT.SCALE_MODES} for possible values
      * @param {boolean} [autoPlay=true] - Start playing video as soon as it is loaded
-     * @return {PIXI.VideoBaseTexture} Newly created VideoBaseTexture
+     * @return {SINT.VideoBaseTexture} Newly created VideoBaseTexture
      */
     static fromVideo(video, scaleMode, autoPlay)
     {
-        if (!video._pixiId)
+        if (!video._SINTId)
         {
-            video._pixiId = `video_${uid()}`;
+            video._SINTId = `video_${uid()}`;
         }
 
-        let baseTexture = BaseTextureCache[video._pixiId];
+        let baseTexture = BaseTextureCache[video._SINTId];
 
         if (!baseTexture)
         {
             baseTexture = new VideoBaseTexture(video, scaleMode, autoPlay);
-            BaseTexture.addToCache(baseTexture, video._pixiId);
+            BaseTexture.addToCache(baseTexture, video._SINTId);
         }
 
         return baseTexture;
@@ -242,10 +242,10 @@ export default class VideoBaseTexture extends BaseTexture
      * @param {string} [videoSrc.src] - One of the source urls for the video
      * @param {string} [videoSrc.mime] - The mimetype of the video (e.g. 'video/mp4'). If not specified
      *  the url's extension will be used as the second part of the mime type.
-     * @param {number} scaleMode - See {@link PIXI.SCALE_MODES} for possible values
+     * @param {number} scaleMode - See {@link SINT.SCALE_MODES} for possible values
      * @param {boolean} [crossorigin=(auto)] - Should use anonymous CORS? Defaults to true if the URL is not a data-URI.
      * @param {boolean} [autoPlay=true] - Start playing video as soon as it is loaded
-     * @return {PIXI.VideoBaseTexture} Newly created VideoBaseTexture
+     * @return {SINT.VideoBaseTexture} Newly created VideoBaseTexture
      */
     static fromUrl(videoSrc, scaleMode, crossorigin, autoPlay)
     {

@@ -8,13 +8,13 @@ import { default as TextureMatrix } from '../../../../textures/TextureMatrix';
  * The SpriteMaskFilter class
  *
  * @class
- * @extends PIXI.Filter
- * @memberof PIXI
+ * @extends SINT.Filter
+ * @memberof SINT
  */
 export default class SpriteMaskFilter extends Filter
 {
     /**
-     * @param {PIXI.Sprite} sprite - the target sprite
+     * @param {SINT.Sprite} sprite - the target sprite
      */
     constructor(sprite)
     {
@@ -34,9 +34,9 @@ export default class SpriteMaskFilter extends Filter
     /**
      * Applies the filter
      *
-     * @param {PIXI.FilterManager} filterManager - The renderer to retrieve the filter from
-     * @param {PIXI.RenderTarget} input - The input render target.
-     * @param {PIXI.RenderTarget} output - The target to output to.
+     * @param {SINT.FilterManager} filterManager - The renderer to retrieve the filter from
+     * @param {SINT.RenderTarget} input - The input render target.
+     * @param {SINT.RenderTarget} output - The target to output to.
      */
     apply(filterManager, input, output)
     {

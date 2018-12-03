@@ -8,8 +8,8 @@ const SOURCE_KEY_MAP = {};
 // let math = require('../../../math');
 /**
  * @class
- * @memberof PIXI
- * @extends PIXI.Shader
+ * @memberof SINT
+ * @extends SINT.Shader
  */
 export default class Filter
 {
@@ -97,7 +97,7 @@ export default class Filter
         this.enabled = true;
 
         /**
-         * If enabled, PixiJS will fit the filter area into boundaries for better performance.
+         * If enabled, SINTJS will fit the filter area into boundaries for better performance.
          * Switch it off if it does not work for specific shader.
          *
          * @member {boolean}
@@ -108,9 +108,9 @@ export default class Filter
     /**
      * Applies the filter
      *
-     * @param {PIXI.FilterManager} filterManager - The renderer to retrieve the filter from
-     * @param {PIXI.RenderTarget} input - The input render target.
-     * @param {PIXI.RenderTarget} output - The target to output to.
+     * @param {SINT.FilterManager} filterManager - The renderer to retrieve the filter from
+     * @param {SINT.RenderTarget} input - The input render target.
+     * @param {SINT.RenderTarget} output - The target to output to.
      * @param {boolean} clear - Should the output be cleared before rendering to it
      * @param {object} [currentState] - It's current state of filter.
      *        There are some useful properties in the currentState :
@@ -132,7 +132,7 @@ export default class Filter
      * Sets the blendmode of the filter
      *
      * @member {number}
-     * @default PIXI.BLEND_MODES.NORMAL
+     * @default SINT.BLEND_MODES.NORMAL
      */
     get blendMode()
     {

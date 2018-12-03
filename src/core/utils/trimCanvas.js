@@ -1,7 +1,7 @@
 /**
  * Trim transparent borders from a canvas
  *
- * @memberof PIXI
+ * @memberof SINT
  * @function trimCanvas
  * @private
  * @param {HTMLCanvasElement} canvas - the canvas to trim

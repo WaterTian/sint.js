@@ -5,22 +5,22 @@ import settings from './settings';
 import { UPDATE_PRIORITY } from './const';
 
 /**
- * Convenience class to create a new PIXI application.
+ * Convenience class to create a new SINT application.
  * This class automatically creates the renderer, ticker
  * and root container.
  *
  * @example
  * // Create the application
- * const app = new PIXI.Application();
+ * const app = new SINT.Application();
  *
  * // Add the view to the DOM
  * document.body.appendChild(app.view);
  *
  * // ex, add display objects
- * app.stage.addChild(PIXI.Sprite.fromImage('something.png'));
+ * app.stage.addChild(SINT.Sprite.fromImage('something.png'));
  *
  * @class
- * @memberof PIXI
+ * @memberof SINT
  */
 export default class Application
 {
@@ -43,7 +43,7 @@ export default class Application
      *  (shown if not transparent).
      * @param {boolean} [options.clearBeforeRender=true] - This sets if the renderer will clear the canvas or
      *   not before the new render pass.
-     * @param {boolean} [options.roundPixels=false] - If true PixiJS will Math.floor() x/y values when rendering,
+     * @param {boolean} [options.roundPixels=false] - If true SINTJS will Math.floor() x/y values when rendering,
      *  stopping pixel interpolation.
      * @param {boolean} [options.forceFXAA=false] - forces FXAA antialiasing to be used over native.
      *  FXAA is faster, but may not always look as great **webgl only**
@@ -51,8 +51,8 @@ export default class Application
      *  If you experience unexplained flickering try setting this to true. **webgl only**
      * @param {string} [options.powerPreference] - Parameter passed to webgl context, set to "high-performance"
      *  for devices with dual graphics card **webgl only**
-     * @param {boolean} [options.sharedTicker=false] - `true` to use PIXI.ticker.shared, `false` to create new ticker.
-     * @param {boolean} [options.sharedLoader=false] - `true` to use PIXI.loaders.shared, `false` to create new Loader.
+     * @param {boolean} [options.sharedTicker=false] - `true` to use SINT.ticker.shared, `false` to create new ticker.
+     * @param {boolean} [options.sharedLoader=false] - `true` to use SINT.loaders.shared, `false` to create new Loader.
      */
     constructor(options, arg2, arg3, arg4, arg5)
     {
@@ -81,27 +81,27 @@ export default class Application
 
         /**
          * WebGL renderer if available, otherwise CanvasRenderer
-         * @member {PIXI.WebGLRenderer|PIXI.CanvasRenderer}
+         * @member {SINT.WebGLRenderer|SINT.CanvasRenderer}
          */
         this.renderer = autoDetectRenderer(options);
 
         /**
          * The root display container that's rendered.
-         * @member {PIXI.Container}
+         * @member {SINT.Container}
          */
         this.stage = new Container();
 
         /**
          * Internal reference to the ticker
-         * @member {PIXI.ticker.Ticker}
+         * @member {SINT.ticker.Ticker}
          * @private
          */
         this._ticker = null;
 
         /**
          * Ticker for doing render updates.
-         * @member {PIXI.ticker.Ticker}
-         * @default PIXI.ticker.shared
+         * @member {SINT.ticker.Ticker}
+         * @default SINT.ticker.shared
          */
         this.ticker = options.sharedTicker ? shared : new Ticker();
 
@@ -165,7 +165,7 @@ export default class Application
 
     /**
      * Reference to the renderer's screen rectangle. Its safe to use as filterArea or hitArea for whole screen
-     * @member {PIXI.Rectangle}
+     * @member {SINT.Rectangle}
      * @readonly
      */
     get screen()

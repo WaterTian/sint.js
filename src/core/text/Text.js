@@ -23,18 +23,18 @@ const defaultDestroyOptions = {
  * which can be generated [here](https://pixijs.io/pixi-text-style).
  *
  * ```js
- * let text = new PIXI.Text('This is a PixiJS text',{fontFamily : 'Arial', fontSize: 24, fill : 0xff1010, align : 'center'});
+ * let text = new SINT.Text('This is a SINTJS text',{fontFamily : 'Arial', fontSize: 24, fill : 0xff1010, align : 'center'});
  * ```
  *
  * @class
- * @extends PIXI.Sprite
- * @memberof PIXI
+ * @extends SINT.Sprite
+ * @memberof SINT
  */
 export default class Text extends Sprite
 {
     /**
      * @param {string} text - The string that you would like the text to display
-     * @param {object|PIXI.TextStyle} [style] - The style parameters
+     * @param {object|SINT.TextStyle} [style] - The style parameters
      * @param {HTMLCanvasElement} [canvas] - The canvas element for drawing text
      */
     constructor(text, style, canvas)
@@ -359,7 +359,7 @@ export default class Text extends Sprite
     /**
      * Renders the object using the WebGL renderer
      *
-     * @param {PIXI.WebGLRenderer} renderer - The renderer
+     * @param {SINT.WebGLRenderer} renderer - The renderer
      */
     renderWebGL(renderer)
     {
@@ -378,7 +378,7 @@ export default class Text extends Sprite
      * Renders the object using the Canvas renderer
      *
      * @private
-     * @param {PIXI.CanvasRenderer} renderer - The renderer
+     * @param {SINT.CanvasRenderer} renderer - The renderer
      */
     _renderCanvas(renderer)
     {
@@ -613,7 +613,7 @@ export default class Text extends Sprite
      * Set the style of the text. Set up an event listener to listen for changes on the style
      * object and mark the text as dirty.
      *
-     * @member {object|PIXI.TextStyle}
+     * @member {object|SINT.TextStyle}
      */
     get style()
     {

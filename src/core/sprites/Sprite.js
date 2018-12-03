@@ -12,29 +12,29 @@ const tempPoint = new Point();
  * A sprite can be created directly from an image like this:
  *
  * ```js
- * let sprite = new PIXI.Sprite.fromImage('assets/image.png');
+ * let sprite = new SINT.Sprite.fromImage('assets/image.png');
  * ```
  *
- * The more efficient way to create sprites is using a {@link PIXI.Spritesheet}:
+ * The more efficient way to create sprites is using a {@link SINT.Spritesheet}:
  *
  * ```js
- * PIXI.loader.add("assets/spritesheet.json").load(setup);
+ * SINT.loader.add("assets/spritesheet.json").load(setup);
  *
  * function setup() {
- *   let sheet = PIXI.loader.resources["assets/spritesheet.json"].spritesheet;
- *   let sprite = new PIXI.Sprite(sheet.textures["image.png"]);
+ *   let sheet = SINT.loader.resources["assets/spritesheet.json"].spritesheet;
+ *   let sprite = new SINT.Sprite(sheet.textures["image.png"]);
  *   ...
  * }
  * ```
  *
  * @class
- * @extends PIXI.Container
- * @memberof PIXI
+ * @extends SINT.Container
+ * @memberof SINT
  */
 export default class Sprite extends Container
 {
     /**
-     * @param {PIXI.Texture} texture - The texture for this sprite
+     * @param {SINT.Texture} texture - The texture for this sprite
      */
     constructor(texture)
     {
@@ -42,14 +42,14 @@ export default class Sprite extends Container
 
         /**
          * The anchor sets the origin point of the texture.
-         * The default is 0,0 or taken from the {@link PIXI.Texture#defaultAnchor|Texture}
+         * The default is 0,0 or taken from the {@link SINT.Texture#defaultAnchor|Texture}
          * passed to the constructor. A value of 0,0 means the texture's origin is the top left.
          * Setting the anchor to 0.5,0.5 means the texture's origin is centered.
          * Setting the anchor to 1,1 would mean the texture's origin point will be the bottom right corner.
-         * Note: Updating the {@link PIXI.Texture#defaultAnchor} after a Texture is
+         * Note: Updating the {@link SINT.Texture#defaultAnchor} after a Texture is
          * created does _not_ update the Sprite's anchor values.
          *
-         * @member {PIXI.ObservablePoint}
+         * @member {SINT.ObservablePoint}
          * @private
          */
         this._anchor = new ObservablePoint(
@@ -63,7 +63,7 @@ export default class Sprite extends Container
          * The texture that the sprite is using
          *
          * @private
-         * @member {PIXI.Texture}
+         * @member {SINT.Texture}
          */
         this._texture = null;
 
@@ -95,18 +95,18 @@ export default class Sprite extends Container
         this.tint = 0xFFFFFF;
 
         /**
-         * The blend mode to be applied to the sprite. Apply a value of `PIXI.BLEND_MODES.NORMAL` to reset the blend mode.
+         * The blend mode to be applied to the sprite. Apply a value of `SINT.BLEND_MODES.NORMAL` to reset the blend mode.
          *
          * @member {number}
-         * @default PIXI.BLEND_MODES.NORMAL
-         * @see PIXI.BLEND_MODES
+         * @default SINT.BLEND_MODES.NORMAL
+         * @see SINT.BLEND_MODES
          */
         this.blendMode = BLEND_MODES.NORMAL;
 
         /**
          * The shader that will be used to render the sprite. Set to null to remove a current shader.
          *
-         * @member {PIXI.Filter|PIXI.Shader}
+         * @member {SINT.Filter|SINT.Shader}
          */
         this.shader = null;
 
@@ -318,7 +318,7 @@ export default class Sprite extends Container
     * Renders the object using the WebGL renderer
     *
     * @private
-    * @param {PIXI.WebGLRenderer} renderer - The webgl renderer to use.
+    * @param {SINT.WebGLRenderer} renderer - The webgl renderer to use.
     */
     _renderWebGL(renderer)
     {
@@ -332,7 +332,7 @@ export default class Sprite extends Container
     * Renders the object using the Canvas renderer
     *
     * @private
-    * @param {PIXI.CanvasRenderer} renderer - The renderer
+    * @param {SINT.CanvasRenderer} renderer - The renderer
     */
     _renderCanvas(renderer)
     {
@@ -367,8 +367,8 @@ export default class Sprite extends Container
     /**
      * Gets the local bounds of the sprite object.
      *
-     * @param {PIXI.Rectangle} rect - The output rectangle.
-     * @return {PIXI.Rectangle} The bounds.
+     * @param {SINT.Rectangle} rect - The output rectangle.
+     * @return {SINT.Rectangle} The bounds.
      */
     getLocalBounds(rect)
     {
@@ -399,7 +399,7 @@ export default class Sprite extends Container
     /**
      * Tests if a point is inside this sprite
      *
-     * @param {PIXI.Point} point - the point to test
+     * @param {SINT.Point} point - the point to test
      * @return {boolean} the result of the test
      */
     containsPoint(point)
@@ -462,8 +462,8 @@ export default class Sprite extends Container
      * The source can be - frame id, image url, video url, canvas element, video element, base texture
      *
      * @static
-     * @param {number|string|PIXI.BaseTexture|HTMLCanvasElement|HTMLVideoElement} source Source to create texture from
-     * @return {PIXI.Sprite} The newly created sprite
+     * @param {number|string|SINT.BaseTexture|HTMLCanvasElement|HTMLVideoElement} source Source to create texture from
+     * @return {SINT.Sprite} The newly created sprite
      */
     static from(source)
     {
@@ -476,7 +476,7 @@ export default class Sprite extends Container
      *
      * @static
      * @param {string} frameId - The frame Id of the texture in the cache
-     * @return {PIXI.Sprite} A new Sprite using a texture from the texture cache matching the frameId
+     * @return {SINT.Sprite} A new Sprite using a texture from the texture cache matching the frameId
      */
     static fromFrame(frameId)
     {
@@ -497,9 +497,9 @@ export default class Sprite extends Container
      * @static
      * @param {string} imageId - The image url of the texture
      * @param {boolean} [crossorigin=(auto)] - if you want to specify the cross-origin parameter
-     * @param {number} [scaleMode=PIXI.settings.SCALE_MODE] - if you want to specify the scale mode,
-     *  see {@link PIXI.SCALE_MODES} for possible values
-     * @return {PIXI.Sprite} A new Sprite using a texture from the texture cache matching the image id
+     * @param {number} [scaleMode=SINT.settings.SCALE_MODE] - if you want to specify the scale mode,
+     *  see {@link SINT.SCALE_MODES} for possible values
+     * @return {SINT.Sprite} A new Sprite using a texture from the texture cache matching the image id
      */
     static fromImage(imageId, crossorigin, scaleMode)
     {
@@ -544,12 +544,12 @@ export default class Sprite extends Container
 
     /**
      * The anchor sets the origin point of the texture.
-     * The default is 0,0 or taken from the {@link PIXI.Texture|Texture} passed to the constructor.
+     * The default is 0,0 or taken from the {@link SINT.Texture|Texture} passed to the constructor.
      * Setting the texture at a later point of time does not change the anchor.
      *
      * 0,0 means the texture's origin is the top left, 0.5,0.5 is the center, 1,1 the bottom right corner.
      *
-     * @member {PIXI.ObservablePoint}
+     * @member {SINT.ObservablePoint}
      */
     get anchor()
     {
@@ -582,7 +582,7 @@ export default class Sprite extends Container
     /**
      * The texture that the sprite is using
      *
-     * @member {PIXI.Texture}
+     * @member {SINT.Texture}
      */
     get texture()
     {

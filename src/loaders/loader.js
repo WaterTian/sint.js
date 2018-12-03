@@ -10,9 +10,9 @@ import bitmapFontParser from './bitmapFontParser';
  * The new loader, extends Resource Loader by Chad Engler: https://github.com/englercj/resource-loader
  *
  * ```js
- * const loader = PIXI.loader; // PixiJS exposes a premade instance for you to use.
+ * const loader = SINT.loader; // PixiJS exposes a premade instance for you to use.
  * //or
- * const loader = new PIXI.loaders.Loader(); // you can also create your own if you want
+ * const loader = new SINT.loaders.Loader(); // you can also create your own if you want
  *
  * const sprites = {};
  *
@@ -38,9 +38,9 @@ import bitmapFontParser from './bitmapFontParser';
  *     // - `error`: The error that happened when trying to load (if any)
  *     // - `data`: The raw data that was loaded
  *     // also may contain other properties based on the middleware that runs.
- *     sprites.bunny = new PIXI.TilingSprite(resources.bunny.texture);
- *     sprites.spaceship = new PIXI.TilingSprite(resources.spaceship.texture);
- *     sprites.scoreFont = new PIXI.TilingSprite(resources.scoreFont.texture);
+ *     sprites.bunny = new SINT.TilingSprite(resources.bunny.texture);
+ *     sprites.spaceship = new SINT.TilingSprite(resources.spaceship.texture);
+ *     sprites.scoreFont = new SINT.TilingSprite(resources.scoreFont.texture);
  * });
  *
  * // throughout the process multiple signals can be dispatched.
@@ -54,7 +54,7 @@ import bitmapFontParser from './bitmapFontParser';
  *
  * @class
  * @extends module:resource-loader.ResourceLoader
- * @memberof PIXI.loaders
+ * @memberof SINT.loaders
  */
 export default class Loader extends ResourceLoader
 {

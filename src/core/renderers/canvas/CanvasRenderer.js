@@ -12,8 +12,8 @@ import settings from '../../settings';
  * your DOM or you will not see anything :)
  *
  * @class
- * @memberof PIXI
- * @extends PIXI.SystemRenderer
+ * @memberof SINT
+ * @extends SINT.SystemRenderer
  */
 export default class CanvasRenderer extends SystemRenderer
 {
@@ -34,7 +34,7 @@ export default class CanvasRenderer extends SystemRenderer
      *      not before the new render pass.
      * @param {number} [options.backgroundColor=0x000000] - The background color of the rendered area
      *  (shown if not transparent).
-     * @param {boolean} [options.roundPixels=false] - If true PixiJS will Math.floor() x/y values when rendering,
+     * @param {boolean} [options.roundPixels=false] - If true SINTJS will Math.floor() x/y values when rendering,
      *  stopping pixel interpolation.
      */
     constructor(options, arg2, arg3)
@@ -67,7 +67,7 @@ export default class CanvasRenderer extends SystemRenderer
         /**
          * Instance of a CanvasMaskManager, handles masking when using the canvas renderer.
          *
-         * @member {PIXI.CanvasMaskManager}
+         * @member {SINT.CanvasMaskManager}
          */
         this.maskManager = new CanvasMaskManager(this);
 
@@ -110,24 +110,24 @@ export default class CanvasRenderer extends SystemRenderer
         /**
          * Fired after rendering finishes.
          *
-         * @event PIXI.CanvasRenderer#postrender
+         * @event SINT.CanvasRenderer#postrender
          */
 
         /**
          * Fired before rendering starts.
          *
-         * @event PIXI.CanvasRenderer#prerender
+         * @event SINT.CanvasRenderer#prerender
          */
     }
 
     /**
      * Renders the object to this canvas view
      *
-     * @param {PIXI.DisplayObject} displayObject - The object to be rendered
-     * @param {PIXI.RenderTexture} [renderTexture] - A render texture to be rendered to.
+     * @param {SINT.DisplayObject} displayObject - The object to be rendered
+     * @param {SINT.RenderTexture} [renderTexture] - A render texture to be rendered to.
      *  If unset, it will render to the root context.
      * @param {boolean} [clear=false] - Whether to clear the canvas before drawing
-     * @param {PIXI.Matrix} [transform] - A transformation to be applied
+     * @param {SINT.Matrix} [transform] - A transformation to be applied
      * @param {boolean} [skipUpdateTransform=false] - Whether to skip the update transform
      */
     render(displayObject, renderTexture, clear, transform, skipUpdateTransform)
@@ -268,7 +268,7 @@ export default class CanvasRenderer extends SystemRenderer
     /**
      * Sets the blend mode of the renderer.
      *
-     * @param {number} blendMode - See {@link PIXI.BLEND_MODES} for valid values.
+     * @param {number} blendMode - See {@link SINT.BLEND_MODES} for valid values.
      */
     setBlendMode(blendMode)
     {
@@ -306,7 +306,7 @@ export default class CanvasRenderer extends SystemRenderer
     /**
      * Resizes the canvas view to the specified width and height.
      *
-     * @extends PIXI.SystemRenderer#resize
+     * @extends SINT.SystemRenderer#resize
      *
      * @param {number} screenWidth - the new width of the screen
      * @param {number} screenHeight - the new height of the screen
@@ -316,7 +316,7 @@ export default class CanvasRenderer extends SystemRenderer
         super.resize(screenWidth, screenHeight);
 
         // reset the scale mode.. oddly this seems to be reset when the canvas is resized.
-        // surely a browser bug?? Let PixiJS fix that for you..
+        // surely a browser bug?? Let SINTJS fix that for you..
         if (this.smoothProperty)
         {
             this.rootContext[this.smoothProperty] = (settings.SCALE_MODE === SCALE_MODES.LINEAR);
@@ -333,22 +333,22 @@ export default class CanvasRenderer extends SystemRenderer
 }
 
 /**
- * Collection of installed plugins. These are included by default in PIXI, but can be excluded
+ * Collection of installed plugins. These are included by default in SINT, but can be excluded
  * by creating a custom build. Consult the README for more information about creating custom
  * builds and excluding plugins.
- * @name PIXI.CanvasRenderer#plugins
+ * @name SINT.CanvasRenderer#plugins
  * @type {object}
  * @readonly
- * @property {PIXI.accessibility.AccessibilityManager} accessibility Support tabbing interactive elements.
- * @property {PIXI.extract.CanvasExtract} extract Extract image data from renderer.
- * @property {PIXI.interaction.InteractionManager} interaction Handles mouse, touch and pointer events.
- * @property {PIXI.prepare.CanvasPrepare} prepare Pre-render display objects.
+ * @property {SINT.accessibility.AccessibilityManager} accessibility Support tabbing interactive elements.
+ * @property {SINT.extract.CanvasExtract} extract Extract image data from renderer.
+ * @property {SINT.interaction.InteractionManager} interaction Handles mouse, touch and pointer events.
+ * @property {SINT.prepare.CanvasPrepare} prepare Pre-render display objects.
  */
 
 /**
  * Adds a plugin to the renderer.
  *
- * @method PIXI.CanvasRenderer#registerPlugin
+ * @method SINT.CanvasRenderer#registerPlugin
  * @param {string} pluginName - The name of the plugin.
  * @param {Function} ctor - The constructor function or class for the plugin.
  */

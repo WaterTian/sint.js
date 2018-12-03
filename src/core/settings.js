@@ -2,16 +2,16 @@ import maxRecommendedTextures from './utils/maxRecommendedTextures';
 import canUploadSameBuffer from './utils/canUploadSameBuffer';
 
 /**
- * User's customizable globals for overriding the default PIXI settings, such
+ * User's customizable globals for overriding the default SINT settings, such
  * as a renderer's default resolution, framerate, float percision, etc.
  * @example
  * // Use the native window resolution as the default resolution
  * // will support high-density displays when rendering
- * PIXI.settings.RESOLUTION = window.devicePixelRatio.
+ * SINT.settings.RESOLUTION = window.devicePixelRatio.
  *
  * // Disable interpolation when scaling, will make texture be pixelated
- * PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
- * @namespace PIXI.settings
+ * SINT.settings.SCALE_MODE = SINT.SCALE_MODES.NEAREST;
+ * @namespace SINT.settings
  */
 export default {
 
@@ -19,7 +19,7 @@ export default {
      * Target frames per millisecond.
      *
      * @static
-     * @memberof PIXI.settings
+     * @memberof SINT.settings
      * @type {number}
      * @default 0.06
      */
@@ -30,7 +30,7 @@ export default {
      * Mipmapping will only succeed if the base texture uploaded has power of two dimensions.
      *
      * @static
-     * @memberof PIXI.settings
+     * @memberof SINT.settings
      * @type {boolean}
      * @default true
      */
@@ -40,7 +40,7 @@ export default {
      * Default resolution / device pixel ratio of the renderer.
      *
      * @static
-     * @memberof PIXI.settings
+     * @memberof SINT.settings
      * @type {number}
      * @default 1
      */
@@ -50,7 +50,7 @@ export default {
      * Default filter resolution.
      *
      * @static
-     * @memberof PIXI.settings
+     * @memberof SINT.settings
      * @type {number}
      * @default 1
      */
@@ -60,7 +60,7 @@ export default {
      * The maximum textures that this device supports.
      *
      * @static
-     * @memberof PIXI.settings
+     * @memberof SINT.settings
      * @type {number}
      * @default 32
      */
@@ -75,7 +75,7 @@ export default {
      * The default aims to balance desktop and mobile devices.
      *
      * @static
-     * @memberof PIXI.settings
+     * @memberof SINT.settings
      * @type {number}
      * @default 4096
      */
@@ -85,7 +85,7 @@ export default {
      * The prefix that denotes a URL is for a retina asset.
      *
      * @static
-     * @memberof PIXI.settings
+     * @memberof SINT.settings
      * @type {RegExp}
      * @example `@2x`
      * @default /@([0-9\.]+)x/
@@ -93,12 +93,12 @@ export default {
     RETINA_PREFIX: /@([0-9\.]+)x/,
 
     /**
-     * The default render options if none are supplied to {@link PIXI.WebGLRenderer}
-     * or {@link PIXI.CanvasRenderer}.
+     * The default render options if none are supplied to {@link SINT.WebGLRenderer}
+     * or {@link SINT.CanvasRenderer}.
      *
      * @static
      * @constant
-     * @memberof PIXI.settings
+     * @memberof SINT.settings
      * @type {object}
      * @property {HTMLCanvasElement} view=null
      * @property {number} resolution=1
@@ -133,9 +133,9 @@ export default {
      * Default transform type.
      *
      * @static
-     * @memberof PIXI.settings
-     * @type {PIXI.TRANSFORM_MODE}
-     * @default PIXI.TRANSFORM_MODE.STATIC
+     * @memberof SINT.settings
+     * @type {SINT.TRANSFORM_MODE}
+     * @default SINT.TRANSFORM_MODE.STATIC
      */
     TRANSFORM_MODE: 0,
 
@@ -143,9 +143,9 @@ export default {
      * Default Garbage Collection mode.
      *
      * @static
-     * @memberof PIXI.settings
-     * @type {PIXI.GC_MODES}
-     * @default PIXI.GC_MODES.AUTO
+     * @memberof SINT.settings
+     * @type {SINT.GC_MODES}
+     * @default SINT.GC_MODES.AUTO
      */
     GC_MODE: 0,
 
@@ -153,7 +153,7 @@ export default {
      * Default Garbage Collection max idle.
      *
      * @static
-     * @memberof PIXI.settings
+     * @memberof SINT.settings
      * @type {number}
      * @default 3600
      */
@@ -163,29 +163,29 @@ export default {
      * Default Garbage Collection maximum check count.
      *
      * @static
-     * @memberof PIXI.settings
+     * @memberof SINT.settings
      * @type {number}
      * @default 600
      */
     GC_MAX_CHECK_COUNT: 60 * 10,
 
     /**
-     * Default wrap modes that are supported by pixi.
+     * Default wrap modes that are supported by SINT.
      *
      * @static
-     * @memberof PIXI.settings
-     * @type {PIXI.WRAP_MODES}
-     * @default PIXI.WRAP_MODES.CLAMP
+     * @memberof SINT.settings
+     * @type {SINT.WRAP_MODES}
+     * @default SINT.WRAP_MODES.CLAMP
      */
     WRAP_MODE: 0,
 
     /**
-     * The scale modes that are supported by pixi.
+     * The scale modes that are supported by SINT.
      *
      * @static
-     * @memberof PIXI.settings
-     * @type {PIXI.SCALE_MODES}
-     * @default PIXI.SCALE_MODES.LINEAR
+     * @memberof SINT.settings
+     * @type {SINT.SCALE_MODES}
+     * @default SINT.SCALE_MODES.LINEAR
      */
     SCALE_MODE: 0,
 
@@ -193,9 +193,9 @@ export default {
      * Default specify float precision in vertex shader.
      *
      * @static
-     * @memberof PIXI.settings
-     * @type {PIXI.PRECISION}
-     * @default PIXI.PRECISION.HIGH
+     * @memberof SINT.settings
+     * @type {SINT.PRECISION}
+     * @default SINT.PRECISION.HIGH
      */
     PRECISION_VERTEX: 'highp',
 
@@ -203,9 +203,9 @@ export default {
      * Default specify float precision in fragment shader.
      *
      * @static
-     * @memberof PIXI.settings
-     * @type {PIXI.PRECISION}
-     * @default PIXI.PRECISION.MEDIUM
+     * @memberof SINT.settings
+     * @type {SINT.PRECISION}
+     * @default SINT.PRECISION.MEDIUM
      */
     PRECISION_FRAGMENT: 'mediump',
 
@@ -214,7 +214,7 @@ export default {
      *
      * @static
      * @constant
-     * @memberof PIXI.settings
+     * @memberof SINT.settings
      * @type {boolean}
      */
     CAN_UPLOAD_SAME_BUFFER: canUploadSameBuffer(),
@@ -222,10 +222,10 @@ export default {
     /**
      * Default Mesh `canvasPadding`.
      *
-     * @see PIXI.mesh.Mesh#canvasPadding
+     * @see SINT.mesh.Mesh#canvasPadding
      * @static
      * @constant
-     * @memberof PIXI.settings
+     * @memberof SINT.settings
      * @type {number}
      */
     MESH_CANVAS_PADDING: 0,

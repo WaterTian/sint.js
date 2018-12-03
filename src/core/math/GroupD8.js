@@ -72,7 +72,7 @@ init();
  *
  * @author Ivan @ivanpopelyshev
  * @class
- * @memberof PIXI
+ * @memberof SINT
  */
 const GroupD8 = {
     E: 0,
@@ -104,7 +104,7 @@ const GroupD8 = {
     /**
      * Adds 180 degrees to rotation. Commutative operation.
      *
-     * @memberof PIXI.GroupD8
+     * @memberof SINT.GroupD8
      * @param {number} rotation - The number to rotate.
      * @returns {number} rotated number
      */
@@ -114,14 +114,14 @@ const GroupD8 = {
      * Direction of main vector can be horizontal, vertical or diagonal.
      * Some objects work with vertical directions different.
      *
-     * @memberof PIXI.GroupD8
+     * @memberof SINT.GroupD8
      * @param {number} rotation - The number to check.
      * @returns {boolean} Whether or not the direction is vertical
      */
     isVertical: (rotation) => (rotation & 3) === 2,
 
     /**
-     * @memberof PIXI.GroupD8
+     * @memberof SINT.GroupD8
      * @param {number} dx - TODO
      * @param {number} dy - TODO
      *
@@ -167,8 +167,8 @@ const GroupD8 = {
     /**
      * Helps sprite to compensate texture packer rotation.
      *
-     * @memberof PIXI.GroupD8
-     * @param {PIXI.Matrix} matrix - sprite world matrix
+     * @memberof SINT.GroupD8
+     * @param {SINT.Matrix} matrix - sprite world matrix
      * @param {number} rotation - The rotation factor to use.
      * @param {number} tx - sprite anchoring
      * @param {number} ty - sprite anchoring

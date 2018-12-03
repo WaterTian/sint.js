@@ -1,7 +1,7 @@
 /**
  * Generic Mask Stack data structure
  *
- * @memberof PIXI
+ * @memberof SINT
  * @function createIndicesForQuads
  * @private
  * @param {number} size - Number of quads

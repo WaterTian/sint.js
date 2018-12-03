@@ -1,16 +1,16 @@
 /**
  * Default property values of interactive objects
- * Used by {@link PIXI.interaction.InteractionManager} to automatically give all DisplayObjects these properties
+ * Used by {@link SINT.interaction.InteractionManager} to automatically give all DisplayObjects these properties
  *
  * @private
  * @name interactiveTarget
- * @memberof PIXI.interaction
+ * @memberof SINT.interaction
  * @example
  *      function MyObject() {}
  *
  *      Object.assign(
  *          core.DisplayObject.prototype,
- *          PIXI.interaction.interactiveTarget
+ *          SINT.interaction.interactiveTarget
  *      );
  */
 export default {
@@ -20,22 +20,22 @@ export default {
      * events will not be emitted unless `interactive` is set to `true`.
      *
      * @example
-     * const sprite = new PIXI.Sprite(texture);
+     * const sprite = new SINT.Sprite(texture);
      * sprite.interactive = true;
      * sprite.on('tap', (event) => {
      *    //handle event
      * });
      * @member {boolean}
-     * @memberof PIXI.DisplayObject#
+     * @memberof SINT.DisplayObject#
      */
     interactive: false,
 
     /**
      * Determines if the children to the displayObject can be clicked/touched
-     * Setting this to false allows PixiJS to bypass a recursive `hitTest` function
+     * Setting this to false allows SINTJS to bypass a recursive `hitTest` function
      *
      * @member {boolean}
-     * @memberof PIXI.Container#
+     * @memberof SINT.Container#
      */
     interactiveChildren: true,
 
@@ -44,11 +44,11 @@ export default {
      * Setting this will cause this shape to be checked in hit tests rather than the displayObject's bounds.
      *
      * @example
-     * const sprite = new PIXI.Sprite(texture);
+     * const sprite = new SINT.Sprite(texture);
      * sprite.interactive = true;
-     * sprite.hitArea = new PIXI.Rectangle(0, 0, 100, 100);
-     * @member {PIXI.Rectangle|PIXI.Circle|PIXI.Ellipse|PIXI.Polygon|PIXI.RoundedRectangle}
-     * @memberof PIXI.DisplayObject#
+     * sprite.hitArea = new SINT.Rectangle(0, 0, 100, 100);
+     * @member {SINT.Rectangle|SINT.Circle|SINT.Ellipse|SINT.Polygon|SINT.RoundedRectangle}
+     * @memberof SINT.DisplayObject#
      */
     hitArea: null,
 
@@ -57,11 +57,11 @@ export default {
      * Setting this changes the 'cursor' property to `'pointer'`.
      *
      * @example
-     * const sprite = new PIXI.Sprite(texture);
+     * const sprite = new SINT.Sprite(texture);
      * sprite.interactive = true;
      * sprite.buttonMode = true;
      * @member {boolean}
-     * @memberof PIXI.DisplayObject#
+     * @memberof SINT.DisplayObject#
      */
     get buttonMode()
     {
@@ -84,13 +84,13 @@ export default {
      * is hovered over the displayObject.
      *
      * @example
-     * const sprite = new PIXI.Sprite(texture);
+     * const sprite = new SINT.Sprite(texture);
      * sprite.interactive = true;
      * sprite.cursor = 'wait';
      * @see https://developer.mozilla.org/en/docs/Web/CSS/cursor
      *
      * @member {string}
-     * @memberof PIXI.DisplayObject#
+     * @memberof SINT.DisplayObject#
      */
     cursor: null,
 
@@ -98,7 +98,7 @@ export default {
      * Internal set of all active pointers, by identifier
      *
      * @member {Map<number, InteractionTrackingData>}
-     * @memberof PIXI.DisplayObject#
+     * @memberof SINT.DisplayObject#
      * @private
      */
     get trackedPointers()

@@ -6,13 +6,13 @@ import DisplayObject from './DisplayObject';
  * It is the base class of all display objects that act as a container for other objects.
  *
  *```js
- * let container = new PIXI.Container();
+ * let container = new SINT.Container();
  * container.addChild(sprite);
  * ```
  *
  * @class
- * @extends PIXI.DisplayObject
- * @memberof PIXI
+ * @extends SINT.DisplayObject
+ * @memberof SINT
  */
 export default class Container extends DisplayObject
 {
@@ -26,7 +26,7 @@ export default class Container extends DisplayObject
         /**
          * The array of children of this container.
          *
-         * @member {PIXI.DisplayObject[]}
+         * @member {SINT.DisplayObject[]}
          * @readonly
          */
         this.children = [];
@@ -47,8 +47,8 @@ export default class Container extends DisplayObject
      *
      * Multiple items can be added like so: `myContainer.addChild(thingOne, thingTwo, thingThree)`
      *
-     * @param {...PIXI.DisplayObject} child - The DisplayObject(s) to add to the container
-     * @return {PIXI.DisplayObject} The first child that was added.
+     * @param {...SINT.DisplayObject} child - The DisplayObject(s) to add to the container
+     * @return {SINT.DisplayObject} The first child that was added.
      */
     addChild(child)
     {
@@ -66,7 +66,7 @@ export default class Container extends DisplayObject
         }
         else
         {
-            // if the child has a parent then lets remove it as PixiJS objects can only exist in one place
+            // if the child has a parent then lets remove it as SINTJS objects can only exist in one place
             if (child.parent)
             {
                 child.parent.removeChild(child);
@@ -92,9 +92,9 @@ export default class Container extends DisplayObject
     /**
      * Adds a child to the container at a specified index. If the index is out of bounds an error will be thrown
      *
-     * @param {PIXI.DisplayObject} child - The child to add
+     * @param {SINT.DisplayObject} child - The child to add
      * @param {number} index - The index to place the child in
-     * @return {PIXI.DisplayObject} The child that was added.
+     * @return {SINT.DisplayObject} The child that was added.
      */
     addChildAt(child, index)
     {
@@ -127,8 +127,8 @@ export default class Container extends DisplayObject
     /**
      * Swaps the position of 2 Display Objects within this container.
      *
-     * @param {PIXI.DisplayObject} child - First display object to swap
-     * @param {PIXI.DisplayObject} child2 - Second display object to swap
+     * @param {SINT.DisplayObject} child - First display object to swap
+     * @param {SINT.DisplayObject} child2 - Second display object to swap
      */
     swapChildren(child, child2)
     {
@@ -148,7 +148,7 @@ export default class Container extends DisplayObject
     /**
      * Returns the index position of a child DisplayObject instance
      *
-     * @param {PIXI.DisplayObject} child - The DisplayObject instance to identify
+     * @param {SINT.DisplayObject} child - The DisplayObject instance to identify
      * @return {number} The index position of the child display object to identify
      */
     getChildIndex(child)
@@ -166,7 +166,7 @@ export default class Container extends DisplayObject
     /**
      * Changes the position of an existing child in the display object container
      *
-     * @param {PIXI.DisplayObject} child - The child DisplayObject instance for which you want to change the index number
+     * @param {SINT.DisplayObject} child - The child DisplayObject instance for which you want to change the index number
      * @param {number} index - The resulting index number for the child display object
      */
     setChildIndex(child, index)
@@ -188,7 +188,7 @@ export default class Container extends DisplayObject
      * Returns the child at the specified index
      *
      * @param {number} index - The index to get the child at
-     * @return {PIXI.DisplayObject} The child at the given index, if any.
+     * @return {SINT.DisplayObject} The child at the given index, if any.
      */
     getChildAt(index)
     {
@@ -203,8 +203,8 @@ export default class Container extends DisplayObject
     /**
      * Removes one or more children from the container.
      *
-     * @param {...PIXI.DisplayObject} child - The DisplayObject(s) to remove
-     * @return {PIXI.DisplayObject} The first child that was removed.
+     * @param {...SINT.DisplayObject} child - The DisplayObject(s) to remove
+     * @return {SINT.DisplayObject} The first child that was removed.
      */
     removeChild(child)
     {
@@ -246,7 +246,7 @@ export default class Container extends DisplayObject
      * Removes a child from the specified index position.
      *
      * @param {number} index - The index to get the child from
-     * @return {PIXI.DisplayObject} The child that was removed.
+     * @return {SINT.DisplayObject} The child that was removed.
      */
     removeChildAt(index)
     {
@@ -389,7 +389,7 @@ export default class Container extends DisplayObject
     /**
      * Renders the object using the WebGL renderer
      *
-     * @param {PIXI.WebGLRenderer} renderer - The renderer
+     * @param {SINT.WebGLRenderer} renderer - The renderer
      */
     renderWebGL(renderer)
     {
@@ -420,7 +420,7 @@ export default class Container extends DisplayObject
      * Render the object using the WebGL renderer and advanced features.
      *
      * @private
-     * @param {PIXI.WebGLRenderer} renderer - The renderer
+     * @param {SINT.WebGLRenderer} renderer - The renderer
      */
     renderAdvancedWebGL(renderer)
     {
@@ -484,7 +484,7 @@ export default class Container extends DisplayObject
      * To be overridden by the subclasses.
      *
      * @private
-     * @param {PIXI.WebGLRenderer} renderer - The renderer
+     * @param {SINT.WebGLRenderer} renderer - The renderer
      */
     _renderWebGL(renderer) // eslint-disable-line no-unused-vars
     {
@@ -495,7 +495,7 @@ export default class Container extends DisplayObject
      * To be overridden by the subclass
      *
      * @private
-     * @param {PIXI.CanvasRenderer} renderer - The renderer
+     * @param {SINT.CanvasRenderer} renderer - The renderer
      */
     _renderCanvas(renderer) // eslint-disable-line no-unused-vars
     {
@@ -505,7 +505,7 @@ export default class Container extends DisplayObject
     /**
      * Renders the object using the Canvas renderer
      *
-     * @param {PIXI.CanvasRenderer} renderer - The renderer
+     * @param {SINT.CanvasRenderer} renderer - The renderer
      */
     renderCanvas(renderer)
     {

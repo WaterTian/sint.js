@@ -3,13 +3,13 @@ import * as core from '../core';
 
 /**
  * @class
- * @extends core.Text
+ * @extends SINT.Text
  * @memberof SINT
  *
  * @param {number} [_x=0]
  * @param {number} [_y=0]
  * @param {string} [txt='']
- * @param {object|PIXI.TextStyle} [style] - The style parameters 
+ * @param {object|SINT.TextStyle} [style] - The style parameters 
  * {fontFamily : 'Arial', fontSize: 24, fill : 0xff1010, align : 'center'}
  * 
  */

@@ -5,13 +5,13 @@ import { getResolutionOfUrl } from '../utils';
  * Utility class for maintaining reference to a collection
  * of Textures on a single Spritesheet.
  *
- * To access a sprite sheet from your code pass its JSON data file to Pixi's loader:
+ * To access a sprite sheet from your code pass its JSON data file to SINT's loader:
  *
  * ```js
- * PIXI.loader.add("images/spritesheet.json").load(setup);
+ * SINT.loader.add("images/spritesheet.json").load(setup);
  *
  * function setup() {
- *   let sheet = PIXI.loader.resources["images/spritesheet.json"].spritesheet;
+ *   let sheet = SINT.loader.resources["images/spritesheet.json"].spritesheet;
  *   ...
  * }
  * ```
@@ -19,11 +19,11 @@ import { getResolutionOfUrl } from '../utils';
  *
  * Sprite sheets can be packed using tools like {@link https://codeandweb.com/texturepacker|TexturePacker},
  * {@link https://renderhjs.net/shoebox/|Shoebox} or {@link https://github.com/krzysztof-o/spritesheet.js|Spritesheet.js}.
- * Default anchor points (see {@link PIXI.Texture#defaultAnchor}) and grouping of animation sprites are currently only
+ * Default anchor points (see {@link SINT.Texture#defaultAnchor}) and grouping of animation sprites are currently only
  * supported by TexturePacker.
  *
  * @class
- * @memberof PIXI
+ * @memberof SINT
  */
 export default class Spritesheet
 {
@@ -39,7 +39,7 @@ export default class Spritesheet
     }
 
     /**
-     * @param {PIXI.BaseTexture} baseTexture Reference to the source BaseTexture object.
+     * @param {SINT.BaseTexture} baseTexture Reference to the source BaseTexture object.
      * @param {Object} data - Spritesheet image data.
      * @param {string} [resolutionFilename] - The filename to consider when determining
      *        the resolution of the spritesheet. If not provided, the imageUrl will
@@ -49,15 +49,15 @@ export default class Spritesheet
     {
         /**
          * Reference to ths source texture
-         * @type {PIXI.BaseTexture}
+         * @type {SINT.BaseTexture}
          */
         this.baseTexture = baseTexture;
 
         /**
          * A map containing all textures of the sprite sheet.
-         * Can be used to create a {@link PIXI.Sprite|Sprite}:
+         * Can be used to create a {@link SINT.Sprite|Sprite}:
          * ```js
-         * new PIXI.Sprite(sheet.textures["image.png"]);
+         * new SINT.Sprite(sheet.textures["image.png"]);
          * ```
          * @member {Object}
          */
@@ -65,9 +65,9 @@ export default class Spritesheet
 
         /**
          * A map containing the textures for each animation.
-         * Can be used to create an {@link PIXI.extras.AnimatedSprite|AnimatedSprite}:
+         * Can be used to create an {@link SINT.extras.AnimatedSprite|AnimatedSprite}:
          * ```js
-         * new PIXI.extras.AnimatedSprite(sheet.animations["anim_name"])
+         * new SINT.extras.AnimatedSprite(sheet.animations["anim_name"])
          * ```
          * @member {Object}
          */
@@ -244,7 +244,7 @@ export default class Spritesheet
                     data.anchor
                 );
 
-                // lets also add the frame to pixi's global cache for fromFrame and fromImage functions
+                // lets also add the frame to SINT's global cache for fromFrame and fromImage functions
                 Texture.addToCache(this.textures[i], i);
             }
 

@@ -5,7 +5,7 @@ import GroupD8 from '../math/GroupD8';
  *
  * @class
  * @private
- * @memberof PIXI
+ * @memberof SINT
  */
 export default class TextureUvs
 {
@@ -33,9 +33,9 @@ export default class TextureUvs
      * Sets the texture Uvs based on the given frame information.
      *
      * @private
-     * @param {PIXI.Rectangle} frame - The frame of the texture
-     * @param {PIXI.Rectangle} baseFrame - The base frame of the texture
-     * @param {number} rotate - Rotation of frame, see {@link PIXI.GroupD8}
+     * @param {SINT.Rectangle} frame - The frame of the texture
+     * @param {SINT.Rectangle} baseFrame - The base frame of the texture
+     * @param {number} rotate - Rotation of frame, see {@link SINT.GroupD8}
      */
     set(frame, baseFrame, rotate)
     {

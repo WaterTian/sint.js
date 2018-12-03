@@ -23,12 +23,12 @@ function checkPrecision(src, def)
 }
 
 /**
- * Wrapper class, webGL Shader for Pixi.
+ * Wrapper class, webGL Shader for SINT.
  * Adds precision string if vertexSrc or fragmentSrc have no mention of it.
  *
  * @class
  * @extends GLShader
- * @memberof PIXI
+ * @memberof SINT
  */
 export default class Shader extends GLShader
 {

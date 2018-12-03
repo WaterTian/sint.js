@@ -1,6 +1,6 @@
 /**
  * @class
- * @memberof PIXI
+ * @memberof SINT
  */
 export default class Buffer
 {

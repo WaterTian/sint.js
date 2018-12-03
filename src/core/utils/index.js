@@ -12,10 +12,10 @@ let nextUid = 0;
 let saidHello = false;
 
 /**
- * Generalized convenience utilities for PIXI.
+ * Generalized convenience utilities for SINT.
  * @example
- * // Extend PIXI's internal Event Emitter.
- * class MyEmitter extends PIXI.utils.EventEmitter {
+ * // Extend SINT's internal Event Emitter.
+ * class MyEmitter extends SINT.utils.EventEmitter {
  *   constructor() {
  *      super();
  *      console.log("Emitter created!");
@@ -23,17 +23,17 @@ let saidHello = false;
  * }
  *
  * // Get info on current device
- * console.log(PIXI.utils.isMobile);
+ * console.log(SINT.utils.isMobile);
  *
  * // Convert hex color to string
- * console.log(PIXI.utils.hex2string(0xff00ff)); // returns: "#ff00ff"
- * @namespace PIXI.utils
+ * console.log(SINT.utils.hex2string(0xff00ff)); // returns: "#ff00ff"
+ * @namespace SINT.utils
  */
 export {
     /**
      * @see {@link https://github.com/kaimallea/isMobile}
      *
-     * @memberof PIXI.utils
+     * @memberof SINT.utils
      * @function isMobile
      * @type {Object}
      */
@@ -42,7 +42,7 @@ export {
     /**
      * @see {@link https://github.com/mreinstein/remove-array-items}
      *
-     * @memberof PIXI.utils
+     * @memberof SINT.utils
      * @function removeItems
      * @type {Object}
      */
@@ -50,13 +50,13 @@ export {
     /**
      * @see {@link https://github.com/primus/eventemitter3}
      *
-     * @memberof PIXI.utils
+     * @memberof SINT.utils
      * @class EventEmitter
      * @type {EventEmitter}
      */
     EventEmitter,
     /**
-     * @memberof PIXI.utils
+     * @memberof SINT.utils
      * @function pluginTarget
      * @type {mixin}
      */
@@ -65,7 +65,7 @@ export {
     /**
      * @see {@link https://github.com/mapbox/earcut}
      *
-     * @memberof PIXI.utils
+     * @memberof SINT.utils
      * @function earcut
      * @param {number[]} vertices - A flat array of vertice coordinates
      * @param {number[]} [holes] - An array of hole indices
@@ -78,7 +78,7 @@ export {
 /**
  * Gets the next unique identifier
  *
- * @memberof PIXI.utils
+ * @memberof SINT.utils
  * @function uid
  * @return {number} The next unique identifier to use.
  */
@@ -90,7 +90,7 @@ export function uid()
 /**
  * Converts a hex color number to an [R, G, B] array
  *
- * @memberof PIXI.utils
+ * @memberof SINT.utils
  * @function hex2rgb
  * @param {number} hex - The number to convert
  * @param  {number[]} [out=[]] If supplied, this array will be used rather than returning a new one
@@ -110,7 +110,7 @@ export function hex2rgb(hex, out)
 /**
  * Converts a hex color number to a string.
  *
- * @memberof PIXI.utils
+ * @memberof SINT.utils
  * @function hex2string
  * @param {number} hex - Number in hex
  * @return {string} The string color.
@@ -126,7 +126,7 @@ export function hex2string(hex)
 /**
  * Converts a color as an [R, G, B] array to a hex number
  *
- * @memberof PIXI.utils
+ * @memberof SINT.utils
  * @function rgb2hex
  * @param {number[]} rgb - rgb array
  * @return {number} The color number
@@ -140,7 +140,7 @@ export function rgb2hex(rgb)
  * get the resolution / device pixel ratio of an asset by looking for the prefix
  * used by spritesheets and image urls
  *
- * @memberof PIXI.utils
+ * @memberof SINT.utils
  * @function getResolutionOfUrl
  * @param {string} url - the image path
  * @param {number} [defaultValue=1] - the defaultValue if no filename prefix is set.
@@ -161,7 +161,7 @@ export function getResolutionOfUrl(url, defaultValue)
 /**
  * Typedef for decomposeDataUri return object.
  *
- * @typedef {object} PIXI.utils~DecomposedDataUri
+ * @typedef {object} SINT.utils~DecomposedDataUri
  * @property {mediaType} Media type, eg. `image`
  * @property {subType} Sub type, eg. `png`
  * @property {encoding} Data encoding, eg. `base64`
@@ -172,10 +172,10 @@ export function getResolutionOfUrl(url, defaultValue)
  * Split a data URI into components. Returns undefined if
  * parameter `dataUri` is not a valid data URI.
  *
- * @memberof PIXI.utils
+ * @memberof SINT.utils
  * @function decomposeDataUri
  * @param {string} dataUri - the data URI to check
- * @return {PIXI.utils~DecomposedDataUri|undefined} The decomposed data uri or undefined
+ * @return {SINT.utils~DecomposedDataUri|undefined} The decomposed data uri or undefined
  */
 export function decomposeDataUri(dataUri)
 {
@@ -198,7 +198,7 @@ export function decomposeDataUri(dataUri)
 /**
  * Get type of the image by regexp for extension. Returns undefined for unknown extensions.
  *
- * @memberof PIXI.utils
+ * @memberof SINT.utils
  * @function getUrlFileExtension
  * @param {string} url - the image path
  * @return {string|undefined} image extension
@@ -218,7 +218,7 @@ export function getUrlFileExtension(url)
 /**
  * Typedef for Size object.
  *
- * @typedef {object} PIXI.utils~Size
+ * @typedef {object} SINT.utils~Size
  * @property {width} Width component
  * @property {height} Height component
  */
@@ -226,10 +226,10 @@ export function getUrlFileExtension(url)
 /**
  * Get size from an svg string using regexp.
  *
- * @memberof PIXI.utils
+ * @memberof SINT.utils
  * @function getSvgSize
  * @param {string} svgString - a serialized svg element
- * @return {PIXI.utils~Size|undefined} image extension
+ * @return {SINT.utils~Size|undefined} image extension
  */
 export function getSvgSize(svgString)
 {
@@ -249,7 +249,7 @@ export function getSvgSize(svgString)
  * Skips the hello message of renderers that are created after this is run.
  *
  * @function skipHello
- * @memberof PIXI.utils
+ * @memberof SINT.utils
  */
 export function skipHello()
 {
@@ -257,13 +257,13 @@ export function skipHello()
 }
 
 /**
- * Logs out the version and renderer information for this running instance of PIXI.
- * If you don't want to see this message you can run `PIXI.utils.skipHello()` before
+ * Logs out the version and renderer information for this running instance of SINT.
+ * If you don't want to see this message you can run `SINT.utils.skipHello()` before
  * creating your renderer. Keep in mind that doing that will forever makes you a jerk face.
  *
  * @static
  * @function sayHello
- * @memberof PIXI.utils
+ * @memberof SINT.utils
  * @param {string} type - The string renderer type to log.
  */
 export function sayHello(type)
@@ -276,7 +276,7 @@ export function sayHello(type)
     if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1)
     {
         const args = [
-            `\n %c %c %c PixiJS ${VERSION} - ✰ ${type} ✰  %c  %c  http://www.pixijs.com/  %c %c ♥%c♥%c♥ \n\n`,
+            `\n %c %c %c SINTJS ${VERSION} - ✰ ${type} ✰  %c  %c  http://www.SINTjs.com/  %c %c ♥%c♥%c♥ \n\n`,
             'background: #ff66a5; padding:5px 0;',
             'background: #ff66a5; padding:5px 0;',
             'color: #ff66a5; background: #030307; padding:5px 0;',
@@ -292,7 +292,7 @@ export function sayHello(type)
     }
     else if (window.console)
     {
-        window.console.log(`PixiJS ${VERSION} - ${type} - http://www.pixijs.com/`);
+        window.console.log(`SINTJS ${VERSION} - ${type} - http://www.SINTjs.com/`);
     }
 
     saidHello = true;
@@ -301,7 +301,7 @@ export function sayHello(type)
 /**
  * Helper for checking for webgl support
  *
- * @memberof PIXI.utils
+ * @memberof SINT.utils
  * @function isWebGLSupported
  * @return {boolean} is webgl supported
  */
@@ -344,7 +344,7 @@ export function isWebGLSupported()
 /**
  * Returns sign of number
  *
- * @memberof PIXI.utils
+ * @memberof SINT.utils
  * @function sign
  * @param {number} n - the number to check the sign of
  * @returns {number} 0 if `n` is 0, -1 if `n` is negative, 1 if `n` is positive
@@ -359,7 +359,7 @@ export function sign(n)
 /**
  * @todo Describe property usage
  *
- * @memberof PIXI.utils
+ * @memberof SINT.utils
  * @private
  */
 export const TextureCache = Object.create(null);
@@ -367,7 +367,7 @@ export const TextureCache = Object.create(null);
 /**
  * @todo Describe property usage
  *
- * @memberof PIXI.utils
+ * @memberof SINT.utils
  * @private
  */
 export const BaseTextureCache = Object.create(null);
@@ -375,7 +375,7 @@ export const BaseTextureCache = Object.create(null);
 /**
  * Destroys all texture in the cache
  *
- * @memberof PIXI.utils
+ * @memberof SINT.utils
  * @function destroyTextureCache
  */
 export function destroyTextureCache()
@@ -395,7 +395,7 @@ export function destroyTextureCache()
 /**
  * Removes all textures from cache, but does not destroy them
  *
- * @memberof PIXI.utils
+ * @memberof SINT.utils
  * @function clearTextureCache
  */
 export function clearTextureCache()
@@ -414,7 +414,7 @@ export function clearTextureCache()
 
 /**
  * maps premultiply flag and blendMode to adjusted blendMode
- * @memberof PIXI.utils
+ * @memberof SINT.utils
  * @const premultiplyBlendMode
  * @type {Array<number[]>}
  */
@@ -423,7 +423,7 @@ export const premultiplyBlendMode = mapPremultipliedBlendModes();
 /**
  * changes blendMode according to texture format
  *
- * @memberof PIXI.utils
+ * @memberof SINT.utils
  * @function correctBlendMode
  * @param {number} blendMode supposed blend mode
  * @param {boolean} premultiplied  whether source is premultiplied
@@ -437,7 +437,7 @@ export function correctBlendMode(blendMode, premultiplied)
 /**
  * premultiplies tint
  *
- * @memberof PIXI.utils
+ * @memberof SINT.utils
  * @param {number} tint integet RGB
  * @param {number} alpha floating point alpha (0.0-1.0)
  * @returns {number} tint multiplied by alpha
@@ -466,7 +466,7 @@ export function premultiplyTint(tint, alpha)
 /**
  * combines rgb and alpha to out array
  *
- * @memberof PIXI.utils
+ * @memberof SINT.utils
  * @param {Float32Array|number[]} rgb input rgb
  * @param {number} alpha alpha param
  * @param {Float32Array} [out] output
@@ -496,7 +496,7 @@ export function premultiplyRgba(rgb, alpha, out, premultiply)
 /**
  * converts integer tint and float alpha to vec4 form, premultiplies by default
  *
- * @memberof PIXI.utils
+ * @memberof SINT.utils
  * @param {number} tint input tint
  * @param {number} alpha alpha param
  * @param {Float32Array} [out] output

@@ -9,7 +9,7 @@ const BLEND_FUNC = 4;
 /**
  * A WebGL state machines
  *
- * @memberof PIXI
+ * @memberof SINT
  * @class
  */
 export default class WebGLState

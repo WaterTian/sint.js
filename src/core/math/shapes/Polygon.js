@@ -3,15 +3,15 @@ import { SHAPES } from '../../const';
 
 /**
  * @class
- * @memberof PIXI
+ * @memberof SINT
  */
 export default class Polygon
 {
     /**
-     * @param {PIXI.Point[]|number[]} points - This can be an array of Points
+     * @param {SINT.Point[]|number[]} points - This can be an array of Points
      *  that form the polygon, a flat array of numbers that will be interpreted as [x,y, x,y, ...], or
      *  the arguments passed can be all the points of the polygon e.g.
-     *  `new PIXI.Polygon(new PIXI.Point(), new PIXI.Point(), ...)`, or the arguments passed can be flat
+     *  `new SINT.Polygon(new SINT.Point(), new SINT.Point(), ...)`, or the arguments passed can be flat
      *  x,y values e.g. `new Polygon(x,y, x,y, x,y, ...)` where `x` and `y` are Numbers.
      */
     constructor(...points)
@@ -48,8 +48,8 @@ export default class Polygon
          *
          * @member {number}
          * @readOnly
-         * @default PIXI.SHAPES.POLY
-         * @see PIXI.SHAPES
+         * @default SINT.SHAPES.POLY
+         * @see SINT.SHAPES
          */
         this.type = SHAPES.POLY;
     }
@@ -57,7 +57,7 @@ export default class Polygon
     /**
      * Creates a clone of this polygon
      *
-     * @return {PIXI.Polygon} a copy of the polygon
+     * @return {SINT.Polygon} a copy of the polygon
      */
     clone()
     {

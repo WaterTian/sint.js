@@ -6,9 +6,9 @@ import { Resource } from 'resource-loader';
  * Register a BitmapText font from loader resource.
  *
  * @function parseBitmapFontData
- * @memberof PIXI.loaders
- * @param {PIXI.loaders.Resource} resource - Loader resource.
- * @param {PIXI.Texture|PIXI.Texture[]} textures - List of textures for each page.
+ * @memberof SINT.loaders
+ * @param {SINT.loaders.Resource} resource - Loader resource.
+ * @param {SINT.Texture|SINT.Texture[]} textures - List of textures for each page.
  */
 // export function parse(resource, textures)
 // {

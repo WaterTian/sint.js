@@ -7,17 +7,17 @@ const tempMat = new Matrix();
  * Can be used in Texture "transform" field, or separately, you can use different clamp settings on the same texture.
  * If you want to add support for texture region of certain feature or filter, that's what you're looking for.
  *
- * @see PIXI.Texture
- * @see PIXI.mesh.Mesh
- * @see PIXI.extras.TilingSprite
+ * @see SINT.Texture
+ * @see SINT.mesh.Mesh
+ * @see SINT.extras.TilingSprite
  * @class
- * @memberof PIXI
+ * @memberof SINT
  */
 export default class TextureMatrix
 {
     /**
      *
-     * @param {PIXI.Texture} texture observed texture
+     * @param {SINT.Texture} texture observed texture
      * @param {number} [clampMargin] Changes frame clamping, 0.5 by default. Use -0.5 for extra border.
      * @constructor
      */
@@ -56,7 +56,7 @@ export default class TextureMatrix
 
     /**
      * texture property
-     * @member {PIXI.Texture}
+     * @member {SINT.Texture}
      */
     get texture()
     {

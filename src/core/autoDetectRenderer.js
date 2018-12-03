@@ -8,7 +8,7 @@ import WebGLRenderer from './renderers/webgl/WebGLRenderer';
  * WebGL is the preferred renderer as it is a lot faster. If webGL is not supported by
  * the browser then this function will return a canvas renderer
  *
- * @memberof PIXI
+ * @memberof SINT
  * @function autoDetectRenderer
  * @param {object} [options] - The optional renderer parameters
  * @param {number} [options.width=800] - the width of the renderers view
@@ -32,7 +32,7 @@ import WebGLRenderer from './renderers/webgl/WebGLRenderer';
  *  If you experience unexplained flickering try setting this to true. **webgl only**
  * @param {string} [options.powerPreference] - Parameter passed to webgl context, set to "high-performance"
  *  for devices with dual graphics card **webgl only**
- * @return {PIXI.WebGLRenderer|PIXI.CanvasRenderer} Returns WebGL renderer if available, otherwise CanvasRenderer
+ * @return {SINT.WebGLRenderer|SINT.CanvasRenderer} Returns WebGL renderer if available, otherwise CanvasRenderer
  */
 export function autoDetectRenderer(options, arg1, arg2, arg3)
 {

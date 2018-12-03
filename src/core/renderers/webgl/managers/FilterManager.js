@@ -43,13 +43,13 @@ const screenKey = 'screen';
 
 /**
  * @class
- * @memberof PIXI
- * @extends PIXI.WebGLManager
+ * @memberof SINT
+ * @extends SINT.WebGLManager
  */
 export default class FilterManager extends WebGLManager
 {
     /**
-     * @param {PIXI.WebGLRenderer} renderer - The renderer this manager works for.
+     * @param {SINT.WebGLRenderer} renderer - The renderer this manager works for.
      */
     constructor(renderer)
     {
@@ -76,8 +76,8 @@ export default class FilterManager extends WebGLManager
     /**
      * Adds a new filter to the manager.
      *
-     * @param {PIXI.DisplayObject} target - The target of the filter to render.
-     * @param {PIXI.Filter[]} filters - The filters to apply.
+     * @param {SINT.DisplayObject} target - The target of the filter to render.
+     * @param {SINT.Filter[]} filters - The filters to apply.
      */
     pushFilter(target, filters)
     {
@@ -234,9 +234,9 @@ export default class FilterManager extends WebGLManager
     /**
      * Draws a filter.
      *
-     * @param {PIXI.Filter} filter - The filter to draw.
-     * @param {PIXI.RenderTarget} input - The input render target.
-     * @param {PIXI.RenderTarget} output - The target to output to.
+     * @param {SINT.Filter} filter - The filter to draw.
+     * @param {SINT.RenderTarget} input - The input render target.
+     * @param {SINT.RenderTarget} output - The target to output to.
      * @param {boolean} clear - Should the output be cleared before rendering to it
      */
     applyFilter(filter, input, output, clear)
@@ -298,7 +298,7 @@ export default class FilterManager extends WebGLManager
         const tex = this.renderer.emptyTextures[0];
 
         this.renderer.boundTextures[0] = tex;
-        // this syncs the PixiJS filters  uniforms with glsl uniforms
+        // this syncs the SINTJS filters  uniforms with glsl uniforms
         this.syncUniforms(shader, filter);
 
         renderer.state.setBlendMode(filter.blendMode);
@@ -315,14 +315,14 @@ export default class FilterManager extends WebGLManager
      * Uploads the uniforms of the filter.
      *
      * @param {GLShader} shader - The underlying gl shader.
-     * @param {PIXI.Filter} filter - The filter we are synchronizing.
+     * @param {SINT.Filter} filter - The filter we are synchronizing.
      */
     syncUniforms(shader, filter)
     {
         const uniformData = filter.uniformData;
         const uniforms = filter.uniforms;
 
-        // 0 is reserved for the PixiJS texture so we start at 1!
+        // 0 is reserved for the SINTJS texture so we start at 1!
         let textureCount = 1;
         let currentState;
 
@@ -396,7 +396,7 @@ export default class FilterManager extends WebGLManager
             }
             else if (type === 'mat3')
             {
-                // check if its PixiJS matrix..
+                // check if its SINTJS matrix..
                 if (uniforms[i].a !== undefined)
                 {
                     shader.uniforms[i] = uniforms[i].toArray(true);
@@ -441,7 +441,7 @@ export default class FilterManager extends WebGLManager
      *
      * @param {boolean} clear - Should we clear the render texture when we get it?
      * @param {number} resolution - The resolution of the target.
-     * @return {PIXI.RenderTarget} The new render target
+     * @return {SINT.RenderTarget} The new render target
      */
     getRenderTarget(clear, resolution)
     {
@@ -461,7 +461,7 @@ export default class FilterManager extends WebGLManager
     /**
      * Returns a render target to the pool.
      *
-     * @param {PIXI.RenderTarget} renderTarget - The render target to return.
+     * @param {SINT.RenderTarget} renderTarget - The render target to return.
      */
     returnRenderTarget(renderTarget)
     {
@@ -474,8 +474,8 @@ export default class FilterManager extends WebGLManager
      * TODO playing around here.. this is temporary - (will end up in the shader)
      * this returns a matrix that will normalise map filter cords in the filter to screen space
      *
-     * @param {PIXI.Matrix} outputMatrix - the matrix to output to.
-     * @return {PIXI.Matrix} The mapped matrix.
+     * @param {SINT.Matrix} outputMatrix - the matrix to output to.
+     * @return {SINT.Matrix} The mapped matrix.
      */
     calculateScreenSpaceMatrix(outputMatrix)
     {
@@ -491,8 +491,8 @@ export default class FilterManager extends WebGLManager
     /**
      * Multiply vTextureCoord to this matrix to achieve (0,0,1,1) for filterArea
      *
-     * @param {PIXI.Matrix} outputMatrix - The matrix to output to.
-     * @return {PIXI.Matrix} The mapped matrix.
+     * @param {SINT.Matrix} outputMatrix - The matrix to output to.
+     * @return {SINT.Matrix} The mapped matrix.
      */
     calculateNormalizedScreenSpaceMatrix(outputMatrix)
     {
@@ -509,9 +509,9 @@ export default class FilterManager extends WebGLManager
     /**
      * This will map the filter coord so that a texture can be used based on the transform of a sprite
      *
-     * @param {PIXI.Matrix} outputMatrix - The matrix to output to.
-     * @param {PIXI.Sprite} sprite - The sprite to map to.
-     * @return {PIXI.Matrix} The mapped matrix.
+     * @param {SINT.Matrix} outputMatrix - The matrix to output to.
+     * @param {SINT.Sprite} sprite - The sprite to map to.
+     * @return {SINT.Matrix} The mapped matrix.
      */
     calculateSpriteMatrix(outputMatrix, sprite)
     {
@@ -569,7 +569,7 @@ export default class FilterManager extends WebGLManager
      * @param {number} minWidth - The minimum width of the render target.
      * @param {number} minHeight - The minimum height of the render target.
      * @param {number} resolution - The resolution of the render target.
-     * @return {PIXI.RenderTarget} The new render target.
+     * @return {SINT.RenderTarget} The new render target.
      */
     getPotRenderTarget(gl, minWidth, minHeight, resolution)
     {
@@ -644,7 +644,7 @@ export default class FilterManager extends WebGLManager
     /**
      * Frees a render target back into the pool.
      *
-     * @param {PIXI.RenderTarget} renderTarget - The renderTarget to free
+     * @param {SINT.RenderTarget} renderTarget - The renderTarget to free
      */
     freePotRenderTarget(renderTarget)
     {

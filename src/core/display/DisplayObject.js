@@ -13,7 +13,7 @@ import { Rectangle } from '../math';
  *
  * @class
  * @extends EventEmitter
- * @memberof PIXI
+ * @memberof SINT
  */
 export default class DisplayObject extends EventEmitter
 {
@@ -33,7 +33,7 @@ export default class DisplayObject extends EventEmitter
          * World transform and local transform of this object.
          * This will become read-only later, please do not assign anything there unless you know what are you doing
          *
-         * @member {PIXI.TransformBase}
+         * @member {SINT.TransformBase}
          */
         this.transform = new TransformClass();
 
@@ -67,7 +67,7 @@ export default class DisplayObject extends EventEmitter
         /**
          * The display object container that contains this display object.
          *
-         * @member {PIXI.Container}
+         * @member {SINT.Container}
          * @readonly
          */
         this.parent = null;
@@ -86,7 +86,7 @@ export default class DisplayObject extends EventEmitter
          *
          * Also works as an interaction mask
          *
-         * @member {PIXI.Rectangle}
+         * @member {SINT.Rectangle}
          */
         this.filterArea = null;
 
@@ -96,7 +96,7 @@ export default class DisplayObject extends EventEmitter
         /**
          * The bounds object, this is used to calculate and store the bounds of the displayObject
          *
-         * @member {PIXI.Rectangle}
+         * @member {SINT.Rectangle}
          * @private
          */
         this._bounds = new Bounds();
@@ -108,7 +108,7 @@ export default class DisplayObject extends EventEmitter
         /**
          * The original, cached mask of the object
          *
-         * @member {PIXI.Graphics|PIXI.Sprite}
+         * @member {SINT.Graphics|SINT.Sprite}
          * @private
          */
         this._mask = null;
@@ -125,21 +125,21 @@ export default class DisplayObject extends EventEmitter
         /**
          * Fired when this DisplayObject is added to a Container.
          *
-         * @event PIXI.DisplayObject#added
-         * @param {PIXI.Container} container - The container added to.
+         * @event SINT.DisplayObject#added
+         * @param {SINT.Container} container - The container added to.
          */
 
         /**
          * Fired when this DisplayObject is removed from a Container.
          *
-         * @event PIXI.DisplayObject#removed
-         * @param {PIXI.Container} container - The container removed from.
+         * @event SINT.DisplayObject#removed
+         * @param {SINT.Container} container - The container removed from.
          */
     }
 
     /**
      * @private
-     * @member {PIXI.DisplayObject}
+     * @member {SINT.DisplayObject}
      */
     get _tempDisplayObjectParent()
     {
@@ -188,8 +188,8 @@ export default class DisplayObject extends EventEmitter
      * @param {boolean} skipUpdate - setting to true will stop the transforms of the scene graph from
      *  being updated. This means the calculation returned MAY be out of date BUT will give you a
      *  nice performance boost
-     * @param {PIXI.Rectangle} rect - Optional rectangle to store the result of the bounds calculation
-     * @return {PIXI.Rectangle} the rectangular bounding area
+     * @param {SINT.Rectangle} rect - Optional rectangle to store the result of the bounds calculation
+     * @return {SINT.Rectangle} the rectangular bounding area
      */
     getBounds(skipUpdate, rect)
     {
@@ -229,8 +229,8 @@ export default class DisplayObject extends EventEmitter
     /**
      * Retrieves the local bounds of the displayObject as a rectangle object
      *
-     * @param {PIXI.Rectangle} [rect] - Optional rectangle to store the result of the bounds calculation
-     * @return {PIXI.Rectangle} the rectangular bounding area
+     * @param {SINT.Rectangle} [rect] - Optional rectangle to store the result of the bounds calculation
+     * @return {SINT.Rectangle} the rectangular bounding area
      */
     getLocalBounds(rect)
     {
@@ -261,11 +261,11 @@ export default class DisplayObject extends EventEmitter
     /**
      * Calculates the global position of the display object
      *
-     * @param {PIXI.Point} position - The world origin to calculate from
-     * @param {PIXI.Point} [point] - A Point object in which to store the value, optional
+     * @param {SINT.Point} position - The world origin to calculate from
+     * @param {SINT.Point} [point] - A Point object in which to store the value, optional
      *  (otherwise will create a new Point)
      * @param {boolean} [skipUpdate=false] - Should we skip the update transform.
-     * @return {PIXI.Point} A point object representing the position of this object
+     * @return {SINT.Point} A point object representing the position of this object
      */
     toGlobal(position, point, skipUpdate = false)
     {
@@ -295,12 +295,12 @@ export default class DisplayObject extends EventEmitter
     /**
      * Calculates the local position of the display object relative to another point
      *
-     * @param {PIXI.Point} position - The world origin to calculate from
-     * @param {PIXI.DisplayObject} [from] - The DisplayObject to calculate the global position from
-     * @param {PIXI.Point} [point] - A Point object in which to store the value, optional
+     * @param {SINT.Point} position - The world origin to calculate from
+     * @param {SINT.DisplayObject} [from] - The DisplayObject to calculate the global position from
+     * @param {SINT.Point} [point] - A Point object in which to store the value, optional
      *  (otherwise will create a new Point)
      * @param {boolean} [skipUpdate=false] - Should we skip the update transform
-     * @return {PIXI.Point} A point object representing the position of this object
+     * @return {SINT.Point} A point object representing the position of this object
      */
     toLocal(position, from, point, skipUpdate)
     {
@@ -335,7 +335,7 @@ export default class DisplayObject extends EventEmitter
     /**
      * Renders the object using the WebGL renderer
      *
-     * @param {PIXI.WebGLRenderer} renderer - The renderer
+     * @param {SINT.WebGLRenderer} renderer - The renderer
      */
     renderWebGL(renderer) // eslint-disable-line no-unused-vars
     {
@@ -345,7 +345,7 @@ export default class DisplayObject extends EventEmitter
     /**
      * Renders the object using the Canvas renderer
      *
-     * @param {PIXI.CanvasRenderer} renderer - The renderer
+     * @param {SINT.CanvasRenderer} renderer - The renderer
      */
     renderCanvas(renderer) // eslint-disable-line no-unused-vars
     {
@@ -355,8 +355,8 @@ export default class DisplayObject extends EventEmitter
     /**
      * Set the parent Container of this DisplayObject
      *
-     * @param {PIXI.Container} container - The Container to add this DisplayObject to
-     * @return {PIXI.Container} The Container that this DisplayObject was added to
+     * @param {SINT.Container} container - The Container to add this DisplayObject to
+     * @return {SINT.Container} The Container that this DisplayObject was added to
      */
     setParent(container)
     {
@@ -382,7 +382,7 @@ export default class DisplayObject extends EventEmitter
      * @param {number} [skewY=0] - The Y skew value
      * @param {number} [pivotX=0] - The X pivot value
      * @param {number} [pivotY=0] - The Y pivot value
-     * @return {PIXI.DisplayObject} The DisplayObject instance
+     * @return {SINT.DisplayObject} The DisplayObject instance
      */
     setTransform(x = 0, y = 0, scaleX = 1, scaleY = 1, rotation = 0, skewX = 0, skewY = 0, pivotX = 0, pivotY = 0)
     {
@@ -464,7 +464,7 @@ export default class DisplayObject extends EventEmitter
     /**
      * Current transform of the object based on world (parent) factors
      *
-     * @member {PIXI.Matrix}
+     * @member {SINT.Matrix}
      * @readonly
      */
     get worldTransform()
@@ -475,7 +475,7 @@ export default class DisplayObject extends EventEmitter
     /**
      * Current transform of the object based on local factors: position, scale, other stuff
      *
-     * @member {PIXI.Matrix}
+     * @member {SINT.Matrix}
      * @readonly
      */
     get localTransform()
@@ -485,9 +485,9 @@ export default class DisplayObject extends EventEmitter
 
     /**
      * The coordinate of the object relative to the local coordinates of the parent.
-     * Assignment by value since pixi-v4.
+     * Assignment by value since SINT-v4.
      *
-     * @member {PIXI.Point|PIXI.ObservablePoint}
+     * @member {SINT.Point|SINT.ObservablePoint}
      */
     get position()
     {
@@ -501,9 +501,9 @@ export default class DisplayObject extends EventEmitter
 
     /**
      * The scale factor of the object.
-     * Assignment by value since pixi-v4.
+     * Assignment by value since SINT-v4.
      *
-     * @member {PIXI.Point|PIXI.ObservablePoint}
+     * @member {SINT.Point|SINT.ObservablePoint}
      */
     get scale()
     {
@@ -517,9 +517,9 @@ export default class DisplayObject extends EventEmitter
 
     /**
      * The pivot point of the displayObject that it rotates around.
-     * Assignment by value since pixi-v4.
+     * Assignment by value since SINT-v4.
      *
-     * @member {PIXI.Point|PIXI.ObservablePoint}
+     * @member {SINT.Point|SINT.ObservablePoint}
      */
     get pivot()
     {
@@ -533,9 +533,9 @@ export default class DisplayObject extends EventEmitter
 
     /**
      * The skew factor for the object in radians.
-     * Assignment by value since pixi-v4.
+     * Assignment by value since SINT-v4.
      *
-     * @member {PIXI.ObservablePoint}
+     * @member {SINT.ObservablePoint}
      */
     get skew()
     {
@@ -587,13 +587,13 @@ export default class DisplayObject extends EventEmitter
 
     /**
      * Sets a mask for the displayObject. A mask is an object that limits the visibility of an
-     * object to the shape of the mask applied to it. In PIXI a regular mask must be a
-     * PIXI.Graphics or a PIXI.Sprite object. This allows for much faster masking in canvas as it
+     * object to the shape of the mask applied to it. In SINT a regular mask must be a
+     * SINT.Graphics or a SINT.Sprite object. This allows for much faster masking in canvas as it
      * utilises shape clipping. To remove a mask, set this property to null.
      *
-     * @todo For the moment, PIXI.CanvasRenderer doesn't support PIXI.Sprite as mask.
+     * @todo For the moment, SINT.CanvasRenderer doesn't support SINT.Sprite as mask.
      *
-     * @member {PIXI.Graphics|PIXI.Sprite}
+     * @member {SINT.Graphics|SINT.Sprite}
      */
     get mask()
     {
@@ -622,7 +622,7 @@ export default class DisplayObject extends EventEmitter
      * * IMPORTANT: This is a webGL only feature and will be ignored by the canvas renderer.
      * To remove filters simply set this property to 'null'
      *
-     * @member {PIXI.Filter[]}
+     * @member {SINT.Filter[]}
      */
     get filters()
     {

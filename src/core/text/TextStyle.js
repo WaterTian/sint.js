@@ -51,7 +51,7 @@ const genericFontFamilies = [
  * It can be generated [here](https://pixijs.io/pixi-text-style).
  *
  * @class
- * @memberof PIXI
+ * @memberof SINT
  */
 export default class TextStyle
 {
@@ -71,8 +71,8 @@ export default class TextStyle
      *  fillstyle that will be used on the text e.g 'red', '#00FF00'. Can be an array to create a gradient
      *  eg ['#000000','#FFFFFF']
      * {@link https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillStyle|MDN}
-     * @param {number} [style.fillGradientType=PIXI.TEXT_GRADIENT.LINEAR_VERTICAL] - If fill is an array of colours
-     *  to create a gradient, this can change the type/direction of the gradient. See {@link PIXI.TEXT_GRADIENT}
+     * @param {number} [style.fillGradientType=SINT.TEXT_GRADIENT.LINEAR_VERTICAL] - If fill is an array of colours
+     *  to create a gradient, this can change the type/direction of the gradient. See {@link SINT.TEXT_GRADIENT}
      * @param {number[]} [style.fillGradientStops] - If fill is an array of colours to create a gradient, this array can set
      * the stop points (numbers between 0 and 1) for the color, overriding the default behaviour of evenly spacing them.
      * @param {string|string[]} [style.fontFamily='Arial'] - The font family
@@ -116,7 +116,7 @@ export default class TextStyle
      * Creates a new TextStyle object with the same values as this one.
      * Note that the only the properties of the object are cloned.
      *
-     * @return {PIXI.TextStyle} New cloned TextStyle object
+     * @return {SINT.TextStyle} New cloned TextStyle object
      */
     clone()
     {
@@ -303,7 +303,7 @@ export default class TextStyle
 
     /**
      * If fill is an array of colours to create a gradient, this can change the type/direction of the gradient.
-     * See {@link PIXI.TEXT_GRADIENT}
+     * See {@link SINT.TEXT_GRADIENT}
      *
      * @member {number}
      */

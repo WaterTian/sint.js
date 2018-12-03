@@ -9,7 +9,7 @@ const canvasRenderWorldTransform = new Matrix();
  * @author Mat Groves
  *
  * Big thanks to the very clever Matt DesLauriers <mattdesl> https://github.com/mattdesl/
- * for creating the original PixiJS version!
+ * for creating the original SINTJS version!
  * Also a thanks to https://github.com/bchevalier for tweaking the tint and alpha so that they now
  * share 4 bytes on the vertex buffer
  *
@@ -22,12 +22,12 @@ const canvasRenderWorldTransform = new Matrix();
  *
  * @class
  * @private
- * @memberof PIXI
+ * @memberof SINT
  */
 export default class CanvasSpriteRenderer
 {
     /**
-     * @param {PIXI.WebGLRenderer} renderer -The renderer sprite this batch works for.
+     * @param {SINT.WebGLRenderer} renderer -The renderer sprite this batch works for.
      */
     constructor(renderer)
     {
@@ -37,7 +37,7 @@ export default class CanvasSpriteRenderer
     /**
      * Renders the sprite object.
      *
-     * @param {PIXI.Sprite} sprite - the sprite to render when using this spritebatch
+     * @param {SINT.Sprite} sprite - the sprite to render when using this spritebatch
      */
     render(sprite)
     {
