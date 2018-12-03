@@ -1,8 +1,4 @@
 import * as core from '../core';
-// import {
-//     Sound
-// } from 'pixi-sound';
-
 // import Stats from 'stats.js';
 
 
@@ -14,7 +10,7 @@ core.settings.PRECISION_FRAGMENT = 'highp';
 
 /**
  * @class
- * @extends core.Application
+ * @extends SINT.Application
  * @memberof SINT
  * 
  * @param {object} [config] The Game options
@@ -166,37 +162,6 @@ export default class Game extends core.Application {
     remove(child) {
         this.stage.removeChild(child);
     }
-
-
-    /**
-     * Must be loaded
-     * 
-     * PIXI.sound.pause(name);
-     * PIXI.sound.pauseAll();
-     * 
-     * PIXI.sound.remove(name);
-     * PIXI.sound.removeAll();
-     * 
-     * PIXI.sound.stop(name);
-     * PIXI.sound.stopAll();
-     *
-     * PIXI.sound.volume(name, volume);
-     * 
-     * @param {string} [name] - The sound name
-     * @param {boolean} [loop] - loop?
-     * 
-     */
-    // playSound(name, loop = false) {
-    //     const _sound = SINT.TyLoader.resources[name].sound;
-    //     _sound.loop = loop;
-    //     _sound.play();
-    // }
-    // pauseSound(name) {
-    //     PIXI.sound.pause(name);
-    // }
-    // stopAllSound() {
-    //     PIXI.sound.stopAll();
-    // }
 
 
 

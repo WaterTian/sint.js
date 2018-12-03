@@ -4,7 +4,6 @@ sint.js - HTML5 Game Framework
 [![npm version](https://badge.fury.io/js/sint.js.svg)](https://badge.fury.io/js/sint.js)
 
 Sint based on [PixiJs](http://www.pixijs.com), is a fast, free, and fun open source HTML5 game framework that offers WebGL and Canvas rendering across desktop and mobile web browsers. Games can be compiled to iOS, Android and native apps by using 3rd party tools. 
-You can use JavaScript for development.
 
 ## Learn
 
@@ -12,12 +11,12 @@ You can use JavaScript for development.
 
 ## Usage
 
-#### Install
+#### Include
 
 ```html
 <script src="dist/sint.min.js"></script>
 ```
-##### Or use npm
+##### Or
 [![anix](https://nodei.co/npm/sint.js.png)](https://npmjs.org/package/sint.js)
 
 ```sh
@@ -42,8 +41,7 @@ const config = {
 };
 const assets = {
     bg: './assets/bg.jpg',
-    fighter: './assets/fighter.json',
-    sound1: './assets/sound/s1.mp3',
+    pic1: './assets/pic1.png',
 }
 const game = new SINT.Game(config);
 
@@ -62,36 +60,36 @@ function create() {
     var bg = new SINT.SpriteClip(0, 0, 'bg');
     game.add(bg);
     
+    // btn
+    var btn = new SINT.SpriteClip(288, 292, 'pic1');
+    btn.anchor.set(0.5);
+    game.add(btn);
+    
     // events
-    bg
+    btn.interactive = true;
+    btn
         .on('pointerdown', onDragStart)
         .on('pointerup', onDragEnd)
         .on('pointerupoutside', onDragEnd)
         .on('pointermove', onDragMove);
-
-    // Animated
-    var ac1 = new SINT.AnimatedClip(400, 600, 'fighter');
-    game.add(ac1);
-    ac1.anchor.set(0.5);
-    ac1.play();
-
-
-    // sound
-    game.playSound('sound1');
-    game.pauseSound('sound1');
-    game.stopAllSound();
 }
 
-// 销毁并清除 view
+// destroy and remove view
 game.removeThis();
 
 ```
 
 
-### Public Sound Example
+### sound Example
+
+```sh
+npm install pixi-sound
+...
+import {Sound} from 'pixi-sound'
+```
 
 ```js
-// Use PIXI.loader system
+// Use resource-loader system
 SINT.loader.add('s1', './assets/sound/s1.mp3');
 SINT.loader.load(function(loader, resources) {
     var sound1 = loader.resources['s1'].sound;

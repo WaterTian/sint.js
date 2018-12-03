@@ -8,8 +8,11 @@ import SpriteClip from './game/SpriteClip';
 import TextClip from './game/TextClip';
 import VideoDom from './VideoDom';
 
-import { TweenMax } from "gsap/TweenMax";
-const Tween = TweenMax;
+// import { TweenLite } from "gsap/TweenLite";
+// import { EasePack } from "gsap/EasePack"; 
+// const Tween = TweenLite;
+import Tween from './Tween';
+
 
 // export { Sound } from "pixi-sound";
 
