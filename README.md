@@ -80,37 +80,15 @@ game.removeThis();
 ```
 
 
-### sound Example
+### sound example 
 
 ```sh
 npm install pixi-sound
 ...
 import {Sound} from 'pixi-sound'
 ```
-
-```js
-// Use resource-loader system
-SINT.loader.add('s1', './assets/sound/s1.mp3');
-SINT.loader.load(function(loader, resources) {
-    var sound1 = loader.resources['s1'].sound;
-    sound1.loop = true;
-    sound1.play();
-});
-
-// Instance from source
-SINT.Sound.from({
-    url: 'assets/sound/s2.mp3',
-    autoPlay: true,
-    // loop:true,
-    loaded : function() {
-        console.log('Sound loaded');
-    },
-    complete: function() {
-        console.log('Sound finished');
-    }
-});
-
-```
+...
+unComplete
 
 
 ## License
