@@ -15,11 +15,15 @@ import Tween from './Tween';
 
 
 // export { Sound } from "pixi-sound";
+import Sound from './Sound';
 
-// export core
+// import { AudioManager } from './audio';
+
 export * from './core';
 
 import * as interaction from './interaction';
+import * as loaders from './loaders';
+
 // handle mixins now, after all code has been added, including deprecation
 import { utils } from './core';
 utils.mixins.performMixins();
@@ -36,7 +40,9 @@ export {
 	VideoDom,
 	
 	Tween,
+	Sound,
 	interaction,
+	loaders,
 };
 
 

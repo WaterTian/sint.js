@@ -1,7 +1,6 @@
 import * as core from '../core';
 // import Stats from 'stats.js';
 
-
 import * as loaders from '../loaders';
 
 
@@ -67,7 +66,8 @@ export default class Game extends core.Application {
 
         /// one game one loader
         SINT.TyLoader = new loaders.Loader();
-        this.Loader = SINT.TyLoader;
+
+
 
         this._init();
     }

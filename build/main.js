@@ -64,6 +64,13 @@ function removeLoading() {
 function create() {
 	removeLoading();
 
+	console.log(SINT.TyLoader.resources.sound0);
+
+
+	let s1 = new SINT.Sound(SINT.TyLoader.resources.sound0);
+	s1.play();
+	console.log(s1);
+
 
 	//bg sound
 	// game.playSound('sound0', true);
@@ -119,6 +126,7 @@ function create() {
 				// SINT.Magic.doRadialBlurFilter(game.stage, [400, 800], 800, 3, true);
 			}
 		});
+		if(s1)s1.stop();
 		// game.stopAllSound();
 	})
 

@@ -45,6 +45,7 @@
 		"bit-twiddle": "^1.0.2",
 		"eventemitter3": "^3.1.0",
 		"gsap": "^1.20.2",
+		"howler": "^2.0.15",
 		"pixi-gl-core": "^1.1.4",
 		"remove-array-items": "^1.1.0",
 		"resource-loader": "^2.1.1"
