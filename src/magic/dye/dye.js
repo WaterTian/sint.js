@@ -1,4 +1,4 @@
-import * as PIXI from 'pixi.js';
+import * as core from '../../core';
 
 
 import vs from '../fragments/default.vert';
@@ -6,7 +6,7 @@ import fs from './dye.frag';
 
 
 
-export default class dye extends PIXI.Filter {
+export default class dye extends core.Filter {
 
     constructor(color = 0xffffff)
     {
@@ -26,14 +26,14 @@ export default class dye extends PIXI.Filter {
     {
         let arr = this.uniforms.uColor;
         if (typeof value === 'number') {
-            PIXI.utils.hex2rgb(value, arr);
+            core.utils.hex2rgb(value, arr);
             this._uColor = value;
         }
         else {
             arr[0] = value[0];
             arr[1] = value[1];
             arr[2] = value[2];
-            this._uColor = PIXI.utils.rgb2hex(arr);
+            this._uColor = core.utils.rgb2hex(arr);
         }
     }
     

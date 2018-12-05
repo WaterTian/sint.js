@@ -1,5 +1,5 @@
 import { TwistFilter, RadialBlurFilter } from 'pixi-filters';
-import { TweenMax } from "gsap/TweenMax";
+import Tween from '../Tween';
 import Dye from './dye/dye';
 import Glitch from './glitch/glitch';
 
@@ -32,7 +32,7 @@ export { BulgePinchFilter } from 'pixi-filters';
 export function doGlitch(container) {
     let filter = new Glitch();
     container.filters = [filter];
-    TweenMax.to(filter, 10, {
+    Tween.to(filter, 10, {
     	onUpdate:function(){
     		filter.render(.1);
     	}
@@ -69,18 +69,18 @@ export function doTwistFilter(container, offset, radius, time, clear = false) {
     filter.offset.set(offset);
     let filter2 = new PIXI.filters.AlphaFilter();
     container.filters = [filter, filter2];
-    TweenMax.to(filter, time, {
+    Tween.to(filter, time, {
         angle: 10,
         ease: Strong.easeInOut,
     })
     if (!clear) return;
-    TweenMax.to(filter2, time * 0.7, {
+    Tween.to(filter2, time * 0.7, {
         ease: Strong.easeInOut,
         alpha: 0,
         delay: time * 0.3,
         onComplete: () => {
             container.filters = [filter2];
-            TweenMax.to(filter2, 1, {
+            Tween.to(filter2, 1, {
                 alpha: 1,
                 onComplete: () => {
                     container.filters = [];
@@ -103,18 +103,18 @@ export function doRadialBlurFilter(container, offset, radius, time, clear = fals
     let filter = new RadialBlurFilter(0, offset, 9, radius);
     let filter2 = new PIXI.filters.AlphaFilter();
     container.filters = [filter, filter2];
-    TweenMax.to(filter, time, {
+    Tween.to(filter, time, {
         angle: 180,
         ease: Strong.easeInOut,
     })
     if (!clear) return;
-    TweenMax.to(filter2, time * 0.7, {
+    Tween.to(filter2, time * 0.7, {
         ease: Strong.easeInOut,
         alpha: 0,
         delay: time * 0.3,
         onComplete: () => {
             container.filters = [filter2];
-            TweenMax.to(filter2, 1, {
+            Tween.to(filter2, 1, {
                 alpha: 1,
                 onComplete: () => {
                     container.filters = [];

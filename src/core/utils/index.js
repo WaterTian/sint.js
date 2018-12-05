@@ -6,7 +6,7 @@ import * as mixins from './mixin';
 // import * as isMobile from 'ismobilejs';
 import removeItems from 'remove-array-items';
 import mapPremultipliedBlendModes from './mapPremultipliedBlendModes';
-import earcut from 'earcut';
+// import earcut from 'earcut'; // npm i earcut --save
 
 let nextUid = 0;
 let saidHello = false;
@@ -72,7 +72,7 @@ export {
      * @param {number} [dimensions=2] The number of coordinates per vertice in the input array
      * @return {number[]} Triangulated polygon
      */
-    earcut,
+    // earcut,
 };
 
 /**

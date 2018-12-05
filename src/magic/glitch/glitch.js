@@ -1,4 +1,4 @@
-import * as PIXI from 'pixi.js';
+import * as core from '../../core';
 
 
 import vs from '../fragments/default.vert';
@@ -6,7 +6,7 @@ import fs from './glitch.frag';
 
 
 
-export default class glitch extends PIXI.Filter {
+export default class glitch extends core.Filter {
     
     constructor() {
         super(vs, fs);
