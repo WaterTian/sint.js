@@ -1,4 +1,3 @@
-
 let isHTMLAudioSupported = !!window.Audio,
   webAudioContext = window.AudioContext || window.webkitAudioContext,
   isWebAudioSupported = !!webAudioContext,
@@ -10,7 +9,7 @@ let isHTMLAudioSupported = !!window.Audio,
   createGainNode = null,
   globalWebAudioContext = isWebAudioSupported ? new webAudioContext() : null;
 
-if(isAudioSupported){
+if (isAudioSupported) {
   let audio = document.createElement("audio");
   isMp3Supported = audio.canPlayType('audio/mpeg;') !== "";
   isOggSupported = audio.canPlayType('audio/ogg; codecs="vorbis"') !== "";
@@ -23,23 +22,38 @@ if(isAudioSupported){
   // if(isWavSupported)_setAudioExt("wav");
   // if(isM4aSupported)_setAudioExt("m4a");
 
-  if(isWebAudioSupported){
-    createGainNode = function createGainNode(ctx){
+  if (isWebAudioSupported) {
+    createGainNode = function createGainNode(ctx) {
       return ctx.createGain ? ctx.createGain() : ctx.createGainNode();
     }
   }
 }
 
+let extensions = [
+  "mp3",
+  "ogg",
+  "oga",
+  "opus",
+  "mpeg",
+  "wav",
+  "m4a",
+  "mp4",
+  "aiff",
+  "wma",
+  "mid"
+];
+
 
 export default {
-  isHTMLAudioSupported : isHTMLAudioSupported,
-  webAudioContext : webAudioContext,
-  isWebAudioSupported : isWebAudioSupported,
-  isAudioSupported : isAudioSupported,
-  isMp3Supported : isMp3Supported,
-  isOggSupported : isOggSupported,
-  isWavSupported : isWavSupported,
-  isM4aSupported : isM4aSupported,
-  globalWebAudioContext : globalWebAudioContext,
-  createGainNode: createGainNode
+  isHTMLAudioSupported: isHTMLAudioSupported,
+  webAudioContext: webAudioContext,
+  isWebAudioSupported: isWebAudioSupported,
+  isAudioSupported: isAudioSupported,
+  isMp3Supported: isMp3Supported,
+  isOggSupported: isOggSupported,
+  isWavSupported: isWavSupported,
+  isM4aSupported: isM4aSupported,
+  globalWebAudioContext: globalWebAudioContext,
+  createGainNode: createGainNode,
+  extensions: extensions,
 };

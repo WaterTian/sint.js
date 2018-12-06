@@ -64,8 +64,12 @@ function removeLoading() {
 function create() {
 	removeLoading();
 
+	console.log(SINT.TyLoader.resources);
 	console.log(SINT.TyLoader.resources.sound0);
 
+	// let s1 = SINT.audioManager.getAudio(SINT.TyLoader.resources.sound0.data);
+	// s1.play();
+	// console.log(s1);
 
 	let s1 = new SINT.Sound(SINT.TyLoader.resources.sound0);
 	s1.play();
