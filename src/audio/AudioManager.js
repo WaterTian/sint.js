@@ -27,17 +27,20 @@ export default class AudioManager{
     }
   }
 
+  removeAllAudio() {
+    // this.sounds = [];
+  }
+
+
   // filterAudios(id, value){
   //   let audios = [];
   //   let len = this.sounds.length;
   //   let emptyValue = typeof value === "undefined";
-
   //   for(let i = 0; i < len; i++){
   //     if((emptyValue && !!this.sounds[i][id])||(!emptyValue && this.sounds[i][id] === value)){
   //       audios.push(this.sounds[i]);
   //     }
   //   }
-
   //   return audios;
   // }
 

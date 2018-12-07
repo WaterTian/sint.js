@@ -66,8 +66,7 @@ function create() {
 
 	console.log(SINT.TyLoader.resources);
 	
-	let audioManager = new SINT.AudioManager();
-	let s1 = audioManager.getAudio('sound0');
+	let s1 = SINT.audio.getAudio('sound0');
 	s1.play();
 	console.log(s1);
 
@@ -75,9 +74,6 @@ function create() {
 	// s1.play();
 	// console.log(s1);
 
-
-	//bg sound
-	// game.playSound('sound0', true);
 
 	//bg image
 	var bg = new SINT.SpriteClip(0, 0, 'bg');
@@ -131,7 +127,7 @@ function create() {
 			}
 		});
 		if(s1)s1.stop();
-		// game.stopAllSound();
+		SINT.audio.getAudio('sound1').play();
 	})
 
 
