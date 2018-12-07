@@ -17,7 +17,7 @@ import Tween from './Tween';
 // export { Sound } from "pixi-sound";
 import Sound from './Sound';
 
-// import { AudioManager } from './audio';
+import { AudioManager } from './audio';
 
 export * from './core';
 
@@ -27,8 +27,6 @@ import * as loaders from './loaders';
 // handle mixins now, after all code has been added, including deprecation
 import { utils } from './core';
 utils.mixins.performMixins();
-
-
 
 
 export {
@@ -43,6 +41,7 @@ export {
 	
 	Tween,
 	Sound,
+	AudioManager,
 	interaction,
 	loaders,
 };

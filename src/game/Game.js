@@ -2,6 +2,7 @@ import * as core from '../core';
 // import Stats from 'stats.js';
 
 import * as loaders from '../loaders';
+import {audioParser} from '../audio';
 
 
 core.utils.skipHello();
@@ -68,42 +69,9 @@ export default class Game extends core.Application {
         SINT.TyLoader = new loaders.Loader();
 
 
-
-
-        // Configure PIXI Loader to handle audio files correctly
-        const Resource = loaders.Resource;
-        const exts = [
-            "mp3",
-            "ogg",
-            "oga",
-            "opus",
-            "mpeg",
-            "wav",
-            "m4a",
-            "mp4",
-            "aiff",
-            "wma",
-            "mid"
-        ];
-        let webAudioContext = window.AudioContext || window.webkitAudioContext,
-            isWebAudioSupported = !!webAudioContext
-        // Make sure we support webaudio
-        if (isWebAudioSupported) {
-            // Load all audio files as ArrayBuffers
-            exts.forEach((ext) => {
-                Resource.setExtensionXhrType(ext, Resource.XHR_RESPONSE_TYPE.BUFFER);
-                Resource.setExtensionLoadType(ext, Resource.LOAD_TYPE.XHR);
-            });
-        } else {
-            // Fall back to loading as <audio> elements
-            exts.forEach((ext) => {
-                Resource.setExtensionXhrType(ext, Resource.XHR_RESPONSE_TYPE.DEFAULT);
-                Resource.setExtensionLoadType(ext, Resource.LOAD_TYPE.AUDIO);
-            });
-        }
-
-
         this._init();
+    
+
     }
 
     _init() {

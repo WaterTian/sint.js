@@ -1,13 +1,9 @@
 import utils from './utils';
 import Audio from './Audio';
 
-import * as loaders from '../loaders';
 
-export default class AudioManager {
-
+export default class AudioManager{
   constructor() {
-    let _this = this;
-    this.audios = {};
     this.enabled = utils.isAudioSupported;
     this.sounds = [];
 
@@ -16,35 +12,10 @@ export default class AudioManager {
       this.gainNode = utils.createGainNode(this.context);
       this.gainNode.connect(this.context.destination);
     }
-
-
-    // Configure PIXI Loader to handle audio files correctly
-    const Resource = loaders.Resource;
-    const exts = utils.extensions;
-
-    // Make sure we support webaudio
-    if (utils.isWebAudioSupported) {
-      // Load all audio files as ArrayBuffers
-      exts.forEach((ext) => {
-        Resource.setExtensionXhrType(ext, Resource.XHR_RESPONSE_TYPE.BUFFER);
-        Resource.setExtensionLoadType(ext, Resource.LOAD_TYPE.XHR);
-      });
-    } else {
-      // Fall back to loading as <audio> elements
-      exts.forEach((ext) => {
-        Resource.setExtensionXhrType(ext, Resource.XHR_RESPONSE_TYPE.DEFAULT);
-        Resource.setExtensionLoadType(ext, Resource.LOAD_TYPE.AUDIO);
-      });
-    }
-
-    // console.log(Resource);
-
-
   }
 
-  getAudio(data) {
-    let audio = new Audio(data, this);
-    // let audio = new Audio(this.audios[name], this);
+  getAudio(name) {
+    let audio = new Audio(AudioManager.audios[name], this);
     this.sounds.push(audio);
     return audio;
   }
@@ -89,5 +60,6 @@ export default class AudioManager {
   resume() {
     return this.pause(false);
   }
-
 }
+
+AudioManager.audios = {};
