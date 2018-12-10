@@ -86,7 +86,7 @@ function create() {
 	//Container
 	var fishsContainer = new SINT.Container();
 	game.add(fishsContainer);
-	// SINT.Magic.doTwistFilter(fishsContainer, [500, 500], 400, 2, false);
+	SINT.Magic.doTwistFilter(fishsContainer, [500, 500], 400, 2, false);
 
 	var fishs = [];
 	for (var i = 0; i < 2000; i++) {
@@ -126,7 +126,7 @@ function create() {
 				///////////////////
 				initPart2();
 
-				// SINT.Magic.doTwistFilter(game.stage, [400, 800], 600, 2, true);
+				SINT.Magic.doTwistFilter(game.stage, [400, 800], 600, 2, true);
 				// SINT.Magic.doRadialBlurFilter(game.stage, [400, 800], 800, 3, true);
 			}
 		});
@@ -199,7 +199,7 @@ function createPart2() {
 	var icon2 = new SINT.SpriteClip(228, 1100, 'icon1');
 	game.add(icon2);
 
-	// SINT.Magic.doDye(icon2, 0x7067c5);
+	SINT.Magic.doDye(icon2, 0x7067c5);
 
 	//Text
 	var t1 = new SINT.TextClip(30, 600, 'Game1 * -> 课前游戏 -> 单词文本', {
@@ -222,37 +222,37 @@ function createPart2() {
 
 
 
-	// //Animated
-	// var ac1 = new SINT.AnimatedClip(400, 600, 'fighter');
-	// game.add(ac1);
-	// ac1.anchor.set(0.5);
-	// ac1.animationSpeed = 40 / 60;;
-	// ac1.interactive = true;
-	// ac1.on('pointerdown', function() {
-	// 	console.log("fly")
-	// 	ac1.play();
-	// 	SINT.Tween.to(ac1, 1, {
-	// 		y: -150,
-	// 		ease: Strong.easeOut,
-	// 		onComplete: function() {
-	// 			ac1.y = game.initHeight;
-	// 		}
-	// 	});
-	// 	SINT.Tween.to(ac1, 2, {
-	// 		y: 600,
-	// 		delay: 1,
-	// 		ease: Strong.easeInOut,
-	// 		onComplete: function() {
-	// 			ac1.stop();
-	// 		}
-	// 	});
+	//Animated
+	var ac1 = new SINT.AnimatedClip(400, 600, 'fighter');
+	game.add(ac1);
+	ac1.anchor.set(0.5);
+	ac1.animationSpeed = 40 / 60;;
+	ac1.interactive = true;
+	ac1.on('pointerdown', function() {
+		console.log("fly")
+		ac1.play();
+		SINT.Tween.to(ac1, 1, {
+			y: -150,
+			ease: Strong.easeOut,
+			onComplete: function() {
+				ac1.y = game.initHeight;
+			}
+		});
+		SINT.Tween.to(ac1, 2, {
+			y: 600,
+			delay: 1,
+			ease: Strong.easeInOut,
+			onComplete: function() {
+				ac1.stop();
+			}
+		});
 
 
-	// 	SINT.Magic.doDye(ac1, 0x00ff00);
+		SINT.Magic.doDye(ac1, 0x00ff00);
 
 	// 	game.playSound('sound1');
 	// 	game.pauseSound('sound0');
-	// })
+	})
 
 
 
@@ -269,32 +269,33 @@ function createPart2() {
 	// });
 }
 
-/*
-game.stage.interactive = true
-game.stage
-	.on('pointerdown', onDragStart)
-	.on('pointerup', onDragEnd)
-	.on('pointerupoutside', onDragEnd)
-	.on('pointermove', onDragMove)
+// console.log(SINT.Magic);
 
-var mouseFilter = new SINT.Magic.BulgePinchFilter([0.5, 0.5], 300, 1.2);
+// game.stage.interactive = true
+// game.stage
+// 	.on('pointerdown', onDragStart)
+// 	.on('pointerup', onDragEnd)
+// 	.on('pointerupoutside', onDragEnd)
+// 	.on('pointermove', onDragMove)
 
-function onDragStart(event) {
-	this.dragging = true
-	game.stage.filters = [mouseFilter];
-	mouseFilter.center = [event.data.global.x / 750, event.data.global.y / 1334];
-}
+// var mouseFilter = new SINT.Magic.BulgePinchFilter([0.5, 0.5], 300, 1.2);
 
-function onDragEnd(event) {
-	this.dragging = false
-	SINT.Tween.to(mouseFilter, .3, {
-		radius: 0,
-	});
-}
+// function onDragStart(event) {
+// 	this.dragging = true
+// 	game.stage.filters = [mouseFilter];
+// 	mouseFilter.center = [event.data.global.x / 750, event.data.global.y / 1334];
+// }
 
-function onDragMove(event) {
-	if (this.dragging) {
-		mouseFilter.center = [event.data.global.x / 750, event.data.global.y / 1334];
-		mouseFilter.radius += (300 - mouseFilter.radius) * 0.8;
-	}
-}*/
+// function onDragEnd(event) {
+// 	this.dragging = false
+// 	SINT.Tween.to(mouseFilter, .3, {
+// 		radius: 0,
+// 	});
+// }
+
+// function onDragMove(event) {
+// 	if (this.dragging) {
+// 		mouseFilter.center = [event.data.global.x / 750, event.data.global.y / 1334];
+// 		mouseFilter.radius += (300 - mouseFilter.radius) * 0.8;
+// 	}
+// }

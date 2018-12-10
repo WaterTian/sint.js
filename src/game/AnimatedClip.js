@@ -1,8 +1,10 @@
-import * as PIXI from 'pixi.js';
+import * as core from '../core';
+
+import AnimatedSprite from './AnimatedSprite'
 
 /**
  * @class
- * @extends PIXI.extras.AnimatedSprite
+ * @extends SINT.AnimatedSprite
  * @memberof SINT
  * 
  * @param {number} [_x=0]
@@ -11,7 +13,7 @@ import * as PIXI from 'pixi.js';
  */
 
 
-export default class AnimatedClip extends PIXI.extras.AnimatedSprite {
+export default class AnimatedClip extends AnimatedSprite {
 	
 	constructor(_x = 0, _y = 0, name) {
 
@@ -21,7 +23,7 @@ export default class AnimatedClip extends PIXI.extras.AnimatedSprite {
 		let textures = [];
 		for (let key in sheet) {
 			// console.log(key);
-			let texture = PIXI.Texture.fromFrame(key);
+			let texture = core.Texture.fromFrame(key);
 			textures.push(texture);
 		}
 

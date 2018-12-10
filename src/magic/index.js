@@ -1,7 +1,15 @@
-import { TwistFilter, RadialBlurFilter } from 'pixi-filters';
+
 import Tween from '../Tween';
 import Dye from './dye/dye';
 import Glitch from './glitch/glitch';
+
+
+
+import { default as ColorMatrixFilter } from './colormatrix/ColorMatrixFilter';
+import { default as AlphaFilter } from './alpha/AlphaFilter';
+
+import { BulgePinchFilter } from './bulge-pinch';
+import { TwistFilter } from './twist';
 
 
 /**
@@ -19,7 +27,23 @@ import Glitch from './glitch/glitch';
 
 
 
-export { BulgePinchFilter } from 'pixi-filters';
+
+// export { default as FXAAFilter } from './fxaa/FXAAFilter';
+// export { default as NoiseFilter } from './noise/NoiseFilter';
+// export { default as DisplacementFilter } from './displacement/DisplacementFilter';
+// export { default as BlurFilter } from './blur/BlurFilter';
+// export { default as BlurXFilter } from './blur/BlurXFilter';
+// export { default as BlurYFilter } from './blur/BlurYFilter';
+// export { default as ColorMatrixFilter } from './colormatrix/ColorMatrixFilter';
+// export { default as AlphaFilter } from './alpha/AlphaFilter';
+
+
+
+export{
+    AlphaFilter,
+    ColorMatrixFilter,
+    BulgePinchFilter,
+}
 
 
 
@@ -49,7 +73,7 @@ export function doGlitch(container) {
 export function doDye(container, color) {
     let filter = new Dye(color);
 
-    let colorMatrix = new SINT.filters.ColorMatrixFilter()
+    let colorMatrix = new ColorMatrixFilter()
     colorMatrix.blackAndWhite()
     container.filters = [colorMatrix, filter];
 }
@@ -67,7 +91,7 @@ export function doDye(container, color) {
 export function doTwistFilter(container, offset, radius, time, clear = false) {
     let filter = new TwistFilter(radius, 0);
     filter.offset.set(offset);
-    let filter2 = new PIXI.filters.AlphaFilter();
+    let filter2 = new AlphaFilter();
     container.filters = [filter, filter2];
     Tween.to(filter, time, {
         angle: 10,
@@ -101,7 +125,7 @@ export function doTwistFilter(container, offset, radius, time, clear = false) {
  */
 export function doRadialBlurFilter(container, offset, radius, time, clear = false) {
     let filter = new RadialBlurFilter(0, offset, 9, radius);
-    let filter2 = new PIXI.filters.AlphaFilter();
+    let filter2 = new AlphaFilter();
     container.filters = [filter, filter2];
     Tween.to(filter, time, {
         angle: 180,
