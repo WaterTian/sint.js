@@ -26,7 +26,7 @@ export { BulgePinchFilter } from 'pixi-filters';
 /**
  * @memberof SINT.Magic
  * @function doGlitch
- * @param {PIXI.Container} container
+ * @param {SINT.Container} container
  */
 
 export function doGlitch(container) {
@@ -44,7 +44,7 @@ export function doGlitch(container) {
 /**
  * @memberof SINT.Magic
  * @function doDye
- * @param {PIXI.Container} container
+ * @param {SINT.Container} container
  */
 export function doDye(container, color) {
     let filter = new Dye(color);
@@ -58,8 +58,8 @@ export function doDye(container, color) {
 /**
  * @memberof SINT.Magic
  * @function doTwistFilter
- * @param {PIXI.Container} container
- * @param {PIXI.Point | Array.<number>} offset
+ * @param {SINT.Container} container
+ * @param {SINT.Point | Array.<number>} offset
  * @param {number} radius
  * @param {number} time
  * @param {boolean} clear 

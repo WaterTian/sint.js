@@ -14,11 +14,7 @@ import VideoDom from './VideoDom';
 import Tween from './Tween';
 
 
-// export { Sound } from "pixi-sound";
-// import Sound from './Sound';
-
 import { AudioManager } from './audio';
-const audio = new AudioManager();
 
 export * from './core';
 
@@ -41,7 +37,7 @@ export {
 	VideoDom,
 	
 	Tween,
-	audio,
+	AudioManager,
 	interaction,
 	loaders,
 };

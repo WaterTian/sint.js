@@ -14,21 +14,33 @@ export default class AudioManager{
     }
   }
 
-  getAudio(name) {
+
+  add(name) {
     let audio = new Audio(AudioManager.audios[name], this);
+    audio.name = name;
     this.sounds.push(audio);
     return audio;
   }
 
-  removeAudio(audio) {
+  remove(audio) {
     let index = this.sounds.indexOf(audio);
     if (index !== -1) {
       this.sounds.splice(index, 1);
     }
   }
 
-  removeAllAudio() {
-    // this.sounds = [];
+  removeAll() {
+    this.sounds.forEach((s)=> {
+      s.stop();
+    });
+  }
+
+  get(_name){
+    let _s;
+    this.sounds.forEach((s)=> {
+      if(s.name == _name) _s=s
+    });
+    return _s;
   }
 
 

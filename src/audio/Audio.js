@@ -13,10 +13,11 @@ export default class Audio extends core.utils.EventEmitter{
     this._startTime = 0;
     this._lastPauseTime = 0;
     this._offsetTime = 0;
+    
     this.playing = false;
-
     this.manager = manager;
     this.data = data;
+    this.name = '';
 
     if(!utils.isWebAudioSupported){
       this.audio = new window.Audio();

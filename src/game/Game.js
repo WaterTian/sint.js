@@ -2,7 +2,8 @@ import * as core from '../core';
 // import Stats from 'stats.js';
 
 import * as loaders from '../loaders';
-import {audioParser} from '../audio';
+
+import { AudioManager } from '../audio';
 
 
 core.utils.skipHello();
@@ -68,10 +69,13 @@ export default class Game extends core.Application {
         /// one game one loader
         SINT.TyLoader = new loaders.Loader();
 
-
+        /**
+         * The game audios.
+         * @member {SINT.AudioManager}
+         */
+        SINT.Audios = new AudioManager();
+        
         this._init();
-    
-
     }
 
     _init() {

@@ -1,5 +1,5 @@
 // import VConsole from 'vconsole';
-// var vConsole = new VConsole();
+var vConsole = new VConsole();
 
 const config = {
 	domElement: document.querySelector('#webglContainer'), // 画布容器
@@ -65,10 +65,14 @@ function create() {
 	removeLoading();
 
 	console.log(SINT.TyLoader.resources);
-	
-	let s1 = SINT.audio.getAudio('sound0');
-	s1.play();
-	console.log(s1);
+
+	let s1 = SINT.Audios.add('sound0');
+	s1.loop=true;
+	// s1.play();
+
+	// setTimeout(function(){
+	// 	s1.play();
+	// },5000)
 
 	// let s1 = new SINT.Sound(SINT.TyLoader.resources.sound0);
 	// s1.play();
@@ -85,7 +89,7 @@ function create() {
 	// SINT.Magic.doTwistFilter(fishsContainer, [500, 500], 400, 2, false);
 
 	var fishs = [];
-	for (var i = 0; i < 1000; i++) {
+	for (var i = 0; i < 2000; i++) {
 		var id = 'fish' + ((i % 4) + 1);
 		var fish = new SINT.SpriteClip(0, 0, id);
 		fish.tint = Math.random() * 0xff3300;
@@ -126,8 +130,11 @@ function create() {
 				// SINT.Magic.doRadialBlurFilter(game.stage, [400, 800], 800, 3, true);
 			}
 		});
+		// s1.play();
 		if(s1)s1.stop();
-		SINT.audio.getAudio('sound1').play();
+		// SINT.Audios.add('sound2').play()
+		// SINT.Audios.get('sound0').play()
+
 	})
 
 
