@@ -121,29 +121,28 @@ export default class Game extends core.Application {
      * 
      * @param {object} config - The assets loader options
      * @param {object} [config.assets={}] - The assets
-     * @param {function} [config.loading=null] - loading function
-     * @param {function} [config.loaded=null] - loaded callback function
+     * @param {function} [config.loading=()=>{}] - loading function
+     * @param {function} [config.loaded=()=>{}] - loaded callback function
      */
     preload(config) {
         if (config === undefined) config = {}
         config = Object.assign({
             assets: {},
-            loading: null,
-            loaded: null,
+            loading: ()=>{},
+            loaded: ()=>{},
         }, config);
 
-
+        
         for (let key in config.assets) {
             SINT.TyLoader.add(key, config.assets[key]);
         }
-        SINT.TyLoader.onProgress.add((_e) => {
-            // console.warn("onProgress " + _e.progress);
-            if (config.loading) config.loading(_e.progress);
-        });
+
+        let bindingProgress = SINT.TyLoader.onProgress.add(config.loading);
 
         SINT.TyLoader.load((loader, resources) => {
             // console.log("loadComplete");
-            if (config.loaded) config.loaded();
+            bindingProgress.detach();
+            config.loaded();
         });
     }
 

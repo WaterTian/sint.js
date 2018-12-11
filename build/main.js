@@ -1,5 +1,5 @@
 // import VConsole from 'vconsole';
-var vConsole = new VConsole();
+// var vConsole = new VConsole();
 
 const config = {
 	domElement: document.querySelector('#webglContainer'), // 画布容器
@@ -46,12 +46,13 @@ game.preload({
 	loaded: create,
 })
 
-function loading(_pr) {
-	console.log("loading1_" + _pr)
-	loadingTxt.text = _pr + '%'
+function loading(e) {
+	console.log("loading1_" + e.progress)
+	loadingTxt.text = e.progress + '%'
 }
 
 function removeLoading() {
+	console.log("removeLoading1")
 	SINT.Tween.to(loadingTxt, 0.6, {
 		alpha: 0,
 		ease: Strong.easeOut,
@@ -174,16 +175,18 @@ var part2 = false;
 function initPart2() {
 	if (part2) return;
 	part2 = true;
+	console.log("preload2")
 	game.preload({
 		assets: assets2,
-		loading: function(_pr) {
-			console.log("loading2_" + _pr)
+		loading: function(e) {
+			console.log("loading2_" + e.progress)
 		},
 		loaded: createPart2,
 	})
 }
 
 function createPart2() {
+	console.log("createPart2")
 	//btn
 	var btn2 = new SINT.SpriteClip(28, 900, 'pic2');
 	btn2.addChild(new SINT.TextClip(180, 56, '卸载'));
