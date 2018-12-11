@@ -7,8 +7,8 @@ import BlurYFilter from './BlurYFilter';
  * The strength of the blur can be set for x- and y-axis separately.
  *
  * @class
- * @extends PIXI.Filter
- * @memberof PIXI.filters
+ * @extends SINT.Filter
+ * @memberof SINT.magic
  */
 export default class BlurFilter extends core.Filter
 {
@@ -34,9 +34,9 @@ export default class BlurFilter extends core.Filter
     /**
      * Applies the filter.
      *
-     * @param {PIXI.FilterManager} filterManager - The manager.
-     * @param {PIXI.RenderTarget} input - The input target.
-     * @param {PIXI.RenderTarget} output - The output target.
+     * @param {SINT.FilterManager} filterManager - The manager.
+     * @param {SINT.RenderTarget} input - The input target.
+     * @param {SINT.RenderTarget} output - The output target.
      */
     apply(filterManager, input, output)
     {
@@ -119,7 +119,7 @@ export default class BlurFilter extends core.Filter
      * Sets the blendmode of the filter
      *
      * @member {number}
-     * @default PIXI.BLEND_MODES.NORMAL
+     * @default SINT.BLEND_MODES.NORMAL
      */
     get blendMode()
     {

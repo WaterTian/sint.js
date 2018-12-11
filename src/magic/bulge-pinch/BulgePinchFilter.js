@@ -13,8 +13,8 @@ import fs from './bulgePinch.frag';
  *
  * @class
  * @extends SINT.Filter
- * @memberof SINT.filters
- * @param {SINT.Point|Array<number>} [center=[0,0]] The x and y coordinates of the center of the circle of effect.
+ * @memberof SINT.magic
+ * @param {SINT.Point|Array<number>} [center=[0.5, 0.5]] The x and y coordinates of the center of the circle of effect.
  * @param {number} [radius=100] The radius of the circle of effect.
  * @param {number} [strength=1] -1 to 1 (-1 is strong pinch, 0 is no effect, 1 is strong bulge)
  */

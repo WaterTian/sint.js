@@ -16,8 +16,8 @@ import fs from './alpha.frag';
  * 2. To use clipping in display coordinates, assign a filterArea to the same container that has this filter.
  *
  * @class
- * @extends PIXI.Filter
- * @memberof PIXI.filters
+ * @extends SINT.Filter
+ * @memberof SINT.magic
  */
 export default class AlphaFilter extends core.Filter
 {

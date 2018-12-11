@@ -8,7 +8,7 @@ import fs from './twist.frag';
  *
  * @class
  * @extends SINT.Filter
- * @memberof SINT.filters
+ * @memberof SINT.magic
  * @param {number} [radius=200] The radius of the twist.
  * @param {number} [angle=4] The angle of the twist.
  * @param {number} [padding=20] Padding for filter area.

@@ -8,14 +8,14 @@ import fs from './colorMatrix.frag';
  * with a new set of RGBA color and alpha values. It's pretty powerful!
  *
  * ```js
- *  let colorMatrix = new PIXI.filters.ColorMatrixFilter();
+ *  let colorMatrix = new SINT.filters.ColorMatrixFilter();
  *  container.filters = [colorMatrix];
  *  colorMatrix.contrast(2);
  * ```
  * @author Clément Chenebault <clement@goodboydigital.com>
  * @class
- * @extends PIXI.Filter
- * @memberof PIXI.filters
+ * @extends SINT.Filter
+ * @memberof SINT.magic
  */
 export default class ColorMatrixFilter extends core.Filter
 {

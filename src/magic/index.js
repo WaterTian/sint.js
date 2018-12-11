@@ -17,14 +17,14 @@ import { GlitchFilter } from './glitch';
 /**
  * @example
  * 
- * SINT.Magic.doTwistFilter(Container, [500, 500], 400, 2, false);
- *
- * SINT.Magic.doTwistFilter(game.stage, [400, 800], 600, 2, true);
+ * SINT.magic.doTwist(Container, [500, 500], 400, 2, false);
  * 
- * SINT.Magic.doGlitch(game.stage);
+ * SINT.magic.doGlitch(game.stage);
  *
+ * var filter = new SINT.magic.BulgePinchFilter([0.5, 0.5], 200, 1.2);
+ * Container.filters = [filter];
  * 
- * @namespace SINT.Magic
+ * @namespace SINT.magic
  */
 
 
@@ -52,16 +52,19 @@ export{
 
 
 /**
- * @memberof SINT.Magic
+ * @memberof SINT.magic
  * @function doGlitch
- * @param {SINT.Container} container
+ * @param {SINT.Container} [container] 
+ * @param {number} [time]
+ * @param {boolean} [clear=false] 
  */
 
 export function doGlitch(container,time,clear = false) {
     let filter = new GlitchFilter();
     container.filters = [filter];
     Tween.to(filter, time, {
-        time:1.4,
+        time:1,
+        ease:Linear.easeNone,
         onComplete:function(){
             if (!clear) return;
             container.filters = [];
@@ -73,9 +76,9 @@ export function doGlitch(container,time,clear = false) {
 
 
 /**
- * @memberof SINT.Magic
+ * @memberof SINT.magic
  * @function doDye
- * @param {SINT.Container} container
+ * @param {SINT.Container}  [container] 
  */
 export function doDye(container, color) {
     let filter = new Dye(color);
@@ -87,13 +90,13 @@ export function doDye(container, color) {
 
 
 /**
- * @memberof SINT.Magic
- * @function doTwistFilter
- * @param {SINT.Container} container
- * @param {SINT.Point | Array.<number>} offset
- * @param {number} radius
- * @param {number} time
- * @param {boolean} clear 
+ * @memberof SINT.magic
+ * @function doTwist
+ * @param {SINT.Container} [container] 
+ * @param {SINT.Point | Array.<number>} [offset]
+ * @param {number} [radius]
+ * @param {number} [time]
+ * @param {boolean} [clear=false] 
  */
 export function doTwist(container, offset, radius, time, clear = false) {
     let filter = new TwistFilter(radius, 0);
@@ -121,15 +124,15 @@ export function doTwist(container, offset, radius, time, clear = false) {
     })
 }
 
-/**
- * @memberof SINT.Magic
- * @function doRadialBlurFilter
- * @param {PIXI.Container} container
- * @param {PIXI.Point | Array.<number>} offset
- * @param {number} radius
- * @param {number} time
- * @param {boolean} clear 
- */
+// /**
+//  * @memberof SINT.magic
+//  * @function doRadialBlurFilter
+//  * @param {SINT.Container} container
+//  * @param {SINT.Point | Array.<number>} offset
+//  * @param {number} radius
+//  * @param {number} time
+//  * @param {boolean} clear 
+//  */
 // export function doRadialBlurFilter(container, offset, radius, time, clear = false) {
 //     let filter = new RadialBlurFilter(0, offset, 9, radius);
 //     let filter2 = new AlphaFilter();
@@ -153,5 +156,4 @@ export function doTwist(container, offset, radius, time, clear = false) {
 //             })
 //         }
 //     })
-
 // }

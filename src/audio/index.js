@@ -9,8 +9,6 @@ import AudioManager from './AudioManager';
 let Loader = loaders.Loader;
 Loader.addPixiMiddleware(audioParser);
 
-
-
 // Configure PIXI Loader to handle audio files correctly
 const Resource = loaders.Resource;
 
@@ -34,6 +32,8 @@ if (utils.isAudioSupported) {
     });
   }
 }
+
+
 
 
 

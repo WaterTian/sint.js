@@ -42,6 +42,8 @@ const config = {
 const assets = {
     bg: './assets/bg.jpg',
     pic1: './assets/pic1.png',
+    sound0: './assets/sound/bg.mp3',
+    sound1: './assets/sound/s1.mp3',
 }
 const game = new SINT.Game(config);
 
@@ -64,31 +66,39 @@ function create() {
     var btn = new SINT.SpriteClip(288, 292, 'pic1');
     btn.anchor.set(0.5);
     game.add(btn);
-    
+
+    // audio
+    var s0 = SINT.Audios.add('sound0');
+    s0.loop=true;
+    SINT.Audios.add('sound1');
+
     // events
     btn.interactive = true;
     btn
-        .on('pointerdown', onDragStart)
-        .on('pointerup', onDragEnd)
-        .on('pointerupoutside', onDragEnd)
-        .on('pointermove', onDragMove);
+        .on('pointerdown', onPointStart)
+        .on('pointerup', onPointUp)
+        .on('pointerupoutside', onPointUp)
+        .on('pointermove', onPointMove);
+
+    function onPointStart(event) {
+        // the first audio must be use by interactive Event
+        s0.play();
+    }
+    function onPointMove(event) {
+        //console.log(event.data.global)
+    }
+    function onPointUp(event) {
+        SINT.Audios.get('sound1').play();
+    }
 }
+
+
 
 // destroy and remove view
 game.removeThis();
 
 ```
 
-
-### sound example 
-
-```sh
-npm install pixi-sound
-...
-import {Sound} from 'pixi-sound'
-```
-...
-unComplete
 
 
 ## License

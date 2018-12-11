@@ -1,5 +1,5 @@
 import * as Unit from './Unit';
-import * as Magic from './magic';
+import * as magic from './magic';
 
 import VideoDom from './VideoDom';
 
@@ -32,9 +32,10 @@ export {
 
 export {
 	Unit,
-	Magic,
 	VideoDom,
 	Tween,
+	
+	magic,
 	interaction,
 	loaders,
 };

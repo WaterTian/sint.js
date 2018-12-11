@@ -3,7 +3,11 @@ import * as core from '../../core';
 import vs from '../fragments/default.vert';
 import fs from './dye.frag';
 
-
+/**
+ * @class
+ * @extends SINT.Filter
+ * @memberof SINT.magic
+ */
 
 export default class dye extends core.Filter {
 

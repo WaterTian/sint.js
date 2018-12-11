@@ -5,7 +5,7 @@ const config = {
 	domElement: document.querySelector('#webglContainer'), // 画布容器
 	initWidth: 750,
 	initHeight: 1334,
-	showFPS: false,
+	showFPS: true,
 	backgroundColor: 0x2a3145,
 };
 
@@ -66,9 +66,10 @@ function create() {
 
 	console.log(SINT.TyLoader.resources);
 
-	let s1 = SINT.Audios.add('sound0');
-	s1.loop=true;
-	// s1.play();
+    // audio
+    var s0 = SINT.Audios.add('sound0');
+    s0.loop=true;
+    SINT.Audios.add('sound1');
 
 	// setTimeout(function(){
 	// 	s1.play();
@@ -86,7 +87,7 @@ function create() {
 	//Container
 	var fishsContainer = new SINT.Container();
 	game.add(fishsContainer);
-	SINT.Magic.doTwist(fishsContainer, [500, 500], 400, 2, false);
+	SINT.magic.doTwist(fishsContainer, [500, 500], 400, 2, false);
 
 
 
@@ -128,15 +129,12 @@ function create() {
 				///////////////////
 				initPart2();
 
-				// SINT.Magic.doTwist(game.stage, [400, 800], 600, 2, true);
-				SINT.Magic.doGlitch(game.stage,2,true);
+				// SINT.magic.doTwist(game.stage, [400, 800], 600, 2, true);
+				SINT.magic.doGlitch(game.stage,2,true);
 			}
 		});
-		// s1.play();
-		if(s1)s1.stop();
-		// SINT.Audios.add('sound2').play()
-		// SINT.Audios.get('sound0').play()
 
+		s0.play();
 	})
 
 
@@ -200,11 +198,10 @@ function createPart2() {
 	game.add(icon1);
 	var icon2 = new SINT.SpriteClip(228, 1100, 'icon1');
 	game.add(icon2);
-
-	SINT.Magic.doDye(icon2, 0x7067c5);
+	SINT.magic.doDye(icon2, 0x7067c5);
 
 	//Text
-	var t1 = new SINT.TextClip(30, 600, 'Game1 * -> 课前游戏 -> 单词文本', {
+	var t1 = new SINT.TextClip(30, 600, 'Game1 * -> 课前游戏 -> 1234文本', {
 		fontFamily: 'Arial',
 		fontSize: 50,
 		fontStyle: 'italic',
@@ -250,10 +247,10 @@ function createPart2() {
 		});
 
 
-		SINT.Magic.doDye(ac1, 0x00ff00);
+		SINT.magic.doDye(ac1, 0x00ff00);
 
-	// 	game.playSound('sound1');
-	// 	game.pauseSound('sound0');
+		SINT.Audios.get('sound1').play();
+
 	})
 
 
@@ -279,12 +276,14 @@ game.stage
 	.on('pointerupoutside', onDragEnd)
 	.on('pointermove', onDragMove)
 
-var mouseFilter = new SINT.Magic.BulgePinchFilter([0.5, 0.5], 200, 1.2);
+var mouseFilter = new SINT.magic.BulgePinchFilter([0.5, 0.5], 200, 1.2);
 
 function onDragStart(event) {
 	this.dragging = true
 	game.stage.filters = [mouseFilter];
 	mouseFilter.center = [event.data.global.x / 750, event.data.global.y / 1334];
+
+
 }
 
 function onDragEnd(event) {

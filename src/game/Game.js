@@ -1,5 +1,5 @@
 import * as core from '../core';
-// import Stats from 'stats.js';
+import Stats from 'stats.js';
 
 import * as loaders from '../loaders';
 
@@ -61,10 +61,10 @@ export default class Game extends core.Application {
         this.domElement.appendChild(this.view);
 
 
-        // if (config.showFPS) {
-        //     this.stats = new Stats();
-        //     this.domElement.appendChild(this.stats.dom);
-        // }
+        if (config.showFPS) {
+            this.stats = new Stats();
+            this.domElement.appendChild(this.stats.dom);
+        }
 
         /// one game one loader
         SINT.TyLoader = new loaders.Loader();
@@ -194,8 +194,6 @@ export default class Game extends core.Application {
         this.destroy(true);
 
 
-
-        // PIXI.sound.removeAll();
 
         // console.log(SINT.TyLoader.resources);
 

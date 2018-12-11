@@ -1,6 +1,6 @@
 {
 	"name": "sint.js",
-	"version": "0.0.8",
+	"version": "0.0.9",
 	"description": "2D WebGL game framework.",
 	"author": "WaterTian",
 	"license": "MIT",
@@ -47,7 +47,8 @@
 		"gsap": "^1.20.2",
 		"pixi-gl-core": "^1.1.4",
 		"remove-array-items": "^1.1.0",
-		"resource-loader": "^2.1.1"
+		"resource-loader": "^2.1.1",
+		"stats.js": "^0.17.0"
 	},
 	"babel": {
 		"presets": [

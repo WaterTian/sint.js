@@ -8,9 +8,6 @@ const exts = [
   "wav",
   "m4a",
   "mp4",
-  "aiff",
-  "wma",
-  "mid"
 ];
 
 let isHTMLAudioSupported = !!window.Audio,

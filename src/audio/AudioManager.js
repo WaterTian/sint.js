@@ -15,9 +15,9 @@ export default class AudioManager{
   }
 
 
-  add(name) {
-    let audio = new Audio(AudioManager.audios[name], this);
-    audio.name = name;
+  add(_name) {
+    let audio = new Audio(AudioManager.audios[_name], this);
+    audio.name = _name;
     this.sounds.push(audio);
     return audio;
   }
