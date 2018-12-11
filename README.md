@@ -4,7 +4,6 @@ sint.js - HTML5 Game Framework
 [![npm version](https://badge.fury.io/js/sint.js.svg)](https://badge.fury.io/js/sint.js)
 
 Sint based on [PixiJs](http://www.pixijs.com), is a fast, free, and fun open source HTML5 game framework that offers WebGL and Canvas rendering across desktop and mobile web browsers. Games can be compiled to iOS, Android and native apps by using 3rd party tools. 
-You can use JavaScript for development.
 
 ## Learn
 
@@ -12,12 +11,12 @@ You can use JavaScript for development.
 
 ## Usage
 
-#### Install
+#### Include
 
 ```html
 <script src="dist/sint.min.js"></script>
 ```
-##### Or use npm
+##### Or
 [![anix](https://nodei.co/npm/sint.js.png)](https://npmjs.org/package/sint.js)
 
 ```sh
@@ -42,7 +41,8 @@ const config = {
 };
 const assets = {
     bg: './assets/bg.jpg',
-    fighter: './assets/fighter.json',
+    pic1: './assets/pic1.png',
+    sound0: './assets/sound/bg.mp3',
     sound1: './assets/sound/s1.mp3',
 }
 const game = new SINT.Game(config);
@@ -62,57 +62,43 @@ function create() {
     var bg = new SINT.SpriteClip(0, 0, 'bg');
     game.add(bg);
     
+    // btn
+    var btn = new SINT.SpriteClip(288, 292, 'pic1');
+    btn.anchor.set(0.5);
+    game.add(btn);
+
+    // audio
+    var s0 = SINT.Audios.add('sound0');
+    s0.loop=true;
+    SINT.Audios.add('sound1');
+
     // events
-    bg
-        .on('pointerdown', onDragStart)
-        .on('pointerup', onDragEnd)
-        .on('pointerupoutside', onDragEnd)
-        .on('pointermove', onDragMove);
+    btn.interactive = true;
+    btn
+        .on('pointerdown', onPointStart)
+        .on('pointerup', onPointUp)
+        .on('pointerupoutside', onPointUp)
+        .on('pointermove', onPointMove);
 
-    // Animated
-    var ac1 = new SINT.AnimatedClip(400, 600, 'fighter');
-    game.add(ac1);
-    ac1.anchor.set(0.5);
-    ac1.play();
-
-
-    // sound
-    game.playSound('sound1');
-    game.pauseSound('sound1');
-    game.stopAllSound();
+    function onPointStart(event) {
+        // the first audio must be use by interactive Event
+        s0.play();
+    }
+    function onPointMove(event) {
+        //console.log(event.data.global)
+    }
+    function onPointUp(event) {
+        SINT.Audios.get('sound1').play();
+    }
 }
 
-// 销毁并清除 view
+
+
+// destroy and remove view
 game.removeThis();
 
 ```
 
-
-### Public Sound Example
-
-```js
-// Use PIXI.loader system
-SINT.loader.add('s1', './assets/sound/s1.mp3');
-SINT.loader.load(function(loader, resources) {
-    var sound1 = loader.resources['s1'].sound;
-    sound1.loop = true;
-    sound1.play();
-});
-
-// Instance from source
-SINT.Sound.from({
-    url: 'assets/sound/s2.mp3',
-    autoPlay: true,
-    // loop:true,
-    loaded : function() {
-        console.log('Sound loaded');
-    },
-    complete: function() {
-        console.log('Sound finished');
-    }
-});
-
-```
 
 
 ## License
