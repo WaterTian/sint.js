@@ -67,7 +67,6 @@ export default class BlurXFilter extends core.Filter
         // screen space!
         this.uniforms.strength *= this.strength;
         this.uniforms.strength /= this.passes;// / this.passes//Math.pow(1, this.passes);
-
         if (this.passes === 1)
         {
             filterManager.applyFilter(this, input, output, clear);

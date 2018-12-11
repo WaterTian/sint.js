@@ -1,8 +1,9 @@
+varying vec2 vTextureCoord; // tybug for go first
+
+uniform sampler2D uSampler;
 uniform float radius;
 uniform float strength;
 uniform vec2 center;
-uniform sampler2D uSampler;
-varying vec2 vTextureCoord;
 
 uniform vec4 filterArea;
 uniform vec4 filterClamp;

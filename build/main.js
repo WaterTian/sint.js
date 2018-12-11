@@ -86,7 +86,9 @@ function create() {
 	//Container
 	var fishsContainer = new SINT.Container();
 	game.add(fishsContainer);
-	SINT.Magic.doTwistFilter(fishsContainer, [500, 500], 400, 2, false);
+	SINT.Magic.doTwist(fishsContainer, [500, 500], 400, 2, false);
+
+
 
 	var fishs = [];
 	for (var i = 0; i < 2000; i++) {
@@ -126,8 +128,8 @@ function create() {
 				///////////////////
 				initPart2();
 
-				SINT.Magic.doTwistFilter(game.stage, [400, 800], 600, 2, true);
-				// SINT.Magic.doRadialBlurFilter(game.stage, [400, 800], 800, 3, true);
+				// SINT.Magic.doTwist(game.stage, [400, 800], 600, 2, true);
+				SINT.Magic.doGlitch(game.stage,2,true);
 			}
 		});
 		// s1.play();
@@ -269,33 +271,32 @@ function createPart2() {
 	// });
 }
 
-// console.log(SINT.Magic);
 
-// game.stage.interactive = true
-// game.stage
-// 	.on('pointerdown', onDragStart)
-// 	.on('pointerup', onDragEnd)
-// 	.on('pointerupoutside', onDragEnd)
-// 	.on('pointermove', onDragMove)
+game.stage.interactive = true
+game.stage
+	.on('pointerdown', onDragStart)
+	.on('pointerup', onDragEnd)
+	.on('pointerupoutside', onDragEnd)
+	.on('pointermove', onDragMove)
 
-// var mouseFilter = new SINT.Magic.BulgePinchFilter([0.5, 0.5], 300, 1.2);
+var mouseFilter = new SINT.Magic.BulgePinchFilter([0.5, 0.5], 200, 1.2);
 
-// function onDragStart(event) {
-// 	this.dragging = true
-// 	game.stage.filters = [mouseFilter];
-// 	mouseFilter.center = [event.data.global.x / 750, event.data.global.y / 1334];
-// }
+function onDragStart(event) {
+	this.dragging = true
+	game.stage.filters = [mouseFilter];
+	mouseFilter.center = [event.data.global.x / 750, event.data.global.y / 1334];
+}
 
-// function onDragEnd(event) {
-// 	this.dragging = false
-// 	SINT.Tween.to(mouseFilter, .3, {
-// 		radius: 0,
-// 	});
-// }
+function onDragEnd(event) {
+	this.dragging = false
+	SINT.Tween.to(mouseFilter, .3, {
+		radius: 0,
+	});
+}
 
-// function onDragMove(event) {
-// 	if (this.dragging) {
-// 		mouseFilter.center = [event.data.global.x / 750, event.data.global.y / 1334];
-// 		mouseFilter.radius += (300 - mouseFilter.radius) * 0.8;
-// 	}
-// }
+function onDragMove(event) {
+	if (this.dragging) {
+		mouseFilter.center = [event.data.global.x / 750, event.data.global.y / 1334];
+		mouseFilter.radius += (200 - mouseFilter.radius) * 0.8;
+	}
+}

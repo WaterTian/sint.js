@@ -1,10 +1,11 @@
-precision highp float;
-
-uniform float time;
-uniform vec2 resolution;
-uniform sampler2D uSampler;
 
 varying vec2 vTextureCoord;
+
+uniform vec4 filterArea;
+uniform sampler2D uSampler;
+
+uniform float time;
+
 
 #pragma glslify: random = require(../glsl/random);
 #pragma glslify: snoise3 = require(../glsl/noise/simplex/3d)
@@ -16,16 +17,16 @@ void main(void){
   vec2 shake = vec2(strength * 8.0 + 0.5) * vec2(
     random(vec2(time)) * 2.0 - 1.0,
     random(vec2(time * 2.0)) * 2.0 - 1.0
-  ) / resolution;
+  ) / filterArea.xy;
 
-  float y = vTextureCoord.y * resolution.y;
+  float y = vTextureCoord.y * filterArea.y;
   float rgbWave = (
       snoise3(vec3(0.0, y * 0.01, time * 400.0)) * (2.0 + strength * 32.0)
       * snoise3(vec3(0.0, y * 0.02, time * 200.0)) * (1.0 + strength * 4.0)
       + step(0.9995, sin(y * 0.005 + time * 1.6)) * 12.0
       + step(0.9999, sin(y * 0.005 + time * 2.0)) * -18.0
-    ) / resolution.x;
-  float rgbDiff = (6.0 + sin(time * 500.0 + vTextureCoord.y * 40.0) * (20.0 * strength + 1.0)) / resolution.x;
+    ) / filterArea.x;
+  float rgbDiff = (6.0 + sin(time * 500.0 + vTextureCoord.y * 40.0) * (20.0 * strength + 1.0)) / filterArea.x;
   float rgbUvX = vTextureCoord.x + rgbWave;
   float r = texture2D(uSampler, vec2(rgbUvX + rgbDiff, vTextureCoord.y) + shake).r;
   float g = texture2D(uSampler, vec2(rgbUvX, vTextureCoord.y) + shake).g;

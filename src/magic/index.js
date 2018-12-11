@@ -1,16 +1,18 @@
 
 import Tween from '../Tween';
 import Dye from './dye/dye';
-import Glitch from './glitch/glitch';
+
 
 
 
 import { default as ColorMatrixFilter } from './colormatrix/ColorMatrixFilter';
 import { default as AlphaFilter } from './alpha/AlphaFilter';
+import { default as BlurFilter } from './blur/BlurFilter';
 
 import { BulgePinchFilter } from './bulge-pinch';
 import { TwistFilter } from './twist';
 
+import { GlitchFilter } from './glitch';
 
 /**
  * @example
@@ -42,7 +44,9 @@ import { TwistFilter } from './twist';
 export{
     AlphaFilter,
     ColorMatrixFilter,
+    BlurFilter,
     BulgePinchFilter,
+    GlitchFilter,
 }
 
 
@@ -53,14 +57,17 @@ export{
  * @param {SINT.Container} container
  */
 
-export function doGlitch(container) {
-    let filter = new Glitch();
+export function doGlitch(container,time,clear = false) {
+    let filter = new GlitchFilter();
     container.filters = [filter];
-    Tween.to(filter, 10, {
-    	onUpdate:function(){
-    		filter.render(.1);
-    	}
+    Tween.to(filter, time, {
+        time:1.4,
+        onComplete:function(){
+            if (!clear) return;
+            container.filters = [];
+        }
     })
+
 }
 
 
@@ -88,7 +95,7 @@ export function doDye(container, color) {
  * @param {number} time
  * @param {boolean} clear 
  */
-export function doTwistFilter(container, offset, radius, time, clear = false) {
+export function doTwist(container, offset, radius, time, clear = false) {
     let filter = new TwistFilter(radius, 0);
     filter.offset.set(offset);
     let filter2 = new AlphaFilter();
@@ -123,28 +130,28 @@ export function doTwistFilter(container, offset, radius, time, clear = false) {
  * @param {number} time
  * @param {boolean} clear 
  */
-export function doRadialBlurFilter(container, offset, radius, time, clear = false) {
-    let filter = new RadialBlurFilter(0, offset, 9, radius);
-    let filter2 = new AlphaFilter();
-    container.filters = [filter, filter2];
-    Tween.to(filter, time, {
-        angle: 180,
-        ease: Strong.easeInOut,
-    })
-    if (!clear) return;
-    Tween.to(filter2, time * 0.7, {
-        ease: Strong.easeInOut,
-        alpha: 0,
-        delay: time * 0.3,
-        onComplete: () => {
-            container.filters = [filter2];
-            Tween.to(filter2, 1, {
-                alpha: 1,
-                onComplete: () => {
-                    container.filters = [];
-                }
-            })
-        }
-    })
+// export function doRadialBlurFilter(container, offset, radius, time, clear = false) {
+//     let filter = new RadialBlurFilter(0, offset, 9, radius);
+//     let filter2 = new AlphaFilter();
+//     container.filters = [filter, filter2];
+//     Tween.to(filter, time, {
+//         angle: 180,
+//         ease: Strong.easeInOut,
+//     })
+//     if (!clear) return;
+//     Tween.to(filter2, time * 0.7, {
+//         ease: Strong.easeInOut,
+//         alpha: 0,
+//         delay: time * 0.3,
+//         onComplete: () => {
+//             container.filters = [filter2];
+//             Tween.to(filter2, 1, {
+//                 alpha: 1,
+//                 onComplete: () => {
+//                     container.filters = [];
+//                 }
+//             })
+//         }
+//     })
 
-}
+// }
