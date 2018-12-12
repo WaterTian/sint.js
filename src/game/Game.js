@@ -94,7 +94,7 @@ export default class Game extends core.Application {
     _resize() {
 
         let _c = this.domElement.offsetWidth / this.initWidth;
-        console.log("resize " + _c);
+        // console.log("resize " + _c);
 
         // for bottom render bug
         this.initHeight = this.domElement.offsetHeight / _c;

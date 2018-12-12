@@ -27,7 +27,7 @@ const assets2 = {
 	spineboy: './assets/spineboy.json',
 }
 
-console.log(SINT);
+// console.log(SINT);
 
 var game = new SINT.Game(config);
 

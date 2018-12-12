@@ -1,8 +1,9 @@
 import Filter from '../Filter';
 import { Matrix } from '../../../../math';
-import { readFileSync } from 'fs';
-import { join } from 'path';
 import { default as TextureMatrix } from '../../../../textures/TextureMatrix';
+
+import vs from './spriteMaskFilter.vert';
+import fs from './spriteMaskFilter.frag';
 
 /**
  * The SpriteMaskFilter class
@@ -20,10 +21,7 @@ export default class SpriteMaskFilter extends Filter
     {
         const maskMatrix = new Matrix();
 
-        super(
-            readFileSync(join(__dirname, './spriteMaskFilter.vert'), 'utf8'),
-            readFileSync(join(__dirname, './spriteMaskFilter.frag'), 'utf8')
-        );
+        super(vs,fs);
 
         sprite.renderable = false;
 
