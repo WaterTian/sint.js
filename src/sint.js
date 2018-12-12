@@ -19,11 +19,15 @@ utils.mixins.performMixins();
  * Alias for {@link SINT.loaders.shared}.
  * @name loader
  * @memberof SINT
- * @type {SINT.loader.Loader}
+ * @type {SINT.loaders.Loader}
  */
-const loader = loaders.shared || null;
+const loader = new loaders.Loader();
 
 export * from './core';
+
+export {
+	AudioManager
+} from './audio';
 
 export {
 	Game,
@@ -34,9 +38,7 @@ export {
 }
 from './game';
 
-export {
-	AudioManager
-} from './audio';
+
 
 export {
 	Unit,
