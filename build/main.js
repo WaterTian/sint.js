@@ -24,7 +24,6 @@ const assets2 = {
 	icon1: './assets/icon1.png',
 	pic2: './assets/pic2.png',
 	fighter: './assets/fighter.json',
-	spineboy: './assets/spineboy.json',
 }
 
 // console.log(SINT);
@@ -51,32 +50,22 @@ function loading(e) {
 	loadingTxt.text = e.progress + '%'
 }
 
-function removeLoading() {
-	console.log("removeLoading1")
-	SINT.Tween.to(loadingTxt, 0.6, {
-		alpha: 0,
-		ease: Strong.easeOut,
-		onComplete: function() {
-			game.remove(loadingTxt)
-		}
-	})
-}
 
 function create() {
-	removeLoading();
+	game.remove(loadingTxt)
 
-	console.log(SINT.TyLoader.resources);
+	console.log(SINT.loader.resources);
 
-    // audio
-    var s0 = SINT.Audios.add('sound0');
-    s0.loop=true;
-    SINT.Audios.add('sound1');
+	// audio
+	var s0 = SINT.Audios.add('sound0');
+	s0.loop = true;
+	SINT.Audios.add('sound1');
 
 	// setTimeout(function(){
 	// 	s1.play();
 	// },5000)
 
-	// let s1 = new SINT.Sound(SINT.TyLoader.resources.sound0);
+	// let s1 = new SINT.Sound(SINT.loader.resources.sound0);
 	// s1.play();
 	// console.log(s1);
 
@@ -131,12 +120,13 @@ function create() {
 				initPart2();
 
 				// SINT.magic.doTwist(game.stage, [400, 800], 600, 2, true);
-				SINT.magic.doGlitch(game.stage,2,true);
+				SINT.magic.doGlitch(game.stage, 2, true);
 			}
 		});
 
 		s0.play();
 	})
+
 
 
 
@@ -176,6 +166,7 @@ function initPart2() {
 	if (part2) return;
 	part2 = true;
 	console.log("preload2")
+	game.add(loadingTxt)
 	game.preload({
 		assets: assets2,
 		loading: function(e) {
@@ -187,6 +178,8 @@ function initPart2() {
 
 function createPart2() {
 	console.log("createPart2")
+	game.remove(loadingTxt)
+
 	//btn
 	var btn2 = new SINT.SpriteClip(28, 900, 'pic2');
 	btn2.addChild(new SINT.TextClip(180, 56, '卸载'));
@@ -228,7 +221,7 @@ function createPart2() {
 	var ac1 = new SINT.AnimatedClip(400, 600, 'fighter');
 	game.add(ac1);
 	ac1.anchor.set(0.5);
-	ac1.animationSpeed = 40 / 60;;
+	ac1.animationSpeed = 40 / 60;
 	ac1.interactive = true;
 	ac1.on('pointerdown', function() {
 		console.log("fly")
@@ -253,22 +246,30 @@ function createPart2() {
 		SINT.magic.doDye(ac1, 0x00ff00);
 
 		SINT.Audios.get('sound1').play();
-
 	})
 
 
 
-	// //spine
-	// var spineBoy = new SINT.SpineClip(game.initWidth / 2, game.initHeight, 'spineboy');
-	// game.add(spineBoy);
-	// spineBoy.play('walk');
-	// spineBoy.interactive = true;
-	// spineBoy.on('pointerdown', function() {
-	//     spineBoy.play('jump', false);
-	//     spineBoy.state.addAnimation(0, 'walk', true);
-	//     //
-	//     // game.playSound('sound2');
-	// });
+	var ac2 = new SINT.AnimatedClip(600, 1000, ['fish1','fish2','fish3','fish4']);
+	game.add(ac2);
+	ac2.anchor.set(0.5);
+	ac2.animationSpeed = 3 / 60;
+	ac2.play();
+
+
+	var textures = [];
+	for (var i = 0; i < 4; i++) {
+		textures.push(SINT.Texture.fromImage('./assets/mc/hao' + i + '.png'));
+	}
+	var as = new SINT.AnimatedSprite(textures);
+	game.add(as);
+	as.position.set(500,800);
+	as.animationSpeed = 0.1;
+	as.anchor.set(0.5);
+	as.scale.set(0.6);
+	as.play();
+
+
 }
 
 

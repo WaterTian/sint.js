@@ -66,9 +66,6 @@ export default class Game extends core.Application {
             this.domElement.appendChild(this.stats.dom);
         }
 
-        /// one game one loader
-        SINT.TyLoader = new loaders.Loader();
-
         /**
          * The game audios.
          * @member {SINT.AudioManager}
@@ -134,12 +131,12 @@ export default class Game extends core.Application {
 
         
         for (let key in config.assets) {
-            SINT.TyLoader.add(key, config.assets[key]);
+            SINT.loader.add(key, config.assets[key]);
         }
 
-        let bindingProgress = SINT.TyLoader.onProgress.add(config.loading);
+        let bindingProgress = SINT.loader.onProgress.add(config.loading);
 
-        SINT.TyLoader.load((loader, resources) => {
+        SINT.loader.load((loader, resources) => {
             // console.log("loadComplete");
             bindingProgress.detach();
             config.loaded();
@@ -158,6 +155,10 @@ export default class Game extends core.Application {
         this.stage.addChild(child);
         return child;
     }
+    addChild(child) {
+        this.stage.addChild(child);
+        return child;
+    }
 
     /**
      * Remove child from stage.
@@ -167,7 +168,9 @@ export default class Game extends core.Application {
     remove(child) {
         this.stage.removeChild(child);
     }
-
+    removeChild(child) {
+        this.stage.removeChild(child);
+    }
 
 
     /**
@@ -192,12 +195,14 @@ export default class Game extends core.Application {
 
         this.destroy(true);
 
+        SINT.Audios.destroy();
 
 
-        // console.log(SINT.TyLoader.resources);
 
-        for (let key in SINT.TyLoader.resources) {
-            let resource = SINT.TyLoader.resources[key];
+        // console.log(SINT.loader.resources);
+
+        for (let key in SINT.loader.resources) {
+            let resource = SINT.loader.resources[key];
             // console.log(resource);
             let tex = resource.texture;
             if (tex) tex.destroy(true);
@@ -209,10 +214,10 @@ export default class Game extends core.Application {
             }
         }
 
-        SINT.TyLoader.destroy();
-        // SINT.TyLoader.removeAllListeners();
-        // SINT.TyLoader.reset();
-        // console.log(SINT.TyLoader.resources);
+        SINT.loader.destroy();
+        // SINT.loader.removeAllListeners();
+        // SINT.loader.reset();
+        // console.log(SINT.loader.resources);
     }
 
 

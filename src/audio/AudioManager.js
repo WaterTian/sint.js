@@ -32,7 +32,13 @@ export default class AudioManager{
   removeAll() {
     this.sounds.forEach((s)=> {
       s.stop();
+      s.reset();
     });
+  }
+
+  destroy(){
+    this.removeAll();
+    this.sounds = [];
   }
 
   get(_name){

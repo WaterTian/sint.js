@@ -18,7 +18,7 @@ export default class SpineClip extends PIXI.spine.Spine {
 		console.log(name);
 		// console.log(PIXI.loader.resources[name]);
 
-		super(SINT.TyLoader.resources[name].spineData);
+		super(SINT.loader.resources[name].spineData);
 
 		this.x = _x;
 		this.y = _y;

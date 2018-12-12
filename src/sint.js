@@ -15,6 +15,13 @@ import {
 utils.mixins.performMixins();
 
 
+/**
+ * Alias for {@link SINT.loaders.shared}.
+ * @name loader
+ * @memberof SINT
+ * @type {SINT.loader.Loader}
+ */
+const loader = loaders.shared || null;
 
 export * from './core';
 
@@ -22,7 +29,8 @@ export {
 	Game,
 	SpriteClip,
 	TextClip,
-	AnimatedClip
+	AnimatedClip,
+	AnimatedSprite
 }
 from './game';
 
@@ -38,6 +46,7 @@ export {
 	magic,
 	interaction,
 	loaders,
+	loader,
 };
 
 

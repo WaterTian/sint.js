@@ -276,7 +276,7 @@ export function sayHello(type)
     if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1)
     {
         const args = [
-            `\n %c %c %c SINTJS ${VERSION} - ✰ ${type} ✰  %c  %c  http://www.SINTjs.com/  %c %c ♥%c♥%c♥ \n\n`,
+            `\n %c %c %c SINTJS ${VERSION} - ✰ ${type} ✰  %c  %c  http://www.sintlib.com/  %c %c ♥%c♥%c♥ \n\n`,
             'background: #ff66a5; padding:5px 0;',
             'background: #ff66a5; padding:5px 0;',
             'color: #ff66a5; background: #030307; padding:5px 0;',
@@ -292,7 +292,7 @@ export function sayHello(type)
     }
     else if (window.console)
     {
-        window.console.log(`SINTJS ${VERSION} - ${type} - http://www.SINTjs.com/`);
+        window.console.log(`SINTJS ${VERSION} - ${type} - http://www.sintlib.com/`);
     }
 
     saidHello = true;
