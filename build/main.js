@@ -1,5 +1,6 @@
 // import VConsole from 'vconsole';
-// var vConsole = new VConsole();
+var vConsole = new VConsole();
+
 
 const config = {
 	domElement: document.querySelector('#webglContainer'), // 画布容器
@@ -127,7 +128,17 @@ function create() {
 		s0.play();
 	})
 
-
+	//Text
+	var t = new SINT.TextClip(500, 200, 'Video', {
+		fontFamily: 'Arial',
+		fontSize: 50,
+		fontStyle: 'italic',
+		fontWeight: 'bold',
+		fill: '#ffffff', 
+	});
+	game.add(t);
+	t.interactive = true;
+	t.on('pointerdown',initVideo);
 
 
 	var fishBounds = new SINT.Rectangle(-100, -100,
@@ -157,6 +168,7 @@ function create() {
 		}
 	});
 }
+
 
 
 
@@ -250,7 +262,7 @@ function createPart2() {
 
 
 
-	var ac2 = new SINT.AnimatedClip(600, 1000, ['fish1','fish2','fish3','fish4']);
+	var ac2 = new SINT.AnimatedClip(600, 1000, ['fish1', 'fish2', 'fish3', 'fish4']);
 	game.add(ac2);
 	ac2.anchor.set(0.5);
 	ac2.animationSpeed = 3 / 60;
@@ -263,7 +275,7 @@ function createPart2() {
 	}
 	var as = new SINT.AnimatedSprite(textures);
 	game.add(as);
-	as.position.set(500,800);
+	as.position.set(500, 800);
 	as.animationSpeed = 0.1;
 	as.anchor.set(0.5);
 	as.scale.set(0.6);
@@ -302,4 +314,28 @@ function onDragMove(event) {
 		mouseFilter.center = [event.data.global.x / 750, event.data.global.y / 1334];
 		mouseFilter.radius += (200 - mouseFilter.radius) * 0.8;
 	}
+}
+
+
+
+
+
+
+function initVideo(){
+	var videoContainer = document.querySelector('#videoContainer');
+	var video1 = new SINT.VideoDom({
+		parentElement: videoContainer,
+		videoUrl: './assets/video/dino.mp4',
+		posterImg: './assets/video/dino.jpg'
+	});
+
+	video1.toPlay();
+
+	video1.videoElement.addEventListener('click', function() {
+		video1.destroy();
+	});
+
+	video1.on('ended', function(e) {
+		video1.destroy();
+	})
 }
