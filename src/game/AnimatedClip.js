@@ -9,22 +9,29 @@ import AnimatedSprite from './AnimatedSprite'
  * 
  * @param {number} [_x=0]
  * @param {number} [_y=0]
- * @param {string} name - The frame name of the texture in the cache
+ * @param {string | string[]} name - The frame name of the texture in the cache
  */
 
 
 export default class AnimatedClip extends AnimatedSprite {
 	
 	constructor(_x = 0, _y = 0, name) {
-
-		let sheet = SINT.TyLoader.resources[name].textures;
-		// console.log(sheet);
-
+		
 		let textures = [];
-		for (let key in sheet) {
-			// console.log(key);
-			let texture = core.Texture.fromFrame(key);
-			textures.push(texture);
+		// console.log(name);
+		// console.log(typeof name)
+		// console.log(name instanceof Array)
+
+		if (typeof name === 'string'){
+			for (let key in SINT.loader.resources[name].textures) {
+				let texture = core.Texture.fromFrame(key);
+				textures.push(texture);
+			}
+		}else if(name instanceof Array){
+			name.forEach( function(element, index) {
+				let texture = core.Texture.fromFrame(element);
+				textures.push(texture);
+			});
 		}
 
 		super(textures);

@@ -1,7 +1,7 @@
 import * as core from '../core';
 
 /**
- * @typedef SINT.extras.AnimatedSprite~FrameObject
+ * @typedef SINT.AnimatedSprite~FrameObject
  * @type {object}
  * @property {SINT.Texture} texture - The {@link SINT.Texture} of the frame
  * @property {number} time - the duration of the frame in ms
@@ -20,7 +20,7 @@ import * as core from '../core';
  *      textureArray.push(texture);
  * };
  *
- * let animatedSprite = new SINT.extras.AnimatedSprite(textureArray);
+ * let animatedSprite = new SINT.AnimatedSprite(textureArray);
  * ```
  *
  * The more efficient and simpler way to create an animated sprite is using a {@link SINT.Spritesheet}
@@ -31,19 +31,19 @@ import * as core from '../core';
  *
  * function setup() {
  *   let sheet = SINT.loader.resources["assets/spritesheet.json"].spritesheet;
- *   animatedSprite = new SINT.extras.AnimatedSprite(sheet.animations["image_sequence"]);
+ *   animatedSprite = new SINT.AnimatedSprite(sheet.animations["image_sequence"]);
  *   ...
  * }
  * ```
  *
  * @class
  * @extends SINT.Sprite
- * @memberof SINT.extras
+ * @memberof SINT
  */
 export default class AnimatedSprite extends core.Sprite
 {
     /**
-     * @param {SINT.Texture[]|SINT.extras.AnimatedSprite~FrameObject[]} textures - an array of {@link SINT.Texture} or frame
+     * @param {SINT.Texture[]|SINT.AnimatedSprite~FrameObject[]} textures - an array of {@link SINT.Texture} or frame
      *  objects that make up the animation
      * @param {boolean} [autoUpdate=true] - Whether to use SINT.ticker.shared to auto update animation time.
      */
