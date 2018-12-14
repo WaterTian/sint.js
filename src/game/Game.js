@@ -81,26 +81,31 @@ export default class Game extends core.Application {
             initHeight
         } = this;
 
+        this.resizeW = this._resize.bind(this);
         // Handle window resize event
-        window.addEventListener('resize', this._resize.bind(this));
-        this._resize();
+        window.addEventListener('resize', this.resizeW);
+        this.resizeW();
 
         // Handle fish animation
         this.ticker.add(this._animate, this);
     }
     _resize() {
+        try {
+            let _c = this.domElement.offsetWidth / this.initWidth;
+            // console.warn("resize " + _c);
 
-        let _c = this.domElement.offsetWidth / this.initWidth;
-        // console.log("resize " + _c);
+            // for bottom render bug
+            this.initHeight = this.domElement.offsetHeight / _c;
+            this.view.style.width = '100%';
+            // this.view.style.transform = "matrix(" + _c + ", 0, 0, " + _c + ", 0, 0)";
+            // this.view.style.transformOrigin = "0% 0%";
 
-        // for bottom render bug
-        this.initHeight = this.domElement.offsetHeight / _c;
-        this.view.style.width = '100%';
-        // this.view.style.transform = "matrix(" + _c + ", 0, 0, " + _c + ", 0, 0)";
-        // this.view.style.transformOrigin = "0% 0%";
-
-        this.renderer.resize(this.initWidth, this.initHeight);
-        this.render();
+            this.renderer.resize(this.initWidth, this.initHeight);
+            this.render();
+        } catch (e) {
+            console.log(e.message)
+            console.log("销毁场景时请执行 removeThis")
+        }
     }
     _animate(delta) {
         if (this.stats) this.stats.update();
@@ -179,7 +184,9 @@ export default class Game extends core.Application {
     removeThis() {
         if (this.stats) this.domElement.removeChild(this.stats.dom);
 
-        console.log('removeThis');
+        console.warn('removeThis');
+
+        window.removeEventListener('resize', this.resizeW);
 
 
         ////Hook 
