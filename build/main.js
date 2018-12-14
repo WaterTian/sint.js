@@ -2,6 +2,7 @@
 var vConsole = new VConsole();
 
 
+
 const config = {
 	domElement: document.querySelector('#webglContainer'), // 画布容器
 	initWidth: 750,
@@ -128,6 +129,7 @@ function create() {
 		s0.play();
 	})
 
+
 	//Text
 	var t = new SINT.TextClip(500, 200, 'Video', {
 		fontFamily: 'Arial',
@@ -199,6 +201,13 @@ function createPart2() {
 	btn2.interactive = true;
 	btn2.on('pointerdown', function() {
 		game.removeThis();
+
+		game = new SINT.Game(config);
+		game.preload({
+			assets: assets1,
+			loading: loading,
+			loaded: create,
+		})
 	})
 
 	//icon1
@@ -314,6 +323,7 @@ function onDragMove(event) {
 		mouseFilter.center = [event.data.global.x / 750, event.data.global.y / 1334];
 		mouseFilter.radius += (200 - mouseFilter.radius) * 0.8;
 	}
+
 }
 
 

@@ -190,7 +190,7 @@ export default class Game extends core.Application {
 
 
         ////Hook 
-        let domBtns = document.getElementsByTagName("button");
+        let domBtns = document.body.getElementsByTagName("button");
         for (let i = 0; i < domBtns.length; i++) {
             let domBtn = domBtns[i];
             if (domBtn.title == 'HOOK DIV') {
