@@ -8,6 +8,10 @@ import removeItems from 'remove-array-items';
 import mapPremultipliedBlendModes from './mapPremultipliedBlendModes';
 // import earcut from 'earcut'; // npm i earcut --save
 
+
+
+export { isContainsRect, isIntersectsRect } from './decide';
+
 let nextUid = 0;
 let saidHello = false;
 

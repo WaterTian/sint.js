@@ -62,3 +62,22 @@ export function isIntersectsRect(rectA, rectB) {
 }
 
 
+function rectGetMinX(rect) {
+  return rect.x;
+}
+function rectGetMinY(rect) {
+  return rect.y;
+}
+function rectGetMaxX(rect) {
+  return (rect.x + rect.width);
+}
+function rectGetMaxY(rect) {
+  return (rect.y + rect.height);
+}
+
+function rectGetMidX(rect) {
+  return (rect.x + rect.width / 2.0);
+}
+function rectGetMidY(rect) {
+  return rect.y + rect.height / 2.0;
+}
