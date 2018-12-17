@@ -26,9 +26,6 @@
 
 
 
-
-
-
 /**
  * @memberof SINT.Unit
  * @function getUrlStr
@@ -126,7 +123,7 @@ export function getTxtImage(txt, size = 50) {
 
 	let ctx = c.getContext("2d");
 
-	ctx.font = size + "px Verdana";
+	ctx.font = size + "sx Verdana";
 	ctx.fillStyle = '#ffffff';
 	ctx.textAlign = "center";
 	ctx.fillText(txt, 256, 64);
@@ -244,10 +241,6 @@ export function postJson(url, sendData) {
 
 
 
-
-
-import { Rectangle } from './core/math';
-
 /**
  *
  * 检测一个显示对象是否在另一个矩形内部
@@ -257,30 +250,30 @@ import { Rectangle } from './core/math';
  * @example
  * var rect1 = new SINT.Rectangle(10, 10, 100, 100);
  * var rect2 = new SINT.Rectangle(30, 30, 50, 50);
- * SINT.isContainsRect(rect1, rect2);
+ * SINT.Unit.isContainsRect(rect1, rect2);
  * //=> true
  *
  * @static
- * @memberof SINT
+ * @memberof SINT.Unit
  * @function rectContainsRect
  * @param {SINT.Rectangle} rect
  * @param {SINT.Rectangle | SINT.Point } obj
  * @return {boolean}
  */
 export function isContainsRect(rect, obj) {
-    if (!rect || !obj) {
-        return false;
-    }
-    // if(typeof obj === )
-    if (obj instanceof SINT.Rectangle) {
-        return !((rect.x >= obj.x) || (rect.y >= obj.y) ||
-            (rect.x + rect.width <= obj.x + obj.width) ||
-            (rect.y + rect.height <= obj.y + obj.height));
-    }
-    if (obj instanceof SINT.Point) {
-        return (obj.x >= rectGetMinX(rect) && obj.x <= rectGetMaxX(rect) &&
-            obj.y >= rectGetMinY(rect) && obj.y <= rectGetMaxY(rect));
-    }
+	if (!rect || !obj) {
+		return false;
+	}
+	// if(typeof obj === )
+	if (obj instanceof SINT.Rectangle) {
+		return !((rect.x >= obj.x) || (rect.y >= obj.y) ||
+			(rect.x + rect.width <= obj.x + obj.width) ||
+			(rect.y + rect.height <= obj.y + obj.height));
+	}
+	if (obj instanceof SINT.Point) {
+		return (obj.x >= rectGetMinX(rect) && obj.x <= rectGetMaxX(rect) &&
+			obj.y >= rectGetMinY(rect) && obj.y <= rectGetMaxY(rect));
+	}
 }
 
 
@@ -292,42 +285,120 @@ export function isContainsRect(rect, obj) {
  * @example
  * var rect1 = new SINT.Rectangle(10, 10, 50, 50);
  * var rect2 = new SINT.Rectangle(50, 30, 50, 50);
- * SINT.isIntersectsRect(rect1, rect2);
+ * SINT.Unit.isIntersectsRect(rect1, rect2);
  * //=> true
  *
  * @static
- * @memberof SINT
+ * @memberof SINT.Unit
  * @function isIntersectsRect
  * @param {SINT.Rectangle} rectA
  * @param {SINT.Rectangle} rectB
  * @return {boolean}
  */
 export function isIntersectsRect(rectA, rectB) {
-    return !(rectGetMaxX(rectA) < rectGetMinX(rectB) ||
-        rectGetMaxX(rectB) < rectGetMinX(rectA) ||
-        rectGetMaxY(rectA) < rectGetMinY(rectB) ||
-        rectGetMaxY(rectB) < rectGetMinY(rectA));
+	return !(rectGetMaxX(rectA) < rectGetMinX(rectB) ||
+		rectGetMaxX(rectB) < rectGetMinX(rectA) ||
+		rectGetMaxY(rectA) < rectGetMinY(rectB) ||
+		rectGetMaxY(rectB) < rectGetMinY(rectA));
 }
-
 
 function rectGetMinX(rect) {
-  return rect.x;
+	return rect.x;
 }
+
 function rectGetMinY(rect) {
-  return rect.y;
+	return rect.y;
 }
+
 function rectGetMaxX(rect) {
-  return (rect.x + rect.width);
+	return (rect.x + rect.width);
 }
+
 function rectGetMaxY(rect) {
-  return (rect.y + rect.height);
+	return (rect.y + rect.height);
 }
 
 function rectGetMidX(rect) {
-  return (rect.x + rect.width / 2.0);
+	return (rect.x + rect.width / 2.0);
 }
+
 function rectGetMidY(rect) {
-  return rect.y + rect.height / 2.0;
+	return rect.y + rect.height / 2.0;
 }
+
+
+
+/**
+ * 获取两点方向角度
+ *
+ * @example
+ * var p1 = new SINT.Point(10, 10);
+ * var p2 = new SINT.Point(50, 30);
+ * SINT.Unit.getPointAngle(p1, p2);
+ * //=> Angle
+ *
+ * @static
+ * @memberof SINT.Unit
+ * @function getPointAngle
+ * @param {SINT.Point} pointStart
+ * @param {SINT.Point} pointTo
+ * @return {number}
+ */
+export function getPointAngle(pointStart, pointTo) {
+	let sx = pointStart.x;
+	let sy = pointStart.y;
+	let tx = pointTo.x;
+	let ty = pointTo.y;
+	let x = Math.abs(sx - tx);
+	let y = Math.abs(sy - ty);
+	let z = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+	let cos = y / z;
+	let radina = Math.acos(cos); //用反三角函数求弧度
+	let angle = Math.floor(180 / (Math.PI / radina)); //将弧度转换成角度
+	if (tx > sx && ty > sy) { //第四象限
+		angle = 180 - angle;
+	}
+	if (tx == sx && ty > sy) { //y轴负方向上
+		angle = 180;
+	}
+	if (tx > sx && ty == sy) { //x轴正方向上
+		angle = 90;
+	}
+	if (tx < sx && ty > sy) { //第三象限
+		angle = 180 + angle;
+	}
+	if (tx < sx && ty == sy) { //x轴负方向
+		angle = 270;
+	}
+	if (tx < sx && ty < sy) { //第二象限
+		angle = 360 - angle;
+	}
+	return angle;
+}
+
+
+
+/**
+ * 获取两点距离
+ *
+ * @example
+ * var p1 = new SINT.Point(10, 10);
+ * var p2 = new SINT.Point(50, 30);
+ * SINT.Unit.getPointDistance(p1, p2);
+ * //=> Distance
+ *
+ * @static
+ * @memberof SINT.Unit
+ * @function getPointDistance
+ * @param {SINT.Point} pointStart
+ * @param {SINT.Point} pointTo
+ * @return {number}
+ */
+export function getPointDistance(pointStart, pointTo) {
+	let xd = pointTo.x - pointStart.x;
+	let yd = pointTo.y - pointStart.y;
+	return Math.pow((xd * xd + yd * yd), 0.5);
+}
+
 
 

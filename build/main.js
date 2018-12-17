@@ -305,9 +305,9 @@ var mouseFilter = new SINT.magic.BulgePinchFilter([0.5, 0.5], 200, 1.2);
 
 function onDragStart(event) {
 	this.dragging = true
+	this.startPoint = event.data.global.clone();
 	game.stage.filters = [mouseFilter];
-	mouseFilter.center = [event.data.global.x / 750, event.data.global.y / 1334];
-
+	mouseFilter.center = [this.startPoint.x / 750, this.startPoint.y / 1334];
 
 }
 
@@ -320,7 +320,11 @@ function onDragEnd(event) {
 
 function onDragMove(event) {
 	if (this.dragging) {
-		mouseFilter.center = [event.data.global.x / 750, event.data.global.y / 1334];
+		this.toPoint = event.data.global.clone();
+		let angle = SINT.Unit.getPointAngle(this.startPoint,this.toPoint);
+		// console.log(angle);
+
+		mouseFilter.center = [this.toPoint.x / 750, this.toPoint.y / 1334];
 		mouseFilter.radius += (200 - mouseFilter.radius) * 0.8;
 	}
 
