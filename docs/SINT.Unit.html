@@ -332,13 +332,21 @@
             
                 <li class="parent  " data-name="SINT.Unit.getImageXYData"><a href="SINT.Unit.html#.getImageXYData">getImageXYData</a></li>
             
+                <li class="parent  " data-name="SINT.Unit.getPointAngle"><a href="SINT.Unit.html#.getPointAngle">getPointAngle</a></li>
+            
+                <li class="parent  " data-name="SINT.Unit.getPointDistance"><a href="SINT.Unit.html#.getPointDistance">getPointDistance</a></li>
+            
                 <li class="parent  " data-name="SINT.Unit.getTxtImage"><a href="SINT.Unit.html#.getTxtImage">getTxtImage</a></li>
             
                 <li class="parent  " data-name="SINT.Unit.getUrlStr"><a href="SINT.Unit.html#.getUrlStr">getUrlStr</a></li>
             
+                <li class="parent  " data-name="SINT.Unit.isIntersectsRect"><a href="SINT.Unit.html#.isIntersectsRect">isIntersectsRect</a></li>
+            
                 <li class="parent  " data-name="SINT.Unit.loadJson"><a href="SINT.Unit.html#.loadJson">loadJson</a></li>
             
                 <li class="parent  " data-name="SINT.Unit.postJson"><a href="SINT.Unit.html#.postJson">postJson</a></li>
+            
+                <li class="parent  " data-name="SINT.Unit.rectContainsRect"><a href="SINT.Unit.html#.rectContainsRect">rectContainsRect</a></li>
             
             </ul>
             <ul class="events itemMembers">
@@ -5621,6 +5629,366 @@ SINT.Unit.postJson('..*.php', sendData).then(function(data) {
             
 <dt>
     <div class="nameContainer">
+        <h4 class="name" id=".getPointAngle">
+            <a class="share-icon" href="#.getPointAngle"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                SINT.Unit.getPointAngle
+            </span>
+            <span class="signature">(pointStart, pointTo)</span><span class="type-signature">number</span>
+            
+            <span class="access-signature">static</span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>获取两点方向角度</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>pointStart</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.Point.html">SINT.Point</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>pointTo</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.Point.html">SINT.Point</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        number
+                        
+                    
+            </td>
+            <td class="description last"></td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+        <h5>Example</h5>
+        
+
+    
+    <pre class="prettyprint"><code>var p1 = new SINT.Point(10, 10);
+var p2 = new SINT.Point(50, 30);
+SINT.Unit.getPointAngle(p1, p2);
+//=> Angle</code></pre>
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".getPointDistance">
+            <a class="share-icon" href="#.getPointDistance"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                SINT.Unit.getPointDistance
+            </span>
+            <span class="signature">(pointStart, pointTo)</span><span class="type-signature">number</span>
+            
+            <span class="access-signature">static</span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>获取两点距离</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>pointStart</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.Point.html">SINT.Point</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>pointTo</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.Point.html">SINT.Point</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        number
+                        
+                    
+            </td>
+            <td class="description last"></td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+        <h5>Example</h5>
+        
+
+    
+    <pre class="prettyprint"><code>var p1 = new SINT.Point(10, 10);
+var p2 = new SINT.Point(50, 30);
+SINT.Unit.getPointDistance(p1, p2);
+//=> Distance</code></pre>
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
         <h4 class="name" id=".getTxtImage">
             <a class="share-icon" href="#.getTxtImage"><span class="glyphicon glyphicon-link"></span></a>
             <span class="">
@@ -5944,6 +6312,187 @@ SINT.Unit.postJson('..*.php', sendData).then(function(data) {
 
     
     
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".isIntersectsRect">
+            <a class="share-icon" href="#.isIntersectsRect"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                SINT.Unit.isIntersectsRect
+            </span>
+            <span class="signature">(rectA, rectB)</span><span class="type-signature">boolean</span>
+            
+            <span class="access-signature">static</span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>检测两个显示对象是否相交，一般用于检测碰撞</p>
+<p>注意：边缘重叠始终返回true</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>rectA</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.Rectangle.html">SINT.Rectangle</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>rectB</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.Rectangle.html">SINT.Rectangle</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        boolean
+                        
+                    
+            </td>
+            <td class="description last"></td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+        <h5>Example</h5>
+        
+
+    
+    <pre class="prettyprint"><code>var rect1 = new SINT.Rectangle(10, 10, 50, 50);
+var rect2 = new SINT.Rectangle(50, 30, 50, 50);
+SINT.Unit.isIntersectsRect(rect1, rect2);
+//=> true</code></pre>
+    
+
     
 </dd>
 
@@ -6279,6 +6828,190 @@ SINT.Unit.postJson('..*.php', sendData).then(function(data) {
     
 </dd>
 
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".rectContainsRect">
+            <a class="share-icon" href="#.rectContainsRect"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">
+                SINT.Unit.rectContainsRect
+            </span>
+            <span class="signature">(rect, obj)</span><span class="type-signature">boolean</span>
+            
+            <span class="access-signature">static</span>
+            
+            
+        </h4>
+    
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>检测一个显示对象是否在另一个矩形内部</p>
+<p>注意：边缘重叠始终返回fasle</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>rect</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.Rectangle.html">SINT.Rectangle</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.Rectangle.html">SINT.Rectangle</a></span>
+|
+
+<span class="param-type"><a href="SINT.Point.html">SINT.Point</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        boolean
+                        
+                    
+            </td>
+            <td class="description last"></td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+        <h5>Example</h5>
+        
+
+    
+    <pre class="prettyprint"><code>var rect1 = new SINT.Rectangle(10, 10, 100, 100);
+var rect2 = new SINT.Rectangle(30, 30, 50, 50);
+SINT.Unit.isContainsRect(rect1, rect2);
+//=> true</code></pre>
+    
+
+    
+</dd>
+
         </dl>
     
     
@@ -6299,7 +7032,7 @@ SINT.Unit.postJson('..*.php', sendData).then(function(data) {
 
         <footer class="content-size">
             <div class="footer">
-                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Dec 12 2018 15:48:56 GMT+0800 (CST)
+                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 17 2018 17:59:28 GMT+0800 (CST)
             </div>
         </footer>
     </div>
