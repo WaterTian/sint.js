@@ -13,6 +13,7 @@ import { BulgePinchFilter } from './bulge-pinch';
 import { TwistFilter } from './twist';
 
 import { GlitchFilter } from './glitch';
+import { HolesFilter } from './holes';
 
 /**
  * @example
@@ -47,6 +48,7 @@ export{
     BlurFilter,
     BulgePinchFilter,
     GlitchFilter,
+    HolesFilter,
 }
 
 
