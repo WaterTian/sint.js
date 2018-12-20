@@ -1,10 +1,10 @@
 varying vec2 vTextureCoord;
 
 uniform sampler2D uSampler;
-uniform vec2 offset;
 uniform vec4 filterArea;
 
 uniform float time;
+uniform vec2 offset;
 
 
 // 
@@ -16,15 +16,14 @@ uniform float time;
 
 #pragma glslify: snoise = require(../glsl/noise/simplex/3d)
 #pragma glslify: hsv2rgb = require(../glsl/convertHsvToRgb)
+#pragma glslify: rgb2hsv = require(../glsl/convertRgbToHsv)
 
 
 
-const float _Speed = 5.0 * 0.002;     
-const float _Scale = 0.2;
-const float _Gamma = 0.35;
+const float _Speed = 0.01;     
+const float _Scale = 0.25;
 const float _Colour = 0.15;   // 0.01..0.3
-const float _Brightness = 1.0;
-const float _Lacunarity = 2.7;
+const float _Lacunarity = 2.5;
 
 
 
@@ -43,12 +42,17 @@ const float _Lacunarity = 2.7;
 //   return mix( rg.x, rg.y, f.z );
 // }
 
-//x3
+
 vec3 noise3( in vec3 x)
 {
-  return vec3( snoise(x+vec3(123.456,.567,.37)),
-        snoise(x+vec3(.11,47.43,19.17)),
-        snoise(x) );
+  return vec3( 
+      // snoise(x+vec3(61.456,.567,.37)),
+      // snoise(x+vec3(.11,47.43,19.17)),
+
+      snoise(x+vec3(61.456,.567,.37)+vec3(offset.x)*0.2),
+      snoise(x+vec3(.11,47.43,19.17)+vec3(offset.y)*0.2),
+      snoise(x)
+      );
 }
 
 mat3 rotation(float angle, vec3 axis)
@@ -87,25 +91,33 @@ void main(void)
     uv.x *= filterArea.x / filterArea.y;
 
     float time = time*_Speed;
-
-    uv *= 1. + 0.25*sin(time*10.);  // drift scale in and out a little
-
-    vec3 p = vec3(uv*_Scale,time);          //coordinate + slight change over time
-
-    vec3 axis = 4. * fbm(p, 0.5, _Lacunarity);        //random fbm axis of rotation
-
+    uv *= 1. + 0.25*sin(time*10.);  
     
-    // vec3 colorVec = 0.5 * 1. * fbm(p*0.3,0.5,_Lacunarity);  //random base color
+    
+    vec3 p = vec3(uv*_Scale,time);  //coordinate + slight change over time
+    
+    vec3 axis = 4. * fbm(p, 0.5, _Lacunarity);  //random fbm axis of rotation      
+
+    // vec3 colorVec = 2. * fbm(p*0.2,0.5,_Lacunarity);  //random base color
     vec3 colorVec = vec3(1.0);  //random base color
 
     colorVec = rotation(1.5*length(axis),normalize(axis))*colorVec;
-    // colorVec *= 0.05;
-    colorVec = pow(colorVec,vec3(_Gamma));      //gamma
+    colorVec *= 0.7;
+
+    colorVec = vec3(length(rgb2hsv(colorVec).xz));
+
+    colorVec = max(vec3(0.76),colorVec);
+    
+    // colorVec *= (vTextureCoord.y) * hsv2rgb(vec3(250./360.,0.72,.58));
+    // colorVec += (1.0-vTextureCoord.y) * hsv2rgb(vec3(270./360.,0.58,.74));
+    colorVec *= (vTextureCoord.y) * vec3(51.,35.,143.)/255.;
+    colorVec += (1.0-vTextureCoord.y) * vec3(131.,80.,189.)/255.;
 
 
-    colorVec *= hsv2rgb(vec3(260./360.,0.6,.7))*1.9;
-    // colorVec += hsv2rgb(vec3(260./360.,0.6,.7))*0.9;
-    // colorVec *= 1.0 - (vTextureCoord.y *0.7);
+    // colorVec *= 1.0 - (vTextureCoord.y *.7);
+
+    // vec4 bg = texture2D(uSampler, vTextureCoord );
+    // colorVec += bg.rgb*0.1;
 
     gl_FragColor = vec4(colorVec,1.0);
 }

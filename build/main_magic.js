@@ -1,66 +1,34 @@
-// import VConsole from 'vconsole';
-// var vConsole = new VConsole();
-
 
 const config = {
 	domElement: document.querySelector('#webglContainer'), // 画布容器
-	initWidth: 750,
-	initHeight: 1334,
+	initWidth: 500,
+	initHeight: 500,
 	showFPS: true,
 	backgroundColor: 0x2a3145,
 };
 
-const assets1 = {
-	bg: './assets/bg.png',
-}
-
 var game = new SINT.Game(config);
 
 
-game.preload({
-	assets: assets1,
-	loading: loading,
-	loaded: create,
-})
-
-function loading(e) {
-	console.log("loading1_" + e.progress)
-}
+var bg = new SINT.Container();
+bg.filterArea = new SINT.Rectangle(0, 0, game.initWidth, game.initHeight);
+game.add(bg);
 
 
-function create() {
-
-	//bg image
-	var bg = new SINT.SpriteClip(0, 0, 'bg');
-	game.add(bg);
-}
+var filter = new SINT.magic.HolesFilter();
+bg.filters = [filter];
 
 
+if (window.DeviceOrientationEvent) window.addEventListener('deviceorientation', onOrientation)
 
-game.stage.interactive = true
-game.stage
-	.on('pointerdown', onDragStart)
-	.on('pointerup', onDragEnd)
-	.on('pointerupoutside', onDragEnd)
-	.on('pointermove', onDragMove)
+function onOrientation(event) {
+	// var alpha = event.alpha ? SINT.Unit.degToRad(event.alpha) : 0 // Z
+	var beta = event.beta ? SINT.Unit.degToRad(event.beta) : 0 // X'
+	var gamma = event.gamma ? SINT.Unit.degToRad(event.gamma) : 0 // Y''
 
-var mouseFilter = new SINT.magic.HolesFilter();
-game.stage.filters = [mouseFilter];
-
-function onDragStart(event) {
-	this.dragging = true
-	this.startPoint = event.data.global.clone();
-}
-
-function onDragEnd(event) {
-	this.dragging = false
-}
-
-function onDragMove(event) {
-	if (this.dragging) {
-		this.toPoint = event.data.global.clone();
-
-		// mouseFilter.center = [this.toPoint.x / 750, this.toPoint.y / 1334];
-	}
-
+	var _rx = beta;
+	var _ry = gamma;
+	
+	filter.offset[0]+=(_rx-filter.offset[0])*0.1;
+	filter.offset[1]+=(_ry-filter.offset[1])*0.1;
 }
