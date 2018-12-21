@@ -7,8 +7,8 @@ import { AudioManager } from '../audio';
 
 
 core.utils.skipHello();
-// core.settings.PRECISION_FRAGMENT = 'highp';
-core.settings.PRECISION_FRAGMENT = 'mediump';
+core.settings.PRECISION_FRAGMENT = 'highp';
+// core.settings.PRECISION_FRAGMENT = 'mediump';
 
 /**
  * @class

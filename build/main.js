@@ -125,8 +125,8 @@ function create() {
 				///////////////////
 				initPart2();
 
-				// SINT.magic.doTwist(game.stage, [400, 800], 600, 2, true);
-				SINT.magic.doGlitch(game.stage, 2, true);
+				SINT.magic.doTwist(game.stage, [400, 800], 600, 2, true);
+				// SINT.magic.doGlitch(game.stage, 2, true);
 			}
 		});
 
@@ -298,6 +298,8 @@ function createPart2() {
 }
 
 
+var mouseFilter = new SINT.magic.BulgePinchFilter([0.5, 0.5], 200, 1.2);
+
 game.stage.interactive = true
 game.stage
 	.on('pointerdown', onDragStart)
@@ -305,7 +307,6 @@ game.stage
 	.on('pointerupoutside', onDragEnd)
 	.on('pointermove', onDragMove)
 
-var mouseFilter = new SINT.magic.BulgePinchFilter([0.5, 0.5], 200, 1.2);
 
 function onDragStart(event) {
 	this.dragging = true
@@ -325,7 +326,7 @@ function onDragEnd(event) {
 function onDragMove(event) {
 	if (this.dragging) {
 		this.toPoint = event.data.global.clone();
-		let angle = SINT.Unit.getPointAngle(this.startPoint,this.toPoint);
+		// let angle = SINT.Unit.getPointAngle(this.startPoint,this.toPoint);
 		// console.log(angle);
 
 		mouseFilter.center = [this.toPoint.x / 750, this.toPoint.y / 1334];
