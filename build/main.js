@@ -79,7 +79,7 @@ function create() {
 	//Container
 	var fishsContainer = new SINT.Container();
 	game.add(fishsContainer);
-	SINT.magic.doTwist(fishsContainer, [500, 500], 400, 2, false);
+	// SINT.magic.doTwist(fishsContainer, [500, 500], 400, 2, false);
 
 
 
@@ -104,8 +104,12 @@ function create() {
 	}
 
 	//btn
+	var btns = new SINT.Container();
+	game.addChild(btns);
+	var btnss = new SINT.Container();
+	btns.addChild(btnss);
 	var btn1 = new SINT.SpriteClip(288, 292, 'pic1');
-	game.add(btn1);
+	btnss.addChild(btn1);
 	btn1.anchor.set(0.5);
 	btn1.interactive = true;
 	btn1.on('pointerdown', function() {
@@ -196,7 +200,7 @@ function createPart2() {
 
 	//btn
 	var btn2 = new SINT.SpriteClip(28, 900, 'pic2');
-	btn2.addChild(new SINT.TextClip(180, 56, '卸载'));
+	btn2.addChild(new SINT.TextClip(10, 56, '卸载卸载卸载卸载卸载卸载卸载卸载卸载'));
 	game.add(btn2);
 	btn2.interactive = true;
 	btn2.on('pointerdown', function() {
