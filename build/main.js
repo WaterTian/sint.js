@@ -9,6 +9,7 @@ const config = {
 	initHeight: 1334,
 	showFPS: true,
 	backgroundColor: 0x2a3145,
+	// transparent: true,
 };
 
 const assets1 = {

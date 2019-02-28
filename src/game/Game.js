@@ -34,6 +34,7 @@ export default class Game extends core.Application {
             initHeight: 1334,
             showFPS: true, // 显示帧频
             backgroundColor: 0x000000, // 画布背景色
+            transparent: false,
         }, config);
 
 
@@ -41,6 +42,7 @@ export default class Game extends core.Application {
             width: config.initWidth,
             height: config.initHeight,
             backgroundColor: config.backgroundColor,
+            transparent: config.transparent,
         });
 
 
