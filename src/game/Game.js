@@ -35,6 +35,7 @@ export default class Game extends core.Application {
             showFPS: true, // 显示帧频
             backgroundColor: 0x000000, // 画布背景色
             transparent: false,
+            autoHeight:true,
         }, config);
 
 
@@ -47,6 +48,7 @@ export default class Game extends core.Application {
 
 
         this.domElement = config.domElement;
+        this.autoHeight = config.autoHeight;
 
         /**
          * The initWidth.
@@ -84,10 +86,15 @@ export default class Game extends core.Application {
             initHeight
         } = this;
 
-        this.resizeW = this._resize.bind(this);
-        // Handle window resize event
-        window.addEventListener('resize', this.resizeW);
-        this.resizeW();
+        if(this.autoHeight)
+        {
+            this.resizeW = this._resize.bind(this);
+            // Handle window resize event
+            window.addEventListener('resize', this.resizeW);
+            this.resizeW();
+        }
+
+
 
         // Handle fish animation
         this.ticker.add(this._animate, this);
@@ -189,7 +196,7 @@ export default class Game extends core.Application {
 
         console.warn('removeThis');
 
-        window.removeEventListener('resize', this.resizeW);
+        if(this.autoHeight) window.removeEventListener('resize', this.resizeW);
 
 
         ////Hook 

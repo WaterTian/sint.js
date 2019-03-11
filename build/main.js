@@ -135,6 +135,12 @@ function create() {
 	})
 
 
+    SINT.Tween.to(btn1, 1, {
+      y: 500,
+      ease: Power1.easeInOut,
+      repeat: -1,
+    });
+
 	//Text
 	var t = new SINT.TextClip(500, 200, 'Video', {
 		fontFamily: 'Arial',
