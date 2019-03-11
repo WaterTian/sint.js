@@ -35,7 +35,7 @@ export default class Game extends core.Application {
             showFPS: true, // 显示帧频
             backgroundColor: 0x000000, // 画布背景色
             transparent: false,
-            autoHeight:true,
+            autoResize:true,
         }, config);
 
 
@@ -48,7 +48,7 @@ export default class Game extends core.Application {
 
 
         this.domElement = config.domElement;
-        this.autoHeight = config.autoHeight;
+        this.autoResize = config.autoResize;
 
         /**
          * The initWidth.
@@ -86,7 +86,7 @@ export default class Game extends core.Application {
             initHeight
         } = this;
 
-        if(this.autoHeight)
+        if(this.autoResize)
         {
             this.resizeW = this._resize.bind(this);
             // Handle window resize event
@@ -196,7 +196,7 @@ export default class Game extends core.Application {
 
         console.warn('removeThis');
 
-        if(this.autoHeight) window.removeEventListener('resize', this.resizeW);
+        if(this.autoResize) window.removeEventListener('resize', this.resizeW);
 
 
         ////Hook 
