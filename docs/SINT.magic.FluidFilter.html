@@ -4903,7 +4903,7 @@
     </ul>
 </div>
     <div class="main">
-        <h1 class="page-title" data-filename="SINT.ObservablePoint.html">Class: ObservablePoint</h1>
+        <h1 class="page-title" data-filename="SINT.magic.FluidFilter.html">Class: FluidFilter</h1>
         
 
 
@@ -4912,12 +4912,10 @@
     
 <header>
     <div class="header content-size">
-        <h2><span class="ancestors"><a href="SINT.html">SINT</a>.</span>ObservablePoint
+        <h2><span class="ancestors"><a href="SINT.html">SINT</a><a href="SINT.magic.html">.magic</a>.</span>FluidFilter
         </h2>
         
-            <div class="class-description"><p>The Point object represents a location in a two-dimensional coordinate system, where x represents
-the horizontal axis and y represents the vertical axis.
-An observable point is a point that triggers a callback when the point's position is changed.</p></div>
+            <div class="class-description"><p>base:<a target="_blank" href="https://github.com/ashima/webgl-noise">https://github.com/ashima/webgl-noise</a></p></div>
         
     </div>
 </header>  
@@ -4930,12 +4928,12 @@ An observable point is a point that triggers a callback when the point's positio
         
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="ObservablePoint">
-            <a class="share-icon" href="#ObservablePoint"><span class="glyphicon glyphicon-link"></span></a>
+        <h4 class="name" id="FluidFilter">
+            <a class="share-icon" href="#FluidFilter"><span class="glyphicon glyphicon-link"></span></a>
             <span class="">
-                new SINT.ObservablePoint
+                new SINT.magic.FluidFilter
             </span>
-            <span class="signature">(cb, scope, <span class="optional">x</span>, <span class="optional">y</span>)</span>
+            <span class="signature">(<span class="optional">radius</span>, <span class="optional">angle</span>, <span class="optional">padding</span>)</span>
             
             
             
@@ -4980,71 +4978,7 @@ An observable point is a point that triggers a callback when the point's positio
 	
         <tr>
             
-                <td class="name"><code>cb</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-            
-            
-                <td class="default">
-                
-                </td>
-            
-            
-            <td class="description last">
-                
-                    
-                    
-                        
-                    
-                
-                <p>callback when changed</p></td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>scope</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-            
-            
-                <td class="default">
-                
-                </td>
-            
-            
-            <td class="description last">
-                
-                    
-                    
-                        
-                    
-                
-                <p>owner of callback</p></td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>x</code></td>
+                <td class="name"><code>radius</code></td>
             
             
             <td class="type">
@@ -5059,7 +4993,7 @@ An observable point is a point that triggers a callback when the point's positio
             
                 <td class="default">
                 
-                    0
+                    200
                 
                 </td>
             
@@ -5073,14 +5007,14 @@ An observable point is a point that triggers a callback when the point's positio
                         
                     
                 
-                <p>position of the point on the x axis</p></td>
+                <p>The radius of the Filter.</p></td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>y</code></td>
+                <td class="name"><code>angle</code></td>
             
             
             <td class="type">
@@ -5095,7 +5029,7 @@ An observable point is a point that triggers a callback when the point's positio
             
                 <td class="default">
                 
-                    0
+                    4
                 
                 </td>
             
@@ -5109,7 +5043,43 @@ An observable point is a point that triggers a callback when the point's positio
                         
                     
                 
-                <p>position of the point on the y axis</p></td>
+                <p>The angle of the Filter.</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>padding</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    20
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Padding for filter area.</p></td>
         </tr>
 	
 	
@@ -5158,6 +5128,12 @@ An observable point is a point that triggers a callback when the point's positio
     </div>
     
     
+        <h3 class="subsection-title">Extends</h3>
+        
+        <ul>
+            <li><a href="SINT.Filter.html">SINT.Filter</a></li>
+        </ul>
+    
     
     
     
@@ -5174,12 +5150,14 @@ An observable point is a point that triggers a callback when the point's positio
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="x">
-            <a class="share-icon" href="#x"><span class="glyphicon glyphicon-link"></span></a>
-            <span class="">x</span>
-            <span class="type-signature type">number</span>
+        <h4 class="name" id="autoFit">
+            <a class="share-icon" href="#autoFit"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">autoFit</span>
+            <span class="type-signature type">boolean</span>
             
             
+            
+                <span class="access-signature inherited"><a href="SINT.Filter.html#autoFit">inherited</a></span>
             
             
         </h4>
@@ -5190,7 +5168,8 @@ An observable point is a point that triggers a callback when the point's positio
 <dd>
     
     <div class="description">
-        <p>The position of the displayObject on the x axis relative to the local coordinates of the parent.</p>
+        <p>If enabled, SINTJS will fit the filter area into boundaries for better performance.
+Switch it off if it does not work for specific shader.</p>
     </div>
     
     
@@ -5225,10 +5204,172 @@ An observable point is a point that triggers a callback when the point's positio
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="y">
-            <a class="share-icon" href="#y"><span class="glyphicon glyphicon-link"></span></a>
-            <span class="">y</span>
+        <h4 class="name" id="blendMode">
+            <a class="share-icon" href="#blendMode"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">blendMode</span>
             <span class="type-signature type">number</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Filter.html#blendMode">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Sets the blendmode of the filter</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>SINT.BLEND_MODES.NORMAL</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="enabled">
+            <a class="share-icon" href="#enabled"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">enabled</span>
+            <span class="type-signature type">boolean</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Filter.html#enabled">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>If enabled is true the filter is applied, if false it will not.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="fragmentSrc">
+            <a class="share-icon" href="#fragmentSrc"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">fragmentSrc</span>
+            <span class="type-signature type">string</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Filter.html#fragmentSrc">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The fragment shader.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="offset">
+            <a class="share-icon" href="#offset"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">offset</span>
+            <span class="type-signature type"><a href="SINT.Point.html">SINT.Point</a></span>
             
             
             
@@ -5241,7 +5382,232 @@ An observable point is a point that triggers a callback when the point's positio
 <dd>
     
     <div class="description">
-        <p>The position of the displayObject on the x axis relative to the local coordinates of the parent.</p>
+        <p>This point describes the the offset of the Filter.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="padding">
+            <a class="share-icon" href="#padding"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">padding</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Filter.html#padding">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The padding of the filter. Some filters require extra space to breath such as a blur.
+Increasing this will add extra width and height to the bounds of the object that the
+filter is applied to.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="resolution">
+            <a class="share-icon" href="#resolution"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">resolution</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Filter.html#resolution">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The resolution of the filter. Setting this to be lower will lower the quality but
+increase the performance of the filter.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="uniforms">
+            <a class="share-icon" href="#uniforms"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">uniforms</span>
+            <span class="type-signature type">object</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Filter.html#uniforms">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>An object containing the current values of custom uniforms.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+        <h5>Example</h5>
+        
+        <p class="code-caption">Updating the value of a custom uniform</p>
+    
+
+    
+    <pre class="prettyprint"><code>filter.uniforms.time = performance.now();</code></pre>
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="vertexSrc">
+            <a class="share-icon" href="#vertexSrc"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">vertexSrc</span>
+            <span class="type-signature type">string</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Filter.html#vertexSrc">inherited</a></span>
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The vertex shader.</p>
     </div>
     
     
@@ -5282,15 +5648,19 @@ An observable point is a point that triggers a callback when the point's positio
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="clone">
-            <a class="share-icon" href="#clone"><span class="glyphicon glyphicon-link"></span></a>
+        <h4 class="name" id="apply">
+            <a class="share-icon" href="#apply"><span class="glyphicon glyphicon-link"></span></a>
             <span class="">
-                clone
+                apply
             </span>
-            <span class="signature">(<span class="optional">cb</span>, <span class="optional">scope</span>)</span><span class="type-signature"><a href="SINT.ObservablePoint.html">SINT.ObservablePoint</a></span>
+            <span class="signature">(filterManager, input, output, clear, <span class="optional">currentState</span>)</span>
             
             
             
+                <span class="access-signature inherited"><a href="SINT.Filter.html#apply">inherited</a></span>
+            
+            
+                <span class="access-signature overrides"><a href="SINT.Filter.html#apply">overrides</a></span>
             
         </h4>
     
@@ -5303,9 +5673,7 @@ An observable point is a point that triggers a callback when the point's positio
     
     
     <div class="description">
-        <p>Creates a clone of this point.
-The callback and scope params can be overidden otherwise they will default
-to the clone object's values.</p>
+        <p>Applies the filter</p>
     </div>
     
 
@@ -5326,8 +5694,6 @@ to the clone object's values.</p>
 		<th>Type</th>
 		
 		
-		<th>Default</th>
-		
 		
 		<th class="last">Description</th>
 	</tr>
@@ -5338,43 +5704,119 @@ to the clone object's values.</p>
 	
         <tr>
             
-                <td class="name"><code>cb</code></td>
+                <td class="name"><code>filterManager</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type"><a href="SINT.FilterManager.html">SINT.FilterManager</a></span>
 
 
             
             </td>
             
             
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
             
             <td class="description last">
                 
-                    
-                        <span class="optional">optional</span>
                     
                     
                         
                     
                 
-                <p>callback when changed</p></td>
+                <p>The renderer to retrieve the filter from</p></td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>scope</code></td>
+                <td class="name"><code>input</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.RenderTarget.html">SINT.RenderTarget</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                    
+                        
+                    
+                
+                <p>The input render target.</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>output</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.RenderTarget.html">SINT.RenderTarget</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                    
+                        
+                    
+                
+                <p>The target to output to.</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>clear</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                    
+                        
+                    
+                
+                <p>Should the output be cleared before rendering to it</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>currentState</code></td>
             
             
             <td class="type">
@@ -5387,12 +5829,6 @@ to the clone object's values.</p>
             </td>
             
             
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
             
             <td class="description last">
                 
@@ -5403,474 +5839,9 @@ to the clone object's values.</p>
                         
                     
                 
-                <p>owner of callback</p></td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-        <tr>
-            
-            <td class="type">
-            
-                        <a href="SINT.ObservablePoint.html">SINT.ObservablePoint</a>
-                        
-                    
-            </td>
-            <td class="description last">a copy of the point</td>
-        </tr>
-    
-    </tbody>
-</table>
-
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="copy">
-            <a class="share-icon" href="#copy"><span class="glyphicon glyphicon-link"></span></a>
-            <span class="">
-                copy
-            </span>
-            <span class="signature">(point)</span>
-            
-            
-            
-            
-        </h4>
-    
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Copies the data from another point</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>point</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type"><a href="SINT.Point.html">SINT.Point</a></span>
-|
-
-<span class="param-type"><a href="SINT.ObservablePoint.html">SINT.ObservablePoint</a></span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                <p>point to copy from</p></td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="equals">
-            <a class="share-icon" href="#equals"><span class="glyphicon glyphicon-link"></span></a>
-            <span class="">
-                equals
-            </span>
-            <span class="signature">(p)</span><span class="type-signature">boolean</span>
-            
-            
-            
-            
-        </h4>
-    
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Returns true if the given point is equal to this point</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>p</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type"><a href="SINT.Point.html">SINT.Point</a></span>
-|
-
-<span class="param-type"><a href="SINT.ObservablePoint.html">SINT.ObservablePoint</a></span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                <p>The point to check</p></td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-        <tr>
-            
-            <td class="type">
-            
-                        boolean
-                        
-                    
-            </td>
-            <td class="description last">Whether the given point equal to this point</td>
-        </tr>
-    
-    </tbody>
-</table>
-
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="set">
-            <a class="share-icon" href="#set"><span class="glyphicon glyphicon-link"></span></a>
-            <span class="">
-                set
-            </span>
-            <span class="signature">(<span class="optional">x</span>, <span class="optional">y</span>)</span>
-            
-            
-            
-            
-        </h4>
-    
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Sets the point to a new x and y position.
-If y is omitted, both x and y will be set to x.</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Default</th>
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="default">
-                
-                    0
-                
-                </td>
-            
-            
-            <td class="description last">
-                
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
-                <p>position of the point on the x axis</p></td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>y</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="default">
-                
-                    0
-                
-                </td>
-            
-            
-            <td class="description last">
-                
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
-                <p>position of the point on the y axis</p></td>
+                <p>It's current state of filter.
+       There are some useful properties in the currentState :
+       target, filters, sourceFrame, destinationFrame, renderTarget, resolution</p></td>
         </tr>
 	
 	
