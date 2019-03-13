@@ -20,6 +20,7 @@ core.settings.PRECISION_FRAGMENT = 'highp';
  * @param {number} [config.initWidth=750] - The Game width
  * @param {number} [config.initHeight=1334] - The Game height
  * @param {boolean} [config.showFPS=true]
+ * @param {boolean} [config.autoResize=true] - is autoResize the view
  * @param {number} [config.backgroundColor=0x000000] - The backgroundColor
  */
 
