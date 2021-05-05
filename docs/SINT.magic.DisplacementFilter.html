@@ -5606,7 +5606,7 @@
 </div>
 
     <div class="main">
-        <h1 class="page-title" data-filename="SINT.ObjectRenderer.html">Class: ObjectRenderer</h1>
+        <h1 class="page-title" data-filename="SINT.magic.DisplacementFilter.html">Class: DisplacementFilter</h1>
         
 
 
@@ -5615,10 +5615,8 @@
     
 <header>
     <div class="header content-size">
-        <h2><span class="ancestors"><a href="SINT.html">SINT</a>.</span>ObjectRenderer
+        <h2><span class="ancestors"><a href="SINT.html">SINT</a><a href="SINT.magic.html">.magic</a>.</span>DisplacementFilter
         </h2>
-        
-            <div class="class-description"><p>Base for a common object renderer that can be used as a system renderer plugin.</p></div>
         
     </div>
 </header>  
@@ -5632,12 +5630,12 @@
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="ObjectRenderer">
-            <a class="share-icon" href="#ObjectRenderer"><span class="glyphicon glyphicon-link"></span></a>
+        <h4 class="name" id="DisplacementFilter">
+            <a class="share-icon" href="#DisplacementFilter"><span class="glyphicon glyphicon-link"></span></a>
             <span class="">
-                new SINT.ObjectRenderer
+                new SINT.magic.DisplacementFilter
             </span>
-            <span class="signature">()</span>
+            <span class="signature">(<span class="optional">density</span>, <span class="optional">speed</span>, <span class="optional">zoom</span>)</span>
             
             
             
@@ -5657,6 +5655,118 @@
     
     
     
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>density</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                </td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>speed</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                </td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>zoom</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
     
     
     
@@ -5704,7 +5814,7 @@
         <h3 class="subsection-title">Extends</h3>
         
         <ul>
-            <li><a href="SINT.WebGLManager.html">SINT.WebGLManager</a></li>
+            <li><a href="SINT.Filter.html">SINT.Filter</a></li>
         </ul>
     
     
@@ -5725,14 +5835,126 @@
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="renderer">
-            <a class="share-icon" href="#renderer"><span class="glyphicon glyphicon-link"></span></a>
-            <span class="">renderer</span>
-            <span class="type-signature type"><a href="SINT.WebGLRenderer.html">SINT.WebGLRenderer</a></span>
+        <h4 class="name" id="autoFit">
+            <a class="share-icon" href="#autoFit"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">autoFit</span>
+            <span class="type-signature type">boolean</span>
             
             
             
-                <span class="access-signature inherited"><a href="SINT.WebGLManager.html#renderer">inherited</a></span>
+                <span class="access-signature inherited"><a href="SINT.Filter.html#autoFit">inherited</a></span>
+            
+            
+                <span class="access-signature overrides"><a href="SINT.Filter.html#autoFit">overrides</a></span>
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>If enabled, SINTJS will fit the filter area into boundaries for better performance.
+Switch it off if it does not work for specific shader.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="blendMode">
+            <a class="share-icon" href="#blendMode"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">blendMode</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Filter.html#blendMode">inherited</a></span>
+            
+            
+                <span class="access-signature overrides"><a href="SINT.Filter.html#blendMode">overrides</a></span>
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Sets the blendmode of the filter</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>SINT.BLEND_MODES.NORMAL</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="density">
+            <a class="share-icon" href="#density"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">density</span>
+            <span class="type-signature type">number</span>
+            
+            
             
             
         </h4>
@@ -5743,7 +5965,452 @@
 <dd>
     
     <div class="description">
-        <p>The renderer this manager works for.</p>
+        <p>This density of the Filter noise.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="enabled">
+            <a class="share-icon" href="#enabled"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">enabled</span>
+            <span class="type-signature type">boolean</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Filter.html#enabled">inherited</a></span>
+            
+            
+                <span class="access-signature overrides"><a href="SINT.Filter.html#enabled">overrides</a></span>
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>If enabled is true the filter is applied, if false it will not.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="fragmentSrc">
+            <a class="share-icon" href="#fragmentSrc"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">fragmentSrc</span>
+            <span class="type-signature type">string</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Filter.html#fragmentSrc">inherited</a></span>
+            
+            
+                <span class="access-signature overrides"><a href="SINT.Filter.html#fragmentSrc">overrides</a></span>
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The fragment shader.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="padding">
+            <a class="share-icon" href="#padding"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">padding</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Filter.html#padding">inherited</a></span>
+            
+            
+                <span class="access-signature overrides"><a href="SINT.Filter.html#padding">overrides</a></span>
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The padding of the filter. Some filters require extra space to breath such as a blur.
+Increasing this will add extra width and height to the bounds of the object that the
+filter is applied to.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="resolution">
+            <a class="share-icon" href="#resolution"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">resolution</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Filter.html#resolution">inherited</a></span>
+            
+            
+                <span class="access-signature overrides"><a href="SINT.Filter.html#resolution">overrides</a></span>
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The resolution of the filter. Setting this to be lower will lower the quality but
+increase the performance of the filter.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="speed">
+            <a class="share-icon" href="#speed"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">speed</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>This speed of the Filter.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="uniforms">
+            <a class="share-icon" href="#uniforms"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">uniforms</span>
+            <span class="type-signature type">object</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Filter.html#uniforms">inherited</a></span>
+            
+            
+                <span class="access-signature overrides"><a href="SINT.Filter.html#uniforms">overrides</a></span>
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>An object containing the current values of custom uniforms.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+        <h5>Example</h5>
+        
+        <p class="code-caption">Updating the value of a custom uniform</p>
+    
+
+    
+    <pre class="prettyprint"><code>filter.uniforms.time = performance.now();</code></pre>
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="vertexSrc">
+            <a class="share-icon" href="#vertexSrc"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">vertexSrc</span>
+            <span class="type-signature type">string</span>
+            
+            
+            
+                <span class="access-signature inherited"><a href="SINT.Filter.html#vertexSrc">inherited</a></span>
+            
+            
+                <span class="access-signature overrides"><a href="SINT.Filter.html#vertexSrc">overrides</a></span>
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The vertex shader.</p>
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="zoom">
+            <a class="share-icon" href="#zoom"><span class="glyphicon glyphicon-link"></span></a>
+            <span class="">zoom</span>
+            <span class="type-signature type">number</span>
+            
+            
+            
+            
+        </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>This zoom of the Filter.</p>
     </div>
     
     
@@ -5784,17 +6451,19 @@
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="destroy">
-            <a class="share-icon" href="#destroy"><span class="glyphicon glyphicon-link"></span></a>
+        <h4 class="name" id="apply">
+            <a class="share-icon" href="#apply"><span class="glyphicon glyphicon-link"></span></a>
             <span class="">
-                destroy
+                apply
             </span>
-            <span class="signature">()</span>
+            <span class="signature">(filterManager, input, output, clear, <span class="optional">currentState</span>)</span>
             
             
             
-                <span class="access-signature inherited"><a href="SINT.WebGLManager.html#destroy">inherited</a></span>
+                <span class="access-signature inherited"><a href="SINT.Filter.html#apply">inherited</a></span>
             
+            
+                <span class="access-signature overrides"><a href="SINT.Filter.html#apply">overrides</a></span>
             
         </h4>
     
@@ -5807,225 +6476,7 @@
     
     
     <div class="description">
-        <p>Generic destroy methods to be overridden by the subclass</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="flush">
-            <a class="share-icon" href="#flush"><span class="glyphicon glyphicon-link"></span></a>
-            <span class="">
-                flush
-            </span>
-            <span class="signature">()</span>
-            
-            
-            
-            
-        </h4>
-    
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Stub method for rendering content and emptying the current batch.</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="onContextChange">
-            <a class="share-icon" href="#onContextChange"><span class="glyphicon glyphicon-link"></span></a>
-            <span class="">
-                onContextChange
-            </span>
-            <span class="signature">()</span>
-            
-            
-            
-                <span class="access-signature inherited"><a href="SINT.WebGLManager.html#onContextChange">inherited</a></span>
-            
-            
-        </h4>
-    
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Generic method called when there is a WebGL context change.</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="render">
-            <a class="share-icon" href="#render"><span class="glyphicon glyphicon-link"></span></a>
-            <span class="">
-                render
-            </span>
-            <span class="signature">(object)</span>
-            
-            
-            
-            
-        </h4>
-    
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Renders an object</p>
+        <p>Applies the filter</p>
     </div>
     
 
@@ -6056,13 +6507,13 @@
 	
         <tr>
             
-                <td class="name"><code>object</code></td>
+                <td class="name"><code>filterManager</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type"><a href="SINT.DisplayObject.html">SINT.DisplayObject</a></span>
+<span class="param-type"><a href="SINT.FilterManager.html">SINT.FilterManager</a></span>
 
 
             
@@ -6072,156 +6523,133 @@
             
             <td class="description last">
                 
-                <p>The object to render.</p></td>
+                    
+                    
+                        
+                    
+                
+                <p>The renderer to retrieve the filter from</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>input</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.RenderTarget.html">SINT.RenderTarget</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                    
+                        
+                    
+                
+                <p>The input render target.</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>output</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="SINT.RenderTarget.html">SINT.RenderTarget</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                    
+                        
+                    
+                
+                <p>The target to output to.</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>clear</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                    
+                        
+                    
+                
+                <p>Should the output be cleared before rendering to it</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>currentState</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>It's current state of filter.
+There are some useful properties in the currentState :
+target, filters, sourceFrame, destinationFrame, renderTarget, resolution</p></td>
         </tr>
 	
 	
 	</tbody>
 </table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="start">
-            <a class="share-icon" href="#start"><span class="glyphicon glyphicon-link"></span></a>
-            <span class="">
-                start
-            </span>
-            <span class="signature">()</span>
-            
-            
-            
-            
-        </h4>
-    
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Starts the renderer and sets the shader</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="stop">
-            <a class="share-icon" href="#stop"><span class="glyphicon glyphicon-link"></span></a>
-            <span class="">
-                stop
-            </span>
-            <span class="signature">()</span>
-            
-            
-            
-            
-        </h4>
-    
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Stops the renderer</p>
-    </div>
-    
-
-    
-    
-    
-    
     
     
     

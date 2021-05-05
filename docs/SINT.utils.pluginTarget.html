@@ -5606,7 +5606,7 @@
 </div>
 
     <div class="main">
-        <h1 class="page-title" data-filename="SINT.ObjectRenderer.html">Class: ObjectRenderer</h1>
+        <h1 class="page-title" data-filename="SINT.utils.pluginTarget.html">Mixin: pluginTarget</h1>
         
 
 
@@ -5615,10 +5615,8 @@
     
 <header>
     <div class="header content-size">
-        <h2><span class="ancestors"><a href="SINT.html">SINT</a>.</span>ObjectRenderer
+        <h2><span class="ancestors"><a href="SINT.html">SINT</a><a href="SINT.utils.html">.utils</a>.</span>pluginTarget
         </h2>
-        
-            <div class="class-description"><p>Base for a common object renderer that can be used as a system renderer plugin.</p></div>
         
     </div>
 </header>  
@@ -5630,36 +5628,10 @@
 
         
             
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="ObjectRenderer">
-            <a class="share-icon" href="#ObjectRenderer"><span class="glyphicon glyphicon-link"></span></a>
-            <span class="">
-                new SINT.ObjectRenderer
-            </span>
-            <span class="signature">()</span>
+                <div class="description"><p>Mixins functionality to make an object have &quot;plugins&quot;.</p></div>
             
-            
-            
-            
-        </h4>
-    
-        
-    </div>
 
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
+            
 <dl class="details">
     
         
@@ -5682,30 +5654,21 @@
     
 </dl>
 
-    
-    
+
+            
+                <h3>Example</h3>
+                
 
     
+    <pre class="prettyprint"><code>function MyObject() {}     pluginTarget.mixin(MyObject);</code></pre>
+    
 
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
+            
         
         </div>
     
     
     
-        <h3 class="subsection-title">Extends</h3>
-        
-        <ul>
-            <li><a href="SINT.WebGLManager.html">SINT.WebGLManager</a></li>
-        </ul>
     
     
     
@@ -5719,549 +5682,6 @@
     
     
     
-        <h3 class="subsection-title">Members</h3>
-        
-        <dl class="list-members">
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="renderer">
-            <a class="share-icon" href="#renderer"><span class="glyphicon glyphicon-link"></span></a>
-            <span class="">renderer</span>
-            <span class="type-signature type"><a href="SINT.WebGLRenderer.html">SINT.WebGLRenderer</a></span>
-            
-            
-            
-                <span class="access-signature inherited"><a href="SINT.WebGLManager.html#renderer">inherited</a></span>
-            
-            
-        </h4>
-    </div>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>The renderer this manager works for.</p>
-    </div>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-        </dl>
-    
-    
-    
-        <h3 class="subsection-title">Methods</h3>
-        
-        <dl class="list-methods">
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="destroy">
-            <a class="share-icon" href="#destroy"><span class="glyphicon glyphicon-link"></span></a>
-            <span class="">
-                destroy
-            </span>
-            <span class="signature">()</span>
-            
-            
-            
-                <span class="access-signature inherited"><a href="SINT.WebGLManager.html#destroy">inherited</a></span>
-            
-            
-        </h4>
-    
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Generic destroy methods to be overridden by the subclass</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="flush">
-            <a class="share-icon" href="#flush"><span class="glyphicon glyphicon-link"></span></a>
-            <span class="">
-                flush
-            </span>
-            <span class="signature">()</span>
-            
-            
-            
-            
-        </h4>
-    
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Stub method for rendering content and emptying the current batch.</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="onContextChange">
-            <a class="share-icon" href="#onContextChange"><span class="glyphicon glyphicon-link"></span></a>
-            <span class="">
-                onContextChange
-            </span>
-            <span class="signature">()</span>
-            
-            
-            
-                <span class="access-signature inherited"><a href="SINT.WebGLManager.html#onContextChange">inherited</a></span>
-            
-            
-        </h4>
-    
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Generic method called when there is a WebGL context change.</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="render">
-            <a class="share-icon" href="#render"><span class="glyphicon glyphicon-link"></span></a>
-            <span class="">
-                render
-            </span>
-            <span class="signature">(object)</span>
-            
-            
-            
-            
-        </h4>
-    
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Renders an object</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>object</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type"><a href="SINT.DisplayObject.html">SINT.DisplayObject</a></span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                <p>The object to render.</p></td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="start">
-            <a class="share-icon" href="#start"><span class="glyphicon glyphicon-link"></span></a>
-            <span class="">
-                start
-            </span>
-            <span class="signature">()</span>
-            
-            
-            
-            
-        </h4>
-    
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Starts the renderer and sets the shader</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="stop">
-            <a class="share-icon" href="#stop"><span class="glyphicon glyphicon-link"></span></a>
-            <span class="">
-                stop
-            </span>
-            <span class="signature">()</span>
-            
-            
-            
-            
-        </h4>
-    
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Stops the renderer</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        </dl>
     
     
     
@@ -6281,7 +5701,7 @@
 
         <footer class="content-size">
             <div class="footer">
-                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Thu May 06 2021 02:48:41 GMT+0800 (GMT+08:00)
+                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Thu May 06 2021 02:48:42 GMT+0800 (GMT+08:00)
             </div>
         </footer>
     </div>
