@@ -28,6 +28,9 @@ bg.on('pointermove', function(event) {
 })
 
 
+
+
+
 // if (window.DeviceOrientationEvent) window.addEventListener('deviceorientation', onOrientation)
 
 // function onOrientation(event) {

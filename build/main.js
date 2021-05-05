@@ -79,19 +79,19 @@ function create() {
 
 	//Container
 	var fishsContainer = new SINT.Container();
-	game.add(fishsContainer);
+	bg.addChild(fishsContainer);
 	// SINT.magic.doTwist(fishsContainer, [500, 500], 400, 2, false);
-
+	SINT.magic.doDisplacement(bg, 0.8, 0.2, 1.5, 5);
 
 
 	var fishs = [];
-	for (var i = 0; i < 2000; i++) {
+	for (var i = 0; i < 1000; i++) {
 		var id = 'fish' + ((i % 4) + 1);
 		var fish = new SINT.SpriteClip(0, 0, id);
 		fish.tint = Math.random() * 0xff3300;
 		fish.alpha = 0.3 + Math.random() * 0.8;
 		fish.anchor.set(0.5);
-		fish.scale.set(0.2 + Math.random() * 0.2);
+		fish.scale.set(0.2 + Math.random() * 0.5);
 		// scatter them all
 		fish.x = Math.random() * game.initWidth;
 		fish.y = Math.random() * game.initHeight;
@@ -109,7 +109,7 @@ function create() {
 	game.addChild(btns);
 	var btnss = new SINT.Container();
 	btns.addChild(btnss);
-	var btn1 = new SINT.SpriteClip(288, 292, 'pic1');
+	var btn1 = new SINT.SpriteClip(290, 100, 'pic1');
 	btnss.addChild(btn1);
 	btn1.anchor.set(0.5);
 	btn1.interactive = true;
@@ -126,8 +126,8 @@ function create() {
 				///////////////////
 				initPart2();
 
-				SINT.magic.doTwist(game.stage, [400, 800], 600, 2, true);
-				// SINT.magic.doGlitch(game.stage, 2, true);
+				// SINT.magic.doTwist(game.stage, [400, 800], 600, 2, true);
+				SINT.magic.doGlitch(game.stage, 2, true);
 			}
 		});
 
@@ -135,14 +135,16 @@ function create() {
 	})
 
 
+
+
     SINT.Tween.to(btn1, 1, {
-      y: 500,
+      y: 300,
       ease: Power1.easeInOut,
       repeat: -1,
     });
 
 	//Text
-	var t = new SINT.TextClip(500, 200, 'Video', {
+	var t = new SINT.TextClip(500, 100, 'Video', {
 		fontFamily: 'Arial',
 		fontSize: 50,
 		fontStyle: 'italic',
@@ -206,8 +208,8 @@ function createPart2() {
 	game.remove(loadingTxt)
 
 	//btn
-	var btn2 = new SINT.SpriteClip(28, 900, 'pic2');
-	btn2.addChild(new SINT.TextClip(10, 56, '卸载卸载卸载卸载卸载卸载卸载卸载卸载'));
+	var btn2 = new SINT.SpriteClip(28, 700, 'pic2');
+	btn2.addChild(new SINT.TextClip(60, 56, '卸载'));
 	game.add(btn2);
 	btn2.interactive = true;
 	btn2.on('pointerdown', function() {
@@ -222,14 +224,14 @@ function createPart2() {
 	})
 
 	//icon1
-	var icon1 = new SINT.SpriteClip(28, 1100, 'icon1');
+	var icon1 = new SINT.SpriteClip(28, 900, 'icon1');
 	game.add(icon1);
-	var icon2 = new SINT.SpriteClip(228, 1100, 'icon1');
+	var icon2 = new SINT.SpriteClip(228, 900, 'icon1');
 	game.add(icon2);
 	SINT.magic.doDye(icon2, 0x7067c5);
 
 	//Text
-	var t1 = new SINT.TextClip(30, 600, 'Game1 * -> 课前游戏 -> 1234文本', {
+	var t1 = new SINT.TextClip(30, 500, 'Game1 * ->   游戏 ->', {
 		fontFamily: 'Arial',
 		fontSize: 50,
 		fontStyle: 'italic',
@@ -250,7 +252,7 @@ function createPart2() {
 
 
 	//Animated
-	var ac1 = new SINT.AnimatedClip(400, 600, 'fighter');
+	var ac1 = new SINT.AnimatedClip(600, 400, 'fighter');
 	game.add(ac1);
 	ac1.anchor.set(0.5);
 	ac1.animationSpeed = 40 / 60;
@@ -266,7 +268,7 @@ function createPart2() {
 			}
 		});
 		SINT.Tween.to(ac1, 2, {
-			y: 600,
+			y: 400,
 			delay: 1,
 			ease: Strong.easeInOut,
 			onComplete: function() {
@@ -282,10 +284,10 @@ function createPart2() {
 
 
 
-	var ac2 = new SINT.AnimatedClip(600, 1000, ['fish1', 'fish2', 'fish3', 'fish4']);
+	var ac2 = new SINT.AnimatedClip(600, 600, ['fish1', 'fish2', 'fish3', 'fish4']);
 	game.add(ac2);
 	ac2.anchor.set(0.5);
-	ac2.animationSpeed = 3 / 60;
+	ac2.animationSpeed = 10 / 60;
 	ac2.play();
 
 
@@ -295,7 +297,7 @@ function createPart2() {
 	}
 	var as = new SINT.AnimatedSprite(textures);
 	game.add(as);
-	as.position.set(500, 800);
+	as.position.set(600, 800);
 	as.animationSpeed = 0.1;
 	as.anchor.set(0.5);
 	as.scale.set(0.6);

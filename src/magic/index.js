@@ -1,19 +1,37 @@
-
 import Tween from '../Tween';
 import Dye from './dye/dye';
 
 
 
 
-import { default as ColorMatrixFilter } from './colormatrix/ColorMatrixFilter';
-import { default as AlphaFilter } from './alpha/AlphaFilter';
-import { default as BlurFilter } from './blur/BlurFilter';
+import {
+    default as ColorMatrixFilter
+} from './colormatrix/ColorMatrixFilter';
+import {
+    default as AlphaFilter
+} from './alpha/AlphaFilter';
+import {
+    default as BlurFilter
+} from './blur/BlurFilter';
 
-import { BulgePinchFilter } from './bulge-pinch';
-import { TwistFilter } from './twist';
+import {
+    BulgePinchFilter
+} from './bulge-pinch';
+import {
+    TwistFilter
+} from './twist';
 
-import { GlitchFilter } from './glitch';
-import { HolesFilter } from './holes';
+import {
+    GlitchFilter
+} from './glitch';
+import {
+    HolesFilter
+} from './holes';
+import {
+    DisplacementFilter
+} from './displacement';
+
+
 
 /**
  * @example
@@ -42,13 +60,14 @@ import { HolesFilter } from './holes';
 
 
 
-export{
+export {
     AlphaFilter,
     ColorMatrixFilter,
     BlurFilter,
     BulgePinchFilter,
     GlitchFilter,
     HolesFilter,
+    DisplacementFilter,
 }
 
 
@@ -61,18 +80,17 @@ export{
  * @param {boolean} [clear=false] 
  */
 
-export function doGlitch(container,time,clear = false) {
+export function doGlitch(container, time, clear = false) {
     let filter = new GlitchFilter();
     container.filters = [filter];
     Tween.to(filter, time, {
-        time:1,
-        ease:Linear.easeNone,
-        onComplete:function(){
+        time: 1,
+        ease: Linear.easeNone,
+        onComplete: function () {
             if (!clear) return;
             container.filters = [];
         }
     })
-
 }
 
 
@@ -89,6 +107,7 @@ export function doDye(container, color) {
     colorMatrix.blackAndWhite()
     container.filters = [colorMatrix, filter];
 }
+
 
 
 /**
@@ -125,6 +144,38 @@ export function doTwist(container, offset, radius, time, clear = false) {
         }
     })
 }
+
+
+
+/**
+ * @memberof SINT.magic
+ * @function doDisplacement
+ * @param {SINT.Container} [container] 
+ * @param {number} [density]
+ * @param {number} [speed]
+ * @param {number} [zoom]
+ * @param {number} [time]
+ * @param {boolean} [clear=false] 
+ */
+
+export function doDisplacement(container, density, speed, zoom, time, clear = false) {
+    let filter = new DisplacementFilter();
+    container.filters = [filter];
+
+    Tween.to(filter, time, {
+        density: density,
+        speed: speed,
+        zoom: zoom,
+        ease: Linear.easeNone,
+        onComplete: function () {
+            if (!clear) return;
+            container.filters = [];
+        }
+    })
+
+}
+
+
 
 // /**
 //  * @memberof SINT.magic

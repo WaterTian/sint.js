@@ -8,9 +8,6 @@ import fs from './holes2.frag';
  * @class
  * @extends SINT.Filter
  * @memberof SINT.magic
- * @param {number} [radius=200] The radius of the Filter.
- * @param {number} [angle=4] The angle of the Filter.
- * @param {number} [padding=20] Padding for filter area.
  */
 export default class HolesFilter extends core.Filter {
     constructor() {
