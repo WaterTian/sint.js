@@ -80,7 +80,7 @@ function create() {
 	var bg = new SINT.Container();
 	bg.filterArea = new SINT.Rectangle(0, 0, game.initWidth, game.initHeight);
 	game.addChild(bg);
-	var bg_filter = new SINT.magic.HolesFilter(0x4a778a, 0xf3f9f1, 0.1, 0.5, 1);
+	var bg_filter = new SINT.magic.HolesFilter(0x4a778a, 0xf3f9f1, 0.2, 0.7);
 	bg.filters = [bg_filter];
 
 

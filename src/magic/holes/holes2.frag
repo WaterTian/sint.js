@@ -10,7 +10,6 @@ uniform vec3 uColor1;
 uniform vec3 uColor2;
 
 
-uniform float density;
 uniform float speed;
 uniform float zoom;
 
@@ -34,8 +33,8 @@ uniform float zoom;
 vec3 noise3( in vec3 x)
 {
   return vec3( 
-      snoise(x+vec3(61.456,.567,.37)+vec3(offset.x)*speed*density),
-      snoise(x+vec3(.11,47.43,19.17)+vec3(offset.y)*speed*density),
+      snoise(x+vec3(61.456,.567,.37)+vec3(offset.x)*speed),
+      snoise(x+vec3(.11,47.43,19.17)+vec3(offset.y)*speed),
       snoise(x)
       );
 }
@@ -52,21 +51,6 @@ mat3 rotation(float angle, vec3 axis)
     oca.z * axis + vec3(-sa.y,  sa.x, c));  
 }
 
-// https://code.google.com/p/fractalterraingeneration/wiki/Fractional_Brownian_Motion
-vec3 fbm(vec3 x, float H, float L)
-{
-  vec3 v = vec3(0);
-  float f = 1.;
-  for (int i=0; i<3; i++)
-  {
-    float w = pow(f,-H);
-    v += noise3(x)*w;
-    x *= L;
-    f *= L;
-  }
-  return v;
-}
-
 
 
 void main(void)
@@ -78,8 +62,8 @@ void main(void)
     uv *= 1. + 0.25*sin(time*0.1);  
     
     
-    vec3 p = vec3(uv*zoom,time);  //coordinate + slight change over time
-    vec3 axis = 4. * fbm(p, 0.5, density);  //random fbm axis of rotation      
+    vec3 p = vec3(uv*zoom,time);  //coordinate + slight change over time   
+    vec3 axis = 5. * noise3(p);  //random fbm axis of rotation      
 
     vec3 colorVec = vec3(1.0); 
 

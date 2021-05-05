@@ -3,19 +3,16 @@ import vs from '../fragments/default.vert';
 import fs from './holes2.frag';
 
 /**
- * base:{@link https://github.com/ashima/webgl-noise}
- *
  * @class
  * @extends SINT.Filter
  * @memberof SINT.magic
  * @param {number} [color1]
  * @param {number} [color2]
- * @param {number} [density]
  * @param {number} [speed]
  * @param {number} [zoom]
  */
 export default class HolesFilter extends core.Filter {
-    constructor(color1 = 0x4a778a, color2 = 0xf3f9f1, density = 0.1, speed = 0.5, zoom=5) {
+    constructor(color1 = 0x4a778a, color2 = 0xf3f9f1, speed = 0.5, zoom=5) {
         super(vs, fs);
 
         this.uniforms.time = 0;
@@ -24,7 +21,6 @@ export default class HolesFilter extends core.Filter {
         this.color1 = color1;
         this.color2 = color2;
 
-        this.uniforms.density = density;
         this.uniforms.speed = speed;
         this.uniforms.zoom = zoom;
 
@@ -78,18 +74,6 @@ export default class HolesFilter extends core.Filter {
         }
     }
 
-
-    /**
-     * This density of the Filter noise.
-     *
-     * @member {number}
-     */
-    get density() {
-        return this.uniforms.density;
-    }
-    set density(value) {
-        this.uniforms.density = value;
-    }
 
 
     /**

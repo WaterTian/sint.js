@@ -2,7 +2,7 @@ const config = {
 	domElement: document.querySelector('#webglContainer'), // 画布容器
 	initWidth: 500,
 	initHeight: 500,
-	showFPS: 0,
+	showFPS: 1,
 	backgroundColor: 0x2a3145,
 };
 
@@ -14,7 +14,7 @@ bg.filterArea = new SINT.Rectangle(0, 0, game.initWidth, game.initHeight);
 game.add(bg);
 
 
-var filter = new SINT.magic.HolesFilter(0x4a778a, 0xf3f9f1,0.1,0.2,0.7);
+var filter = new SINT.magic.HolesFilter(0x4a778a, 0xf3f9f1,0.2,0.7);
 bg.filters = [filter];
 
 

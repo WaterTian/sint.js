@@ -2,8 +2,6 @@ import Tween from '../Tween';
 import Dye from './dye/dye';
 
 
-
-
 import {
     default as ColorMatrixFilter
 } from './colormatrix/ColorMatrixFilter';
@@ -42,6 +40,9 @@ import {
  *
  * var filter = new SINT.magic.BulgePinchFilter([0.5, 0.5], 200, 1.2);
  * Container.filters = [filter];
+ * 
+ * var bg_filter = new SINT.magic.HolesFilter(0x4a778a, 0xf3f9f1, 0.5, 1);
+ * bgContainer.filters = [bg_filter];
  * 
  * @namespace SINT.magic
  */
