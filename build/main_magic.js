@@ -2,7 +2,7 @@ const config = {
 	domElement: document.querySelector('#webglContainer'), // 画布容器
 	initWidth: 500,
 	initHeight: 500,
-	showFPS: true,
+	showFPS: 0,
 	backgroundColor: 0x2a3145,
 };
 
@@ -14,7 +14,7 @@ bg.filterArea = new SINT.Rectangle(0, 0, game.initWidth, game.initHeight);
 game.add(bg);
 
 
-var filter = new SINT.magic.HolesFilter();
+var filter = new SINT.magic.HolesFilter(0x4a778a, 0xf3f9f1,0.1,0.2,0.7);
 bg.filters = [filter];
 
 
@@ -31,16 +31,16 @@ bg.on('pointermove', function(event) {
 
 
 
-// if (window.DeviceOrientationEvent) window.addEventListener('deviceorientation', onOrientation)
+if (window.DeviceOrientationEvent) window.addEventListener('deviceorientation', onOrientation)
 
-// function onOrientation(event) {
-// 	// var alpha = event.alpha ? SINT.Unit.degToRad(event.alpha) : 0 // Z
-// 	var beta = event.beta ? SINT.Unit.degToRad(event.beta) : 0 // X'
-// 	var gamma = event.gamma ? SINT.Unit.degToRad(event.gamma) : 0 // Y''
+function onOrientation(event) {
+	// var alpha = event.alpha ? SINT.Unit.degToRad(event.alpha) : 0 // Z
+	var beta = event.beta ? SINT.Unit.degToRad(event.beta) : 0 // X'
+	var gamma = event.gamma ? SINT.Unit.degToRad(event.gamma) : 0 // Y''
 
-// 	var _rx = beta;
-// 	var _ry = gamma;
+	var _rx = beta;
+	var _ry = gamma;
 
-// 	filter.offset[0]+=(_rx-filter.offset[0])*0.1;
-// 	filter.offset[1]+=(_ry-filter.offset[1])*0.1;
-// }
+	filter.offset[0]+=(_rx-filter.offset[0])*0.1;
+	filter.offset[1]+=(_ry-filter.offset[1])*0.1;
+}

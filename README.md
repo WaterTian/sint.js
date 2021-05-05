@@ -22,7 +22,6 @@ Sint based on [PixiJs](http://www.pixijs.com), is a fast, free, and fun open sou
 
 ```sh
 npm install sint.js
-npm install sint.js --registry http://npm.vipkid.com.cn
 ```
 ```js
 import * as SINT from 'sint.js'

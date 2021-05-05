@@ -73,15 +73,23 @@ function create() {
 	// console.log(s1);
 
 
-	//bg image
-	var bg = new SINT.SpriteClip(0, 0, 'bg');
-	game.add(bg);
+	// //bg image
+	// var bg = new SINT.SpriteClip(0, 0, 'bg');
+	// game.add(bg);
+
+	var bg = new SINT.Container();
+	bg.filterArea = new SINT.Rectangle(0, 0, game.initWidth, game.initHeight);
+	game.addChild(bg);
+	var bg_filter = new SINT.magic.HolesFilter(0x4a778a, 0xf3f9f1, 0.1, 0.5, 1);
+	bg.filters = [bg_filter];
+
+
 
 	//Container
 	var fishsContainer = new SINT.Container();
-	bg.addChild(fishsContainer);
+	game.addChild(fishsContainer);
 	// SINT.magic.doTwist(fishsContainer, [500, 500], 400, 2, false);
-	SINT.magic.doDisplacement(bg, 0.8, 0.2, 1.5, 5);
+	SINT.magic.doDisplacement(fishsContainer, 0.8, 0.2, 1.5, 5);
 
 
 	var fishs = [];
@@ -89,9 +97,9 @@ function create() {
 		var id = 'fish' + ((i % 4) + 1);
 		var fish = new SINT.SpriteClip(0, 0, id);
 		fish.tint = Math.random() * 0xff3300;
-		fish.alpha = 0.3 + Math.random() * 0.8;
+		fish.alpha = 0.2 + Math.random() * 0.5;
 		fish.anchor.set(0.5);
-		fish.scale.set(0.2 + Math.random() * 0.5);
+		fish.scale.set(0.2 + Math.random() * 0.2);
 		// scatter them all
 		fish.x = Math.random() * game.initWidth;
 		fish.y = Math.random() * game.initHeight;
@@ -144,12 +152,12 @@ function create() {
     });
 
 	//Text
-	var t = new SINT.TextClip(500, 100, 'Video', {
+	var t = new SINT.TextClip(600, 100, 'Video', {
 		fontFamily: 'Arial',
-		fontSize: 50,
+		fontSize: 30,
 		fontStyle: 'italic',
 		fontWeight: 'bold',
-		fill: '#ffffff', 
+		fill: '#000000', 
 	});
 	game.add(t);
 	t.interactive = true;
