@@ -46,9 +46,9 @@ export default class HolesFilter extends core.Filter {
             core.utils.hex2rgb(value, arr);
             this.uColor1 = value;
         } else {
-            arr[0] = value[0];
-            arr[1] = value[1];
-            arr[2] = value[2];
+            arr[0] = value[0] / 255;
+            arr[1] = value[1] / 255;
+            arr[2] = value[2] / 255;
             this.uColor1 = core.utils.rgb2hex(arr);
         }
     }
@@ -67,9 +67,9 @@ export default class HolesFilter extends core.Filter {
             core.utils.hex2rgb(value, arr);
             this.uColor2 = value;
         } else {
-            arr[0] = value[0];
-            arr[1] = value[1];
-            arr[2] = value[2];
+            arr[0] = value[0] / 255;
+            arr[1] = value[1] / 255;
+            arr[2] = value[2] / 255;
             this.uColor2 = core.utils.rgb2hex(arr);
         }
     }

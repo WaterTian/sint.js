@@ -14,8 +14,40 @@ bg.filterArea = new SINT.Rectangle(0, 0, game.initWidth, game.initHeight);
 game.add(bg);
 
 
-var filter = new SINT.magic.HolesFilter(0x4a778a, 0xf3f9f1,0.2,0.7);
+var filter = new SINT.magic.HolesFilter(0xf0f0f0, 0xf0f0f0,0.2,0.0);
 bg.filters = [filter];
+
+SINT.Tween.to(filter, 5, {
+	zoom: 0.7,
+});
+
+var filterColor1 = {
+	r: 250,
+	g: 250,
+	b: 250,
+}
+var filterColor2 = {
+	r: 250,
+	g: 250,
+	b: 250,
+}
+
+SINT.Tween.to(filterColor1, 5, {
+	r: 74,
+	g: 119,
+	b: 138,
+	onUpdate: () => {
+		filter.color1 = [filterColor1.r, filterColor1.g, filterColor1.b];
+	}
+});
+SINT.Tween.to(filterColor2, 5, {
+	r: 243,
+	g: 249,
+	b: 241,
+	onUpdate: () => {
+		filter.color2 = [filterColor2.r, filterColor2.g, filterColor2.b];
+	}
+});
 
 
 bg.interactive = true;
