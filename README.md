@@ -22,7 +22,6 @@ Sint based on [PixiJs](http://www.pixijs.com), is a fast, free, and fun open sou
 
 ```sh
 npm install sint.js
-npm install sint.js
 ```
 ```js
 import * as SINT from 'sint.js'
@@ -60,11 +59,11 @@ function loading(_pr) {
 
 function create() {
     // bg image
-    var bg = new SINT.SpriteClip(0, 0, 'bg');
+    var bg = new SINT.SpriteClip('bg');
     game.add(bg);
     
     // btn
-    var btn = new SINT.SpriteClip(288, 292, 'pic1');
+    var btn = new SINT.SpriteClip('pic1',288, 292);
     btn.anchor.set(0.5);
     game.add(btn);
 
@@ -105,6 +104,3 @@ game.removeThis();
 ## License
 
 [MIT](https://opensource.org/licenses/mit-license)
-
-
-
