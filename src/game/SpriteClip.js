@@ -7,15 +7,16 @@ import * as core from '../core';
  * @extends SINT.Sprite
  * @memberof SINT
  *
+ * @param {string} name - The frame Id of the texture in the cache
  * @param {number} [_x=0]
  * @param {number} [_y=0]
- * @param {string} name - The frame Id of the texture in the cache
  */
+
 
 
 export default class SpriteClip extends core.Sprite {
 
-	constructor(_x = 0, _y = 0, name) {
+	constructor(name, _x = 0, _y = 0) {
 		const texture = core.Texture.fromFrame(name);
 
 		super(texture);

@@ -6,15 +6,16 @@ import 'pixi-spine';
  * @extends PIXI.spine.Spine
  * @memberof SINT
  *
+ * @param {string} name - The frame Id of the texture in the cache
  * @param {number} [_x=0]
  * @param {number} [_y=0]
- * @param {string} name - The frame Id of the texture in the cache
  */
 
 
+
 export default class SpineClip extends PIXI.spine.Spine {
-	
-	constructor(_x = 0, _y = 0, name) {
+
+	constructor(name, _x = 0, _y = 0) {
 		console.log(name);
 		// console.log(PIXI.loader.resources[name]);
 
