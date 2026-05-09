@@ -20,7 +20,7 @@
 
 ---
 
-### Why sint.js / 为什么选 sint.js
+### Why sint.js
 
 - ⚡ **Small & fast** — WebGL-powered scene graph, hardware accelerated
 - 📱 **Mobile-first** — auto-fit canvas, retina ready, runs on iOS / Android / WeChat / mini-programs
@@ -32,7 +32,7 @@
 
 ---
 
-### Install / 安装
+### Install
 
 ```sh
 npm install sint.js
@@ -44,7 +44,7 @@ npm install sint.js
 
 ---
 
-### Hello, sint! / 十行 Demo
+### Hello, sint! 
 
 ```js
 import * as SINT from 'sint.js';
