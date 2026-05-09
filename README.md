@@ -1,8 +1,8 @@
 <h1 align="center">sint.js</h1>
 
 <p align="center">
-  <b>Tiny WebGL game framework. Ship your HTML5 game in minutes.</b><br/>
-  <sub>极简 WebGL 游戏框架 · 几分钟上线一款 HTML5 游戏</sub>
+  <b>Tiny WebGL game framework. Ship your HTML5 game in minutes — runs on any mobile device.</b><br/>
+  <sub>极简 WebGL 游戏框架 · 几分钟上线一款 HTML5 游戏 · 全面适配各类移动端设备</sub>
 </p>
 
 <p align="center">
@@ -22,12 +22,13 @@
 
 ### Why sint.js / 为什么选 sint.js
 
-- ⚡ **Small & fast** — WebGL-powered scene graph, mobile-ready
+- ⚡ **Small & fast** — WebGL-powered scene graph, hardware accelerated
+- 📱 **Mobile-first** — auto-fit canvas, retina ready, runs on iOS / Android / WeChat / mini-programs
 - 🎮 **Batteries included** — sprites, audio, input, tween, asset loader
 - 🪶 **Zero ceremony** — one `Game` class, ready in 10 lines
 - 📦 **One file** — drop in via npm or `<script>`
 
-⚡ 体积小、速度快 · 🎮 开箱即用 · 🪶 十行代码起飞 · 📦 一个文件搞定
+⚡ 体积小、速度快 · 📱 移动端全适配（iOS / 安卓 / 微信 / 小程序）· 🎮 开箱即用 · 🪶 十行代码起飞 · 📦 一个文件搞定
 
 ---
 
