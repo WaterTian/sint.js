@@ -70,7 +70,7 @@ game.preload({
 
 ---
 
-### Show your support / 支持作者
+### Show your support
 
 If sint.js helps you build something cool, **drop a ⭐ on GitHub** — it really helps!<br/>
 如果 sint.js 帮到你，欢迎点一个 ⭐ 支持一下。
