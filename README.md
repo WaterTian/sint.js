@@ -1,106 +1,81 @@
-sint.js - HTML5 Game Framework
-=============
+<h1 align="center">sint.js</h1>
 
-[![npm version](https://badge.fury.io/js/sint.js.svg)](https://badge.fury.io/js/sint.js)
+<p align="center">
+  <b>Tiny WebGL game framework. Ship your HTML5 game in minutes.</b><br/>
+  <sub>极简 WebGL 游戏框架 · 几分钟上线一款 HTML5 游戏</sub>
+</p>
 
-Sint is a fast, free, and fun open source HTML5 game framework that offers WebGL and Canvas rendering across desktop and mobile web browsers. Games can be compiled to iOS, Android and native apps by using 3rd party tools. 
+<p align="center">
+  <a href="https://www.npmjs.com/package/sint.js"><img src="https://img.shields.io/npm/v/sint.js.svg?color=cb3837&label=npm" alt="npm"></a>
+  <a href="https://www.npmjs.com/package/sint.js"><img src="https://img.shields.io/npm/dm/sint.js.svg?color=brightgreen" alt="downloads"></a>
+  <a href="https://github.com/WaterTian/sint.js/blob/dev/LICENSE"><img src="https://img.shields.io/npm/l/sint.js.svg?color=blue" alt="MIT"></a>
+  <a href="https://github.com/WaterTian/sint.js/stargazers"><img src="https://img.shields.io/github/stars/WaterTian/sint.js?style=social" alt="stars"></a>
+</p>
 
-## Learn
+<p align="center">
+  <a href="https://watertian.github.io/sint.js/docs/"><b>Docs</b></a> ·
+  <a href="https://github.com/WaterTian/sint-example"><b>Examples</b></a> ·
+  <a href="https://watertian.github.io/sint.js/"><b>Live Demo</b></a>
+</p>
 
-- SintJS API [docs](https://watertian.github.io/sint.js/docs/).
-- [example](https://github.com/WaterTian/sint-example).
+---
 
-## Usage
+### Why sint.js / 为什么选 sint.js
 
-#### Include
+- ⚡ **Small & fast** — WebGL-powered scene graph, mobile-ready
+- 🎮 **Batteries included** — sprites, audio, input, tween, asset loader
+- 🪶 **Zero ceremony** — one `Game` class, ready in 10 lines
+- 📦 **One file** — drop in via npm or `<script>`
 
-```html
-<script src="dist/sint.min.js"></script>
-```
-##### Or
-[![anix](https://nodei.co/npm/sint.js.png)](https://npmjs.org/package/sint.js)
+⚡ 体积小、速度快 · 🎮 开箱即用 · 🪶 十行代码起飞 · 📦 一个文件搞定
+
+---
+
+### Install / 安装
 
 ```sh
 npm install sint.js
 ```
-```js
-import * as SINT from 'sint.js'
+
+```html
+<script src="https://unpkg.com/sint.js/dist/sint.min.js"></script>
 ```
 
+---
 
-### Create Your First Sint Example
-
+### Hello, sint! / 十行 Demo
 
 ```js
-const config = {
-    canvas: document.querySelector('#webglStage'), // HTMLElement
-    initWidth: 750,
-    initHeight: 1334,
-    showFPS: true,
-    backgroundColor: 0x2a3145,
-};
-const assets = {
-    bg: './assets/bg.jpg',
-    pic1: './assets/pic1.png',
-    sound0: './assets/sound/bg.mp3',
-    sound1: './assets/sound/s1.mp3',
-}
-const game = new SINT.Game(config);
+import * as SINT from 'sint.js';
+
+const game = new SINT.Game({
+  canvas: document.querySelector('#stage'),
+  initWidth: 750,
+  initHeight: 1334,
+  backgroundColor: 0x2a3145,
+});
 
 game.preload({
-    assets: assets,
-    loading: loading,
-    loaded: create,
-})
-
-function loading(_pr) {
-    console.log('loading ' + _pr);
-}
-
-function create() {
-    // bg image
-    var bg = new SINT.SpriteClip('bg');
-    game.add(bg);
-    
-    // btn
-    var btn = new SINT.SpriteClip('pic1',288, 292);
-    btn.anchor.set(0.5);
-    game.add(btn);
-
-    // audio
-    var s0 = SINT.Audios.add('sound0');
-    s0.loop=true;
-    SINT.Audios.add('sound1');
-
-    // events
-    btn.interactive = true;
-    btn
-        .on('pointerdown', onPointStart)
-        .on('pointerup', onPointUp)
-        .on('pointerupoutside', onPointUp)
-        .on('pointermove', onPointMove);
-
-    function onPointStart(event) {
-        // the first audio must be use by interactive Event
-        s0.play();
-    }
-    function onPointMove(event) {
-        //console.log(event.data.global)
-    }
-    function onPointUp(event) {
-        SINT.Audios.get('sound1').play();
-    }
-}
-
-
-
-// destroy and remove view
-game.removeThis();
-
+  assets: { hero: './hero.png' },
+  loaded: () => {
+    const hero = new SINT.SpriteClip('hero');
+    hero.anchor.set(0.5);
+    game.add(hero);
+  },
+});
 ```
 
+> 👉 More demos / 更多示例：[**sint-example**](https://github.com/WaterTian/sint-example)
 
+---
 
-## License
+### Show your support / 支持作者
 
-[MIT](https://opensource.org/licenses/mit-license)
+If sint.js helps you build something cool, **drop a ⭐ on GitHub** — it really helps!<br/>
+如果 sint.js 帮到你，欢迎点一个 ⭐ 支持一下。
+
+---
+
+<p align="center">
+  Made with ❤️ by <a href="https://github.com/WaterTian">WaterTian</a> · <a href="./LICENSE">MIT License</a>
+</p>
